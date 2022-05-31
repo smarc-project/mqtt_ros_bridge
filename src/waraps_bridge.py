@@ -28,6 +28,7 @@ class WaraPSBridge(object):
         self.robot_name = robot_name
         self.simulated = simulated
         self.tick_rate = tick_rate
+        self.connected = False
 
         self._lat = -1
         self._lon = -1
@@ -49,7 +50,6 @@ class WaraPSBridge(object):
         self._client.on_message = self._on_message
 
         use_waraps = True
-        self.connected = False
         if use_waraps:
             try:
                 # XXX this will probably break with ROS shenanigans...
@@ -71,7 +71,6 @@ class WaraPSBridge(object):
                 self._client.tls_insecure_set(True)
                 self._client.connect('broker.waraps.org', 8883, 60)
                 print("Using waraps broker")
-                self.connected = True
 
         if not use_waraps:
             try:
@@ -79,7 +78,6 @@ class WaraPSBridge(object):
                                      port = conn_params.get('port', 1884),
                                      keepalive = conn_params.get('keepalive', 60))
                 print("Using local broker")
-                self.connected = True
             except Exception as e:
                 print(e)
                 print("Can not connect to local mqtt broker!")
@@ -101,6 +99,7 @@ class WaraPSBridge(object):
         fill in the topics list below to subscribe to all of them
         """
         self.feedback_messages.append("Connected with result code:{}".format(rc))
+        self.connected = True
 
         # list of all the topics and their callbacks from waraps mqtt stuff
         # ((topic, qos), callback_fn)
@@ -119,6 +118,10 @@ class WaraPSBridge(object):
         # as a list itself to be fed to subscribe
         tqos = list(list(zip(*topics))[0])
         self._client.subscribe(tqos)
+
+    def _on_disconnect(self, client, userdata, rc):
+        self.feedback_messages.append("Disconnected rc:{}".format(rc))
+        self.connected = False
 
     def _on_message(self, client, userdata, msg):
         """
@@ -186,9 +189,21 @@ class WaraPSBridge(object):
         else:
             self.feedback_messages = ["No connection"]
 
+    def feedback(self):
+        s = "Wara-ps Bridge FB ({}):\n".format(self.robot_name)
+        for msg in self.feedback_messages:
+            s += str(msg) + "\n"
+        return s
+
     def run(self):
         rate = rospy.Rate(self.tick_rate)
+        prev_fb = ""
         while not rospy.is_shutdown():
+            fb = self.feedback()
+            if fb != prev_fb and fb != "":
+                print(fb)
+                prev_fb = fb
+
             self.tick()
             rate.sleep()
 
@@ -198,11 +213,11 @@ class WaraPSBridge(object):
 if __name__ == "__main__":
     rospy.init_node("waraps_bridge_node")
 
-    robot_name = rospy.get_param("~robot_name", "sam")
 
     # the mqtt-related stuff is shared with the ros-mqtt bridge
     params = rospy.get_param("~", {})
     try:
+        robot_name = params.pop("robot_name")
         mqtt_params = params.pop("mqtt")
         conn_params = mqtt_params.pop("connection")
         bridge_params = params.get("bridge", [])

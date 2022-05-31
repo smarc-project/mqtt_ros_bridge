@@ -1,3 +1,4 @@
+# this file is given to both mqtt_bridge and waraps_bridge.py as rosparams
 serializer: json:dumps
 deserializer: json:loads
 waraps_tickrate: 3
@@ -5,8 +6,8 @@ mqtt:
   client:
     protocol: 4      # MQTTv311
   connection:
-    host: localhost
-    port: 1884
+    # host: localhost # these are set in the launch file, so we could have args from outside
+    # port: 1884
     keepalive: 60
 bridge:
     # dont forget to add the ".msg" part!
