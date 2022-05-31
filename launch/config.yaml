@@ -1,0 +1,82 @@
+serializer: json:dumps
+deserializer: json:loads
+mqtt:
+  client:
+    protocol: 4      # MQTTv311
+  connection:
+    host: localhost
+    port: 1884
+    keepalive: 60
+bridge:
+    # dont forget to add the ".msg" part!
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Bool
+    topic_from: abort
+    topic_to: ~/abort
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: smarc_msgs.msg:Leak
+    topic_from: core/leak
+    topic_to: ~/core/leak
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: sensor_msgs.msg:BatteryState
+    topic_from: core/battery
+    topic_to: ~/core/battery
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: sensor_msgs.msg:FluidPressure
+    topic_from: core/motor_oil_pressure
+    topic_to: ~/core/motor_oil_pressure
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: sensor_msgs.msg:Temperature
+    topic_from: core/motor_temp
+    topic_to: ~/core/motor_temp
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: geographic_msgs.msg:GeoPoint
+    topic_from: dr/lat_lon
+    topic_to: ~/dr/lat_lon
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Float64
+    topic_from: dr/x
+    topic_to: ~/dr/x
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Float64
+    topic_from: dr/y
+    topic_to: ~/dr/y
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Float64
+    topic_from: dr/depth
+    topic_to: ~/dr/depth
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Float64
+    topic_from: dr/roll
+    topic_to: ~/dr/roll
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Float64
+    topic_from: dr/pitch
+    topic_to: ~/dr/pitch
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Float64
+    topic_from: dr/yaw
+    topic_to: ~/dr/yaw
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: sam_msgs.msg:PercentStamped
+    topic_from: core/vbs_fb
+    topic_to: ~/core/vbs_fb
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: sam_msgs.msg:PercentStamped
+    topic_from: core/lcg_fb
+    topic_to: ~/core/lcg_fb
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: smarc_msgs.msg:ThrusterFeedback
+    topic_from: core/thruster1_fb
+    topic_to: ~/core/thruster1_fb
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: smarc_msgs.msg:ThrusterFeedback
+    topic_from: core/thruster2_fb
+    topic_to: ~/core/thruster2_fb
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: sam_msgs.msg:ThrusterAngles
+    topic_from: core/thrust_vector_cmd
+    topic_to: ~/core/thrust_vector_cmd
+
+
+

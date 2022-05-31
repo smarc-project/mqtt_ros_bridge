@@ -1,0 +1,8 @@
+<launch>
+  <arg name="robot_name" default="sam"/>
+
+  <node name="mqtt_bridge" pkg="mqtt_bridge" type="mqtt_bridge_node.py" output="screen" ns="$(arg robot_name)">
+	<rosparam subst_value="true"> mqtt/private_path: "smarc/$(arg robot_name)" </rosparam>
+    <rosparam file="config.yaml" command="load" />
+  </node>
+</launch>
