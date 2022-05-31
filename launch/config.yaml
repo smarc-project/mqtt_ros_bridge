@@ -1,5 +1,6 @@
 serializer: json:dumps
 deserializer: json:loads
+waraps_tickrate: 3
 mqtt:
   client:
     protocol: 4      # MQTTv311
