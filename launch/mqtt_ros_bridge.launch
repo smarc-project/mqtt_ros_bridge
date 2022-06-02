@@ -1,7 +1,7 @@
 <launch>
   <arg name="robot_name" default="sam"/>
   <arg name="broker_addr" default="localhost"/>
-  <arg name="broker_port" default="1884"/>
+  <arg name="broker_port" default="1883"/>
 
   <node name="smarc_mqtt_bridge_node" pkg="mqtt_bridge" type="mqtt_bridge_node.py" output="screen" ns="$(arg robot_name)">
 	<rosparam subst_value="true"> mqtt/private_path: "smarc/$(arg robot_name)" </rosparam>
