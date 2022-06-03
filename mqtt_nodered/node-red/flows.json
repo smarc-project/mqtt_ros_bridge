@@ -1,0 +1,1507 @@
+[
+    {
+        "id": "8cc0dadb75774b52",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1301e8ab7fdd3e72",
+        "type": "mqtt-broker",
+        "name": "mqtt_broker",
+        "broker": "broker",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "95aa286d35eafbda",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "71f95dd3ceeb2145",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "b26614b138f8448c",
+        "type": "ui_group",
+        "name": "Actuators",
+        "tab": "95aa286d35eafbda",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "1417de57d250f31f",
+        "type": "ui_group",
+        "name": "State",
+        "tab": "95aa286d35eafbda",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "cd81d08b.eebb3",
+        "type": "ui_group",
+        "z": "8cc0dadb75774b52",
+        "name": "Default",
+        "tab": "b34078e6.e60df8",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "b34078e6.e60df8",
+        "type": "ui_tab",
+        "z": "8cc0dadb75774b52",
+        "name": "Home",
+        "icon": "dashboard"
+    },
+    {
+        "id": "102ceb2b72c23b34",
+        "type": "ui_group",
+        "name": "Map",
+        "tab": "95aa286d35eafbda",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "6d93d1d6e9d2a07b",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "lat_lon",
+        "topic": "smarc/+/dr/lat_lon",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 320,
+        "wires": [
+            [
+                "36bce1bcbd4bd084"
+            ]
+        ]
+    },
+    {
+        "id": "b1a17b0a86be72bc",
+        "type": "debug",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1a856d4522e1e254",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "Yaw",
+        "topic": "smarc/+/dr/yaw",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "2d07d489f7640f7d"
+            ]
+        ]
+    },
+    {
+        "id": "34c6c0f54ea33c8e",
+        "type": "join",
+        "z": "8cc0dadb75774b52",
+        "name": "map input",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "0.3",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 900,
+        "y": 280,
+        "wires": [
+            [
+                "9ebd454a489c0b9a"
+            ]
+        ]
+    },
+    {
+        "id": "fcec553aa16a1e3f",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "robot_name",
+        "topic": "waraps/unit/+/+/+/sensor_info",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "b7de3ee1b7d8b960",
+                "32f0f0aa2662ff22"
+            ]
+        ]
+    },
+    {
+        "id": "f45354e9b1b33143",
+        "type": "inject",
+        "z": "8cc0dadb75774b52",
+        "name": "Icon",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.3",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "icon",
+        "payload": "{\"icon\" : \"ship\", \"color\":\"yellow\", \"iconColor\":\"yellow\"}",
+        "payloadType": "json",
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "34c6c0f54ea33c8e"
+            ]
+        ]
+    },
+    {
+        "id": "b2662f29daec4037",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "Yaw",
+        "group": "1417de57d250f31f",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "compass",
+        "title": "Yaw",
+        "label": "deg",
+        "format": "{{value | number:2}}",
+        "min": "-359",
+        "max": "359",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 670,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "9b2d0437d1859a32",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "Depth",
+        "topic": "smarc/+/dr/depth",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 560,
+        "wires": [
+            [
+                "6901f6df382e66d3"
+            ]
+        ]
+    },
+    {
+        "id": "474a1a1807563d3e",
+        "type": "ui_chart",
+        "z": "8cc0dadb75774b52",
+        "name": "Depth",
+        "group": "1417de57d250f31f",
+        "order": 4,
+        "width": "6",
+        "height": "4",
+        "label": "Depth",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "NONE",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0a62f17464f41d74",
+        "type": "comment",
+        "z": "8cc0dadb75774b52",
+        "name": "TODOs",
+        "info": "TODO:\n- Publish min/max values from BT",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6901f6df382e66d3",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 560,
+        "wires": [
+            [
+                "fbe702f2f3f0a1e1"
+            ]
+        ]
+    },
+    {
+        "id": "2d07d489f7640f7d",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "0682311501ed50ef"
+            ]
+        ]
+    },
+    {
+        "id": "36bce1bcbd4bd084",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "0187c8ce35e29570"
+            ]
+        ]
+    },
+    {
+        "id": "b7de3ee1b7d8b960",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "8f38bd77cc61a1d2"
+            ]
+        ]
+    },
+    {
+        "id": "32f0f0aa2662ff22",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "4d0af7c7251040d9"
+            ]
+        ]
+    },
+    {
+        "id": "47a8103ffa7111d5",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "Pitch",
+        "group": "1417de57d250f31f",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "compass",
+        "title": "Pitch",
+        "label": "deg",
+        "format": "{{value | number:2}}",
+        "min": "-90",
+        "max": "90",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 670,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e10ba7ec12ab031c",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "Roll",
+        "group": "1417de57d250f31f",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "compass",
+        "title": "Roll",
+        "label": "deg",
+        "format": "{{value | number:2}}",
+        "min": "-90",
+        "max": "90",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 670,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1a815b3ddbbf0285",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "Roll",
+        "topic": "smarc/+/dr/roll",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "9becb4d313dedbf8"
+            ]
+        ]
+    },
+    {
+        "id": "9becb4d313dedbf8",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 460,
+        "wires": [
+            [
+                "40820a696947eba0"
+            ]
+        ]
+    },
+    {
+        "id": "e515c359bd2b65d3",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "Pitch",
+        "topic": "smarc/+/dr/pitch",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 500,
+        "wires": [
+            [
+                "ddb1baaa951da4ee"
+            ]
+        ]
+    },
+    {
+        "id": "62d0b1ba8912012a",
+        "type": "function",
+        "z": "8cc0dadb75774b52",
+        "name": "data to degrees",
+        "func": "h = msg.payload.data;\ndeg = h * (180/Math.PI);\ndeg = deg%360;\nvar r = {\"payload\": deg};\nreturn r;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 500,
+        "wires": [
+            [
+                "47a8103ffa7111d5"
+            ]
+        ]
+    },
+    {
+        "id": "ddb1baaa951da4ee",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "62d0b1ba8912012a"
+            ]
+        ]
+    },
+    {
+        "id": "cec96d72fa5a1f3d",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "VBS_fb",
+        "topic": "smarc/+/core/vbs_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "72f9eae5cf53466a"
+            ]
+        ]
+    },
+    {
+        "id": "72f9eae5cf53466a",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "078bc17fa7eec1aa"
+            ]
+        ]
+    },
+    {
+        "id": "49b4a86719760597",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "LCG_fb",
+        "topic": "smarc/+/core/lcg_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 640,
+        "wires": [
+            [
+                "3c2c34d22bd3a2b8"
+            ]
+        ]
+    },
+    {
+        "id": "3c2c34d22bd3a2b8",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 640,
+        "wires": [
+            [
+                "a4b6bd626a495d70"
+            ]
+        ]
+    },
+    {
+        "id": "b9def8576fb40145",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "T1_fb",
+        "topic": "smarc/+/core/thruster1_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "caaf7a80ac5ec646"
+            ]
+        ]
+    },
+    {
+        "id": "caaf7a80ac5ec646",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 720,
+        "wires": [
+            [
+                "997fa74190aa7e73"
+            ]
+        ]
+    },
+    {
+        "id": "1f47fb9bdf2432dc",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "T2_fb",
+        "topic": "smarc/+/core/thruster2_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 760,
+        "wires": [
+            [
+                "4211fa61e07d2e18"
+            ]
+        ]
+    },
+    {
+        "id": "4211fa61e07d2e18",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 760,
+        "wires": [
+            [
+                "f567d5c16ea35d0c"
+            ]
+        ]
+    },
+    {
+        "id": "cc1d7452dc78e931",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "VBS",
+        "group": "b26614b138f8448c",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "VBS",
+        "label": "%",
+        "format": "{{value | number:2}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 670,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "3b1259c4281914b6",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "LCG",
+        "group": "b26614b138f8448c",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "LCG",
+        "label": "%",
+        "format": "{{value | number:2}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 670,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "48c29cb016d918f2",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "T1",
+        "group": "b26614b138f8448c",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "T1",
+        "label": "rpm",
+        "format": "{{value | number:2}}",
+        "min": "-2000",
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "-800",
+        "seg2": "800",
+        "className": "",
+        "x": 670,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "e6a920175d3d8042",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "T2",
+        "group": "b26614b138f8448c",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "T2",
+        "label": "rpm",
+        "format": "{{value | number:2}}",
+        "min": "-2000",
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "-800",
+        "seg2": "800",
+        "className": "",
+        "x": 670,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "16660b276d1b7551",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "TCG",
+        "group": "b26614b138f8448c",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "TCG",
+        "label": "%",
+        "format": "{{value | number:2}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 670,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "600e8a4fd93b8b33",
+        "type": "mqtt in",
+        "z": "8cc0dadb75774b52",
+        "name": "batt",
+        "topic": "smarc/+/core/battery",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 840,
+        "wires": [
+            [
+                "c97c7a916eec88f2"
+            ]
+        ]
+    },
+    {
+        "id": "c97c7a916eec88f2",
+        "type": "delay",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 840,
+        "wires": [
+            [
+                "fc50db19ca6c080d"
+            ]
+        ]
+    },
+    {
+        "id": "997fa74190aa7e73",
+        "type": "change",
+        "z": "8cc0dadb75774b52",
+        "name": "rpm->payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.rpm.rpm",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 720,
+        "wires": [
+            [
+                "48c29cb016d918f2"
+            ]
+        ]
+    },
+    {
+        "id": "40820a696947eba0",
+        "type": "function",
+        "z": "8cc0dadb75774b52",
+        "name": "data to degrees",
+        "func": "h = msg.payload.data;\ndeg = h * (180/Math.PI);\ndeg = deg%360;\nvar r = {\"payload\": deg};\nreturn r;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 460,
+        "wires": [
+            [
+                "e10ba7ec12ab031c"
+            ]
+        ]
+    },
+    {
+        "id": "0682311501ed50ef",
+        "type": "function",
+        "z": "8cc0dadb75774b52",
+        "name": "data to degrees",
+        "func": "h = Math.PI/2 - msg.payload.data;\ndeg = h * (180/Math.PI);\ndeg = deg%360;\nvar r = {\"payload\": deg};\nreturn r;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "b2662f29daec4037",
+                "3941a0579b395eec"
+            ]
+        ]
+    },
+    {
+        "id": "fc50db19ca6c080d",
+        "type": "change",
+        "z": "8cc0dadb75774b52",
+        "name": "voltage->payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.voltage",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 840,
+        "wires": [
+            [
+                "59577a64f16667b6"
+            ]
+        ]
+    },
+    {
+        "id": "59577a64f16667b6",
+        "type": "ui_gauge",
+        "z": "8cc0dadb75774b52",
+        "name": "",
+        "group": "1417de57d250f31f",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Battery V",
+        "label": "V",
+        "format": "{{value | number:2}}",
+        "min": "10",
+        "max": "14",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "12",
+        "seg2": "13",
+        "className": "",
+        "x": 680,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "078bc17fa7eec1aa",
+        "type": "change",
+        "z": "8cc0dadb75774b52",
+        "name": "value->payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 600,
+        "wires": [
+            [
+                "cc1d7452dc78e931"
+            ]
+        ]
+    },
+    {
+        "id": "fbe702f2f3f0a1e1",
+        "type": "change",
+        "z": "8cc0dadb75774b52",
+        "name": "data->payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.data",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 560,
+        "wires": [
+            [
+                "474a1a1807563d3e"
+            ]
+        ]
+    },
+    {
+        "id": "f567d5c16ea35d0c",
+        "type": "change",
+        "z": "8cc0dadb75774b52",
+        "name": "rpm->payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.rpm.rpm",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 760,
+        "wires": [
+            [
+                "e6a920175d3d8042"
+            ]
+        ]
+    },
+    {
+        "id": "a4b6bd626a495d70",
+        "type": "change",
+        "z": "8cc0dadb75774b52",
+        "name": "value->payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 640,
+        "wires": [
+            [
+                "3b1259c4281914b6"
+            ]
+        ]
+    },
+    {
+        "id": "9ebd454a489c0b9a",
+        "type": "ui_worldmap",
+        "z": "8cc0dadb75774b52",
+        "group": "102ceb2b72c23b34",
+        "order": 0,
+        "width": "12",
+        "height": "12",
+        "name": "",
+        "lat": "58.25089840041283",
+        "lon": "11.4500587783608",
+        "zoom": "17",
+        "layer": "EsriS",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "deg",
+        "showgrid": "true",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,SN",
+        "maplist": "OSMC,EsriS,EsriO,NatGeo",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 1060,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4d0af7c7251040d9",
+        "type": "function",
+        "z": "8cc0dadb75774b52",
+        "name": "label",
+        "func": "var r = {\"payload\": {\"label\" : msg.payload.name}};\nreturn r;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 240,
+        "wires": [
+            [
+                "34c6c0f54ea33c8e"
+            ]
+        ]
+    },
+    {
+        "id": "8f38bd77cc61a1d2",
+        "type": "function",
+        "z": "8cc0dadb75774b52",
+        "name": "name",
+        "func": "var r = {\"payload\": {\"name\" : msg.payload.name}};\nreturn r;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 280,
+        "wires": [
+            [
+                "34c6c0f54ea33c8e"
+            ]
+        ]
+    },
+    {
+        "id": "0187c8ce35e29570",
+        "type": "function",
+        "z": "8cc0dadb75774b52",
+        "name": "lat, lon",
+        "func": "var r = {\"payload\": {\"lat\" : msg.payload.latitude, \"lon\":msg.payload.longitude}};\nreturn r;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "34c6c0f54ea33c8e"
+            ]
+        ]
+    },
+    {
+        "id": "3941a0579b395eec",
+        "type": "function",
+        "z": "8cc0dadb75774b52",
+        "name": "yaw->heading",
+        "func": "var r = {\"payload\": {\"heading\" : msg.payload}};\nreturn r;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 360,
+        "wires": [
+            [
+                "34c6c0f54ea33c8e"
+            ]
+        ]
+    },
+    {
+        "id": "1877716cca1d98e1",
+        "type": "ui_text",
+        "z": "8cc0dadb75774b52",
+        "group": "102ceb2b72c23b34",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "txt",
+        "label": "text",
+        "format": "New Point: {{msg.payload.name}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1270,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "652733185a7ac18e",
+        "type": "worldmap in",
+        "z": "8cc0dadb75774b52",
+        "name": "Point events",
+        "path": "/worldmap",
+        "events": "point",
+        "x": 890,
+        "y": 560,
+        "wires": [
+            [
+                "9840fb6f7536d714"
+            ]
+        ]
+    },
+    {
+        "id": "9840fb6f7536d714",
+        "type": "switch",
+        "z": "8cc0dadb75774b52",
+        "name": "Point Action",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "point",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "move",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1070,
+        "y": 560,
+        "wires": [
+            [
+                "1877716cca1d98e1"
+            ],
+            [
+                "8fef57b54757ec59"
+            ]
+        ]
+    },
+    {
+        "id": "8fef57b54757ec59",
+        "type": "ui_text",
+        "z": "8cc0dadb75774b52",
+        "group": "102ceb2b72c23b34",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "txt",
+        "label": "text",
+        "format": "Moved: {{msg.payload.name}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1270,
+        "y": 560,
+        "wires": []
+    }
+]
