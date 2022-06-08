@@ -74,13 +74,15 @@ class WaraPSBridge(object):
 
         if not use_waraps:
             try:
-                self._client.connect(host = conn_params.get('host', 'localhost'),
-                                     port = conn_params.get('port', 1884),
+                host = conn_params.get("host", "localhost")
+                port = conn_params.get("port", 1884)
+                print("Using broker: {}:{}".format(host, port))
+                self._client.connect(host = host,
+                                     port = port,
                                      keepalive = conn_params.get('keepalive', 60))
-                print("Using local broker")
             except Exception as e:
                 print(e)
-                print("Can not connect to local mqtt broker!")
+                print("Can not connect to mqtt broker at {}:{}!".format(host, port))
 
         self._client.loop_start()
 
@@ -222,6 +224,7 @@ if __name__ == "__main__":
         conn_params = mqtt_params.pop("connection")
         bridge_params = params.get("bridge", [])
         waraps_tickrate = params.get("waraps_tickrate", 3)
+        print("conn params", conn_params)
     except Exception as e:
         print(e)
         print("You need to run this program with roslaunch and pass the launch/config.yaml file as rosparam")
