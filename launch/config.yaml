@@ -88,26 +88,15 @@ bridge:
     topic_from: dr/altitude
     topic_to: ~/dr/altitude
   - factory: mqtt_bridge.bridge:RosToMqttBridge
-    msg_type: smarc_msgs.msg:GotoWaypointActionGoal
-    topic_from: ctrl/goto_waypoint/goal
-    topic_to: ~/ctrl/goto_waypoint/goal
+    msg_type: smarc_msgs.msg:GotoWaypoint
+    topic_from: mission_exec/last_wp
+    topic_to: ~/mission_exec/last_wp
 # MQTT to ROS
-  - factory: mqtt_bridge.bridge:MqttToRosBridge
-    msg_type: smarc_msgs.msg:ThrusterRPM
-    topic_from: ~/core/thruster1_cmd
-    topic_to: core/thruster1_cmd
-  - factory: mqtt_bridge.bridge:MqttToRosBridge
-    msg_type: smarc_msgs.msg:ThrusterRPM
-    topic_from: ~/core/thruster2_cmd
-    topic_to: core/thruster2_cmd
-  - factory: mqtt_bridge.bridge:MqttToRosBridge
-    msg_type: sam_msgs.msg:ThrusterAngles
-    topic_from: ~/core/thrust_vector_cmd
-    topic_to: core/thrust_vector_cmd
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: sam_msgs.msg:PercentStamped
     topic_from: ~/core/vbs_cmd
     topic_to: core/vbs_cmd
+
 
 
 
