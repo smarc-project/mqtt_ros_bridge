@@ -55,9 +55,13 @@
   <depend>sensor_msgs</depend>
   <depend>smarc_msgs</depend>
   <depend>visualization_msgs</depend>
+  <depend>geographic_msgs</depend>
   <depend>lolo_msgs</depend>
   <depend>vision_msgs</depend>
   <depend>mqtt_bridge</depend>
+  <depend>python-inject-pip</depend>
+  <depend>python-paho-mqtt</depend>
+
 
 
   <!-- The export tag contains other, unspecified, tags -->
