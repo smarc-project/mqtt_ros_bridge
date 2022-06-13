@@ -11,3 +11,13 @@ username
 password
 ```
 
+# Noetic installation
+`apt install python-paho-mqtt`
+`pip install inject`
+
+# Melodic installation
+`apt install python-paho-mqtt`
+`pip install Inject==3.5.4`
+
+
+
