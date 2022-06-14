@@ -91,11 +91,33 @@ bridge:
     msg_type: smarc_msgs.msg:GotoWaypoint
     topic_from: mission_exec/last_wp
     topic_to: ~/mission_exec/last_wp
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Bool
+    topic_from: algae_farm/enable
+    topic_to: ~/bt/algae_farm/enable
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Bool
+    topic_from: localization/enable
+    topic_to: ~/bt/localization/enable
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: py_trees_msgs.msg:Behaviour
+    topic_from: smarc_bt/tip
+    topic_to: ~/bt/tip
+
+
 # MQTT to ROS
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: sam_msgs.msg:PercentStamped
     topic_from: ~/core/vbs_cmd
     topic_to: core/vbs_cmd
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: std_msgs.msg:Bool
+    topic_from: ~/bt_cmd/localization/enable
+    topic_to: localization/enable
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: smarc_msgs.msg:GotoWaypoint
+    topic_from: ~/bt_cmd/localization/wp
+    topic_to: localization/wp
 
 
 
