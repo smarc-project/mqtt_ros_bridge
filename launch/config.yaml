@@ -89,20 +89,24 @@ bridge:
     topic_to: ~/dr/altitude
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: smarc_msgs.msg:GotoWaypoint
-    topic_from: mission_exec/last_wp
-    topic_to: ~/mission_exec/last_wp
+    topic_from: smarc_bt/last_wp
+    topic_to: ~/bt/last_wp
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Bool
-    topic_from: algae_farm/enable
+    topic_from: smarc_bt/algae_farm/enable
     topic_to: ~/bt/algae_farm/enable
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Bool
-    topic_from: localization/enable
-    topic_to: ~/bt/localization/enable
+    topic_from: smarc_bt/live_wp/enable
+    topic_to: ~/bt/live_wp/enable
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: py_trees_msgs.msg:Behaviour
     topic_from: smarc_bt/tip
     topic_to: ~/bt/tip
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: smarc_msgs.msg:MissionControl
+    topic_from: smarc_bt/mission_control
+    topic_to: ~/bt/mission_control
 
 
 # MQTT to ROS
@@ -112,12 +116,17 @@ bridge:
     topic_to: core/vbs_cmd
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: std_msgs.msg:Bool
-    topic_from: ~/bt_cmd/localization/enable
-    topic_to: localization/enable
+    topic_from: ~/bt_cmd/live_wp/enable
+    topic_to: smarc_bt/live_wp/enable
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: smarc_msgs.msg:GotoWaypoint
-    topic_from: ~/bt_cmd/localization/wp
-    topic_to: localization/wp
+    topic_from: ~/bt_cmd/live_wp/wp
+    topic_to: smarc_bt/live_wp/wp
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: smarc_msgs.msg:MissionControl
+    topic_from: ~/bt_cmd/mission_control
+    topic_to: smarc_bt/mission_control
+
 
 
 
