@@ -11,102 +11,134 @@ mqtt:
     keepalive: 60
 bridge:
     # dont forget to add the ".msg" part!
+    #  the ~ in front will fill with smarc/<robot_name>/ for mqtt
+    #  and this node is run under /<robot_name>/ in ROS, relative topics etc.
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Bool
     topic_from: abort
     topic_to: ~/abort
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: smarc_msgs.msg:Leak
     topic_from: core/leak
     topic_to: ~/core/leak
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: sensor_msgs.msg:BatteryState
     topic_from: core/battery
     topic_to: ~/core/battery
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: sensor_msgs.msg:FluidPressure
     topic_from: core/motor_oil_pressure
     topic_to: ~/core/motor_oil_pressure
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: sensor_msgs.msg:Temperature
     topic_from: core/motor_temp
     topic_to: ~/core/motor_temp
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: geographic_msgs.msg:GeoPoint
     topic_from: dr/lat_lon
     topic_to: ~/dr/lat_lon
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Float64
     topic_from: dr/x
     topic_to: ~/dr/x
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Float64
     topic_from: dr/y
     topic_to: ~/dr/y
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Float64
     topic_from: dr/depth
     topic_to: ~/dr/depth
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Float64
     topic_from: dr/roll
     topic_to: ~/dr/roll
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Float64
     topic_from: dr/pitch
     topic_to: ~/dr/pitch
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Float64
     topic_from: dr/yaw
     topic_to: ~/dr/yaw
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: sam_msgs.msg:PercentStamped
     topic_from: core/vbs_fb
     topic_to: ~/core/vbs_fb
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: sam_msgs.msg:PercentStamped
     topic_from: core/lcg_fb
     topic_to: ~/core/lcg_fb
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: smarc_msgs.msg:ThrusterFeedback
     topic_from: core/thruster1_fb
     topic_to: ~/core/thruster1_fb
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: smarc_msgs.msg:ThrusterFeedback
     topic_from: core/thruster2_fb
     topic_to: ~/core/thruster2_fb
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: sam_msgs.msg:ThrusterAngles
     topic_from: core/thrust_vector_cmd
     topic_to: ~/core/thrust_vector_cmd
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: sensor_msgs.msg:NavSatFix
     topic_from: core/gps
     topic_to: ~/core/gps
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Float64
     topic_from: dr/altitude
     topic_to: ~/dr/altitude
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: smarc_msgs.msg:GotoWaypoint
     topic_from: smarc_bt/last_wp
     topic_to: ~/bt/last_wp
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Bool
     topic_from: smarc_bt/algae_farm/enable
     topic_to: ~/bt/algae_farm/enable
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Bool
     topic_from: smarc_bt/live_wp/enable
     topic_to: ~/bt/live_wp/enable
+
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: py_trees_msgs.msg:Behaviour
     topic_from: smarc_bt/tip
     topic_to: ~/bt/tip
-  - factory: mqtt_bridge.bridge:MqttToRosBridge
+
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: smarc_msgs.msg:MissionControl
     topic_from: smarc_bt/mission_control
     topic_to: ~/bt/mission_control
+
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Empty
+    topic_from: core/heartbeat
+    topic_to: ~/bt/heartbeat
+
 
 
 # MQTT to ROS
@@ -114,14 +146,17 @@ bridge:
     msg_type: sam_msgs.msg:PercentStamped
     topic_from: ~/core/vbs_cmd
     topic_to: core/vbs_cmd
+
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: std_msgs.msg:Bool
     topic_from: ~/bt_cmd/live_wp/enable
     topic_to: smarc_bt/live_wp/enable
+
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: smarc_msgs.msg:GotoWaypoint
     topic_from: ~/bt_cmd/live_wp/wp
     topic_to: smarc_bt/live_wp/wp
+
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: smarc_msgs.msg:MissionControl
     topic_from: ~/bt_cmd/mission_control
