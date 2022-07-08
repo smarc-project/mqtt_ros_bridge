@@ -125,6 +125,11 @@ bridge:
     topic_to: ~/bt/live_wp/enable
 
   - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:Bool
+    topic_from: smarc_bt/gui_wp/enable
+    topic_to: ~/bt/gui_wp/enable
+
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: py_trees_msgs.msg:Behaviour
     topic_from: smarc_bt/tip
     topic_to: ~/bt/tip
@@ -149,13 +154,13 @@ bridge:
 
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: std_msgs.msg:Bool
-    topic_from: ~/bt_cmd/live_wp/enable
-    topic_to: smarc_bt/live_wp/enable
+    topic_from: ~/bt_cmd/gui_wp/enable
+    topic_to: smarc_bt/gui_wp/enable
 
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: smarc_msgs.msg:GotoWaypoint
-    topic_from: ~/bt_cmd/live_wp/wp
-    topic_to: smarc_bt/live_wp/wp
+    topic_from: ~/bt_cmd/gui_wp/wp
+    topic_to: smarc_bt/gui_wp/wp
 
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: smarc_msgs.msg:MissionControl
