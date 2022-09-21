@@ -2,6 +2,7 @@ version: "3"
 services:
   broker:
     image: eclipse-mosquitto:latest
+    restart: always
     volumes:
       - "./mosquitto:/mosquitto"
     networks:
@@ -12,6 +13,7 @@ services:
     depends_on:
       - broker
     image: nodered/node-red:latest
+    restart: always
     volumes:
       - "./node-red:/data"
     user: "0"
