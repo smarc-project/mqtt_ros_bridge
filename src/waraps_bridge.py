@@ -66,7 +66,6 @@ class WaraPSBridge(object):
                 self.log(e)
                 self.log("You should have a file named '~/.waraps_broker_SECRET'")
                 self.log("That file should look like:\n```\nusername\npassword\n```\n")
-                self.log("Trying local one instead")
                 use_waraps = False
 
             if use_waraps:
@@ -88,7 +87,9 @@ class WaraPSBridge(object):
                 self.log(e)
                 self.log("Can not connect to mqtt broker at {}:{}!".format(host, port))
 
-        self._client.loop_start()
+        self.log("WARA-PS could not be connected to, this node will do nothing at all. The smarc connection is a different node, so no need to panic.")
+        if use_waraps:
+            self._client.loop_start()
 
 
     def _lat_lon_cb(self, msg):
