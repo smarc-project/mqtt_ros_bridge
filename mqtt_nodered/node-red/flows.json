@@ -145,7 +145,7 @@
         },
         "site": {
             "name": "Command and Conquer Subs",
-            "hideToolbar": "false",
+            "hideToolbar": "true",
             "allowSwipe": "false",
             "lockMenu": "false",
             "allowTempTheme": "true",
@@ -153,10 +153,10 @@
             "sizes": {
                 "sx": 40,
                 "sy": 40,
-                "gx": 4,
-                "gy": 4,
-                "cx": 4,
-                "cy": 4,
+                "gx": 2,
+                "gy": 2,
+                "cx": 2,
+                "cy": 2,
                 "px": 0,
                 "py": 0
             }
@@ -268,16 +268,6 @@
         "filepath": "mission_plans.json",
         "namespace": "",
         "name": "mission plans"
-    },
-    {
-        "id": "c685f867f3ba9aed",
-        "type": "ui_spacer",
-        "z": "8cc0dadb75774b52",
-        "name": "spacer",
-        "group": "102ceb2b72c23b34",
-        "order": 4,
-        "width": 1,
-        "height": 1
     },
     {
         "id": "9e2bac96.b321b",
@@ -877,7 +867,7 @@
         "type": "function",
         "z": "8cc0dadb75774b52",
         "name": "Register Vehicle",
-        "func": "vehicles = global.get(\"vehicles\");\n\nparts = msg.topic.split('/')\nconst [smarc, msg_robot_name, ...topic_parts] = parts;\nmsg_mqtt_topic = topic_parts.join(\"/\")\n\nnew_vehicle = false\n\n// if first time seeing this robot\n    // only register if there is a heartbeat\nif(!(msg_robot_name in vehicles) && msg_mqtt_topic == \"bt/heartbeat\"){\n    // gotta make a clone. and this seems the easiest....\n    v = JSON.parse(JSON.stringify(global.get(\"vehicle_state_template\")));\n    v.basic_state.name = msg_robot_name;\n    v.basic_state.label = msg_robot_name;\n    vehicles[msg_robot_name] = v\n    global.set(\"vehicles\", vehicles);\n    node.warn(\"Registered new vehicle \"+v.basic_state.name);\n    new_vehicle = true\n}\n\nmsg.name = msg_robot_name\nmsg.topic = msg_mqtt_topic\nmsg.new_vehicle = new_vehicle\nreturn msg;",
+        "func": "vehicles = global.get(\"vehicles\");\n\nparts = msg.topic.split('/')\nconst [smarc, msg_robot_name, ...topic_parts] = parts;\nmsg_mqtt_topic = topic_parts.join(\"/\")\n\nnew_vehicle = false\n\n// if first time seeing this robot\n    // only register if there is a heartbeat\nif(!(msg_robot_name in vehicles) && msg_mqtt_topic == \"bt/heartbeat\"){\n    // gotta make a clone. and this seems the easiest....\n    v = JSON.parse(JSON.stringify(global.get(\"vehicle_state_template\")));\n    v.basic_state.name = msg_robot_name;\n    v.basic_state.label = msg_robot_name;\n    v.basic_state.layer = msg_robot_name;\n    v.gps_fix.layer = msg_robot_name;\n    vehicles[msg_robot_name] = v\n    global.set(\"vehicles\", vehicles);\n    node.warn(\"Registered new vehicle \"+v.basic_state.name);\n    new_vehicle = true\n}\n\nmsg.name = msg_robot_name\nmsg.topic = msg_mqtt_topic\nmsg.new_vehicle = new_vehicle\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1329,7 +1319,7 @@
         "z": "8cc0dadb75774b52",
         "name": "",
         "group": "1417de57d250f31f",
-        "order": 14,
+        "order": 13,
         "width": 6,
         "height": 4,
         "gtype": "gage",
@@ -1413,7 +1403,7 @@
         "z": "8cc0dadb75774b52",
         "name": "alt depth",
         "group": "102ceb2b72c23b34",
-        "order": 8,
+        "order": 7,
         "width": 18,
         "height": 5,
         "label": "",
@@ -1640,7 +1630,7 @@
             {
                 "p": "gui_state",
                 "pt": "global",
-                "to": "{\"selected_wp\":{},\"selected_plan\":{},\"planning_mode\":false,\"batt_v_minmax\":[-1,-1]}",
+                "to": "{\"selected_wp\":{},\"selected_plan\":{},\"planning_mode\":false,\"batt_v_minmax\":[-1,-1],\"draw_tracks\":false}",
                 "tot": "json"
             }
         ],
@@ -2253,7 +2243,6 @@
         "id": "4731ad6ffdda22c4",
         "type": "ui_audio",
         "z": "8cc0dadb75774b52",
-        "d": true,
         "name": "",
         "group": "1417de57d250f31f",
         "voice": "urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US",
@@ -2266,7 +2255,6 @@
         "id": "26e7ea65f9a11341",
         "type": "ui_toast",
         "z": "8cc0dadb75774b52",
-        "d": true,
         "position": "top left",
         "displayTime": "2",
         "highlight": "",
@@ -2317,7 +2305,6 @@
         "id": "cd8ad65ce7f7bef0",
         "type": "ui_audio",
         "z": "8cc0dadb75774b52",
-        "d": true,
         "name": "",
         "group": "1417de57d250f31f",
         "voice": "urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US",
@@ -2330,7 +2317,6 @@
         "id": "f00b6b692ab70779",
         "type": "ui_toast",
         "z": "8cc0dadb75774b52",
-        "d": true,
         "position": "top left",
         "displayTime": "2",
         "highlight": "",
@@ -2504,9 +2490,9 @@
         "type": "ui_text",
         "z": "8cc0dadb75774b52",
         "group": "1417de57d250f31f",
-        "order": 0,
-        "width": "6",
-        "height": "5",
+        "order": 14,
+        "width": 6,
+        "height": 5,
         "name": "Colored text",
         "label": "<font color= {{msg.strongcolor}} > BT Tip </font>",
         "format": "<font color= {{msg.color}} > {{msg.payload}} </font>",
@@ -2521,7 +2507,7 @@
         "type": "function",
         "z": "8cc0dadb75774b52",
         "name": "adjust min/max",
-        "func": "gui_st = global.get(\"gui_state\")\ng_minmax = gui_st.batt_v_minmax\ng_min = g_minmax[0]\ng_max = g_minmax[1]\n\nif(g_min == -1 || g_min > msg.payload){\n    g_min = msg.payload-2\n    if(g_min < 0){\n        g_min = 0\n    }\n}\nif(g_max == -1 || g_max < msg.payload){\n    g_max = msg.payload+2\n}\n\ngui_st.batt_v_minmax = [g_min, g_max]\n\nmsg.ui_control = {min:g_min ,max:g_max}\nreturn msg",
+        "func": "gui_st = global.get(\"gui_state\")\ng_minmax = gui_st.batt_v_minmax\ng_min = g_minmax[0]\ng_max = g_minmax[1]\n\n//node.warn(g_min+','+g_max+','+msg.payload)\n// 0, 14.5, 12.5\nif(g_min <= 0 || g_min > msg.payload){\n    g_min = msg.payload-2\n    if(g_min < 0){\n        g_min = 0\n    }\n}\nif(g_max == -1 || g_max < msg.payload){\n    g_max = msg.payload+2\n}\n\ngui_st.batt_v_minmax = [g_min, g_max]\n\nmsg.ui_control = {min:g_min ,max:g_max}\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2553,7 +2539,7 @@
         "type": "ui_worldmap",
         "z": "053268593fae8c42",
         "group": "102ceb2b72c23b34",
-        "order": 7,
+        "order": 6,
         "width": 18,
         "height": 12,
         "name": "",
@@ -2579,24 +2565,23 @@
         "mapurl": "",
         "mapopt": "",
         "mapwms": false,
-        "x": 1140,
-        "y": 140,
+        "x": 1020,
+        "y": 240,
         "wires": []
     },
     {
         "id": "1c9e33661e87e2a3",
         "type": "worldmap-tracks",
         "z": "053268593fae8c42",
-        "d": true,
         "name": "",
-        "depth": "10",
-        "layer": "separate",
+        "depth": "10000",
+        "layer": "combined",
         "smooth": false,
-        "x": 850,
-        "y": 140,
+        "x": 710,
+        "y": 80,
         "wires": [
             [
-                "4f18c0fb5a5708dd"
+                "528f627a90f6985c"
             ]
         ]
     },
@@ -2606,8 +2591,8 @@
         "z": "053268593fae8c42",
         "name": "special map icons",
         "info": "\n    plane : a jet plane icon that aligns with the heading of travel.\n    smallplane : a light aircraft icon that aligns with the heading of travel.\n    ship : a ship icon that aligns with the heading of travel.\n    car : a car icon that aligns with the heading of travel.\n    bus : a bus/coach icon that aligns with the heading of travel.\n    uav : a small uav like icon that aligns with the heading of travel.\n    helicopter : a small helicopter icon that aligns with the heading of travel.\n    arrow : a map GPS arrow type pointer that aligns with the heading of travel.\n    wind : a wind arrow that points in the direction the wind is coming FROM.\n    satellite : a small satellite icon.\n    iss : a slightly larger icon for the ISS.\n    locate : a 4 corner outline to locate a point without obscuring it.\n    friend : pseudo NATO style blue rectangle. (see NATO SIDC option below)\n    hostile : pseudo NATO style red circle.\n    neutral : pseudo NATO style green square.\n    unknown : pseudo NATO style yellow square.\n    earthquake : black circle - diameter proportional to msg.mag.\n",
-        "x": 990,
-        "y": 100,
+        "x": 1190,
+        "y": 240,
         "wires": []
     },
     {
@@ -2825,8 +2810,8 @@
             "92f10e36cbc8e2ae",
             "fe6676f1a71e7f3c"
         ],
-        "x": 1055,
-        "y": 180,
+        "x": 935,
+        "y": 280,
         "wires": [
             [
                 "4f18c0fb5a5708dd"
@@ -3283,7 +3268,6 @@
         "id": "28df211206fb16e0",
         "type": "ui_toast",
         "z": "053268593fae8c42",
-        "d": true,
         "position": "top right",
         "displayTime": "2",
         "highlight": "",
@@ -3295,8 +3279,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 1280,
-        "y": 2060,
+        "x": 1340,
+        "y": 2000,
         "wires": []
     },
     {
@@ -3362,7 +3346,6 @@
         "id": "e75ec8b1aa81a80d",
         "type": "ui_audio",
         "z": "053268593fae8c42",
-        "d": true,
         "name": "",
         "group": "52f0dbb4c9ed8309",
         "voice": "urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US",
@@ -3643,7 +3626,6 @@
         "y": 2060,
         "wires": [
             [
-                "28df211206fb16e0",
                 "e4507c760789e21f"
             ]
         ]
@@ -3729,7 +3711,6 @@
         "y": 2100,
         "wires": [
             [
-                "28df211206fb16e0",
                 "e4507c760789e21f"
             ]
         ]
@@ -3798,6 +3779,13 @@
                 "type": "number",
                 "required": false,
                 "rows": null
+            },
+            {
+                "label": "lat,lon",
+                "value": "lat_lon",
+                "type": "text",
+                "required": false,
+                "rows": null
             }
         ],
         "formValue": {
@@ -3805,7 +3793,8 @@
             "depth": "",
             "speed_control_mode": false,
             "speed": "",
-            "rpm": ""
+            "rpm": "",
+            "lat_lon": ""
         },
         "payload": "",
         "submit": "Save",
@@ -3827,7 +3816,7 @@
         "type": "function",
         "z": "053268593fae8c42",
         "name": "fill_wp_form",
-        "func": "wps = global.get(\"waypoints\");\nswp = wps[msg.payload]\n\n\nif(swp){\n  form = {\n    \"name\":swp.name,\n    \"speed\":swp.travel_speed,\n    \"rpm\":swp.travel_rpm,\n    \"speed_control_mode\":swp.speed_control_mode==1,\n    \"depth\":swp.travel_depth\n    };  \n\n}else{\n    form = {\n    \"name\":\"unknown\",\n    \"speed\":0,\n    \"rpm\":0,\n    \"speed_control_mode\":0,\n    \"depth\":0\n    };\n}\n\nm = {\"payload\":form}\nreturn m",
+        "func": "wps = global.get(\"waypoints\");\nswp = wps[msg.payload]\n\n\nif(swp){\n  form = {\n    \"name\":swp.name,\n    \"speed\":swp.travel_speed,\n    \"rpm\":swp.travel_rpm,\n    \"speed_control_mode\":swp.speed_control_mode==1,\n    \"depth\":swp.travel_depth,\n    \"lat_lon\":swp.lat+\",\"+swp.lon\n    };  \n\n}else{\n    form = {\n    \"name\":\"unknown\",\n    \"speed\":0,\n    \"rpm\":0,\n    \"speed_control_mode\":0,\n    \"depth\":0,\n    \"lat_lon\":\"0,0\"\n    };\n}\n\nm = {\"payload\":form}\nreturn m",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3895,7 +3884,7 @@
         "type": "function",
         "z": "053268593fae8c42",
         "name": "update wp details",
-        "func": "wps = global.get(\"waypoints\");\newp = wps[msg.payload.name]\n\n\nif(ewp){\n    ewp.travel_depth = msg.payload.depth;\n    ewp.travel_rpm = msg.payload.rpm;\n    ewp.travel_speed = msg.payload.speed;\n    if(msg.payload.speed_control_mode){\n        ewp.speed_control_mode = 1 //rpm\n    }else{\n        ewp.speed_control_mode = 2 //m/s\n    }\n    wps[msg.payload.name] = ewp;\n}\nreturn {\"payload\":ewp.name};",
+        "func": "wps = global.get(\"waypoints\");\newp = wps[msg.payload.name]\n\n\nif(ewp){\n    ewp.travel_depth = msg.payload.depth;\n    ewp.travel_rpm = msg.payload.rpm;\n    ewp.travel_speed = msg.payload.speed;\n    if(msg.payload.speed_control_mode){\n        ewp.speed_control_mode = 1 //rpm\n    }else{\n        ewp.speed_control_mode = 2 //m/s\n    }\n    // parse the lat lon into separate fields\n    latlon_list = msg.payload.lat_lon.split(\",\")\n    ewp.lat = parseFloat(latlon_list[0])\n    ewp.lon = parseFloat(latlon_list[1])\n    \n    \n    \n    wps[msg.payload.name] = ewp;\n}\nreturn {\"payload\":ewp.name};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3914,13 +3903,12 @@
         "id": "834ba7b8da81e656",
         "type": "ui_audio",
         "z": "053268593fae8c42",
-        "d": true,
         "name": "",
         "group": "52f0dbb4c9ed8309",
         "voice": "urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US",
         "always": "",
-        "x": 1320,
-        "y": 2140,
+        "x": 1280,
+        "y": 2120,
         "wires": []
     },
     {
@@ -4101,7 +4089,7 @@
             "a4d0edd5f6d3f0a0",
             "c2a1d87a52c8ad5f"
         ],
-        "x": 345,
+        "x": 45,
         "y": 100,
         "wires": [
             [
@@ -4205,8 +4193,8 @@
             "09e56f333fdbfc2d",
             "5d5faa63758bafc3"
         ],
-        "x": 765,
-        "y": 140,
+        "x": 625,
+        "y": 80,
         "wires": [
             [
                 "1c9e33661e87e2a3"
@@ -4221,20 +4209,21 @@
         "pauseType": "rate",
         "timeout": "5",
         "timeoutUnits": "seconds",
-        "rate": "10",
+        "rate": "0.5",
         "nbRateUnits": "1",
-        "rateUnits": "minute",
+        "rateUnits": "second",
         "randomFirst": "1",
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 1280,
-        "y": 2100,
+        "x": 1240,
+        "y": 2080,
         "wires": [
             [
-                "834ba7b8da81e656"
+                "834ba7b8da81e656",
+                "fe4d43a455cf7caa"
             ]
         ]
     },
@@ -4355,8 +4344,8 @@
         "label": "Follow vehicle",
         "tooltip": "Re-center the map on the vehicle as it moves around",
         "group": "102ceb2b72c23b34",
-        "order": 6,
-        "width": 5,
+        "order": 4,
+        "width": 4,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -4373,8 +4362,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 640,
-        "y": 420,
+        "x": 740,
+        "y": 400,
         "wires": [
             [
                 "b403e35eb5cac8c3"
@@ -4392,8 +4381,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 990,
-        "y": 420,
+        "x": 1090,
+        "y": 400,
         "wires": [
             [
                 "a695f0fb45d734a0"
@@ -4417,8 +4406,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 790,
-        "y": 420,
+        "x": 890,
+        "y": 400,
         "wires": [
             [
                 "0aa6bd7787fe04f0"
@@ -4447,8 +4436,8 @@
         "wires": [
             [
                 "c00d8f6aa8f79659",
-                "38496ca51a5f7565",
-                "0fa2c8c468d4d8e5"
+                "0fa2c8c468d4d8e5",
+                "5d5faa63758bafc3"
             ]
         ]
     },
@@ -4461,8 +4450,8 @@
         "links": [
             "baf8ce41441c9d88"
         ],
-        "x": 575,
-        "y": 380,
+        "x": 675,
+        "y": 460,
         "wires": []
     },
     {
@@ -4478,10 +4467,11 @@
         "property": "payload",
         "topi": "topic",
         "x": 590,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
-                "7b64e449f6226ff4"
+                "0fa2c8c468d4d8e5",
+                "5d5faa63758bafc3"
             ]
         ]
     },
@@ -4503,26 +4493,12 @@
         "repair": false,
         "outputs": 1,
         "x": 470,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "f1d43b7ac71a7066"
             ]
         ]
-    },
-    {
-        "id": "7b64e449f6226ff4",
-        "type": "link out",
-        "z": "053268593fae8c42",
-        "name": "worldmap",
-        "mode": "link",
-        "links": [
-            "264b9e88b1732183",
-            "baf8ce41441c9d88"
-        ],
-        "x": 675,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "8368a65f786f7dcd",
@@ -4533,8 +4509,8 @@
         "links": [
             "baf8ce41441c9d88"
         ],
-        "x": 1315,
-        "y": 420,
+        "x": 1415,
+        "y": 400,
         "wires": []
     },
     {
@@ -4554,8 +4530,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 1200,
-        "y": 420,
+        "x": 1300,
+        "y": 400,
         "wires": [
             [
                 "8368a65f786f7dcd"
@@ -4643,7 +4619,7 @@
         "type": "function",
         "z": "053268593fae8c42",
         "name": "line to current_wp",
-        "func": "basic_s = msg.payload.basic_state\nbt_s = msg.payload.bt_state\n\nname = basic_s.name\np1 = [basic_s.lat, basic_s.lon]\ntry{\n    p2 = [bt_s.current_wp.lat, bt_s.current_wp.lon]\n}catch{\n    return\n}\n\nline = {name:name + \"_target\",\n        layer:\"Planning\",\n        line:[p1,p2],\n        color:\"orange\",\n        weight:2.5,\n        editable:false,\n        clickable:false,\n        dashArray:\"1,8\"\n}\n\nreturn {payload:line}",
+        "func": "basic_s = msg.payload.basic_state\nbt_s = msg.payload.bt_state\n\nname = basic_s.name\np1 = [basic_s.lat, basic_s.lon]\ntry{\n    p2 = [bt_s.current_wp.lat, bt_s.current_wp.lon]\n}catch{\n    return\n}\n\nline = {name:name + \"_target\",\n        layer: basic_s.layer,\n        line:[p1,p2],\n        color:\"orange\",\n        weight:2.5,\n        editable:false,\n        clickable:false,\n        dashArray:\"1,8\"\n}\n\nreturn {payload:line}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4681,7 +4657,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
+        "x": 420,
         "y": 220,
         "wires": [
             [
@@ -4708,7 +4684,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
+        "x": 300,
         "y": 100,
         "wires": [
             [
@@ -4727,7 +4703,7 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 630,
+        "x": 330,
         "y": 140,
         "wires": [
             [
@@ -4752,7 +4728,6 @@
         "id": "22b33628c3c58200",
         "type": "ui_toast",
         "z": "053268593fae8c42",
-        "d": true,
         "position": "top right",
         "displayTime": "2",
         "highlight": "",
@@ -4780,7 +4755,7 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 650,
+        "x": 350,
         "y": 180,
         "wires": [
             [
@@ -6207,7 +6182,7 @@
         "stream": false,
         "addname": "key",
         "x": 470,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "c403355878a0b092"
@@ -6240,7 +6215,7 @@
         "repair": false,
         "outputs": 3,
         "x": 590,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "516a5f3a55a9fa1a"
@@ -6254,14 +6229,14 @@
         "type": "function",
         "z": "053268593fae8c42",
         "name": "lines for current plan",
-        "func": "wps = msg.payload.waypoints\npoints = []\nfor(var i in wps){\n        points.push([wps[i].lat, wps[i].lon])\n}\n\nswitch(msg.payload.plan_state){\n    case 0: //running\n        c = \"orange\"\n        w = 2\n        break\n    case 1: // stopped\n        c = \"red\"\n        w = 1\n        break\n    case 2: // paused\n        c = \"orange\"\n        w = 1\n        break\n    case 3: // emergency\n        c = \"red\"\n        w = 0.1\n        break\n    case 4: // received\n        c = \"yellow\"\n        w = 2\n        break\n}\n\nline = {name: msg.vehicle_name+\"_current_plan\",\n        layer:\"Planning\",\n        line:points,\n        color:c,\n        weight:w,\n        editable:false,\n        clickable:false,\n        dashArray:\"1,8,5,8\"\n}\nreturn {payload:line}",
+        "func": "wps = msg.payload.waypoints\npoints = []\nfor(var i in wps){\n        points.push([wps[i].lat, wps[i].lon])\n}\n\nswitch(msg.payload.plan_state){\n    case 0: //running\n        c = \"orange\"\n        w = 2\n        break\n    case 1: // stopped\n        c = \"red\"\n        w = 1\n        break\n    case 2: // paused\n        c = \"orange\"\n        w = 1\n        break\n    case 3: // emergency\n        c = \"red\"\n        w = 0.1\n        break\n    case 4: // received\n        c = \"yellow\"\n        w = 2\n        break\n}\n\nline = {name: msg.vehicle_name+\"_current_plan\",\n        layer: msg.vehicle_name,\n        line:points,\n        color:c,\n        weight:w,\n        editable:false,\n        clickable:false,\n        dashArray:\"1,8,5,8\"\n}\nreturn {payload:line}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 900,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
                 "fe6676f1a71e7f3c"
@@ -6278,33 +6253,8 @@
             "baf8ce41441c9d88"
         ],
         "x": 1035,
-        "y": 520,
+        "y": 600,
         "wires": []
-    },
-    {
-        "id": "38496ca51a5f7565",
-        "type": "delay",
-        "z": "053268593fae8c42",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "3",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 630,
-        "y": 340,
-        "wires": [
-            [
-                "5d5faa63758bafc3"
-            ]
-        ]
     },
     {
         "id": "5d5faa63758bafc3",
@@ -6315,8 +6265,8 @@
         "links": [
             "264b9e88b1732183"
         ],
-        "x": 735,
-        "y": 340,
+        "x": 745,
+        "y": 460,
         "wires": []
     },
     {
@@ -6332,7 +6282,7 @@
         "property": "payload",
         "topi": "topic",
         "x": 730,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
                 "9bf83a1ca45f0473"
@@ -6377,8 +6327,8 @@
         "links": [
             "07a1bbac5d3ab58e"
         ],
-        "x": 825,
-        "y": 380,
+        "x": 925,
+        "y": 360,
         "wires": [
             [
                 "0aa6bd7787fe04f0"
@@ -6481,11 +6431,145 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 450,
+        "x": 150,
         "y": 100,
         "wires": [
             [
                 "9f822780235be5cc"
+            ]
+        ]
+    },
+    {
+        "id": "e48b9fee7192cb74",
+        "type": "ui_switch",
+        "z": "053268593fae8c42",
+        "name": "",
+        "label": "Draw tracks",
+        "tooltip": "This will increase download rates for everyone!",
+        "group": "102ceb2b72c23b34",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 610,
+        "y": 40,
+        "wires": [
+            [
+                "d4f2e6688f0fac02"
+            ]
+        ]
+    },
+    {
+        "id": "528f627a90f6985c",
+        "type": "switch",
+        "z": "053268593fae8c42",
+        "name": "draw_tracks?",
+        "property": "gui_state.draw_tracks",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 80,
+        "wires": [
+            [
+                "6ff93a577bba20e1"
+            ]
+        ]
+    },
+    {
+        "id": "d4f2e6688f0fac02",
+        "type": "change",
+        "z": "053268593fae8c42",
+        "name": "set gui_state.draw_tracks",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gui_state.draw_tracks",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ff93a577bba20e1",
+        "type": "delay",
+        "z": "053268593fae8c42",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "0.2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 120,
+        "wires": [
+            [
+                "4f18c0fb5a5708dd"
+            ]
+        ]
+    },
+    {
+        "id": "fe4d43a455cf7caa",
+        "type": "change",
+        "z": "053268593fae8c42",
+        "name": "empty topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1290,
+        "y": 2040,
+        "wires": [
+            [
+                "28df211206fb16e0"
             ]
         ]
     },
@@ -6737,9 +6821,9 @@
         "id": "f8984d76cbfd5967",
         "type": "ui_led",
         "z": "bd7de6c3e385f05f",
-        "order": 5,
-        "group": "102ceb2b72c23b34",
-        "width": 3,
+        "order": 7,
+        "group": "9dbddaa8775473fd",
+        "width": 4,
         "height": 1,
         "label": "F5?",
         "labelPlacement": "left",
@@ -6759,7 +6843,7 @@
         "allowColorForValueInMessage": false,
         "shape": "circle",
         "showGlow": true,
-        "name": "",
+        "name": "f5?",
         "x": 930,
         "y": 400,
         "wires": []
@@ -7075,6 +7159,7 @@
         "id": "976557a0.10d4d8",
         "type": "ui_text",
         "z": "e0f0c459.bbf218",
+        "d": true,
         "group": "9e2bac96.b321b",
         "order": 0,
         "width": "6",
