@@ -1,0 +1,1441 @@
+{
+  "waypoints": {
+    "1": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 2,
+      "speed_control_mode": 1,
+      "travel_rpm": 1200,
+      "travel_speed": 1,
+      "lat": 58.251214,
+      "lon": 11.448231,
+      "name": "1"
+    },
+    "2": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 2000,
+      "travel_speed": 1,
+      "lat": 58.251022,
+      "lon": 11.449556,
+      "name": "2"
+    },
+    "3": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 1000,
+      "travel_speed": 1,
+      "lat": 58.25149,
+      "lon": 11.449985,
+      "name": "3"
+    },
+    "4": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 1050,
+      "travel_speed": 1,
+      "lat": 58.250657,
+      "lon": 11.450141,
+      "name": "4"
+    },
+    "here": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 2000,
+      "travel_speed": 10,
+      "lat": 58.250815,
+      "lon": 11.449267,
+      "name": "here",
+      "draggable": true
+    },
+    "lolowp": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 58.250261,
+      "lon": 11.444069,
+      "name": "lolowp",
+      "draggable": true
+    },
+    "orhere": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 5,
+      "speed_control_mode": 1,
+      "travel_rpm": 900,
+      "travel_speed": 1,
+      "lat": 58.251532,
+      "lon": 11.44939,
+      "name": "orhere"
+    },
+    "mwlock_wp": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 61.507759,
+      "lon": 20.905585,
+      "name": "mwlock_wp"
+    },
+    "mc0": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 43.931386,
+      "lon": 15.441859,
+      "name": "mc0"
+    },
+    "mc1": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 43.930432,
+      "lon": 15.441883,
+      "name": "mc1"
+    },
+    "mc2": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 43.93042,
+      "lon": 15.443186,
+      "name": "mc2"
+    },
+    "mc3": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 43.931364,
+      "lon": 15.443156,
+      "name": "mc3"
+    },
+    "mc4": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 43.93136,
+      "lon": 15.444397,
+      "name": "mc4"
+    },
+    "aldo's sam start": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 5,
+      "speed_control_mode": 2,
+      "travel_rpm": 200,
+      "travel_speed": 0.3,
+      "lat": 43.933638,
+      "lon": 15.439494,
+      "name": "aldo's sam start"
+    },
+    "aldo's sam end": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 5,
+      "speed_control_mode": 2,
+      "travel_rpm": 200,
+      "travel_speed": 0.3,
+      "lat": 43.930042,
+      "lon": 15.44476,
+      "name": "aldo's sam end"
+    },
+    "aldo's lolo start": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 5,
+      "speed_control_mode": 1,
+      "travel_rpm": 400,
+      "travel_speed": 1,
+      "lat": 43.933114,
+      "lon": 15.440207,
+      "name": "aldo's lolo start"
+    },
+    "aldo's lolo end": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 5,
+      "speed_control_mode": 1,
+      "travel_rpm": 400,
+      "travel_speed": 1,
+      "lat": 43.930651,
+      "lon": 15.444408,
+      "name": "aldo's lolo end"
+    },
+    "mc00": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 43.931674,
+      "lon": 15.442475,
+      "name": "mc00"
+    },
+    "nacho_1": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.271997,
+      "lon": 18.321295,
+      "name": "nacho_1"
+    },
+    "nacho_2": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.274789,
+      "lon": 18.321399,
+      "name": "nacho_2"
+    },
+    "nacho_3": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.269845,
+      "lon": 18.321302,
+      "name": "nacho_3"
+    },
+    "nacho_4": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.269842877590776,
+      "lon": 18.318695761011828,
+      "name": "nacho_4"
+    },
+    "slam_rows1": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.269891,
+      "lon": 18.318716,
+      "name": "slam_rows1"
+    },
+    "slam_rows2": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.27185,
+      "lon": 18.318653,
+      "name": "slam_rows2"
+    },
+    "slam_rows3": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.271848,
+      "lon": 18.319233,
+      "name": "slam_rows3"
+    },
+    "slam_rows4": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.26989572794797,
+      "lon": 18.319180678536803,
+      "name": "slam_rows4"
+    },
+    "slam_rows5": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.269896,
+      "lon": 18.3197,
+      "name": "slam_rows5"
+    },
+    "slam_rows6": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.271846,
+      "lon": 18.31968,
+      "name": "slam_rows6"
+    },
+    "slam_rows7": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.271853,
+      "lon": 18.320176,
+      "name": "slam_rows7"
+    },
+    "slam_rows8": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.269905,
+      "lon": 18.320186,
+      "name": "slam_rows8"
+    },
+    "slam_rows9": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.269905,
+      "lon": 18.320688,
+      "name": "slam_rows9"
+    },
+    "slam_rows10": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.271855,
+      "lon": 18.320685,
+      "name": "slam_rows10"
+    },
+    "slam_rows11": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.271862,
+      "lon": 18.321262,
+      "name": "slam_rows11"
+    },
+    "slam_rows12": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.270187,
+      "lon": 18.321258,
+      "name": "slam_rows12"
+    },
+    "slam_rows13": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.270186,
+      "lon": 18.318911,
+      "name": "slam_rows13"
+    },
+    "slam_rows14": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.270631,
+      "lon": 18.318911,
+      "name": "slam_rows14"
+    },
+    "slam_rows15": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.270625,
+      "lon": 18.321072,
+      "name": "slam_rows15"
+    },
+    "slam_rows16": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.27105,
+      "lon": 18.321072,
+      "name": "slam_rows16"
+    },
+    "slam_rows17": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.271051,
+      "lon": 18.318897,
+      "name": "slam_rows17"
+    },
+    "slam_rows18": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.271574,
+      "lon": 18.318892,
+      "name": "slam_rows18"
+    },
+    "slam_rows19": {
+      "pose": {
+        "header": {
+          "seq": 0,
+          "stamp": {
+            "secs": 0,
+            "nsecs": 0
+          },
+          "frame_id": "latlon"
+        },
+        "pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 0
+          }
+        }
+      },
+      "goal_tolerance": 5,
+      "z_control_mode": 1,
+      "travel_altitude": -1,
+      "travel_depth": 0,
+      "speed_control_mode": 1,
+      "travel_rpm": 200,
+      "travel_speed": 1,
+      "lat": 59.27158,
+      "lon": 18.321086,
+      "name": "slam_rows19"
+    }
+  }
+}

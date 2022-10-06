@@ -1,0 +1,42 @@
+{
+  "": 1656430929147,
+  "undefined": null,
+  "mission_plans": {
+    "slam_rows": {
+      "name": "slam_rows",
+      "wp_names": [
+        "slam_rows1",
+        "slam_rows2",
+        "slam_rows3",
+        "slam_rows4",
+        "slam_rows5",
+        "slam_rows6",
+        "slam_rows7",
+        "slam_rows8",
+        "slam_rows9",
+        "slam_rows10",
+        "slam_rows11",
+        "slam_rows12",
+        "slam_rows13",
+        "slam_rows14",
+        "slam_rows15",
+        "slam_rows16",
+        "slam_rows17",
+        "slam_rows18",
+        "slam_rows19"
+      ]
+    },
+    "ozer_test": {
+      "name": "ozer_test",
+      "wp_names": [
+        "3",
+        "1",
+        "here",
+        "4",
+        "2",
+        "3",
+        "orhere"
+      ]
+    }
+  }
+}
