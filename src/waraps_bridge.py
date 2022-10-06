@@ -15,6 +15,10 @@ class WaraPSBridge(object):
     A class to handle the specific things that
     wara-ps has, over mqtt
     """
+
+    def log(self, m):
+        print("[WaraPSBridge]\t" + str(m))
+
     def __init__(self,
                  conn_params,
                  lat_lon_topic,
@@ -59,10 +63,9 @@ class WaraPSBridge(object):
                     user = user.strip('\n')
                     pw = pw.strip('\n')
             except Exception as e:
-                print(e)
-                print("You should have a file named '~/.waraps_broker_SECRET'")
-                print("That file should look like:\n```\nusername\npassword\n```\n")
-                print("Trying local one instead")
+                self.log(e)
+                self.log("You should have a file named '~/.waraps_broker_SECRET'")
+                self.log("That file should look like:\n```\nusername\npassword\n```\n")
                 use_waraps = False
 
             if use_waraps:
@@ -70,19 +73,23 @@ class WaraPSBridge(object):
                 self._client.tls_set(cert_reqs=ssl.CERT_NONE)
                 self._client.tls_insecure_set(True)
                 self._client.connect('broker.waraps.org', 8883, 60)
-                print("Using waraps broker")
+                self.log("Using waraps broker")
 
         if not use_waraps:
             try:
-                self._client.connect(host = conn_params.get('host', 'localhost'),
-                                     port = conn_params.get('port', 1884),
+                host = conn_params.get("host", "localhost")
+                port = conn_params.get("port", 1884)
+                self.log("Using broker: {}:{}".format(host, port))
+                self._client.connect(host = host,
+                                     port = port,
                                      keepalive = conn_params.get('keepalive', 60))
-                print("Using local broker")
             except Exception as e:
-                print(e)
-                print("Can not connect to local mqtt broker!")
+                self.log(e)
+                self.log("Can not connect to mqtt broker at {}:{}!".format(host, port))
 
-        self._client.loop_start()
+        self.log("WARA-PS could not be connected to, this node will do nothing at all. The smarc connection is a different node, so no need to panic.")
+        if use_waraps:
+            self._client.loop_start()
 
 
     def _lat_lon_cb(self, msg):
@@ -201,7 +208,7 @@ class WaraPSBridge(object):
         while not rospy.is_shutdown():
             fb = self.feedback()
             if fb != prev_fb and fb != "":
-                print(fb)
+                self.log(fb)
                 prev_fb = fb
 
             self.tick()
@@ -222,6 +229,7 @@ if __name__ == "__main__":
         conn_params = mqtt_params.pop("connection")
         bridge_params = params.get("bridge", [])
         waraps_tickrate = params.get("waraps_tickrate", 3)
+        print("conn params", conn_params)
     except Exception as e:
         print(e)
         print("You need to run this program with roslaunch and pass the launch/config.yaml file as rosparam")
