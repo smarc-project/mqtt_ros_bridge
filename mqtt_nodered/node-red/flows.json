@@ -732,7 +732,7 @@
         "id": "58bfd1be028c15be",
         "type": "ui_led",
         "z": "8cc0dadb75774b52",
-        "order": 4,
+        "order": 5,
         "group": "9dbddaa8775473fd",
         "width": 4,
         "height": 1,
@@ -790,7 +790,7 @@
         "id": "f1f9f9ebc0364948",
         "type": "ui_led",
         "z": "8cc0dadb75774b52",
-        "order": 3,
+        "order": 4,
         "group": "9dbddaa8775473fd",
         "width": 4,
         "height": 1,
@@ -1647,7 +1647,7 @@
         "label": "GUI-WP",
         "tooltip": "Sends the AUV to the selected WP",
         "group": "9dbddaa8775473fd",
-        "order": 5,
+        "order": 6,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -2431,7 +2431,7 @@
         "id": "8f8b1d0d7ab4ce9b",
         "type": "ui_led",
         "z": "8cc0dadb75774b52",
-        "order": 6,
+        "order": 7,
         "group": "9dbddaa8775473fd",
         "width": 4,
         "height": 1,
@@ -2559,12 +2559,12 @@
         "showgrid": "true",
         "allowFileDrop": "false",
         "path": "/worldmap",
-        "overlist": "DR,SN",
-        "maplist": "OSMC,EsriS,EsriO,NatGeo",
-        "mapname": "",
-        "mapurl": "",
-        "mapopt": "",
-        "mapwms": false,
+        "overlist": "SN",
+        "maplist": "EsriS,NatGeo",
+        "mapname": "Bathy",
+        "mapurl": "https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv",
+        "mapopt": "{ \"maxZoom\":22,\"attribution\":\"&copy; GEBCO\",\"format\":\"image/jpeg\",\"request\":\"getmap\",\"service\":\",\"layers\":\"gebco_latest_2_sub_ice_topo\"}",
+        "mapwms": true,
         "x": 1020,
         "y": 240,
         "wires": []
@@ -2639,12 +2639,17 @@
                 "vt": "str"
             },
             {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
                 "t": "else"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 5,
+        "outputs": 6,
         "x": 250,
         "y": 1020,
         "wires": [
@@ -2662,6 +2667,7 @@
                 "3f1101a0eff94520",
                 "efb303bf3091ae28"
             ],
+            [],
             []
         ]
     },
@@ -2793,22 +2799,13 @@
         "z": "053268593fae8c42",
         "name": "worldmap",
         "links": [
-            "30e3822ebf7d0303",
-            "c5d05a53263ed5f1",
-            "8044d7b5c55205ac",
-            "2039a8f94be1dadc",
-            "d549489979ca9dbe",
-            "75879b60dc43e197",
-            "350380f1205308ad",
             "0fa2c8c468d4d8e5",
-            "7b64e449f6226ff4",
-            "09e56f333fdbfc2d",
             "8368a65f786f7dcd",
-            "cf60302a5d14ae55",
-            "695e23d9a23360f9",
             "8df26b2177e029fc",
             "92f10e36cbc8e2ae",
-            "fe6676f1a71e7f3c"
+            "cf60302a5d14ae55",
+            "fe6676f1a71e7f3c",
+            "e6fb258dd75c7fb6"
         ],
         "x": 935,
         "y": 280,
@@ -4012,7 +4009,8 @@
         "y": 1100,
         "wires": [
             [
-                "fc3e3c9d40e35894"
+                "fc3e3c9d40e35894",
+                "ed39d8735dea7a7d"
             ]
         ]
     },
@@ -4068,7 +4066,8 @@
         "links": [
             "a4d0edd5f6d3f0a0",
             "c2a1d87a52c8ad5f",
-            "e25583298eb669eb"
+            "e25583298eb669eb",
+            "f361f910baa3973e"
         ],
         "x": 845,
         "y": 1020,
@@ -4087,7 +4086,9 @@
             "137e36108b790425",
             "5e8a7b5813f43e9e",
             "a4d0edd5f6d3f0a0",
-            "c2a1d87a52c8ad5f"
+            "c2a1d87a52c8ad5f",
+            "f361f910baa3973e",
+            "08be73627b96f7a9"
         ],
         "x": 45,
         "y": 100,
@@ -6574,6 +6575,201 @@
         ]
     },
     {
+        "id": "cbdcee08271b0f6d",
+        "type": "ui_button",
+        "z": "053268593fae8c42",
+        "name": "",
+        "group": "9dbddaa8775473fd",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Center in map",
+        "tooltip": "Center map on selected WP",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1740,
+        "y": 1060,
+        "wires": [
+            [
+                "d88ab4d85af725de"
+            ]
+        ]
+    },
+    {
+        "id": "d88ab4d85af725de",
+        "type": "function",
+        "z": "053268593fae8c42",
+        "name": "center on selected_wp",
+        "func": "gui_state = global.get(\"gui_state\")\nswp = gui_state.selected_wp\n\n\nm = {\"payload\": {\n        \"command\":{\n            \"lat\": swp.lat,\n            \"lon\": swp.lon\n        }\n    }}\nreturn m;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1800,
+        "y": 1100,
+        "wires": [
+            [
+                "e6fb258dd75c7fb6"
+            ]
+        ]
+    },
+    {
+        "id": "e6fb258dd75c7fb6",
+        "type": "link out",
+        "z": "053268593fae8c42",
+        "name": "worldmap",
+        "mode": "link",
+        "links": [
+            "baf8ce41441c9d88"
+        ],
+        "x": 1925,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "ed39d8735dea7a7d",
+        "type": "function",
+        "z": "053268593fae8c42",
+        "name": "set selected_wp",
+        "func": "gui_state = global.get(\"gui_state\")\nwps = global.get(\"waypoints\")\n\nswp = wps[msg.payload]\ngui_state.selected_wp = swp\nreturn {selected:swp.name}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1540,
+        "y": 1100,
+        "wires": [
+            [
+                "08be73627b96f7a9"
+            ]
+        ]
+    },
+    {
+        "id": "35c02c549ee1fceb",
+        "type": "inject",
+        "z": "053268593fae8c42",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 1090,
+        "y": 1060,
+        "wires": [
+            [
+                "c943b10b45b886d8"
+            ]
+        ]
+    },
+    {
+        "id": "08be73627b96f7a9",
+        "type": "link out",
+        "z": "053268593fae8c42",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "dd7344e296dcc72d"
+        ],
+        "x": 1655,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "d30c28fa7b54aaac",
+        "type": "inject",
+        "z": "053268593fae8c42",
+        "name": "deploy 1s",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4",
+        "topic": "",
+        "x": 1160,
+        "y": 80,
+        "wires": [
+            [
+                "9ed8b9724ce7aa14"
+            ]
+        ]
+    },
+    {
+        "id": "9ed8b9724ce7aa14",
+        "type": "function",
+        "z": "053268593fae8c42",
+        "name": "make new base layer",
+        "func": "msg = {payload:{command:{}}};\nmsg.payload.command.map = {\n    \"name\":\"SWE-Chart\",\n    \"url\":\"https://pasjon.eniro.se/#map={z}/{x}/{y}.png\",\n    \"opt\":{ \"maxZoom\":22, \"attribution\":\"&copy; Eniro\" }\n};\n\n\n\n\n// msg.payload.command.map = {\n//     \"name\":\"EMODnetBathy\", \n//     \"url\":\"https://ows.emodnet-bathymetry.eu/wms\",\n//     \"opt\":{ \"maxZoom\":22,\n//             \"attribution\":\"&copy; EMODnet\",\n//             \"format\":\"image/png\",\n//             \"layers\":\"mean_multicolour\"\n//     },\n//     \"wms\":true\n// };\n\n// msg.payload.command.map = {\n//     \"name\":\"Bathy\", \n//     \"url\":\" https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?\",\n//     \"opt\":{ \"maxZoom\":22,\n//             \"attribution\":\"&copy; GEBCO\",\n//             \"format\":\"image/jpeg\",\n//             \"request\":\"getmap\",\n//             \"service\":\"wms\",\n//             \"layers\":\"gebco_latest_2_sub_ice_topo\",\n//     },\n//     \"wms\":true\n// };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 80,
+        "wires": [
+            [
+                "4f18c0fb5a5708dd",
+                "a31946469861cdfe"
+            ]
+        ]
+    },
+    {
+        "id": "42b3be555d274617",
+        "type": "inject",
+        "z": "053268593fae8c42",
+        "name": "deploy",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "9f822780235be5cc"
+            ]
+        ]
+    },
+    {
+        "id": "a31946469861cdfe",
+        "type": "debug",
+        "z": "053268593fae8c42",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1550,
+        "y": 160,
+        "wires": []
+    },
+    {
         "id": "6ef706bf96c3bc5d",
         "type": "function",
         "z": "bd7de6c3e385f05f",
@@ -6781,8 +6977,7 @@
         "y": 480,
         "wires": [
             [
-                "4883b3b5db86634e",
-                "d463a28be0b0652d"
+                "4883b3b5db86634e"
             ]
         ]
     },
@@ -6821,7 +7016,7 @@
         "id": "f8984d76cbfd5967",
         "type": "ui_led",
         "z": "bd7de6c3e385f05f",
-        "order": 7,
+        "order": 8,
         "group": "9dbddaa8775473fd",
         "width": 4,
         "height": 1,
@@ -6879,8 +7074,7 @@
         "wires": [
             [
                 "f8984d76cbfd5967",
-                "9698a4e720d89bc4",
-                "d463a28be0b0652d"
+                "9698a4e720d89bc4"
             ]
         ]
     },
@@ -6915,8 +7109,7 @@
         "wires": [
             [
                 "f8984d76cbfd5967",
-                "9698a4e720d89bc4",
-                "d463a28be0b0652d"
+                "9698a4e720d89bc4"
             ]
         ]
     },
@@ -6970,25 +7163,6 @@
         "wires": []
     },
     {
-        "id": "d463a28be0b0652d",
-        "type": "function",
-        "z": "bd7de6c3e385f05f",
-        "name": "",
-        "func": "s = \"[\"+Date()+\"] \"\nswitch(msg.topic){\n    case \"new_connect\":\n        s += \"Conn event [\"\n        s += msg.payload\n        s += \"] from ip:id= \"\n        s += msg.socketip + \":\" + msg.socketid\n        break\n        \n    case \"http\":\n        s += \"GUI is accesible: \" + msg.payload\n        break\n    \n    case \"deploy\":\n        s += \"New deploy\"\n        break\n        \n    case \"regular\":\n        s += \"Regular check\"\n        break\n}\nreturn {payload:s}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 520,
-        "wires": [
-            [
-                "85d0d2a99159cec3"
-            ]
-        ]
-    },
-    {
         "id": "9811d075c2958931",
         "type": "change",
         "z": "bd7de6c3e385f05f",
@@ -7010,45 +7184,8 @@
         "x": 530,
         "y": 540,
         "wires": [
-            [
-                "d463a28be0b0652d"
-            ]
+            []
         ]
-    },
-    {
-        "id": "85d0d2a99159cec3",
-        "type": "file",
-        "z": "bd7de6c3e385f05f",
-        "d": true,
-        "name": "",
-        "filename": "/data/f5log.txt",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 1120,
-        "y": 520,
-        "wires": [
-            [
-                "24a8986c10db9708"
-            ]
-        ]
-    },
-    {
-        "id": "24a8986c10db9708",
-        "type": "debug",
-        "z": "bd7de6c3e385f05f",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1290,
-        "y": 520,
-        "wires": []
     },
     {
         "id": "cefa3896251d42e3",
@@ -7075,8 +7212,7 @@
         "y": 440,
         "wires": [
             [
-                "4883b3b5db86634e",
-                "d463a28be0b0652d"
+                "4883b3b5db86634e"
             ]
         ]
     },
