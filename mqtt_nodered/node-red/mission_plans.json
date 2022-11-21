@@ -23,7 +23,9 @@
         "slam_rows16",
         "slam_rows17",
         "slam_rows18",
-        "slam_rows19"
+        "slam_rows19",
+        "slam_rows20",
+        "slam_rows21"
       ]
     },
     "ozer_test": {
@@ -35,7 +37,39 @@
         "4",
         "2",
         "orhere",
-        "3"
+        "3",
+        "here",
+        "2",
+        "3",
+        "4",
+        "orhere",
+        "1",
+        "4"
+      ]
+    },
+    "gp_long": {
+      "name": "gp_long",
+      "wp_names": [
+        "sl16",
+        "sl15",
+        "sl14",
+        "sl13",
+        "sl12",
+        "sl11",
+        "sl10",
+        "sl9",
+        "sl1",
+        "sl2",
+        "sl3",
+        "sl4",
+        "sl5",
+        "sl6",
+        "sl7",
+        "sl8",
+        "sl17",
+        "sl18",
+        "sl19",
+        "sl20"
       ]
     }
   }
