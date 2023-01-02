@@ -231,8 +231,11 @@ module.exports = {
      * following property can be used to identify a directory of static content
      * that should be served at http://localhost:1880/.
      */
-    // httpStatic: '/home/azureuser/mqtt_ros_bridge/mqtt_nodered/node-red/static/',
-    // httpStatic: 'static/',
+    // /data/static because nodered is in a docker container, where the node-red
+    // folder of the host is mounted as /data inside the container.
+    // AND, these things are not served under www/static/xxx.txt, they are straight under
+    // www/xxx.txt
+    httpStatic: '/data/static/',
 
 /*******************************************************************************
  * Runtime Settings
@@ -446,7 +449,7 @@ module.exports = {
      *  middleware:{function or array}, (req,res,next) - http middleware
      *  ioMiddleware:{function or array}, (socket,next) - socket.io middleware
      */
-    ui: { path: "/" },
+    // ui: { path: "/" },
 
     /** Colourise the console output of the debug node */
     //debugUseColors: true,

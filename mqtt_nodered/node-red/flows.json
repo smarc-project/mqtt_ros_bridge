@@ -24,19 +24,19 @@
         "env": []
     },
     {
+        "id": "e0f0c459.bbf218",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "37967d2ca28ac7bd",
         "type": "tab",
         "label": "V2_data_in",
         "disabled": false,
         "info": "",
         "env": []
-    },
-    {
-        "id": "e0f0c459.bbf218",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
     },
     {
         "id": "072468ee5a218dc0",
@@ -6747,7 +6747,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "4",
+        "onceDelay": "1",
         "topic": "",
         "x": 1160,
         "y": 80,
@@ -6762,7 +6762,7 @@
         "type": "function",
         "z": "053268593fae8c42",
         "name": "make new base layer",
-        "func": "msg = {payload:{command:{}}};\nmsg.payload.command.map = {\n    \"name\":\"SWE-Chart\",\n    \"url\":\"https://pasjon.eniro.se/#map={z}/{x}/{y}.png\",\n    \"opt\":{ \"maxZoom\":22, \"attribution\":\"&copy; Eniro\" }\n};\n\n\n\n\n// msg.payload.command.map = {\n//     \"name\":\"EMODnetBathy\", \n//     \"url\":\"https://ows.emodnet-bathymetry.eu/wms\",\n//     \"opt\":{ \"maxZoom\":22,\n//             \"attribution\":\"&copy; EMODnet\",\n//             \"format\":\"image/png\",\n//             \"layers\":\"mean_multicolour\"\n//     },\n//     \"wms\":true\n// };\n\n// msg.payload.command.map = {\n//     \"name\":\"Bathy\", \n//     \"url\":\" https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?\",\n//     \"opt\":{ \"maxZoom\":22,\n//             \"attribution\":\"&copy; GEBCO\",\n//             \"format\":\"image/jpeg\",\n//             \"request\":\"getmap\",\n//             \"service\":\"wms\",\n//             \"layers\":\"gebco_latest_2_sub_ice_topo\",\n//     },\n//     \"wms\":true\n// };\n\nreturn msg;",
+        "func": "msg = {payload:{command:{}}};\n// msg.payload.command.map = {\n//     \"name\":\"SWE-Chart\",\n//     \"url\":\"https://pasjon.eniro.se/#map={z}/{x}/{y}.png\",\n//     \"opt\":{ \"maxZoom\":22, \"attribution\":\"&copy; Eniro\" }\n// };\n\n\n\n\n// msg.payload.command.map = {\n//     \"name\":\"EMODnetBathy\", \n//     \"url\":\"https://ows.emodnet-bathymetry.eu/wms\",\n//     \"opt\":{ \"maxZoom\":22,\n//             \"attribution\":\"&copy; EMODnet\",\n//             \"format\":\"image/png\",\n//             \"layers\":\"mean_multicolour\"\n//     },\n//     \"wms\":true\n// };\n\n// this works as a http request from this container\n// http://mapserver/?MAP=/etc/mapserver/sweden.map&SERVICE=WMS&REQUEST=Getmap&VERSION=1.1.1&LAYERS=CONTOUR&srs=EPSG:4326&BBOX=9.0,54.0,26.0,69.0&FORMAT=png&WIDTH=2000&HEIGHT=1100&STYLES=default\nmsg.payload.command.map = {\n    \"overlay\":\"Bathy\", \n    \"url\":\"http://mapserver/?MAP=/etc/mapserver/sweden.map\",\n    \"opt\":{ \n        \"layers\":\"CONTOUR\",\n        \"format\":\"image/png\",\n        \"service\":\"wms\",\n    },\n    \"wms\":true\n};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7335,6 +7335,145 @@
         "wires": []
     },
     {
+        "id": "ce2b69173c28d8d1",
+        "type": "http request",
+        "z": "bd7de6c3e385f05f",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://mapserver/?MAP=/etc/mapserver/sweden.map&SERVICE=WMS&REQUEST=Getmap&VERSION=1.1.1&LAYERS=CONTOUR&srs=EPSG:4326&BBOX=9.0,54.0,26.0,69.0&FORMAT=png&WIDTH=2000&HEIGHT=1100&STYLES=default",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 810,
+        "y": 800,
+        "wires": [
+            [
+                "90c9f56afdfc8620"
+            ]
+        ]
+    },
+    {
+        "id": "1aac06b73691a3f2",
+        "type": "inject",
+        "z": "bd7de6c3e385f05f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 620,
+        "y": 800,
+        "wires": [
+            [
+                "ce2b69173c28d8d1"
+            ]
+        ]
+    },
+    {
+        "id": "90c9f56afdfc8620",
+        "type": "debug",
+        "z": "bd7de6c3e385f05f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "976557a0.10d4d8",
+        "type": "ui_text",
+        "z": "e0f0c459.bbf218",
+        "d": true,
+        "group": "9e2bac96.b321b",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "name": "Colored text",
+        "label": "<font color= {{msg.strongcolor}} > Display </font>",
+        "format": "<font color= {{msg.color}} > {{msg.payload}} </font>",
+        "layout": "row-spread",
+        "className": "",
+        "x": 590,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c6bcdbe4.6822b8",
+        "type": "inject",
+        "z": "e0f0c459.bbf218",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "Your payload",
+        "payloadType": "str",
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "94c95548.2b6ae8"
+            ]
+        ]
+    },
+    {
+        "id": "94c95548.2b6ae8",
+        "type": "change",
+        "z": "e0f0c459.bbf218",
+        "name": "Set colors",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "lime",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "strongcolor",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "976557a0.10d4d8"
+            ]
+        ]
+    },
+    {
         "id": "51eed1623ae376dd",
         "type": "mqtt in",
         "z": "37967d2ca28ac7bd",
@@ -7751,78 +7890,6 @@
         ]
     },
     {
-        "id": "976557a0.10d4d8",
-        "type": "ui_text",
-        "z": "e0f0c459.bbf218",
-        "d": true,
-        "group": "9e2bac96.b321b",
-        "order": 0,
-        "width": "6",
-        "height": "1",
-        "name": "Colored text",
-        "label": "<font color= {{msg.strongcolor}} > Display </font>",
-        "format": "<font color= {{msg.color}} > {{msg.payload}} </font>",
-        "layout": "row-spread",
-        "className": "",
-        "x": 590,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "c6bcdbe4.6822b8",
-        "type": "inject",
-        "z": "e0f0c459.bbf218",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "",
-        "topic": "",
-        "payload": "Your payload",
-        "payloadType": "str",
-        "x": 210,
-        "y": 140,
-        "wires": [
-            [
-                "94c95548.2b6ae8"
-            ]
-        ]
-    },
-    {
-        "id": "94c95548.2b6ae8",
-        "type": "change",
-        "z": "e0f0c459.bbf218",
-        "name": "Set colors",
-        "rules": [
-            {
-                "t": "set",
-                "p": "color",
-                "pt": "msg",
-                "to": "lime",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "strongcolor",
-                "pt": "msg",
-                "to": "red",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 400,
-        "y": 140,
-        "wires": [
-            [
-                "976557a0.10d4d8"
-            ]
-        ]
-    },
-    {
         "id": "a04b59e608979f6a",
         "type": "ui_list",
         "z": "072468ee5a218dc0",
@@ -7836,7 +7903,7 @@
         "allowHTML": false,
         "outputs": 1,
         "topic": "",
-        "x": 490,
+        "x": 610,
         "y": 200,
         "wires": [
             [
@@ -7848,14 +7915,14 @@
         "id": "b17ab9737c48ebe8",
         "type": "function",
         "z": "072468ee5a218dc0",
-        "name": "update list of robots",
+        "name": "make ui_list config from robot_states",
         "func": "list_config = []\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    \n    if(since_last_update > 10*60){\n        description_str = \"Updated >10m ago\"\n    }else{\n        description_str = \"Updated \"+ since_last_update.toFixed(2) + \" s ago\"\n    }\n    \n    if(since_last_update > 10*60){\n        icon = 'fa-deaf'\n    }else{\n        icon = 'fa-feed'\n    }\n    \n    if(robot_state.gui.selected){\n        icon = 'fa-eye'\n    }\n    \n    \n    list_item = {\n        title: robot_name,\n        description: description_str,\n        icon_name: icon\n    }\n    list_config.push(list_item)\n}\nreturn {payload:list_config}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 370,
         "y": 200,
         "wires": [
             [
@@ -7894,7 +7961,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
+        "x": 760,
         "y": 200,
         "wires": [
             []
@@ -7904,19 +7971,18 @@
         "id": "0a4f4cb54557ce2f",
         "type": "ui_template",
         "z": "072468ee5a218dc0",
-        "d": true,
         "group": "9f2da61.3353758",
         "name": "",
         "order": 3,
         "width": 0,
         "height": 0,
-        "format": "<link rel=\"stylesheet\" href=\"/static/flight/css/flightindicators.css\"/>\n<script src=\"/static/flight/js/jquery.flightindicators.js\"></script>",
+        "format": "<link rel=\"stylesheet\" href=\"/flight/css/flightindicators.css\"/>\n<script src=\"/flight/js/jquery.flightindicators.js\"></script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 700,
+        "x": 760,
         "y": 240,
         "wires": [
             []
@@ -7926,19 +7992,18 @@
         "id": "2e8781f4b35114a4",
         "type": "ui_template",
         "z": "072468ee5a218dc0",
-        "d": true,
         "group": "a48b13904097fb6a",
         "name": "Flight",
         "order": 1,
         "width": 20,
         "height": 5,
-        "format": "<div><span id=\"attitude\"></span><!--<span id=\"heading\"></span><span id=\"airspeed\"></span></div>-->\n\n<script>\n(function(scope) {\n    var options = {\n    \tsize : 200,\t\t\t\t// Sets the size in pixels of the indicator (square)\n    \troll : 0,\t\t\t\t// Roll angle in degrees for an attitude indicator\n    \tpitch : 0,\t\t\t\t// Pitch angle in degrees for an attitude indicator\n    \theading: 0,\t\t\t\t// Heading angle in degrees for an heading indicator\n    \tvario: 0,\t\t\t\t// Variometer in 1000 feets/min for the variometer indicator\n    \tairspeed: 0,\t\t\t// Air speed in knots for an air speed indicator\n    \taltitude: 0,\t\t\t// Altitude in feets for an altimeter indicator\n    \tpressure: 1000,\t\t\t// Pressure in hPa for an altimeter indicator\n    \tshowBox : true,\t\t\t// Sets if the outer squared box is visible or not (true or false)\n    \timg_directory : '/static/flight/img/'\t// The directory where the images are saved to\n    }\n    var atti = $.flightIndicator('#attitude', 'attitude',options);\n    var heading = $.flightIndicator('#heading', 'heading',options);\n    var speed = $.flightIndicator('#airspeed', 'airspeed',options);\n    scope.$watch('msg', function(msg) {\n        if (msg) {\n          if(msg.topic == \"roll\"){\n              atti.setRoll(msg.payload)\n          }\n          if(msg.topic == \"pitch\"){\n              atti.setPitch(msg.payload)\n          }\n          if(msg.topic == \"heading\"){\n              heading.setHeading(msg.payload)\n          }\n          if(msg.topic == \"speed\"){\n              speed.setAirSpeed(msg.payload)\n          }\n          \n        }\n  });\n})(scope);\n</script>",
+        "format": "<div><span id=\"attitude\"></span></div> <!--<span id=\"heading\"></span><span id=\"airspeed\"></span></div>-->\n\n<script>\n(function(scope) {\n    var options = {\n    \tsize : 200,\t\t\t\t// Sets the size in pixels of the indicator (square)\n    \troll : 0,\t\t\t\t// Roll angle in degrees for an attitude indicator\n    \tpitch : 0,\t\t\t\t// Pitch angle in degrees for an attitude indicator\n    \theading: 0,\t\t\t\t// Heading angle in degrees for an heading indicator\n    \tvario: 0,\t\t\t\t// Variometer in 1000 feets/min for the variometer indicator\n    \tairspeed: 0,\t\t\t// Air speed in knots for an air speed indicator\n    \taltitude: 0,\t\t\t// Altitude in feets for an altimeter indicator\n    \tpressure: 1000,\t\t\t// Pressure in hPa for an altimeter indicator\n    \tshowBox : true,\t\t\t// Sets if the outer squared box is visible or not (true or false)\n    \timg_directory : '/flight/img/'\t// The directory where the images are saved to\n    }\n    var atti = $.flightIndicator('#attitude', 'attitude',options);\n    var heading = $.flightIndicator('#heading', 'heading',options);\n    var speed = $.flightIndicator('#airspeed', 'airspeed',options);\n    scope.$watch('msg', function(msg) {\n        if (msg) {\n          if(msg.topic == \"roll\"){\n              atti.setRoll(msg.payload)\n          }\n          if(msg.topic == \"pitch\"){\n              atti.setPitch(msg.payload)\n          }\n          if(msg.topic == \"heading\"){\n              heading.setHeading(msg.payload)\n          }\n          if(msg.topic == \"speed\"){\n              speed.setAirSpeed(msg.payload)\n          }\n          \n        }\n  });\n})(scope);\n\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 570,
+        "x": 630,
         "y": 240,
         "wires": [
             []
@@ -7948,49 +8013,23 @@
         "id": "c375e4a5e57177ab",
         "type": "function",
         "z": "072468ee5a218dc0",
-        "name": "emit roll/pitch",
-        "func": "gui_state = global.get(\"gui_state\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\n\nroll = robot_state.base.roll\npitch = robot_state.base.pitch\n\nmsgs = [\n    {topic:\"roll\", payload:roll},\n    {topic:\"pitch\", payload:pitch}\n    ]\n    \nreturn {payload:msgs}",
-        "outputs": 1,
+        "name": "emit roll for Flight",
+        "func": "gui_state = global.get(\"gui_state\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\n\nroll = robot_state.base.roll\npitch = robot_state.base.pitch\n\nmsgs = [\n    {topic:\"roll\", payload:roll},\n    {topic:\"pitch\", payload:pitch}\n    ]\n    \nreturn msgs",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 240,
-        "wires": [
-            [
-                "0ded1e7b3cd14dd4"
-            ]
-        ]
-    },
-    {
-        "id": "0ded1e7b3cd14dd4",
-        "type": "split",
-        "z": "072468ee5a218dc0",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 430,
+        "x": 310,
         "y": 240,
         "wires": [
             [
                 "2e8781f4b35114a4"
+            ],
+            [
+                "2e8781f4b35114a4"
             ]
         ]
-    },
-    {
-        "id": "99d4bda9eef5f690",
-        "type": "comment",
-        "z": "072468ee5a218dc0",
-        "name": "Try this again when CAAAAARRRLL fixes shit",
-        "info": "",
-        "x": 670,
-        "y": 280,
-        "wires": []
     },
     {
         "id": "18a2da8779fe4d91",
