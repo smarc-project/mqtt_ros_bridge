@@ -7934,18 +7934,17 @@
         "id": "4a4d95ebe5f4a0a2",
         "type": "inject",
         "z": "072468ee5a218dc0",
-        "name": "1s",
+        "name": "0.2",
         "props": [],
-        "repeat": "1",
+        "repeat": "0.2",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 110,
+        "x": 150,
         "y": 240,
         "wires": [
             [
-                "b17ab9737c48ebe8",
                 "c375e4a5e57177ab"
             ]
         ]
@@ -7997,7 +7996,7 @@
         "order": 1,
         "width": 20,
         "height": 5,
-        "format": "<div><span id=\"attitude\"></span></div> <!--<span id=\"heading\"></span><span id=\"airspeed\"></span></div>-->\n\n<script>\n(function(scope) {\n    var options = {\n    \tsize : 200,\t\t\t\t// Sets the size in pixels of the indicator (square)\n    \troll : 0,\t\t\t\t// Roll angle in degrees for an attitude indicator\n    \tpitch : 0,\t\t\t\t// Pitch angle in degrees for an attitude indicator\n    \theading: 0,\t\t\t\t// Heading angle in degrees for an heading indicator\n    \tvario: 0,\t\t\t\t// Variometer in 1000 feets/min for the variometer indicator\n    \tairspeed: 0,\t\t\t// Air speed in knots for an air speed indicator\n    \taltitude: 0,\t\t\t// Altitude in feets for an altimeter indicator\n    \tpressure: 1000,\t\t\t// Pressure in hPa for an altimeter indicator\n    \tshowBox : true,\t\t\t// Sets if the outer squared box is visible or not (true or false)\n    \timg_directory : '/flight/img/'\t// The directory where the images are saved to\n    }\n    var atti = $.flightIndicator('#attitude', 'attitude',options);\n    var heading = $.flightIndicator('#heading', 'heading',options);\n    var speed = $.flightIndicator('#airspeed', 'airspeed',options);\n    scope.$watch('msg', function(msg) {\n        if (msg) {\n          if(msg.topic == \"roll\"){\n              atti.setRoll(msg.payload)\n          }\n          if(msg.topic == \"pitch\"){\n              atti.setPitch(msg.payload)\n          }\n          if(msg.topic == \"heading\"){\n              heading.setHeading(msg.payload)\n          }\n          if(msg.topic == \"speed\"){\n              speed.setAirSpeed(msg.payload)\n          }\n          \n        }\n  });\n})(scope);\n\n</script>",
+        "format": "<div><span id=\"attitude\"></span><span id=\"heading\"></span></div> <!--<span id=\"airspeed\"></span></div>-->\n\n<script>\n(function(scope) {\n    var options = {\n    \tsize : 200,\t\t\t\t// Sets the size in pixels of the indicator (square)\n    \troll : 0,\t\t\t\t// Roll angle in degrees for an attitude indicator\n    \tpitch : 0,\t\t\t\t// Pitch angle in degrees for an attitude indicator\n    \theading: 0,\t\t\t\t// Heading angle in degrees for an heading indicator\n    \tvario: 0,\t\t\t\t// Variometer in 1000 feets/min for the variometer indicator\n    \tairspeed: 0,\t\t\t// Air speed in knots for an air speed indicator\n    \taltitude: 0,\t\t\t// Altitude in feets for an altimeter indicator\n    \tpressure: 1000,\t\t\t// Pressure in hPa for an altimeter indicator\n    \tshowBox : true,\t\t\t// Sets if the outer squared box is visible or not (true or false)\n    \timg_directory : '/flight/img/'\t// The directory where the images are saved to\n    }\n    var atti = $.flightIndicator('#attitude', 'attitude',options);\n    var heading = $.flightIndicator('#heading', 'heading',options);\n    var speed = $.flightIndicator('#airspeed', 'airspeed',options);\n    scope.$watch('msg', function(msg) {\n        if (msg) {\n          if(msg.topic == \"roll\"){\n              atti.setRoll(msg.payload)\n          }\n          if(msg.topic == \"pitch\"){\n              atti.setPitch(-msg.payload)\n          }\n          if(msg.topic == \"heading\"){\n              heading.setHeading(msg.payload)\n          }\n          if(msg.topic == \"speed\"){\n              speed.setAirSpeed(msg.payload)\n          }\n          \n        }\n  });\n})(scope);\n\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -8013,9 +8012,9 @@
         "id": "c375e4a5e57177ab",
         "type": "function",
         "z": "072468ee5a218dc0",
-        "name": "emit roll for Flight",
-        "func": "gui_state = global.get(\"gui_state\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\n\nroll = robot_state.base.roll\npitch = robot_state.base.pitch\n\nmsgs = [\n    {topic:\"roll\", payload:roll},\n    {topic:\"pitch\", payload:pitch}\n    ]\n    \nreturn msgs",
-        "outputs": 2,
+        "name": "[roll, pitch, heading]",
+        "func": "gui_state = global.get(\"gui_state\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\n\nroll = robot_state.base.roll\npitch = robot_state.base.pitch\nheading = robot_state.base.heading\n\nmsgs = [\n    {topic:\"roll\", payload:roll},\n    {topic:\"pitch\", payload:pitch},\n    {topic:\"heading\", payload:heading}\n    ]\n    \nreturn msgs",
+        "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -8028,8 +8027,47 @@
             ],
             [
                 "2e8781f4b35114a4"
+            ],
+            [
+                "2e8781f4b35114a4",
+                "dd9de6d103818491"
             ]
         ]
+    },
+    {
+        "id": "971e5bcf85bd8530",
+        "type": "inject",
+        "z": "072468ee5a218dc0",
+        "name": "1",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "b17ab9737c48ebe8"
+            ]
+        ]
+    },
+    {
+        "id": "dd9de6d103818491",
+        "type": "debug",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 320,
+        "wires": []
     },
     {
         "id": "18a2da8779fe4d91",
