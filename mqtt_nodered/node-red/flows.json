@@ -6762,7 +6762,7 @@
         "type": "function",
         "z": "053268593fae8c42",
         "name": "make new base layer",
-        "func": "msg = {payload:{command:{}}};\n// msg.payload.command.map = {\n//     \"name\":\"SWE-Chart\",\n//     \"url\":\"https://pasjon.eniro.se/#map={z}/{x}/{y}.png\",\n//     \"opt\":{ \"maxZoom\":22, \"attribution\":\"&copy; Eniro\" }\n// };\n\n\n\n\n// msg.payload.command.map = {\n//     \"name\":\"EMODnetBathy\", \n//     \"url\":\"https://ows.emodnet-bathymetry.eu/wms\",\n//     \"opt\":{ \"maxZoom\":22,\n//             \"attribution\":\"&copy; EMODnet\",\n//             \"format\":\"image/png\",\n//             \"layers\":\"mean_multicolour\"\n//     },\n//     \"wms\":true\n// };\n\n// this works as a http request from this container\n// http://mapserver/?MAP=/etc/mapserver/sweden.map&SERVICE=WMS&REQUEST=Getmap&VERSION=1.1.1&LAYERS=CONTOUR&srs=EPSG:4326&BBOX=9.0,54.0,26.0,69.0&FORMAT=png&WIDTH=2000&HEIGHT=1100&STYLES=default\nmsg.payload.command.map = {\n    \"overlay\":\"Bathy\", \n    \"url\":\"http://mapserver/?MAP=/etc/mapserver/sweden.map\",\n    \"opt\":{ \n        \"layers\":\"CONTOUR\",\n        \"format\":\"image/png\",\n        \"service\":\"wms\",\n    },\n    \"wms\":true\n};\n\nreturn msg;",
+        "func": "msg = {payload:{command:{}}};\n// msg.payload.command.map = {\n//     \"name\":\"SWE-Chart\",\n//     \"url\":\"https://pasjon.eniro.se/#map={z}/{x}/{y}.png\",\n//     \"opt\":{ \"maxZoom\":22, \"attribution\":\"&copy; Eniro\" }\n// };\n\n\n\n\n// msg.payload.command.map = {\n//     \"name\":\"EMODnetBathy\", \n//     \"url\":\"https://ows.emodnet-bathymetry.eu/wms\",\n//     \"opt\":{ \"maxZoom\":22,\n//             \"attribution\":\"&copy; EMODnet\",\n//             \"format\":\"image/png\",\n//             \"layers\":\"mean_multicolour\"\n//     },\n//     \"wms\":true\n// };\n\n// this works as a http request from this container\n// http://mapserver/?MAP=/etc/mapserver/sweden.map&SERVICE=WMS&REQUEST=Getmap&VERSION=1.1.1&LAYERS=CONTOUR&srs=EPSG:4326&BBOX=9.0,54.0,26.0,69.0&FORMAT=png&WIDTH=2000&HEIGHT=1100&STYLES=default\nmsg.payload.command.map = {\n    \"overlay\":\"Bathy\", \n    \"url\":\"http://nodered.blue-robots.com/mapserver\",\n    \"opt\":{ \n        \"map\":\"/etc/mapserver/sweden.map\",\n        \"layers\":\"CONTOUR\",\n        \"format\":\"image/png\",\n        \"service\":\"wms\",\n        \"transparent\":true\n    },\n    \"wms\":true\n};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8029,8 +8029,7 @@
                 "2e8781f4b35114a4"
             ],
             [
-                "2e8781f4b35114a4",
-                "dd9de6d103818491"
+                "2e8781f4b35114a4"
             ]
         ]
     },
@@ -8052,22 +8051,6 @@
                 "b17ab9737c48ebe8"
             ]
         ]
-    },
-    {
-        "id": "dd9de6d103818491",
-        "type": "debug",
-        "z": "072468ee5a218dc0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 320,
-        "wires": []
     },
     {
         "id": "18a2da8779fe4d91",

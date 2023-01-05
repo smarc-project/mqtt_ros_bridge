@@ -24,7 +24,7 @@
 		}, options );
 
 		var constants = {
-			pitch_bound:30,
+			pitch_bound:90,
 			vario_bound : 1.95,
 			airspeed_bound_l : 0,
 			airspeed_bound_h : 160
