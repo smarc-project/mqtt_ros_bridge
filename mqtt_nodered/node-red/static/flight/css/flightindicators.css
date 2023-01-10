@@ -15,7 +15,6 @@ div.instrument {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  border: 3px solid red;
 }
 
 /* The box containing any element of an indicator */
