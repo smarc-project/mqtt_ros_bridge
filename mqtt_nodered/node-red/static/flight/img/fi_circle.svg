@@ -35,8 +35,8 @@
    id="namedview20"
    showgrid="false"
    inkscape:zoom="2.3560772"
-   inkscape:cx="171.62256"
-   inkscape:cy="188.76716"
+   inkscape:cx="94.587733"
+   inkscape:cy="187.06942"
    inkscape:window-x="1672"
    inkscape:window-y="27"
    inkscape:window-maximized="1"
@@ -69,19 +69,14 @@
    inkscape:groupmode="layer"
    id="layer2"
    inkscape:label="white"
-   style="display:inline"><path
-     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.89311594px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 405.55159,-3.281587 -4.2951243,-3.4052401 -1.2869748,405.84516 405.78852,403.66831 Z M 200.75781,46.548828 C 286.10713,46.549425 355.29627,115.2104 355.29688,199.9082 355.29736,284.60676 286.1079,353.26893 200.75781,353.26953 115.40696,353.27 46.216313,284.60751 46.216797,199.9082 46.217403,115.20965 115.40773,46.54836 200.75781,46.548828 Z"
-     id="path836"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cccccccccc" /></g><g
+   style="display:inline" /><g
    inkscape:groupmode="layer"
    id="layer1"
    inkscape:label="circle"
    style="display:inline"
    sodipodi:insensitive="true"><path
-     style="opacity:1;fill:none;fill-opacity:1;stroke:#0094ce;stroke-width:10.10833168;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     d="M 355.29758,199.90855 A 154.54016,153.36046 0 0 1 200.75742,353.26901 154.54016,153.36046 0 0 1 46.217255,199.90855 154.54016,153.36046 0 0 1 200.75742,46.548096 154.54016,153.36046 0 0 1 355.29758,199.90855 Z"
+     style="opacity:1;fill:none;fill-opacity:1;stroke:#0094ce;stroke-width:12.59995556;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     d="M 393.39051,199.90855 A 192.63309,191.16261 0 0 1 200.75742,391.07115 192.63309,191.16261 0 0 1 8.1243225,199.90855 192.63309,191.16261 0 0 1 200.75742,8.7459516 192.63309,191.16261 0 0 1 393.39051,199.90855 Z"
      id="path835"
      inkscape:connector-curvature="0" /></g>
 </svg>
