@@ -24,32 +24,9 @@
         "env": []
     },
     {
-        "id": "e0f0c459.bbf218",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "37967d2ca28ac7bd",
-        "type": "tab",
-        "label": "V2_data_in",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "072468ee5a218dc0",
         "type": "tab",
-        "label": "V2_GUI",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "cfb5bc673a49979e",
-        "type": "tab",
-        "label": "V2_globals",
+        "label": "V2 Robot State",
         "disabled": false,
         "info": "",
         "env": []
@@ -320,12 +297,12 @@
     {
         "id": "a48b13904097fb6a",
         "type": "ui_group",
-        "name": "Robot info",
+        "name": "Robot Info",
         "tab": "014f9035e48813bb",
         "order": 1,
         "disp": true,
-        "width": "21",
-        "collapse": false,
+        "width": "6",
+        "collapse": true,
         "className": ""
     },
     {
@@ -346,6 +323,17 @@
         "order": 1,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "81d4dedb195938c4",
+        "type": "ui_group",
+        "name": "BT State",
+        "tab": "014f9035e48813bb",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": true,
+        "className": ""
     },
     {
         "id": "6d93d1d6e9d2a07b",
@@ -7402,509 +7390,21 @@
         "wires": []
     },
     {
-        "id": "976557a0.10d4d8",
-        "type": "ui_text",
-        "z": "e0f0c459.bbf218",
-        "d": true,
-        "group": "9e2bac96.b321b",
-        "order": 0,
-        "width": "6",
-        "height": "1",
-        "name": "Colored text",
-        "label": "<font color= {{msg.strongcolor}} > Display </font>",
-        "format": "<font color= {{msg.color}} > {{msg.payload}} </font>",
-        "layout": "row-spread",
-        "className": "",
-        "x": 590,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "c6bcdbe4.6822b8",
-        "type": "inject",
-        "z": "e0f0c459.bbf218",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "",
-        "topic": "",
-        "payload": "Your payload",
-        "payloadType": "str",
-        "x": 210,
-        "y": 140,
-        "wires": [
-            [
-                "94c95548.2b6ae8"
-            ]
-        ]
-    },
-    {
-        "id": "94c95548.2b6ae8",
-        "type": "change",
-        "z": "e0f0c459.bbf218",
-        "name": "Set colors",
-        "rules": [
-            {
-                "t": "set",
-                "p": "color",
-                "pt": "msg",
-                "to": "lime",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "strongcolor",
-                "pt": "msg",
-                "to": "red",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 400,
-        "y": 140,
-        "wires": [
-            [
-                "976557a0.10d4d8"
-            ]
-        ]
-    },
-    {
-        "id": "51eed1623ae376dd",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "lat_lon",
-        "topic": "smarc/+/dr/lat_lon",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 80,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "8c039af26a40d65b",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Yaw",
-        "topic": "smarc/+/dr/yaw",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 120,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "a3e321c41a417596",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Depth",
-        "topic": "smarc/+/dr/depth",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 240,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "ba7fbbbd531cc76f",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Roll",
-        "topic": "smarc/+/dr/roll",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 160,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "ca62ae7bb6eeb85a",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Pitch",
-        "topic": "smarc/+/dr/pitch",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 200,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "151ec7db07c5bf52",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "VBS_fb",
-        "topic": "smarc/+/core/vbs_fb",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 280,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "5aede5876f4a8bef",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "LCG_fb",
-        "topic": "smarc/+/core/lcg_fb",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 320,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "9a6c1dd7155c999a",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "T1_fb",
-        "topic": "smarc/+/core/thruster1_fb",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 360,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "68c4767c6148f49d",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "T2_fb",
-        "topic": "smarc/+/core/thruster2_fb",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 400,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "028d4e70dfb829d2",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "batt",
-        "topic": "smarc/+/core/battery",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 440,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "46d50d8e06f10c84",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "gps",
-        "topic": "smarc/+/core/gps",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 480,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "fbc2e84cdf50eec0",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Altitude",
-        "topic": "smarc/+/dr/altitude",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 520,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "f0e578c28283bfd4",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "goto_wp_goal",
-        "topic": "smarc/+/bt/last_wp",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 560,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "45c8f4ebbbdee8e2",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "bt tip",
-        "topic": "smarc/+/bt/tip",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 600,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "4064cc96dda4ad29",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "livewp enable",
-        "topic": "smarc/+/bt/live_wp/enable",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 640,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "47f4ba2444a7d461",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "algae enable",
-        "topic": "smarc/+/bt/algae_farm/enable",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 680,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "4f973a8e6ec92028",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "bt heartbeat",
-        "topic": "smarc/+/bt/heartbeat",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 720,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "0cde01bab592c9af",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "bt missioncontrol",
-        "topic": "smarc/+/bt/mission_control",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 140,
-        "y": 760,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "9a6e2b83541ff91d",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "guiwp enable",
-        "topic": "smarc/+/bt/gui_wp/enable",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 800,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "632c6fcb535c101e",
-        "type": "function",
-        "z": "37967d2ca28ac7bd",
-        "name": "update robot state",
-        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": \"robot_name\"+\"_gps\",\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            }\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "a04b59e608979f6a",
         "type": "ui_list",
         "z": "072468ee5a218dc0",
         "group": "a48b13904097fb6a",
         "name": "List of robots",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "order": 1,
+        "width": 6,
+        "height": 1,
         "lineType": "two",
         "actionType": "click",
         "allowHTML": false,
         "outputs": 1,
         "topic": "",
-        "x": 610,
-        "y": 200,
+        "x": 630,
+        "y": 1060,
         "wires": [
             [
                 "8d60954c80270a11"
@@ -7916,14 +7416,14 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "make ui_list config from robot_states",
-        "func": "list_config = []\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    \n    if(since_last_update > 10*60){\n        description_str = \"Updated >10m ago\"\n    }else{\n        description_str = \"Updated \"+ since_last_update.toFixed(2) + \" s ago\"\n    }\n    \n    if(since_last_update > 10*60){\n        icon = 'fa-deaf'\n    }else{\n        icon = 'fa-feed'\n    }\n    \n    if(robot_state.gui.selected){\n        icon = 'fa-eye'\n    }\n    \n    \n    list_item = {\n        title: robot_name,\n        description: description_str,\n        icon_name: icon\n    }\n    list_config.push(list_item)\n}\nreturn {payload:list_config}",
+        "func": "list_config = []\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    \n    if(since_last_update > 10*60){\n        description_str = \"⌚ >10m ago\"\n    }else{\n        description_str = \"⌚ \"+ since_last_update.toFixed(2) + \"s ago\"\n    }\n    \n    \n    if(since_last_update > 10*60){\n        icon = 'fa-deaf'\n    }else{\n        icon = 'fa-feed'\n    }\n    \n    if(robot_state.gui.selected){\n        icon = 'fa-eye'\n    }\n    \n    \n    list_item = {\n        title: robot_name,\n        description: description_str,\n        icon_name: icon\n    }\n    list_config.push(list_item)\n}\nreturn {payload:list_config}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 200,
+        "x": 390,
+        "y": 1060,
         "wires": [
             [
                 "a04b59e608979f6a"
@@ -7941,11 +7441,11 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 150,
-        "y": 240,
+        "x": 170,
+        "y": 520,
         "wires": [
             [
-                "c375e4a5e57177ab"
+                "573d0d0f99f72b4b"
             ]
         ]
     },
@@ -7955,16 +7455,14 @@
         "z": "072468ee5a218dc0",
         "name": "on_click",
         "func": "robot_states = global.get(\"robot_states\")\n\n// set all to false\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    robot_state.gui.selected = false\n}\n\n// set clicked to true\nclicked_robot_name = msg.payload.title\nrobot_state = robot_states[clicked_robot_name]\nrobot_state.gui.selected = true\n\ngui_state = global.get(\"gui_state\")\ngui_state.selected_robot_name = clicked_robot_name",
-        "outputs": 1,
+        "outputs": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 200,
-        "wires": [
-            []
-        ]
+        "x": 780,
+        "y": 1060,
+        "wires": []
     },
     {
         "id": "0a4f4cb54557ce2f",
@@ -7981,8 +7479,8 @@
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 760,
-        "y": 240,
+        "x": 1060,
+        "y": 520,
         "wires": [
             []
         ]
@@ -7992,18 +7490,18 @@
         "type": "ui_template",
         "z": "072468ee5a218dc0",
         "group": "a48b13904097fb6a",
-        "name": "Flight",
-        "order": 1,
-        "width": 20,
-        "height": 5,
-        "format": "<div><span id=\"attitude\"></span><span id=\"heading\"></span></div> <!--<span id=\"airspeed\"></span></div>-->\n\n<script>\n(function(scope) {\n    var options = {\n    \tsize : 200,\t\t\t\t// Sets the size in pixels of the indicator (square)\n    \troll : 0,\t\t\t\t// Roll angle in degrees for an attitude indicator\n    \tpitch : 0,\t\t\t\t// Pitch angle in degrees for an attitude indicator\n    \theading: 0,\t\t\t\t// Heading angle in degrees for an heading indicator\n    \tvario: 0,\t\t\t\t// Variometer in 1000 feets/min for the variometer indicator\n    \tairspeed: 0,\t\t\t// Air speed in knots for an air speed indicator\n    \taltitude: 0,\t\t\t// Altitude in feets for an altimeter indicator\n    \tpressure: 1000,\t\t\t// Pressure in hPa for an altimeter indicator\n    \tshowBox : true,\t\t\t// Sets if the outer squared box is visible or not (true or false)\n    \timg_directory : '/flight/img/'\t// The directory where the images are saved to\n    }\n    var atti = $.flightIndicator('#attitude', 'attitude',options);\n    var heading = $.flightIndicator('#heading', 'heading',options);\n    var speed = $.flightIndicator('#airspeed', 'airspeed',options);\n    scope.$watch('msg', function(msg) {\n        if (msg) {\n          if(msg.topic == \"roll\"){\n              atti.setRoll(msg.payload)\n          }\n          if(msg.topic == \"pitch\"){\n              atti.setPitch(-msg.payload)\n          }\n          if(msg.topic == \"heading\"){\n              heading.setHeading(msg.payload)\n          }\n          if(msg.topic == \"speed\"){\n              speed.setAirSpeed(msg.payload)\n          }\n          \n        }\n  });\n})(scope);\n\n</script>",
+        "name": "Roll, Pitch, Heading",
+        "order": 2,
+        "width": 6,
+        "height": 9,
+        "format": "<div><span id=\"attitude\"></span><span id=\"heading\"></span></div> <!--<span id=\"airspeed\"></span></div>-->\n\n<script>\n(function(scope) {\n    var options = {\n    \tsize : 180,\t\t\t\t// Sets the size in pixels of the indicator (square)\n    \troll : 0,\t\t\t\t// Roll angle in degrees for an attitude indicator\n    \tpitch : 0,\t\t\t\t// Pitch angle in degrees for an attitude indicator\n    \theading: 0,\t\t\t\t// Heading angle in degrees for an heading indicator\n    \tvario: 0,\t\t\t\t// Variometer in 1000 feets/min for the variometer indicator\n    \tairspeed: 0,\t\t\t// Air speed in knots for an air speed indicator\n    \taltitude: 0,\t\t\t// Altitude in feets for an altimeter indicator\n    \tpressure: 1000,\t\t\t// Pressure in hPa for an altimeter indicator\n    \tshowBox : false,\t\t\t// Sets if the outer squared box is visible or not (true or false)\n    \timg_directory : '/flight/img/'\t// The directory where the images are saved to\n    }\n    var atti = $.flightIndicator('#attitude', 'attitude',options);\n    var heading = $.flightIndicator('#heading', 'heading',options);\n    var speed = $.flightIndicator('#airspeed', 'airspeed',options);\n    scope.$watch('msg', function(msg) {\n        if (msg) {\n          if(msg.topic == \"roll\"){\n              atti.setRoll(msg.payload)\n          }\n          if(msg.topic == \"pitch\"){\n              atti.setPitch(-msg.payload)\n          }\n          if(msg.topic == \"heading\"){\n              heading.setHeading(msg.payload)\n          }\n          if(msg.topic == \"speed\"){\n              speed.setAirSpeed(msg.payload)\n          }\n          \n        }\n  });\n})(scope);\n\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 630,
-        "y": 240,
+        "x": 890,
+        "y": 520,
         "wires": [
             []
         ]
@@ -8013,14 +7511,14 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "[roll, pitch, heading]",
-        "func": "gui_state = global.get(\"gui_state\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\n\nroll = robot_state.base.roll\npitch = robot_state.base.pitch\nheading = robot_state.base.heading\n\nmsgs = [\n    {topic:\"roll\", payload:roll},\n    {topic:\"pitch\", payload:pitch},\n    {topic:\"heading\", payload:heading}\n    ]\n    \nreturn msgs",
+        "func": "if(msg){\n    return [\n        {topic:\"roll\", payload:msg.base.roll},\n        {topic:\"pitch\", payload:msg.base.pitch},\n        {topic:\"heading\", payload:msg.base.heading}\n        ]\n}\n",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 240,
+        "x": 650,
+        "y": 520,
         "wires": [
             [
                 "2e8781f4b35114a4"
@@ -8044,8 +7542,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 150,
-        "y": 200,
+        "x": 170,
+        "y": 1060,
         "wires": [
             [
                 "b17ab9737c48ebe8"
@@ -8053,39 +7551,808 @@
         ]
     },
     {
-        "id": "18a2da8779fe4d91",
-        "type": "config",
-        "z": "cfb5bc673a49979e",
-        "name": "robot_states",
-        "properties": [
-            {
-                "p": "robot_states",
-                "pt": "global",
-                "to": "{}",
-                "tot": "json"
-            }
+        "id": "573d0d0f99f72b4b",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "Selected Robot State",
+        "func": "gui_state = global.get(\"gui_state\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\nsince_last_update = (Date.now() - robot_state.last_update)/1000\n\nif(since_last_update > 60){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\n\nreturn robot_state",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 520,
+        "wires": [
+            [
+                "c375e4a5e57177ab",
+                "216163265f4ce78b",
+                "7d7f737ccec8bdd1",
+                "8346958d8c2ff728",
+                "5ccaf5f3bf5ae5cf"
+            ]
+        ]
+    },
+    {
+        "id": "216163265f4ce78b",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "[vbs, lcg, tcg]",
+        "func": "if(msg){\n    return [\n        {topic:\"vbs\", payload:msg.base.vbs},\n        {topic:\"lcg\", payload:msg.base.lcg},\n        {topic:\"tcg\", payload:msg.base.tcg},\n        ]\n}\n",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 600,
+        "wires": [
+            [
+                "4e4363d933c20d6c"
+            ],
+            [
+                "656a52f66d5d0bda"
+            ],
+            [
+                "d0bc35b89669966d"
+            ]
+        ]
+    },
+    {
+        "id": "7d7f737ccec8bdd1",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "[T1, T2]",
+        "func": "if(msg){\n    return [\n        {topic:\"t1\", payload:msg.base.t1},\n        {topic:\"t2\", payload:msg.base.t2}\n        ]\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 700,
+        "wires": [
+            [
+                "edb7322d84e1824d"
+            ],
+            [
+                "5c9b93966cd3ce1c"
+            ]
+        ]
+    },
+    {
+        "id": "4e4363d933c20d6c",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "VBS",
+        "group": "a48b13904097fb6a",
+        "order": 5,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "VBS",
+        "label": "%",
+        "format": "{{value | number:2}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
         ],
-        "active": true,
-        "x": 290,
-        "y": 140,
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 850,
+        "y": 560,
         "wires": []
     },
     {
-        "id": "14f4320044abea74",
+        "id": "656a52f66d5d0bda",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "LCG",
+        "group": "a48b13904097fb6a",
+        "order": 6,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "LCG",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 850,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "edb7322d84e1824d",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "T1",
+        "group": "a48b13904097fb6a",
+        "order": 3,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "T1",
+        "label": "rpm",
+        "format": "{{value | number:1}}",
+        "min": "-2000",
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "-800",
+        "seg2": "800",
+        "className": "",
+        "x": 850,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "5c9b93966cd3ce1c",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "T2",
+        "group": "a48b13904097fb6a",
+        "order": 4,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "T2",
+        "label": "rpm",
+        "format": "{{value | number:1}}",
+        "min": "-2000",
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "-800",
+        "seg2": "800",
+        "className": "",
+        "x": 850,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "d0bc35b89669966d",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "TCG",
+        "group": "a48b13904097fb6a",
+        "order": 8,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "TCG",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 850,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "8346958d8c2ff728",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "BT Tip Log",
+        "func": "// \"bt\": {\n//             \"tip\": {\n//                 \"name\": \"???\",\n//                 \"message\": \"\",\n//                 \"status\": \"???\"\n//             },\n//             \"algae_farm_enable\": false,\n//             \"live_wp_enable\": false,\n//             \"gui_wp_enable\": false,\n//             \"current_wp\": {},\n//             \"current_plan\": {},\n//             \"last_heartbeat\": null\n//         },\n\nfunction make_tip_str(tip){\n    c = \"black\"\n    icon = \"\"\n    switch(tip.status){\n        case \"failure\":\n            c = \"red\"\n            icon = \"❌\"\n            break\n        case \"success\":\n            c = \"green\"\n            icon = \"✅\"\n            break\n        case \"running\":\n            c = \"blue\"\n            icon = \"⚙️\"\n            break\n    }\n    \n    tip_type = tip.name.slice(0,1)\n    tip_name = tip.name.slice(2)\n    \n    t = \"\"\n    if(tip.time > 10){\n        t = new Date(tip.time).toTimeString().slice(0,8)\n    }\n    \n    title = t + \" \" + icon + \" <font color=\" + c + \">\" + tip_name\n    msg = \"<font color=\" + c +\">\" + tip.message\n    \n    return [title, msg];\n}\n\ncurrent_tip = msg.bt.tip;\n\n// get the current log, make sure its length matches the value \n// set in the gui and then put it back into global context\ngui_state = global.get(\"gui_state\")\ntips = gui_state.bt_tip_log\ntip_log_len = gui_state.bt_tip_log_len\n// too short\nwhile(tips.length < tip_log_len){\n    tips.push({\n        name:\"\",\n        message:\"\",\n        status:\"\",\n        time:\"\"\n    })\n}\n// too long\nif(tips.length > tip_log_len){\n    tips = tips.slice(0,tip_log_len)\n}\nglobal.set(\"gui_state.bt_tip_log\", tips)\n\nlast_tip = tips[0]\nif(last_tip){\n    if (!(last_tip.name == current_tip.name && last_tip.status == current_tip.status)){\n        // something meaningful have changed, shift things around\n        for(let i=tips.length-1; i>0; i--){\n            tips[i] = tips[i-1]\n        }\n    }\n}\n// otherwise just update the top\ntips[0] = current_tip\ntips[0].time = Date.now()\n\nouts = []\nfor(let i=0; i<tips.length; i++){\n    r = make_tip_str(tips[i])\n    list_item = {\n        title: r[0],\n        description: r[1]\n    }\n    outs.push(list_item)\n}\n\nreturn {payload:outs};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 900,
+        "wires": [
+            [
+                "93832a52fddd1fe6"
+            ]
+        ]
+    },
+    {
+        "id": "f5fa53da63658314",
         "type": "config",
-        "z": "cfb5bc673a49979e",
+        "z": "072468ee5a218dc0",
         "name": "gui_state",
         "properties": [
             {
                 "p": "gui_state",
                 "pt": "global",
-                "to": "{\"selected_robot_name\":null,\"selected_wp\":{},\"selected_plan\":{},\"planning_mode\":false,\"batt_v_minmax\":[-1,-1],\"draw_tracks\":false}",
+                "to": "{\"selected_robot_name\":null,\"selected_wp\":{},\"selected_plan\":{},\"planning_mode\":false,\"batt_v_minmax\":[99999,-1],\"draw_tracks\":false,\"bt_tip_log\":[],\"bt_tip_log_len\":5}",
                 "tot": "json"
             }
         ],
         "active": true,
-        "x": 300,
-        "y": 180,
+        "x": 460,
+        "y": 420,
         "wires": []
+    },
+    {
+        "id": "c50d772c522ec5c1",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "lat_lon",
+        "topic": "smarc/+/dr/lat_lon",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "d8a229ed73bf1a50",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Yaw",
+        "topic": "smarc/+/dr/yaw",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 60,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "d933ebc2598c89a7",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Depth",
+        "topic": "smarc/+/dr/depth",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 100,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "ce5f3fc1415b3d44",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Roll",
+        "topic": "smarc/+/dr/roll",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "f1f6aa8630b2459f",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Pitch",
+        "topic": "smarc/+/dr/pitch",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 60,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "6bc6d108042d5433",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "VBS_fb",
+        "topic": "smarc/+/core/vbs_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "1e257bc81da80283",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "LCG_fb",
+        "topic": "smarc/+/core/lcg_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "cb767c1ced5d8bfa",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "T1_fb",
+        "topic": "smarc/+/core/thruster1_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "b7d61f1afee897a8",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "T2_fb",
+        "topic": "smarc/+/core/thruster2_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "5ab4d2fba4e40e73",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "batt",
+        "topic": "smarc/+/core/battery",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "3ef59b0e6f35a957",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "gps",
+        "topic": "smarc/+/core/gps",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "88437af12ac3ebb4",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Altitude",
+        "topic": "smarc/+/dr/altitude",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "5c17640c744c8c15",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "goto_wp_goal",
+        "topic": "smarc/+/bt/last_wp",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "73e7fa1d9b7b8bc2",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "bt tip",
+        "topic": "smarc/+/bt/tip",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "1447262162547810",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "livewp enable",
+        "topic": "smarc/+/bt/live_wp/enable",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 300,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "9fdc56fc7a754fcd",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "algae enable",
+        "topic": "smarc/+/bt/algae_farm/enable",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "a0a635a67725ceec",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "bt heartbeat",
+        "topic": "smarc/+/bt/heartbeat",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "16ac9c75fa3b93ca",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "bt missioncontrol",
+        "topic": "smarc/+/bt/mission_control",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 540,
+        "y": 300,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "2a5530edfa53f040",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "guiwp enable",
+        "topic": "smarc/+/bt/gui_wp/enable",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 650,
+        "y": 260,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "e58d020e0faf117d",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "update robot state",
+        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": \"robot_name\"+\"_gps\",\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            }\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_states)){\n    global.set(\"robot_states\", {})\n}\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "93832a52fddd1fe6",
+        "type": "ui_list",
+        "z": "072468ee5a218dc0",
+        "group": "81d4dedb195938c4",
+        "name": "BT Log",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "lineType": "three",
+        "actionType": "none",
+        "allowHTML": true,
+        "outputs": 0,
+        "topic": "",
+        "x": 860,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "268c9d6ea03e8ef2",
+        "type": "ui_numeric",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "label": "BT Log Len",
+        "tooltip": "",
+        "group": "81d4dedb195938c4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "20",
+        "step": 1,
+        "className": "",
+        "x": 470,
+        "y": 1100,
+        "wires": [
+            [
+                "850a3a74ca62d541"
+            ]
+        ]
+    },
+    {
+        "id": "850a3a74ca62d541",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gui_state.bt_tip_log_len",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ad1bf5fcff4a626",
+        "type": "inject",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "gui_state.bt_tip_log_len",
+        "payloadType": "global",
+        "x": 250,
+        "y": 1100,
+        "wires": [
+            [
+                "268c9d6ea03e8ef2"
+            ]
+        ]
+    },
+    {
+        "id": "9a4668d9403279bb",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "group": "a48b13904097fb6a",
+        "order": 7,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Battery V",
+        "label": "V",
+        "format": "{{value | number:2}}",
+        "min": "10",
+        "max": "14",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "12",
+        "seg2": "13",
+        "className": "",
+        "x": 860,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "5ccaf5f3bf5ae5cf",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "[current V, minmax]",
+        "func": "// gui_st = global.get(\"gui_state\")\n// g_minmax = gui_st.batt_v_minmax\n// g_min = g_minmax[0]\n// g_max = g_minmax[1]\n\n// //node.warn(g_min+','+g_max+','+msg.payload)\n// // 0, 14.5, 12.5\n// if(g_min <= 0 || g_min > msg.payload){\n//     g_min = msg.payload-2\n//     if(g_min < 0){\n//         g_min = 0\n//     }\n// }\n// if(g_max == -1 || g_max < msg.payload){\n//     g_max = msg.payload+2\n// }\n\n// gui_st.batt_v_minmax = [g_min, g_max]\n\n// msg.ui_control = {min:g_min ,max:g_max}\n// return msg\n\nbatt_minmax = global.get(\"gui_state.batt_v_minmax\")\nmin = batt_minmax[0]\nmax = batt_minmax[1]\ncurrent = msg.base.batt_v\n\nif(current >= max){\n    max = current+2\n}\nif(current <= min){\n    min = current-2\n}\nglobal.set(\"gui_state.batt_v_minmax\", [min,max])\n\nreturn [\n    {topic:\"batt\", payload:current},\n    {ui_control: {min:min, max:max}}\n    ]\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 760,
+        "wires": [
+            [
+                "9a4668d9403279bb"
+            ],
+            [
+                "9a4668d9403279bb"
+            ]
+        ]
     }
 ]
