@@ -11,8 +11,11 @@ div.instrument {
   width: 250px;
   height: 250px;
   position: relative;
-  display: inline-block;
+  display: block;
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid red;
 }
 
 /* The box containing any element of an indicator */
@@ -56,4 +59,8 @@ div.instrument.altimeter div.needleSmall {
 }
 .pitch {
   transition: all 0.2s;
+}
+.center {
+  margin: auto;
+  width: 99%;
 }
