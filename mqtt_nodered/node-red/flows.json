@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "65c60c3b274f73e3",
+        "type": "tab",
+        "label": "V2 Map",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "1301e8ab7fdd3e72",
         "type": "mqtt-broker",
         "name": "mqtt_broker",
@@ -331,7 +339,18 @@
         "tab": "014f9035e48813bb",
         "order": 2,
         "disp": true,
-        "width": "10",
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "542b5325cf729b8f",
+        "type": "ui_group",
+        "name": "Map",
+        "tab": "014f9035e48813bb",
+        "order": 3,
+        "disp": true,
+        "width": "12",
         "collapse": true,
         "className": ""
     },
@@ -1135,9 +1154,7 @@
             [
                 "eb781abcadeb5b67"
             ],
-            [
-                "41213d1a752c77dd"
-            ],
+            [],
             [
                 "f5a1927d0bd28c49"
             ],
@@ -7400,7 +7417,7 @@
         "height": 1,
         "lineType": "two",
         "actionType": "click",
-        "allowHTML": false,
+        "allowHTML": true,
         "outputs": 1,
         "topic": "",
         "x": 630,
@@ -7416,7 +7433,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "make ui_list config from robot_states",
-        "func": "list_config = []\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    \n    if(since_last_update > 10*60){\n        description_str = \"⌚ >10m ago\"\n    }else{\n        description_str = \"⌚ \"+ since_last_update.toFixed(2) + \"s ago\"\n    }\n    \n    \n    if(since_last_update > 10*60){\n        icon = 'fa-deaf'\n    }else{\n        icon = 'fa-feed'\n    }\n    \n    if(robot_state.gui.selected){\n        icon = 'fa-eye'\n    }\n    \n    \n    list_item = {\n        title: robot_name,\n        description: description_str,\n        icon_name: icon\n    }\n    list_config.push(list_item)\n}\nreturn {payload:list_config}",
+        "func": "list_config = []\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    \n    if(since_last_update > 10*60){\n        description_str = \"⌚ >10m ago\"\n    }else{\n        description_str = \"⌚ \"+ since_last_update.toFixed(2) + \"s ago\"\n    }\n    \n    \n    if(since_last_update > 10*60){\n        icon = 'fa-deaf'\n        color = 'grey'\n    }else{\n        icon = 'fa-feed'\n        color = 'black'\n    }\n    \n    if(robot_state.gui.selected){\n        icon = 'fa-eye'\n        color = 'orange'\n    }\n    \n    \n    list_item = {\n        title: \"<font color=\" + color +\">\" + robot_name,\n        description: \"<font color=\" + color +\">\" + description_str,\n        icon_name: icon\n    }\n    list_config.push(list_item)\n}\nreturn {payload:list_config}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7454,7 +7471,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "on_click",
-        "func": "robot_states = global.get(\"robot_states\")\n\n// set all to false\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    robot_state.gui.selected = false\n}\n\n// set clicked to true\nclicked_robot_name = msg.payload.title\nrobot_state = robot_states[clicked_robot_name]\nrobot_state.gui.selected = true\n\ngui_state = global.get(\"gui_state\")\ngui_state.selected_robot_name = clicked_robot_name",
+        "func": "robot_states = global.get(\"robot_states\")\n\n// set all to false\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    robot_state.gui.selected = false\n}\n\n// set clicked to true\ntitle = msg.payload.title\n// strip the html color part\nclicked_robot_name = title.slice(title.indexOf(\">\")+1)\nrobot_state = robot_states[clicked_robot_name]\nrobot_state.gui.selected = true\n\ngui_state = global.get(\"gui_state\")\ngui_state.selected_robot_name = clicked_robot_name",
         "outputs": 0,
         "noerr": 0,
         "initialize": "",
@@ -7760,7 +7777,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "BT Tip Log",
-        "func": "// \"bt\": {\n//             \"tip\": {\n//                 \"name\": \"???\",\n//                 \"message\": \"\",\n//                 \"status\": \"???\"\n//             },\n//             \"algae_farm_enable\": false,\n//             \"live_wp_enable\": false,\n//             \"gui_wp_enable\": false,\n//             \"current_wp\": {},\n//             \"current_plan\": {},\n//             \"last_heartbeat\": null\n//         },\n\nfunction make_tip_str(tip){\n    c = \"black\"\n    icon = \"\"\n    switch(tip.status){\n        case \"failure\":\n            c = \"red\"\n            icon = \"❌\"\n            break\n        case \"success\":\n            c = \"green\"\n            icon = \"✅\"\n            break\n        case \"running\":\n            c = \"blue\"\n            icon = \"⚙️\"\n            break\n    }\n    \n    tip_type = tip.name.slice(0,1)\n    tip_name = tip.name.slice(2)\n    \n    t = \"\"\n    if(tip.time > 10){\n        t = new Date(tip.time).toTimeString().slice(0,8)\n    }\n    \n    title = t + \" \" + icon + \" <font color=\" + c + \">\" + tip_name\n    msg = \"<font color=\" + c +\">\" + tip.message\n    \n    return [title, msg];\n}\n\ncurrent_tip = msg.bt.tip;\n\n// get the current log, make sure its length matches the value \n// set in the gui and then put it back into global context\ngui_state = global.get(\"gui_state\")\ntips = gui_state.bt_tip_log\ntip_log_len = gui_state.bt_tip_log_len\n// too short\nwhile(tips.length < tip_log_len){\n    tips.push({\n        name:\"\",\n        message:\"\",\n        status:\"\",\n        time:\"\"\n    })\n}\n// too long\nif(tips.length > tip_log_len){\n    tips = tips.slice(0,tip_log_len)\n}\nglobal.set(\"gui_state.bt_tip_log\", tips)\n\nlast_tip = tips[0]\nif(last_tip){\n    if (!(last_tip.name == current_tip.name && last_tip.status == current_tip.status)){\n        // something meaningful have changed, shift things around\n        for(let i=tips.length-1; i>0; i--){\n            tips[i] = tips[i-1]\n        }\n    }\n}\n// otherwise just update the top\ntips[0] = current_tip\ntips[0].time = Date.now()\n\nouts = []\nfor(let i=0; i<tips.length; i++){\n    r = make_tip_str(tips[i])\n    list_item = {\n        title: r[0],\n        description: r[1]\n    }\n    outs.push(list_item)\n}\n\nreturn {payload:outs};\n",
+        "func": "// \"bt\": {\n//             \"tip\": {\n//                 \"name\": \"???\",\n//                 \"message\": \"\",\n//                 \"status\": \"???\"\n//             },\n//             \"algae_farm_enable\": false,\n//             \"live_wp_enable\": false,\n//             \"gui_wp_enable\": false,\n//             \"current_wp\": {},\n//             \"current_plan\": {},\n//             \"last_heartbeat\": null\n//         },\n\nfunction make_tip_str(tip){\n    c = \"black\"\n    icon = \"\"\n    switch(tip.status){\n        case \"failure\":\n            c = \"red\"\n            icon = \"❌\"\n            break\n        case \"success\":\n            c = \"green\"\n            icon = \"✅\"\n            break\n        case \"running\":\n            c = \"blue\"\n            icon = \"⚙️\"\n            break\n    }\n    \n    tip_type = tip.name.slice(0,1)\n    tip_name = tip.name.slice(2)\n    \n    t = \"\"\n    if(tip.time > 10){\n        t = new Date(tip.time).toTimeString().slice(0,8)\n    }\n    \n    title = t + \" \" + icon + \" <font color=\" + c + \">\" + tip_name\n    msg = \"<font color=\" + c +\">\" + tip.message\n    \n    return [title, msg];\n}\n\ncurrent_tip = msg.bt.tip;\n\n\n// get the current log, make sure its length matches the value \n// set in the gui and then put it back into global context\ngui_state = global.get(\"gui_state\")\ntips = msg.gui.bt_tip_log\ntip_log_len = gui_state.bt_tip_log_len\n// too short\nwhile(tips.length < tip_log_len){\n    tips.push({\n        name:\"\",\n        message:\"\",\n        status:\"\",\n        time:\"\"\n    })\n}\n// too long\nif(tips.length > tip_log_len){\n    tips = tips.slice(0,tip_log_len)\n}\n\nlast_tip = tips[0]\nif(last_tip){\n    if (!(last_tip.name == current_tip.name && last_tip.status == current_tip.status)){\n        // something meaningful have changed, shift things around\n        for(let i=tips.length-1; i>0; i--){\n            tips[i] = tips[i-1]\n        }\n    }\n}\n// otherwise just update the top\ntips[0] = current_tip\ntips[0].time = Date.now()\n\n//finally update the log with the latest state of the log\nglobal.set(\"robot_states['\"+msg.base.name+\"'].gui.bt_tip_log\", tips)\n\nouts = []\nfor(let i=0; i<tips.length; i++){\n    r = make_tip_str(tips[i])\n    list_item = {\n        title: r[0],\n        description: r[1]\n    }\n    outs.push(list_item)\n}\n\nreturn {payload:outs};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7783,13 +7800,13 @@
             {
                 "p": "gui_state",
                 "pt": "global",
-                "to": "{\"selected_robot_name\":null,\"selected_wp\":{},\"selected_plan\":{},\"planning_mode\":false,\"batt_v_minmax\":[99999,-1],\"draw_tracks\":false,\"bt_tip_log\":[],\"bt_tip_log_len\":5}",
+                "to": "{\"selected_robot_name\":null,\"selected_wp\":{},\"selected_plan\":{},\"planning_mode\":false,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":5}",
                 "tot": "json"
             }
         ],
         "active": true,
-        "x": 460,
-        "y": 420,
+        "x": 1040,
+        "y": 340,
         "wires": []
     },
     {
@@ -8196,7 +8213,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "update robot state",
-        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": \"robot_name\"+\"_gps\",\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            }\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_states)){\n    global.set(\"robot_states\", {})\n}\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
+        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null,\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"bt_tip_log\":[],\n            \"batt_v_minmax\":[9999,-1],\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": \"robot_name\"+\"_gps\",\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            },\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_states)){\n    global.set(\"robot_states\", {})\n}\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
         "outputs": 0,
         "noerr": 0,
         "initialize": "",
@@ -8338,7 +8355,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "[current V, minmax]",
-        "func": "// gui_st = global.get(\"gui_state\")\n// g_minmax = gui_st.batt_v_minmax\n// g_min = g_minmax[0]\n// g_max = g_minmax[1]\n\n// //node.warn(g_min+','+g_max+','+msg.payload)\n// // 0, 14.5, 12.5\n// if(g_min <= 0 || g_min > msg.payload){\n//     g_min = msg.payload-2\n//     if(g_min < 0){\n//         g_min = 0\n//     }\n// }\n// if(g_max == -1 || g_max < msg.payload){\n//     g_max = msg.payload+2\n// }\n\n// gui_st.batt_v_minmax = [g_min, g_max]\n\n// msg.ui_control = {min:g_min ,max:g_max}\n// return msg\n\nbatt_minmax = global.get(\"gui_state.batt_v_minmax\")\nmin = batt_minmax[0]\nmax = batt_minmax[1]\ncurrent = msg.base.batt_v\n\nif(current >= max){\n    max = current+2\n}\nif(current <= min){\n    min = current-2\n}\nglobal.set(\"gui_state.batt_v_minmax\", [min,max])\n\nreturn [\n    {topic:\"batt\", payload:current},\n    {ui_control: {min:min, max:max}}\n    ]\n\n",
+        "func": "//batt_minmax = global.get(\"gui_state.batt_v_minmax\")\nbatt_minmax = msg.gui.batt_v_minmax\nmin = batt_minmax[0]\nmax = batt_minmax[1]\ncurrent = msg.base.batt_v\n\nif(current >= max){\n    max = current+2\n}\nif(current <= min){\n    min = current-2\n}\nglobal.set(\"robot_states['\"+msg.base.name+\"'].gui.batt_v_minmax\", [min, max])\n\n\nreturn [\n    {topic:\"batt\", payload:current},\n    {ui_control: {min:min, max:max}}\n    ]\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -8352,6 +8369,394 @@
             ],
             [
                 "9a4668d9403279bb"
+            ]
+        ]
+    },
+    {
+        "id": "0ad56f79c71f0cc7",
+        "type": "inject",
+        "z": "072468ee5a218dc0",
+        "name": "deploy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 910,
+        "y": 120,
+        "wires": [
+            [
+                "92a2d6eb5f8e7b77"
+            ]
+        ]
+    },
+    {
+        "id": "92a2d6eb5f8e7b77",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "reset robot_states on deploy",
+        "rules": [
+            {
+                "t": "set",
+                "p": "robot_states",
+                "pt": "global",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61ce2b718be73daf",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "Sweden.map",
+        "func": "msg = {payload:{command:{}}};\nmsg.payload.command.map = {\n    \"overlay\":\"Bathy\", \n    \"url\":\"http://nodered.blue-robots.com/mapserver\",\n    \"opt\":{ \n        \"map\":\"/etc/mapserver/sweden.map\",\n        \"layers\":\"CONTOUR\",\n        \"format\":\"image/png\",\n        \"service\":\"wms\",\n        \"transparent\":true\n    },\n    \"wms\":true\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 340,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "d8ab75012918ab43",
+        "type": "ui_worldmap",
+        "z": "65c60c3b274f73e3",
+        "group": "542b5325cf729b8f",
+        "order": 6,
+        "width": "12",
+        "height": 12,
+        "name": "",
+        "lat": "58.25089840041283",
+        "lon": "11.4500587783608",
+        "zoom": "16",
+        "layer": "EsriS",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "deg",
+        "showgrid": "true",
+        "allowFileDrop": "false",
+        "path": "/worldmap_v2",
+        "overlist": "SN",
+        "maplist": "EsriS,NatGeo",
+        "mapname": "Bathy",
+        "mapurl": "https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv",
+        "mapopt": "{ \"maxZoom\":22,\"attribution\":\"&copy; GEBCO\",\"format\":\"image/jpeg\",\"request\":\"getmap\",\"service\":\",\"layers\":\"gebco_latest_2_sub_ice_topo\"}",
+        "mapwms": true,
+        "x": 1270,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1e0bd19ab17b797e",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_worldmap",
+        "links": [
+            "93d9f503a3372651"
+        ],
+        "x": 1155,
+        "y": 80,
+        "wires": [
+            [
+                "d8ab75012918ab43"
+            ]
+        ]
+    },
+    {
+        "id": "93d9f503a3372651",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_from_map_setup",
+        "mode": "link",
+        "links": [
+            "1e0bd19ab17b797e"
+        ],
+        "x": 865,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "74196b529b53271e",
+        "type": "worldmap in",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "path": "/worldmap_v2",
+        "events": "connect,point,layer,bounds,other",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "fd6727bdbf9a2edd",
+                "f59da3a9a9790cbb"
+            ]
+        ]
+    },
+    {
+        "id": "f59da3a9a9790cbb",
+        "type": "debug",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "fd6727bdbf9a2edd",
+        "type": "switch",
+        "z": "65c60c3b274f73e3",
+        "name": "map actions",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "bounds",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "button",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 290,
+        "y": 100,
+        "wires": [
+            [
+                "ecb32f1e69ab1244"
+            ],
+            [
+                "692a9362905a1825"
+            ],
+            [
+                "acaa0403e6b2f92a"
+            ]
+        ]
+    },
+    {
+        "id": "ecb32f1e69ab1244",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_connected",
+        "mode": "link",
+        "links": [
+            "5a7bf884410b6994"
+        ],
+        "x": 415,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "692a9362905a1825",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_bounds",
+        "mode": "link",
+        "links": [],
+        "x": 415,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5a7bf884410b6994",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 585,
+        "y": 360,
+        "wires": [
+            [
+                "61ce2b718be73daf",
+                "24bfe69168ea9d8c"
+            ]
+        ]
+    },
+    {
+        "id": "db811466da709501",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 500,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "733036b10ed33646",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "bounds",
+        "info": "",
+        "x": 490,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "acaa0403e6b2f92a",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_button",
+        "mode": "link",
+        "links": [
+            "608b681c2b10d2c7"
+        ],
+        "x": 415,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f2fa2605c1b981d7",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "button",
+        "info": "",
+        "x": 490,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e493560291ec0b19",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 500,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "608b681c2b10d2c7",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_on_press",
+        "links": [
+            "acaa0403e6b2f92a"
+        ],
+        "x": 445,
+        "y": 420,
+        "wires": [
+            [
+                "be264f174c773c7e"
+            ]
+        ]
+    },
+    {
+        "id": "0ffae76eff0a2978",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "button",
+        "info": "",
+        "x": 370,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d697d87f8e6123ae",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "map",
+        "info": "",
+        "x": 950,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "be264f174c773c7e",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "on_press",
+        "func": "key = false\nswitch(msg.payload.name){\n    case(\"Toggle follow\"):\n        key = \"follow_selected_vehicle\"\n        break\n    case(\"Toggle tracks\"):\n        key = \"draw_tracks\"\n        break\n    default:\n        node.warn(\"Unhandled map button!\")\n}\n\nif(key){\n    key = \"gui_state.\"+key\n    if(global.get(key)){\n        global.set(key, false)\n    }else{\n        global.set(key, true)\n    }\n}\n\nreturn {}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "24bfe69168ea9d8c"
+            ]
+        ]
+    },
+    {
+        "id": "8b88d8fc9d0ab9a4",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "These should just be getting a trigger, no data",
+        "info": "",
+        "x": 730,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "24bfe69168ea9d8c",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "map buttons",
+        "func": "function make_button(button){\n    m = {payload:{command:{}}};\n    \n    if(global.get(\"gui_state.\"+button.global_key)){\n        icon = button.icon_true\n    }else{\n        icon = button.icon_false\n    }\n    \n    m.payload.command = { \n        \"button\": {\n            \"name\":button.name,\n            \"icon\": icon,\n            \"position\":\"topleft\" \n        } \n    }\n    return m\n}\n\nfunction remove_button(name){\n    m = {payload:{command:{}}};\n    m.payload.command = { \n        \"button\": {\n            \"name\":name,\n        } \n    }\n    return m\n}\n\n\nbuttons = [\n    {\n        \"global_key\":\"draw_tracks\",\n        \"name\":\"Toggle tracks\",\n        \"icon_true\":\"fa-sheqel\",\n        \"icon_false\":\"fa-blind\"\n    },\n    {\n        \"global_key\":\"follow_selected_vehicle\",\n        \"name\":\"Toggle follow\",\n        \"icon_true\":\"fa-eye\",\n        \"icon_false\":\"fa-low-vision\"\n    }\n]\n\nfor(var button of buttons){\n    node.send(remove_button(button.name))\n    node.send(make_button(button))\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "93d9f503a3372651"
             ]
         ]
     }
