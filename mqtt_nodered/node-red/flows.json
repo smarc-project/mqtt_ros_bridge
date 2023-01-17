@@ -337,7 +337,7 @@
         "type": "ui_group",
         "name": "BT State",
         "tab": "014f9035e48813bb",
-        "order": 2,
+        "order": 4,
         "disp": true,
         "width": "6",
         "collapse": true,
@@ -348,9 +348,20 @@
         "type": "ui_group",
         "name": "Map",
         "tab": "014f9035e48813bb",
-        "order": 3,
+        "order": 2,
         "disp": true,
         "width": "12",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "a891e5f5f2effe35",
+        "type": "ui_group",
+        "name": "Missions",
+        "tab": "014f9035e48813bb",
+        "order": 3,
+        "disp": true,
+        "width": "6",
         "collapse": true,
         "className": ""
     },
@@ -7470,14 +7481,14 @@
         "id": "8d60954c80270a11",
         "type": "function",
         "z": "072468ee5a218dc0",
-        "name": "on_click",
-        "func": "robot_states = global.get(\"robot_states\")\n\n// set all to false\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    robot_state.gui.selected = false\n}\n\n// set clicked to true\ntitle = msg.payload.title\n// strip the html color part\nclicked_robot_name = title.slice(title.indexOf(\">\")+1)\nrobot_state = robot_states[clicked_robot_name]\nrobot_state.gui.selected = true\n\ngui_state = global.get(\"gui_state\")\ngui_state.selected_robot_name = clicked_robot_name",
+        "name": "select robot",
+        "func": "robot_states = global.get(\"robot_states\")\n\n// set all to false\nfor(const robot_name in robot_states){\n    global.set(\"robot_states[\"+robot_name+\"].gui.selected\", false)\n}\n\n// set clicked to true\ntitle = msg.payload.title\n// strip the html color part\nclicked_robot_name = title.slice(title.indexOf(\">\")+1)\n\nglobal.set(\"robot_states[\"+clicked_robot_name+\"].gui.selected\", true)\nglobal.set(\"gui.selected_robot_name\", clicked_robot_name)\n",
         "outputs": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
+        "x": 790,
         "y": 1060,
         "wires": []
     },
@@ -7572,7 +7583,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "Selected Robot State",
-        "func": "gui_state = global.get(\"gui_state\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\nsince_last_update = (Date.now() - robot_state.last_update)/1000\n\nif(since_last_update > 60){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\n\nreturn robot_state",
+        "func": "gui_state = global.get(\"gui\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nreturn robot_states[selected_robot_name]\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7586,7 +7597,8 @@
                 "216163265f4ce78b",
                 "7d7f737ccec8bdd1",
                 "8346958d8c2ff728",
-                "5ccaf5f3bf5ae5cf"
+                "5ccaf5f3bf5ae5cf",
+                "828367982cce7ef2"
             ]
         ]
     },
@@ -7777,7 +7789,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "BT Tip Log",
-        "func": "// \"bt\": {\n//             \"tip\": {\n//                 \"name\": \"???\",\n//                 \"message\": \"\",\n//                 \"status\": \"???\"\n//             },\n//             \"algae_farm_enable\": false,\n//             \"live_wp_enable\": false,\n//             \"gui_wp_enable\": false,\n//             \"current_wp\": {},\n//             \"current_plan\": {},\n//             \"last_heartbeat\": null\n//         },\n\nfunction make_tip_str(tip){\n    c = \"black\"\n    icon = \"\"\n    switch(tip.status){\n        case \"failure\":\n            c = \"red\"\n            icon = \"❌\"\n            break\n        case \"success\":\n            c = \"green\"\n            icon = \"✅\"\n            break\n        case \"running\":\n            c = \"blue\"\n            icon = \"⚙️\"\n            break\n    }\n    \n    tip_type = tip.name.slice(0,1)\n    tip_name = tip.name.slice(2)\n    \n    t = \"\"\n    if(tip.time > 10){\n        t = new Date(tip.time).toTimeString().slice(0,8)\n    }\n    \n    title = t + \" \" + icon + \" <font color=\" + c + \">\" + tip_name\n    msg = \"<font color=\" + c +\">\" + tip.message\n    \n    return [title, msg];\n}\n\ncurrent_tip = msg.bt.tip;\n\n\n// get the current log, make sure its length matches the value \n// set in the gui and then put it back into global context\ngui_state = global.get(\"gui_state\")\ntips = msg.gui.bt_tip_log\ntip_log_len = gui_state.bt_tip_log_len\n// too short\nwhile(tips.length < tip_log_len){\n    tips.push({\n        name:\"\",\n        message:\"\",\n        status:\"\",\n        time:\"\"\n    })\n}\n// too long\nif(tips.length > tip_log_len){\n    tips = tips.slice(0,tip_log_len)\n}\n\nlast_tip = tips[0]\nif(last_tip){\n    if (!(last_tip.name == current_tip.name && last_tip.status == current_tip.status)){\n        // something meaningful have changed, shift things around\n        for(let i=tips.length-1; i>0; i--){\n            tips[i] = tips[i-1]\n        }\n    }\n}\n// otherwise just update the top\ntips[0] = current_tip\ntips[0].time = Date.now()\n\n//finally update the log with the latest state of the log\nglobal.set(\"robot_states['\"+msg.base.name+\"'].gui.bt_tip_log\", tips)\n\nouts = []\nfor(let i=0; i<tips.length; i++){\n    r = make_tip_str(tips[i])\n    list_item = {\n        title: r[0],\n        description: r[1]\n    }\n    outs.push(list_item)\n}\n\nreturn {payload:outs};\n",
+        "func": "// \"bt\": {\n//             \"tip\": {\n//                 \"name\": \"???\",\n//                 \"message\": \"\",\n//                 \"status\": \"???\"\n//             },\n//             \"algae_farm_enable\": false,\n//             \"live_wp_enable\": false,\n//             \"gui_wp_enable\": false,\n//             \"current_wp\": {},\n//             \"current_plan\": {},\n//             \"last_heartbeat\": null\n//         },\n\nfunction make_tip_str(tip){\n    c = \"black\"\n    icon = \"\"\n    switch(tip.status){\n        case \"failure\":\n            c = \"red\"\n            icon = \"❌\"\n            break\n        case \"success\":\n            c = \"green\"\n            icon = \"✅\"\n            break\n        case \"running\":\n            c = \"blue\"\n            icon = \"⚙️\"\n            break\n    }\n    \n    tip_type = tip.name.slice(0,1)\n    tip_name = tip.name.slice(2)\n    \n    t = \"\"\n    if(tip.time > 10){\n        t = new Date(tip.time).toTimeString().slice(0,8)\n    }\n    \n    title = t + \" \" + icon + \" <font color=\" + c + \">\" + tip_name\n    msg = \"<font color=\" + c +\">\" + tip.message\n    \n    return [title, msg];\n}\n\n// dont do anything if the robot we got is not selected\nif(!(msg.gui.selected)){\n    return\n}\n\ncurrent_tip = msg.bt.tip;\n\n\n// get the current log, make sure its length matches the value \n// set in the gui and then put it back into global context\ngui_state = global.get(\"gui\")\ntips = msg.gui.bt_tip_log\ntip_log_len = gui_state.bt_tip_log_len\n// too short\nwhile(tips.length < tip_log_len){\n    tips.push({\n        name:\"\",\n        message:\"\",\n        status:\"\",\n        time:\"\"\n    })\n}\n// too long\nif(tips.length > tip_log_len){\n    tips = tips.slice(0,tip_log_len)\n}\n\nlast_tip = tips[0]\nif(last_tip){\n    if (!(last_tip.name == current_tip.name && last_tip.status == current_tip.status)){\n        // something meaningful have changed, shift things around\n        for(let i=tips.length-1; i>0; i--){\n            tips[i] = tips[i-1]\n        }\n    }\n}\n// otherwise just update the top\ntips[0] = current_tip\ntips[0].time = Date.now()\n\n//finally update the log with the latest state of the log\nglobal.set(\"robot_states['\"+msg.base.name+\"'].gui.bt_tip_log\", tips)\n\nouts = []\nfor(let i=0; i<tips.length; i++){\n    r = make_tip_str(tips[i])\n    list_item = {\n        title: r[0],\n        description: r[1]\n    }\n    outs.push(list_item)\n}\n\nreturn {payload:outs};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7790,24 +7802,6 @@
                 "93832a52fddd1fe6"
             ]
         ]
-    },
-    {
-        "id": "f5fa53da63658314",
-        "type": "config",
-        "z": "072468ee5a218dc0",
-        "name": "gui_state",
-        "properties": [
-            {
-                "p": "gui_state",
-                "pt": "global",
-                "to": "{\"selected_robot_name\":null,\"selected_wp\":{},\"selected_plan\":{},\"planning_mode\":false,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":5}",
-                "tot": "json"
-            }
-        ],
-        "active": true,
-        "x": 1040,
-        "y": 340,
-        "wires": []
     },
     {
         "id": "c50d772c522ec5c1",
@@ -8213,7 +8207,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "update robot state",
-        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null,\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"bt_tip_log\":[],\n            \"batt_v_minmax\":[9999,-1],\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": \"robot_name\"+\"_gps\",\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            },\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_states)){\n    global.set(\"robot_states\", {})\n}\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
+        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null,\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"is_old\":false,\n            \"bt_tip_log\":[],\n            \"batt_v_minmax\":[9999,-1],\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"tooltip\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": robot_name+\"_gps\",\n                \"tooltip\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            },\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_states)){\n    global.set(\"robot_states\", {})\n}\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
         "outputs": 0,
         "noerr": 0,
         "initialize": "",
@@ -8230,8 +8224,8 @@
         "group": "81d4dedb195938c4",
         "name": "BT Log",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": 6,
+        "height": 3,
         "lineType": "three",
         "actionType": "none",
         "allowHTML": true,
@@ -8261,7 +8255,7 @@
         "max": "20",
         "step": 1,
         "className": "",
-        "x": 470,
+        "x": 430,
         "y": 1100,
         "wires": [
             [
@@ -8277,7 +8271,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "gui_state.bt_tip_log_len",
+                "p": "gui.bt_tip_log_len",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -8288,7 +8282,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 700,
+        "x": 640,
         "y": 1100,
         "wires": [
             []
@@ -8313,9 +8307,9 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "gui_state.bt_tip_log_len",
+        "payload": "gui.bt_tip_log_len",
         "payloadType": "global",
-        "x": 250,
+        "x": 230,
         "y": 1100,
         "wires": [
             [
@@ -8427,6 +8421,21 @@
         ]
     },
     {
+        "id": "828367982cce7ef2",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "Unselect if old, select on reconnect",
+        "func": "if(msg){\n    robot_state = msg\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    gui_key = \"robot_states['\"+robot_state.base.name+\"'].gui\"\n    if(since_last_update > 60){\n        global.set(gui_key+\".selected\", false)\n        c = \"yellow\"\n        if(since_last_update > 10*60){\n            c = \"grey\"\n            global.set(gui_key+\".is_old\", true)\n        }\n        global.set(gui_key+\".dr.color\", c)\n        global.set(gui_key+\".dr.iconColor\", c)\n        global.set(gui_key+\".dr.label\", \"\")\n        \n    }else{\n        global.set(gui_key+\".dr.color\", \"orange\")\n        global.set(gui_key+\".dr.iconColor\", \"orange\")\n        global.set(gui_key+\".selected\", true)\n        global.set(gui_key+\".dr.label\", robot_state.base.name)\n        global.set(gui_key+\".is_old\", false)\n    }\n}\n\n\n\n",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 440,
+        "wires": []
+    },
+    {
         "id": "61ce2b718be73daf",
         "type": "function",
         "z": "65c60c3b274f73e3",
@@ -8450,8 +8459,8 @@
         "type": "ui_worldmap",
         "z": "65c60c3b274f73e3",
         "group": "542b5325cf729b8f",
-        "order": 6,
-        "width": "12",
+        "order": 1,
+        "width": 12,
         "height": 12,
         "name": "",
         "lat": "58.25089840041283",
@@ -8486,7 +8495,11 @@
         "z": "65c60c3b274f73e3",
         "name": "v2_worldmap",
         "links": [
-            "93d9f503a3372651"
+            "93d9f503a3372651",
+            "86db72e5aa5e61cc",
+            "8fdedc66ae19b198",
+            "f73d51a768277c0b",
+            "eaae728ca769c3c1"
         ],
         "x": 1155,
         "y": 80,
@@ -8505,8 +8518,8 @@
         "links": [
             "1e0bd19ab17b797e"
         ],
-        "x": 865,
-        "y": 360,
+        "x": 1145,
+        "y": 340,
         "wires": []
     },
     {
@@ -8517,7 +8530,7 @@
         "path": "/worldmap_v2",
         "events": "connect,point,layer,bounds,other",
         "x": 110,
-        "y": 100,
+        "y": 120,
         "wires": [
             [
                 "fd6727bdbf9a2edd",
@@ -8563,13 +8576,18 @@
                 "t": "eq",
                 "v": "button",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "point",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 3,
+        "outputs": 4,
         "x": 290,
-        "y": 100,
+        "y": 120,
         "wires": [
             [
                 "ecb32f1e69ab1244"
@@ -8579,6 +8597,9 @@
             ],
             [
                 "acaa0403e6b2f92a"
+            ],
+            [
+                "e2f686ad8c4ade79"
             ]
         ]
     },
@@ -8589,10 +8610,13 @@
         "name": "v2_map_connected",
         "mode": "link",
         "links": [
-            "5a7bf884410b6994"
+            "5a7bf884410b6994",
+            "6b9216a6aec78960",
+            "34b418616dff4704",
+            "c64c7c9fbc69557c"
         ],
-        "x": 415,
-        "y": 80,
+        "x": 435,
+        "y": 60,
         "wires": []
     },
     {
@@ -8602,8 +8626,8 @@
         "name": "v2_map_bounds",
         "mode": "link",
         "links": [],
-        "x": 415,
-        "y": 120,
+        "x": 435,
+        "y": 100,
         "wires": []
     },
     {
@@ -8629,8 +8653,8 @@
         "z": "65c60c3b274f73e3",
         "name": "connected",
         "info": "",
-        "x": 500,
-        "y": 80,
+        "x": 520,
+        "y": 60,
         "wires": []
     },
     {
@@ -8639,8 +8663,8 @@
         "z": "65c60c3b274f73e3",
         "name": "bounds",
         "info": "",
-        "x": 490,
-        "y": 120,
+        "x": 510,
+        "y": 100,
         "wires": []
     },
     {
@@ -8652,8 +8676,8 @@
         "links": [
             "608b681c2b10d2c7"
         ],
-        "x": 415,
-        "y": 160,
+        "x": 435,
+        "y": 140,
         "wires": []
     },
     {
@@ -8662,8 +8686,8 @@
         "z": "65c60c3b274f73e3",
         "name": "button",
         "info": "",
-        "x": 490,
-        "y": 160,
+        "x": 510,
+        "y": 140,
         "wires": []
     },
     {
@@ -8708,8 +8732,8 @@
         "z": "65c60c3b274f73e3",
         "name": "map",
         "info": "",
-        "x": 950,
-        "y": 360,
+        "x": 1230,
+        "y": 340,
         "wires": []
     },
     {
@@ -8717,7 +8741,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "on_press",
-        "func": "key = false\nswitch(msg.payload.name){\n    case(\"Toggle follow\"):\n        key = \"follow_selected_vehicle\"\n        break\n    case(\"Toggle tracks\"):\n        key = \"draw_tracks\"\n        break\n    default:\n        node.warn(\"Unhandled map button!\")\n}\n\nif(key){\n    key = \"gui_state.\"+key\n    if(global.get(key)){\n        global.set(key, false)\n    }else{\n        global.set(key, true)\n    }\n}\n\nreturn {}",
+        "func": "key = false\nswitch(msg.payload.name){\n    case(\"Toggle follow\"):\n        key = \"follow_selected_vehicle\"\n        break\n    case(\"Toggle tracks\"):\n        key = \"draw_tracks\"\n        break\n    default:\n        node.warn(\"Unhandled map button!\")\n}\n\nif(key){\n    key = \"gui.\"+key\n    if(global.get(key)){\n        global.set(key, false)\n    }else{\n        global.set(key, true)\n    }\n}\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8738,7 +8762,7 @@
         "name": "These should just be getting a trigger, no data",
         "info": "",
         "x": 730,
-        "y": 280,
+        "y": 300,
         "wires": []
     },
     {
@@ -8746,18 +8770,1047 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "map buttons",
-        "func": "function make_button(button){\n    m = {payload:{command:{}}};\n    \n    if(global.get(\"gui_state.\"+button.global_key)){\n        icon = button.icon_true\n    }else{\n        icon = button.icon_false\n    }\n    \n    m.payload.command = { \n        \"button\": {\n            \"name\":button.name,\n            \"icon\": icon,\n            \"position\":\"topleft\" \n        } \n    }\n    return m\n}\n\nfunction remove_button(name){\n    m = {payload:{command:{}}};\n    m.payload.command = { \n        \"button\": {\n            \"name\":name,\n        } \n    }\n    return m\n}\n\n\nbuttons = [\n    {\n        \"global_key\":\"draw_tracks\",\n        \"name\":\"Toggle tracks\",\n        \"icon_true\":\"fa-sheqel\",\n        \"icon_false\":\"fa-blind\"\n    },\n    {\n        \"global_key\":\"follow_selected_vehicle\",\n        \"name\":\"Toggle follow\",\n        \"icon_true\":\"fa-eye\",\n        \"icon_false\":\"fa-low-vision\"\n    }\n]\n\nfor(var button of buttons){\n    node.send(remove_button(button.name))\n    node.send(make_button(button))\n}\n\n",
+        "func": "function make_button(button){\n    m = {payload:{command:{}}};\n    \n    if(global.get(\"gui.\"+button.global_key)){\n        icon = button.icon_true\n    }else{\n        icon = button.icon_false\n    }\n    \n    m.payload.command = { \n        \"button\": {\n            \"name\":button.name,\n            \"icon\": icon,\n            \"position\":\"topleft\" \n        } \n    }\n    return m\n}\n\nfunction remove_button(name){\n    m = {payload:{command:{}}};\n    m.payload.command = { \n        \"button\": {\n            \"name\":name,\n        } \n    }\n    return m\n}\n\n\nbuttons = [\n    {\n        \"global_key\":\"draw_tracks\",\n        \"name\":\"Toggle tracks\",\n        \"icon_true\":\"fa-sheqel\",\n        \"icon_false\":\"fa-blind\"\n    },\n    {\n        \"global_key\":\"follow_selected_vehicle\",\n        \"name\":\"Toggle follow\",\n        \"icon_true\":\"fa-eye\",\n        \"icon_false\":\"fa-low-vision\"\n    }\n]\n\nfor(var button of buttons){\n    node.send(remove_button(button.name))\n    node.send(make_button(button))\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "93d9f503a3372651"
             ]
         ]
+    },
+    {
+        "id": "0a961438ad73e32f",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "robot_drs",
+        "func": "msg = {payload:[]}\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    r = robot_states[robot_name]\n    msg.payload.push(r.gui.dr)\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 480,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "327b70467ae735a8",
+        "type": "inject",
+        "z": "65c60c3b274f73e3",
+        "name": "0.2s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 500,
+        "wires": [
+            [
+                "0a961438ad73e32f",
+                "0599c19152ae4c80"
+            ]
+        ]
+    },
+    {
+        "id": "0599c19152ae4c80",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "robot_gps's",
+        "func": "msg = {payload:[]}\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    r = robot_states[robot_name]\n    msg.payload.push(r.gui.gps)\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 520,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "84763f6e6162102a",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "center map on selected robot",
+        "func": "gui_state = global.get(\"gui\")\n\nif(!(gui_state.follow_selected_vehicle)){\n    return\n}\n\n\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\nr = robot_states[selected_robot_name]\n\nif(!(r.gui.selected)){\n    return\n}\n\nm = {\"payload\": {\n        \"command\":{\n            \"lat\": r.base.lat,\n            \"lon\": r.base.lon\n        }\n    }}\n    \nreturn m",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 560,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "eb0c3ad39ee41a83",
+        "type": "inject",
+        "z": "65c60c3b274f73e3",
+        "name": "0.5s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 560,
+        "wires": [
+            [
+                "84763f6e6162102a"
+            ]
+        ]
+    },
+    {
+        "id": "87855a030ad4b56e",
+        "type": "ui_switch",
+        "z": "65c60c3b274f73e3",
+        "name": "planning mode",
+        "label": "Planning Mode",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 580,
+        "y": 600,
+        "wires": [
+            [
+                "d01a1c27b3eb717f",
+                "5096e7318cafb35a"
+            ]
+        ]
+    },
+    {
+        "id": "d01a1c27b3eb717f",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "set map clickability",
+        "func": "return {\n    payload:{\n        command:{\n            hiderightclick: !msg.payload\n            \n        }}}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 600,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "00cf2d88e242ecc9",
+        "type": "config",
+        "z": "65c60c3b274f73e3",
+        "name": "planning",
+        "properties": [
+            {
+                "p": "planning",
+                "pt": "global",
+                "to": "{\"plans\":{}}",
+                "tot": "json"
+            }
+        ],
+        "active": true,
+        "x": 1220,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "c36e098b35484df1",
+        "type": "ui_text_input",
+        "z": "65c60c3b274f73e3",
+        "name": "lat,lon",
+        "label": "Lat,Lon",
+        "tooltip": "LAT, LON input",
+        "group": "a891e5f5f2effe35",
+        "order": 5,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "latlon",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 850,
+        "y": 1120,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "b35ff4ff8ec16352",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "get/set selected wp",
+        "func": "reset = [\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:false}\n    ]\n    \ntitle = msg.payload.title\nif(title == \"--NO PLANS--\" || title == \"--NO WPS--\") return reset\n\nwp_name = title.slice(title.indexOf(\">\")+1)\n\nglobal.set(\"gui.selected_waypoint_name\", wp_name)\n\n\n\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nif(!(plans)) return reset\nplan = plans[plan_name]\nif(!(plan)) return reset\nswp = plan.waypoints[wp_name]\nif(!(swp)) return reset\n\nreturn [\n    {payload:swp.lat + \", \"+ swp.lon},\n    {payload:swp.depth},\n    {payload:swp.rpm},\n    {payload:swp.speed},\n    {payload:swp.use_rpm}\n    ]",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1300,
+        "wires": [
+            [
+                "c36e098b35484df1"
+            ],
+            [
+                "6596fde6e6662884"
+            ],
+            [
+                "1ce3149408193422"
+            ],
+            [
+                "b5d55ffd8630fd60"
+            ],
+            [
+                "7d1b8d23041dbcc3",
+                "f265c0e56f9d21af"
+            ]
+        ]
+    },
+    {
+        "id": "7d1b8d23041dbcc3",
+        "type": "ui_switch",
+        "z": "65c60c3b274f73e3",
+        "name": "use_rpm",
+        "label": "Use RPM",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 10,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "use_rpm",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 860,
+        "y": 1280,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "6596fde6e6662884",
+        "type": "ui_text_input",
+        "z": "65c60c3b274f73e3",
+        "name": "depth",
+        "label": "Depth",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 9,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "depth",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 850,
+        "y": 1160,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "1ce3149408193422",
+        "type": "ui_text_input",
+        "z": "65c60c3b274f73e3",
+        "name": "RPM",
+        "label": "RPM",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "rpm",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 850,
+        "y": 1200,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "b5d55ffd8630fd60",
+        "type": "ui_text_input",
+        "z": "65c60c3b274f73e3",
+        "name": "speed",
+        "label": "Speed",
+        "tooltip": "in m/s",
+        "group": "a891e5f5f2effe35",
+        "order": 7,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "speed",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 850,
+        "y": 1240,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "959cd51c0cd7ca20",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "validate and edit WP",
+        "func": "plans = global.get(\"planning.plans\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\nif(!(plan)){\n    node.warn(\"Plan:\"+plan)\n    return\n}\n\nname = global.get(\"gui.selected_waypoint_name\")\nif(!(name in plan.waypoints)){\n    node.warn(\"name:\"+name+\" not in plan.waypoints\")\n    return\n}\n\nswitch(msg.topic){\n    case(\"latlon\"):\n        // magic regex that checks for lat,lon formatting\n        const regex = new RegExp(\"^-?[0-9]{1,3}(?:\\.[0-9]{1,10})?$\")\n        if(regex.test(msg.payload)){\n            parts = msg.payload.split(\",\")\n            lat = parseFloat(parts[0])\n            lon = parseFloat(parts[1])\n            plan.waypoints[name].lat = lat\n            plan.waypoints[name].lon = lon\n        }else{\n            node.warn(\"Latlon format is bad:\"+msg.payload)\n            return {payload:false}    \n        }\n        break\n        \n    case(\"depth\"):\n        // should be a float\n        try{\n            depth = parseFloat(msg.payload)\n            plan.waypoints[name].depth = depth\n        }catch{\n            node.warn(\"Depth is not float:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    case(\"rpm\"):\n        // should be an int\n        try{\n            rpm = parseInt(msg.payload)\n            plan.waypoints[name].rpm = rpm\n        }catch{\n             node.warn(\"RPM is not int:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    case(\"speed\"):\n        // should be a float\n        try{\n            speed = parseFloat(msg.payload)\n            plan.waypoints[name].speed = speed\n        }catch{\n            node.warn(\"Speed is not float:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    \n    case(\"use_rpm\"):\n        // the widget can only return good stuff, no need to check\n        plan.waypoints[name].use_rpm = msg.payload\n}\n\n// and finally, set the new version of the plan globally\nglobal.set(\"planning.plans\", plans)\nreturn {payload:true}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 1280,
+        "wires": [
+            [
+                "2a3c96232faf5eb1",
+                "c15482e7569c2dda"
+            ]
+        ]
+    },
+    {
+        "id": "2a3c96232faf5eb1",
+        "type": "ui_led",
+        "z": "65c60c3b274f73e3",
+        "order": 6,
+        "group": "a891e5f5f2effe35",
+        "width": 2,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "wp gud",
+        "x": 1240,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "0f340b20aa6be0bf",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "list plans",
+        "func": "plans = global.get(\"planning.plans\")\nif(!(plans)) return {payload:[{title:\"--NO PLANS--\"}]}\nif(Object.keys(plans).length < 1) return {payload:[{title:\"--NO PLANS--\"}]}\n\nselected_plan_name = global.get(\"gui.selected_plan_name\")\nlist_items = []\nfor(const plan_name in plans){\n    \n    if(plan_name == selected_plan_name){\n        c = \"orange\"\n    }else{\n        c = \"black\"\n    }\n    title = \"<font color=\" + c +\">\" + plan_name\n    list_item = {\"title\":title}\n    list_items.push(list_item)\n}\n\nreturn {payload:list_items}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 920,
+        "wires": [
+            [
+                "12e1c75e32095cfb"
+            ]
+        ]
+    },
+    {
+        "id": "12e1c75e32095cfb",
+        "type": "ui_list",
+        "z": "65c60c3b274f73e3",
+        "group": "a891e5f5f2effe35",
+        "name": "Plan list",
+        "order": 2,
+        "width": 6,
+        "height": 3,
+        "lineType": "two",
+        "actionType": "click",
+        "allowHTML": true,
+        "outputs": 1,
+        "topic": "",
+        "x": 580,
+        "y": 920,
+        "wires": [
+            [
+                "f1bfe65ccc40afd7"
+            ]
+        ]
+    },
+    {
+        "id": "f1bfe65ccc40afd7",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "set selected plan",
+        "func": "title = msg.payload.title\nif(title == \"--NO PLANS--\") return\nplan_name = title.slice(title.indexOf(\">\")+1)\n\nglobal.set(\"gui.selected_plan_name\", plan_name)\n\nreturn {payload:plan_name}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 920,
+        "wires": [
+            [
+                "0f340b20aa6be0bf",
+                "183bd5b7b2e98b79"
+            ]
+        ]
+    },
+    {
+        "id": "46fcc943a269e1d7",
+        "type": "ui_button",
+        "z": "65c60c3b274f73e3",
+        "name": "new plan",
+        "group": "a891e5f5f2effe35",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "New Plan",
+        "tooltip": "Create a new empty mission plan",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 880,
+        "wires": [
+            [
+                "5fc53fc5f677e010",
+                "c4ac075074761e27"
+            ]
+        ]
+    },
+    {
+        "id": "5fc53fc5f677e010",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "create and select new plan",
+        "func": "function new_plan(){\n    return {\n        name:\"NEW PLAN\",\n        waypoints:{},\n        track:[]\n    }\n}\n\nplan = new_plan()\nplans = global.get(\"planning.plans\")\nplans[plan.name] = plan\nglobal.set(\"planning.plans\", plans)\n//global.set(\"gui.selected_plan_name\", plan.name)\n\nreturn {payload:plan, topic:\"new_plan\"}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 920,
+        "wires": [
+            [
+                "0f340b20aa6be0bf"
+            ]
+        ]
+    },
+    {
+        "id": "f68e69985169cd78",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "list waypoints",
+        "func": "plans = global.get(\"planning.plans\")\nselected_plan_name = global.get(\"gui.selected_plan_name\")\nselected_waypoint_name = global.get(\"gui.selected_waypoint_name\")\nplan = plans[selected_plan_name]\nif(!(plan)) return {payload:[{title:\"--NO PLANS--\"}]}\n\nlist_items = []\nfor(const wp_name in plan.waypoints){\n    \n    if(wp_name == selected_waypoint_name){\n        c = \"orange\"\n    }else{\n        c = \"black\"\n    }\n    title = \"<font color=\" + c +\">\" + wp_name\n    list_item = {\"title\":title}\n    list_items.push(list_item)\n}\n\nif(list_items.length > 0){\n    return {payload:list_items}    \n}else{\n    return {payload:[{title:\"--NO WPS--\"}]}\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 1320,
+        "wires": [
+            [
+                "5e25569da4a16b0b"
+            ]
+        ]
+    },
+    {
+        "id": "5e25569da4a16b0b",
+        "type": "ui_list",
+        "z": "65c60c3b274f73e3",
+        "group": "a891e5f5f2effe35",
+        "name": "wp list",
+        "order": 4,
+        "width": 6,
+        "height": 3,
+        "lineType": "two",
+        "actionType": "click",
+        "allowHTML": true,
+        "outputs": 1,
+        "topic": "",
+        "x": 490,
+        "y": 1320,
+        "wires": [
+            [
+                "b35ff4ff8ec16352"
+            ]
+        ]
+    },
+    {
+        "id": "a728b06e65d8a5e8",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "Update the list of plans when the list is interacted with",
+        "info": "",
+        "x": 620,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "e2f686ad8c4ade79",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_point",
+        "mode": "link",
+        "links": [
+            "42cf4dd1c1379d75"
+        ],
+        "x": 435,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "bcee15afbe079e57",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "point",
+        "info": "",
+        "x": 510,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "42cf4dd1c1379d75",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_from_point",
+        "links": [
+            "e2f686ad8c4ade79"
+        ],
+        "x": 375,
+        "y": 720,
+        "wires": [
+            [
+                "c371b50c74bc5dee"
+            ]
+        ]
+    },
+    {
+        "id": "70ee094504298935",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "point",
+        "info": "",
+        "x": 300,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "4dd57f589bb24f4f",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "point can only happen if planning mode = true",
+        "info": "",
+        "x": 420,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c371b50c74bc5dee",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "add new wp to selected_plan",
+        "func": "point = msg.payload\nplans = global.get(\"planning.plans\")\nif(!(plans)){\n    node.warn(\"Plans:\"+plans)\n    return\n}\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\n\nfunction new_wp(point){\n    return {\n        name:point.name,\n        lat:point.lat,\n        lon:point.lon,\n        depth:0,\n        rpm:0,\n        speed:0,\n        use_rpm:false\n    }\n}\n\nwp = new_wp(point)\nplan.waypoints[wp.name] = wp\nplans[plan_name] = plan\nglobal.set(\"planning.plans\", plans)\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 720,
+        "wires": [
+            [
+                "ea992bd9a2452f80",
+                "c6111a3afd78f6dd"
+            ]
+        ]
+    },
+    {
+        "id": "ea992bd9a2452f80",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "remove point from map, select wp",
+        "func": "global.set(\"gui.selected_waypoint_name\", msg.payload.name)\n\nreturn {payload:{\n    \"action\":\"delete\",\n    \"name\":msg.payload.name,\n    \"deleted\":true\n}}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 720,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "c60057a14b780187",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 840,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c1a9221f5cb68d31",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_update_listed_waypoints",
+        "links": [
+            "c6111a3afd78f6dd",
+            "183bd5b7b2e98b79",
+            "7e270ac4d823cbc0",
+            "a89d30a55f0d8f15",
+            "c4ac075074761e27",
+            "2b59a55e85d5a494",
+            "f9e34b689d61865f"
+        ],
+        "x": 235,
+        "y": 1320,
+        "wires": [
+            [
+                "f68e69985169cd78"
+            ]
+        ]
+    },
+    {
+        "id": "c6111a3afd78f6dd",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "c1a9221f5cb68d31"
+        ],
+        "x": 735,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "183bd5b7b2e98b79",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "c1a9221f5cb68d31"
+        ],
+        "x": 885,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "d68e96ba20db6bb1",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 1000,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "1eaf2df713b5d698",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 140,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "f265c0e56f9d21af",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "just trigger",
+        "func": "return {}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1320,
+        "wires": [
+            [
+                "f68e69985169cd78"
+            ]
+        ]
+    },
+    {
+        "id": "c4ac075074761e27",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "c1a9221f5cb68d31"
+        ],
+        "x": 265,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "131e486d1857bc3d",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 380,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "6b9216a6aec78960",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 315,
+        "y": 960,
+        "wires": [
+            [
+                "0f340b20aa6be0bf"
+            ]
+        ]
+    },
+    {
+        "id": "60e607fcad0d938d",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 230,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "34b418616dff4704",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 235,
+        "y": 1280,
+        "wires": [
+            [
+                "f68e69985169cd78"
+            ]
+        ]
+    },
+    {
+        "id": "bb746a1ebd04cf1f",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 150,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "d847bf3e1bd6143b",
+        "type": "config",
+        "z": "65c60c3b274f73e3",
+        "name": "gui",
+        "properties": [
+            {
+                "p": "gui",
+                "pt": "global",
+                "to": "{\"selected_robot_name\":null,\"selected_waypoint_name\":null,\"selected_plan_name\":null,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":5,\"planning_mode\":false}",
+                "tot": "json"
+            }
+        ],
+        "active": true,
+        "x": 1230,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c64c7c9fbc69557c",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 305,
+        "y": 600,
+        "wires": [
+            [
+                "84dfa6ecdba12005"
+            ]
+        ]
+    },
+    {
+        "id": "71bfde50ae8e91d3",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 220,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "84dfa6ecdba12005",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "87855a030ad4b56e"
+            ]
+        ]
+    },
+    {
+        "id": "5096e7318cafb35a",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gui.planning_mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 640,
+        "wires": [
+            [
+                "836e9b2d666ea992"
+            ]
+        ]
+    },
+    {
+        "id": "df49c5e8f94952de",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "set markers on map",
+        "func": "swp_name = global.get(\"gui.selected_waypoint_name\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nplan = plans[plan_name]\nswp = plan.waypoints[swp_name]\nplanning_mode = global.get(\"gui.planning_mode\")\n\n// first remove all other markers except the selected one\nfor(const wp_name in plan.waypoints){\n    node.send(\n        {payload:{\n            \"action\":\"delete\",\n            \"name\":wp_name,\n            \"deleted\":true\n        }}\n    ) \n}\n\n// then put the select wp on the map\nreturn {payload:\n    {\n        action:\"point\",\n        name:swp.name,\n        label:swp.name,\n        layer:\"planning\",\n        draggable:planning_mode,\n        lat:swp.lat,\n        lon:swp.lon,\n        hdg:0,\n        ttl:0,\n        icon:\"circle\",\n        iconColor:\"#910000\"\n    }\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 820,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "bb3002ce85983e34",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_update_markers_on_map",
+        "links": [
+            "836e9b2d666ea992",
+            "c15482e7569c2dda"
+        ],
+        "x": 785,
+        "y": 820,
+        "wires": [
+            [
+                "df49c5e8f94952de"
+            ]
+        ]
+    },
+    {
+        "id": "52e8d0416334a3c6",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 650,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b27a799d2b2389a3",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 1130,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "836e9b2d666ea992",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "bb3002ce85983e34"
+        ],
+        "x": 995,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "95bf09d8a6505ee6",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 1210,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "c15482e7569c2dda",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "bb3002ce85983e34"
+        ],
+        "x": 1195,
+        "y": 1300,
+        "wires": []
     }
 ]
