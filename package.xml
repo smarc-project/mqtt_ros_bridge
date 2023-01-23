@@ -59,7 +59,8 @@
   <depend>lolo_msgs</depend>
   <depend>vision_msgs</depend>
   <depend>mqtt_bridge</depend>
-  <depend>python-inject-pip</depend>
+  <depend condition="$ROS_PYTHON_VERSION == 3">python-inject-pip</depend>
+  <depend condition="$ROS_PYTHON_VERSION == 2" version_eq="3.5.4">python-Inject-pip</depend>
   <depend>python-paho-mqtt</depend>
 
 
