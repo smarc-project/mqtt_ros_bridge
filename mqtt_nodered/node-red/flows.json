@@ -24,32 +24,17 @@
         "env": []
     },
     {
-        "id": "e0f0c459.bbf218",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "37967d2ca28ac7bd",
-        "type": "tab",
-        "label": "V2_data_in",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "072468ee5a218dc0",
         "type": "tab",
-        "label": "V2_GUI",
+        "label": "V2 Robot State",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "cfb5bc673a49979e",
+        "id": "65c60c3b274f73e3",
         "type": "tab",
-        "label": "V2_globals",
+        "label": "V2 Map",
         "disabled": false,
         "info": "",
         "env": []
@@ -320,12 +305,12 @@
     {
         "id": "a48b13904097fb6a",
         "type": "ui_group",
-        "name": "Robot info",
+        "name": "Robot Info",
         "tab": "014f9035e48813bb",
         "order": 1,
         "disp": true,
-        "width": "21",
-        "collapse": false,
+        "width": "6",
+        "collapse": true,
         "className": ""
     },
     {
@@ -346,6 +331,39 @@
         "order": 1,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "81d4dedb195938c4",
+        "type": "ui_group",
+        "name": "BT State",
+        "tab": "014f9035e48813bb",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "542b5325cf729b8f",
+        "type": "ui_group",
+        "name": "Map",
+        "tab": "014f9035e48813bb",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "a891e5f5f2effe35",
+        "type": "ui_group",
+        "name": "Missions",
+        "tab": "014f9035e48813bb",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
     },
     {
         "id": "6d93d1d6e9d2a07b",
@@ -1147,9 +1165,7 @@
             [
                 "eb781abcadeb5b67"
             ],
-            [
-                "41213d1a752c77dd"
-            ],
+            [],
             [
                 "f5a1927d0bd28c49"
             ],
@@ -7402,509 +7418,21 @@
         "wires": []
     },
     {
-        "id": "976557a0.10d4d8",
-        "type": "ui_text",
-        "z": "e0f0c459.bbf218",
-        "d": true,
-        "group": "9e2bac96.b321b",
-        "order": 0,
-        "width": "6",
-        "height": "1",
-        "name": "Colored text",
-        "label": "<font color= {{msg.strongcolor}} > Display </font>",
-        "format": "<font color= {{msg.color}} > {{msg.payload}} </font>",
-        "layout": "row-spread",
-        "className": "",
-        "x": 590,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "c6bcdbe4.6822b8",
-        "type": "inject",
-        "z": "e0f0c459.bbf218",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "",
-        "topic": "",
-        "payload": "Your payload",
-        "payloadType": "str",
-        "x": 210,
-        "y": 140,
-        "wires": [
-            [
-                "94c95548.2b6ae8"
-            ]
-        ]
-    },
-    {
-        "id": "94c95548.2b6ae8",
-        "type": "change",
-        "z": "e0f0c459.bbf218",
-        "name": "Set colors",
-        "rules": [
-            {
-                "t": "set",
-                "p": "color",
-                "pt": "msg",
-                "to": "lime",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "strongcolor",
-                "pt": "msg",
-                "to": "red",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 400,
-        "y": 140,
-        "wires": [
-            [
-                "976557a0.10d4d8"
-            ]
-        ]
-    },
-    {
-        "id": "51eed1623ae376dd",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "lat_lon",
-        "topic": "smarc/+/dr/lat_lon",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 80,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "8c039af26a40d65b",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Yaw",
-        "topic": "smarc/+/dr/yaw",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 120,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "a3e321c41a417596",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Depth",
-        "topic": "smarc/+/dr/depth",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 240,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "ba7fbbbd531cc76f",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Roll",
-        "topic": "smarc/+/dr/roll",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 160,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "ca62ae7bb6eeb85a",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Pitch",
-        "topic": "smarc/+/dr/pitch",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 200,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "151ec7db07c5bf52",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "VBS_fb",
-        "topic": "smarc/+/core/vbs_fb",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 280,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "5aede5876f4a8bef",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "LCG_fb",
-        "topic": "smarc/+/core/lcg_fb",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 320,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "9a6c1dd7155c999a",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "T1_fb",
-        "topic": "smarc/+/core/thruster1_fb",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 360,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "68c4767c6148f49d",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "T2_fb",
-        "topic": "smarc/+/core/thruster2_fb",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 400,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "028d4e70dfb829d2",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "batt",
-        "topic": "smarc/+/core/battery",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 440,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "46d50d8e06f10c84",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "gps",
-        "topic": "smarc/+/core/gps",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 480,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "fbc2e84cdf50eec0",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "Altitude",
-        "topic": "smarc/+/dr/altitude",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 520,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "f0e578c28283bfd4",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "goto_wp_goal",
-        "topic": "smarc/+/bt/last_wp",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 560,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "45c8f4ebbbdee8e2",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "bt tip",
-        "topic": "smarc/+/bt/tip",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 600,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "4064cc96dda4ad29",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "livewp enable",
-        "topic": "smarc/+/bt/live_wp/enable",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 640,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "47f4ba2444a7d461",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "algae enable",
-        "topic": "smarc/+/bt/algae_farm/enable",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 680,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "4f973a8e6ec92028",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "bt heartbeat",
-        "topic": "smarc/+/bt/heartbeat",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 720,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "0cde01bab592c9af",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "bt missioncontrol",
-        "topic": "smarc/+/bt/mission_control",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 140,
-        "y": 760,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "9a6e2b83541ff91d",
-        "type": "mqtt in",
-        "z": "37967d2ca28ac7bd",
-        "name": "guiwp enable",
-        "topic": "smarc/+/bt/gui_wp/enable",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 800,
-        "wires": [
-            [
-                "632c6fcb535c101e"
-            ]
-        ]
-    },
-    {
-        "id": "632c6fcb535c101e",
-        "type": "function",
-        "z": "37967d2ca28ac7bd",
-        "name": "update robot state",
-        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": \"robot_name\"+\"_gps\",\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            }\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "a04b59e608979f6a",
         "type": "ui_list",
         "z": "072468ee5a218dc0",
         "group": "a48b13904097fb6a",
         "name": "List of robots",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "order": 1,
+        "width": 6,
+        "height": 1,
         "lineType": "two",
         "actionType": "click",
-        "allowHTML": false,
+        "allowHTML": true,
         "outputs": 1,
         "topic": "",
-        "x": 610,
-        "y": 200,
+        "x": 630,
+        "y": 1060,
         "wires": [
             [
                 "8d60954c80270a11"
@@ -7916,14 +7444,14 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "make ui_list config from robot_states",
-        "func": "list_config = []\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    \n    if(since_last_update > 10*60){\n        description_str = \"Updated >10m ago\"\n    }else{\n        description_str = \"Updated \"+ since_last_update.toFixed(2) + \" s ago\"\n    }\n    \n    if(since_last_update > 10*60){\n        icon = 'fa-deaf'\n    }else{\n        icon = 'fa-feed'\n    }\n    \n    if(robot_state.gui.selected){\n        icon = 'fa-eye'\n    }\n    \n    \n    list_item = {\n        title: robot_name,\n        description: description_str,\n        icon_name: icon\n    }\n    list_config.push(list_item)\n}\nreturn {payload:list_config}",
+        "func": "list_config = []\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    \n    if(since_last_update > 10*60){\n        description_str = \"⌚ >10m ago\"\n    }else{\n        description_str = \"⌚ \"+ since_last_update.toFixed(2) + \"s ago\"\n    }\n    \n    \n    if(since_last_update > 10*60){\n        icon = 'fa-deaf'\n        color = 'grey'\n    }else{\n        icon = 'fa-feed'\n        color = 'black'\n    }\n    \n    if(robot_state.gui.selected){\n        icon = 'fa-eye'\n        color = 'orange'\n    }\n    \n    \n    list_item = {\n        title: \"<font color=\" + color +\">\" + robot_name,\n        description: \"<font color=\" + color +\">\" + description_str,\n        icon_name: icon\n    }\n    list_config.push(list_item)\n}\nreturn {payload:list_config}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 200,
+        "x": 390,
+        "y": 1060,
         "wires": [
             [
                 "a04b59e608979f6a"
@@ -7941,11 +7469,11 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 150,
-        "y": 240,
+        "x": 170,
+        "y": 520,
         "wires": [
             [
-                "c375e4a5e57177ab"
+                "573d0d0f99f72b4b"
             ]
         ]
     },
@@ -7953,18 +7481,16 @@
         "id": "8d60954c80270a11",
         "type": "function",
         "z": "072468ee5a218dc0",
-        "name": "on_click",
-        "func": "robot_states = global.get(\"robot_states\")\n\n// set all to false\nfor(const robot_name in robot_states){\n    robot_state = robot_states[robot_name]\n    robot_state.gui.selected = false\n}\n\n// set clicked to true\nclicked_robot_name = msg.payload.title\nrobot_state = robot_states[clicked_robot_name]\nrobot_state.gui.selected = true\n\ngui_state = global.get(\"gui_state\")\ngui_state.selected_robot_name = clicked_robot_name",
-        "outputs": 1,
+        "name": "select robot",
+        "func": "robot_states = global.get(\"robot_states\")\n\n// set all to false\nfor(const robot_name in robot_states){\n    global.set(\"robot_states[\"+robot_name+\"].gui.selected\", false)\n}\n\n// set clicked to true\ntitle = msg.payload.title\n// strip the html color part\nclicked_robot_name = title.slice(title.indexOf(\">\")+1)\n\nglobal.set(\"robot_states[\"+clicked_robot_name+\"].gui.selected\", true)\nglobal.set(\"gui.selected_robot_name\", clicked_robot_name)\n",
+        "outputs": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 200,
-        "wires": [
-            []
-        ]
+        "x": 790,
+        "y": 1060,
+        "wires": []
     },
     {
         "id": "0a4f4cb54557ce2f",
@@ -7981,8 +7507,8 @@
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 760,
-        "y": 240,
+        "x": 1060,
+        "y": 520,
         "wires": [
             []
         ]
@@ -7992,18 +7518,18 @@
         "type": "ui_template",
         "z": "072468ee5a218dc0",
         "group": "a48b13904097fb6a",
-        "name": "Flight",
-        "order": 1,
-        "width": 20,
-        "height": 5,
-        "format": "<div><span id=\"attitude\"></span><span id=\"heading\"></span></div> <!--<span id=\"airspeed\"></span></div>-->\n\n<script>\n(function(scope) {\n    var options = {\n    \tsize : 200,\t\t\t\t// Sets the size in pixels of the indicator (square)\n    \troll : 0,\t\t\t\t// Roll angle in degrees for an attitude indicator\n    \tpitch : 0,\t\t\t\t// Pitch angle in degrees for an attitude indicator\n    \theading: 0,\t\t\t\t// Heading angle in degrees for an heading indicator\n    \tvario: 0,\t\t\t\t// Variometer in 1000 feets/min for the variometer indicator\n    \tairspeed: 0,\t\t\t// Air speed in knots for an air speed indicator\n    \taltitude: 0,\t\t\t// Altitude in feets for an altimeter indicator\n    \tpressure: 1000,\t\t\t// Pressure in hPa for an altimeter indicator\n    \tshowBox : true,\t\t\t// Sets if the outer squared box is visible or not (true or false)\n    \timg_directory : '/flight/img/'\t// The directory where the images are saved to\n    }\n    var atti = $.flightIndicator('#attitude', 'attitude',options);\n    var heading = $.flightIndicator('#heading', 'heading',options);\n    var speed = $.flightIndicator('#airspeed', 'airspeed',options);\n    scope.$watch('msg', function(msg) {\n        if (msg) {\n          if(msg.topic == \"roll\"){\n              atti.setRoll(msg.payload)\n          }\n          if(msg.topic == \"pitch\"){\n              atti.setPitch(-msg.payload)\n          }\n          if(msg.topic == \"heading\"){\n              heading.setHeading(msg.payload)\n          }\n          if(msg.topic == \"speed\"){\n              speed.setAirSpeed(msg.payload)\n          }\n          \n        }\n  });\n})(scope);\n\n</script>",
+        "name": "Roll, Pitch, Heading",
+        "order": 2,
+        "width": 6,
+        "height": 9,
+        "format": "<div><span id=\"attitude\"></span><span id=\"heading\"></span></div> <!--<span id=\"airspeed\"></span></div>-->\n\n<script>\n(function(scope) {\n    var options = {\n    \tsize : 180,\t\t\t\t// Sets the size in pixels of the indicator (square)\n    \troll : 0,\t\t\t\t// Roll angle in degrees for an attitude indicator\n    \tpitch : 0,\t\t\t\t// Pitch angle in degrees for an attitude indicator\n    \theading: 0,\t\t\t\t// Heading angle in degrees for an heading indicator\n    \tvario: 0,\t\t\t\t// Variometer in 1000 feets/min for the variometer indicator\n    \tairspeed: 0,\t\t\t// Air speed in knots for an air speed indicator\n    \taltitude: 0,\t\t\t// Altitude in feets for an altimeter indicator\n    \tpressure: 1000,\t\t\t// Pressure in hPa for an altimeter indicator\n    \tshowBox : false,\t\t\t// Sets if the outer squared box is visible or not (true or false)\n    \timg_directory : '/flight/img/'\t// The directory where the images are saved to\n    }\n    var atti = $.flightIndicator('#attitude', 'attitude',options);\n    var heading = $.flightIndicator('#heading', 'heading',options);\n    var speed = $.flightIndicator('#airspeed', 'airspeed',options);\n    scope.$watch('msg', function(msg) {\n        if (msg) {\n          if(msg.topic == \"roll\"){\n              atti.setRoll(msg.payload)\n          }\n          if(msg.topic == \"pitch\"){\n              atti.setPitch(-msg.payload)\n          }\n          if(msg.topic == \"heading\"){\n              heading.setHeading(msg.payload)\n          }\n          if(msg.topic == \"speed\"){\n              speed.setAirSpeed(msg.payload)\n          }\n          \n        }\n  });\n})(scope);\n\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 630,
-        "y": 240,
+        "x": 890,
+        "y": 520,
         "wires": [
             []
         ]
@@ -8013,14 +7539,14 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "[roll, pitch, heading]",
-        "func": "gui_state = global.get(\"gui_state\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nrobot_state = robot_states[selected_robot_name]\n\nroll = robot_state.base.roll\npitch = robot_state.base.pitch\nheading = robot_state.base.heading\n\nmsgs = [\n    {topic:\"roll\", payload:roll},\n    {topic:\"pitch\", payload:pitch},\n    {topic:\"heading\", payload:heading}\n    ]\n    \nreturn msgs",
+        "func": "if(msg){\n    return [\n        {topic:\"roll\", payload:msg.base.roll},\n        {topic:\"pitch\", payload:msg.base.pitch},\n        {topic:\"heading\", payload:msg.base.heading}\n        ]\n}\n",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 240,
+        "x": 650,
+        "y": 520,
         "wires": [
             [
                 "2e8781f4b35114a4"
@@ -8044,8 +7570,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 150,
-        "y": 200,
+        "x": 170,
+        "y": 1060,
         "wires": [
             [
                 "b17ab9737c48ebe8"
@@ -8053,39 +7579,2238 @@
         ]
     },
     {
-        "id": "18a2da8779fe4d91",
-        "type": "config",
-        "z": "cfb5bc673a49979e",
-        "name": "robot_states",
-        "properties": [
+        "id": "573d0d0f99f72b4b",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "Selected Robot State",
+        "func": "gui_state = global.get(\"gui\")\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\n\nreturn robot_states[selected_robot_name]\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 520,
+        "wires": [
+            [
+                "c375e4a5e57177ab",
+                "216163265f4ce78b",
+                "7d7f737ccec8bdd1",
+                "8346958d8c2ff728",
+                "5ccaf5f3bf5ae5cf",
+                "828367982cce7ef2"
+            ]
+        ]
+    },
+    {
+        "id": "216163265f4ce78b",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "[vbs, lcg, tcg]",
+        "func": "if(msg){\n    return [\n        {topic:\"vbs\", payload:msg.base.vbs},\n        {topic:\"lcg\", payload:msg.base.lcg},\n        {topic:\"tcg\", payload:msg.base.tcg},\n        ]\n}\n",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 600,
+        "wires": [
+            [
+                "4e4363d933c20d6c"
+            ],
+            [
+                "656a52f66d5d0bda"
+            ],
+            [
+                "d0bc35b89669966d"
+            ]
+        ]
+    },
+    {
+        "id": "7d7f737ccec8bdd1",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "[T1, T2]",
+        "func": "if(msg){\n    return [\n        {topic:\"t1\", payload:msg.base.t1},\n        {topic:\"t2\", payload:msg.base.t2}\n        ]\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 700,
+        "wires": [
+            [
+                "edb7322d84e1824d"
+            ],
+            [
+                "5c9b93966cd3ce1c"
+            ]
+        ]
+    },
+    {
+        "id": "4e4363d933c20d6c",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "VBS",
+        "group": "a48b13904097fb6a",
+        "order": 5,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "VBS",
+        "label": "%",
+        "format": "{{value | number:2}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 850,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "656a52f66d5d0bda",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "LCG",
+        "group": "a48b13904097fb6a",
+        "order": 6,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "LCG",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 850,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "edb7322d84e1824d",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "T1",
+        "group": "a48b13904097fb6a",
+        "order": 3,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "T1",
+        "label": "rpm",
+        "format": "{{value | number:1}}",
+        "min": "-2000",
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "-800",
+        "seg2": "800",
+        "className": "",
+        "x": 850,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "5c9b93966cd3ce1c",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "T2",
+        "group": "a48b13904097fb6a",
+        "order": 4,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "T2",
+        "label": "rpm",
+        "format": "{{value | number:1}}",
+        "min": "-2000",
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "-800",
+        "seg2": "800",
+        "className": "",
+        "x": 850,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "d0bc35b89669966d",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "TCG",
+        "group": "a48b13904097fb6a",
+        "order": 8,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "TCG",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 850,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "8346958d8c2ff728",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "BT Tip Log",
+        "func": "// \"bt\": {\n//             \"tip\": {\n//                 \"name\": \"???\",\n//                 \"message\": \"\",\n//                 \"status\": \"???\"\n//             },\n//             \"algae_farm_enable\": false,\n//             \"live_wp_enable\": false,\n//             \"gui_wp_enable\": false,\n//             \"current_wp\": {},\n//             \"current_plan\": {},\n//             \"last_heartbeat\": null\n//         },\n\nfunction make_tip_str(tip){\n    c = \"black\"\n    icon = \"\"\n    switch(tip.status){\n        case \"failure\":\n            c = \"red\"\n            icon = \"❌\"\n            break\n        case \"success\":\n            c = \"green\"\n            icon = \"✅\"\n            break\n        case \"running\":\n            c = \"blue\"\n            icon = \"⚙️\"\n            break\n    }\n    \n    tip_type = tip.name.slice(0,1)\n    tip_name = tip.name.slice(2)\n    \n    t = \"\"\n    if(tip.time > 10){\n        t = new Date(tip.time).toTimeString().slice(0,8)\n    }\n    \n    title = t + \" \" + icon + \" <font color=\" + c + \">\" + tip_name\n    msg = \"<font color=\" + c +\">\" + tip.message\n    \n    return [title, msg];\n}\n\n// dont do anything if the robot we got is not selected\nif(!(msg.gui.selected)){\n    return\n}\n\ncurrent_tip = msg.bt.tip;\n\n\n// get the current log, make sure its length matches the value \n// set in the gui and then put it back into global context\ngui_state = global.get(\"gui\")\ntips = msg.gui.bt_tip_log\ntip_log_len = gui_state.bt_tip_log_len\n// too short\nwhile(tips.length < tip_log_len){\n    tips.push({\n        name:\"\",\n        message:\"\",\n        status:\"\",\n        time:\"\"\n    })\n}\n// too long\nif(tips.length > tip_log_len){\n    tips = tips.slice(0,tip_log_len)\n}\n\nlast_tip = tips[0]\nif(last_tip){\n    if (!(last_tip.name == current_tip.name && last_tip.status == current_tip.status)){\n        // something meaningful have changed, shift things around\n        for(let i=tips.length-1; i>0; i--){\n            tips[i] = tips[i-1]\n        }\n    }\n}\n// otherwise just update the top\ntips[0] = current_tip\ntips[0].time = Date.now()\n\n//finally update the log with the latest state of the log\nglobal.set(\"robot_states['\"+msg.base.name+\"'].gui.bt_tip_log\", tips)\n\nouts = []\nfor(let i=0; i<tips.length; i++){\n    r = make_tip_str(tips[i])\n    list_item = {\n        title: r[0],\n        description: r[1]\n    }\n    outs.push(list_item)\n}\n\nreturn {payload:outs};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 900,
+        "wires": [
+            [
+                "93832a52fddd1fe6"
+            ]
+        ]
+    },
+    {
+        "id": "c50d772c522ec5c1",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "lat_lon",
+        "topic": "smarc/+/dr/lat_lon",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "d8a229ed73bf1a50",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Yaw",
+        "topic": "smarc/+/dr/yaw",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 60,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "d933ebc2598c89a7",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Depth",
+        "topic": "smarc/+/dr/depth",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 100,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "ce5f3fc1415b3d44",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Roll",
+        "topic": "smarc/+/dr/roll",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "f1f6aa8630b2459f",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Pitch",
+        "topic": "smarc/+/dr/pitch",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 60,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "6bc6d108042d5433",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "VBS_fb",
+        "topic": "smarc/+/core/vbs_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "1e257bc81da80283",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "LCG_fb",
+        "topic": "smarc/+/core/lcg_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "cb767c1ced5d8bfa",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "T1_fb",
+        "topic": "smarc/+/core/thruster1_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "b7d61f1afee897a8",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "T2_fb",
+        "topic": "smarc/+/core/thruster2_fb",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "5ab4d2fba4e40e73",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "batt",
+        "topic": "smarc/+/core/battery",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "3ef59b0e6f35a957",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "gps",
+        "topic": "smarc/+/core/gps",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "88437af12ac3ebb4",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "Altitude",
+        "topic": "smarc/+/dr/altitude",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "5c17640c744c8c15",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "goto_wp_goal",
+        "topic": "smarc/+/bt/last_wp",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "73e7fa1d9b7b8bc2",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "bt tip",
+        "topic": "smarc/+/bt/tip",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "1447262162547810",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "livewp enable",
+        "topic": "smarc/+/bt/live_wp/enable",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 300,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "9fdc56fc7a754fcd",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "algae enable",
+        "topic": "smarc/+/bt/algae_farm/enable",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "a0a635a67725ceec",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "bt heartbeat",
+        "topic": "smarc/+/bt/heartbeat",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "16ac9c75fa3b93ca",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "bt missioncontrol",
+        "topic": "smarc/+/bt/mission_control",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 540,
+        "y": 300,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "2a5530edfa53f040",
+        "type": "mqtt in",
+        "z": "072468ee5a218dc0",
+        "name": "guiwp enable",
+        "topic": "smarc/+/bt/gui_wp/enable",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 650,
+        "y": 260,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "e58d020e0faf117d",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "update robot state",
+        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null,\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"is_old\":false,\n            \"bt_tip_log\":[],\n            \"batt_v_minmax\":[9999,-1],\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"tooltip\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": robot_name+\"_gps\",\n                \"tooltip\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            },\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_states)){\n    global.set(\"robot_states\", {})\n}\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "93832a52fddd1fe6",
+        "type": "ui_list",
+        "z": "072468ee5a218dc0",
+        "group": "81d4dedb195938c4",
+        "name": "BT Log",
+        "order": 2,
+        "width": 6,
+        "height": 3,
+        "lineType": "three",
+        "actionType": "none",
+        "allowHTML": true,
+        "outputs": 0,
+        "topic": "",
+        "x": 860,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "268c9d6ea03e8ef2",
+        "type": "ui_numeric",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "label": "BT Log Len",
+        "tooltip": "",
+        "group": "81d4dedb195938c4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "20",
+        "step": 1,
+        "className": "",
+        "x": 430,
+        "y": 1100,
+        "wires": [
+            [
+                "850a3a74ca62d541"
+            ]
+        ]
+    },
+    {
+        "id": "850a3a74ca62d541",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "rules": [
             {
+                "t": "set",
+                "p": "gui.bt_tip_log_len",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ad1bf5fcff4a626",
+        "type": "inject",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "gui.bt_tip_log_len",
+        "payloadType": "global",
+        "x": 230,
+        "y": 1100,
+        "wires": [
+            [
+                "268c9d6ea03e8ef2"
+            ]
+        ]
+    },
+    {
+        "id": "9a4668d9403279bb",
+        "type": "ui_gauge",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "group": "a48b13904097fb6a",
+        "order": 7,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Battery V",
+        "label": "V",
+        "format": "{{value | number:2}}",
+        "min": "10",
+        "max": "14",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "12",
+        "seg2": "13",
+        "className": "",
+        "x": 860,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "5ccaf5f3bf5ae5cf",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "[current V, minmax]",
+        "func": "//batt_minmax = global.get(\"gui_state.batt_v_minmax\")\nbatt_minmax = msg.gui.batt_v_minmax\nmin = batt_minmax[0]\nmax = batt_minmax[1]\ncurrent = msg.base.batt_v\n\nif(current >= max){\n    max = current+2\n}\nif(current <= min){\n    min = current-2\n}\nglobal.set(\"robot_states['\"+msg.base.name+\"'].gui.batt_v_minmax\", [min, max])\n\n\nreturn [\n    {topic:\"batt\", payload:current},\n    {ui_control: {min:min, max:max}}\n    ]\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 760,
+        "wires": [
+            [
+                "9a4668d9403279bb"
+            ],
+            [
+                "9a4668d9403279bb"
+            ]
+        ]
+    },
+    {
+        "id": "0ad56f79c71f0cc7",
+        "type": "inject",
+        "z": "072468ee5a218dc0",
+        "name": "deploy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 910,
+        "y": 120,
+        "wires": [
+            [
+                "92a2d6eb5f8e7b77"
+            ]
+        ]
+    },
+    {
+        "id": "92a2d6eb5f8e7b77",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "reset robot_states on deploy",
+        "rules": [
+            {
+                "t": "set",
                 "p": "robot_states",
                 "pt": "global",
                 "to": "{}",
                 "tot": "json"
             }
         ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "828367982cce7ef2",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "Unselect if old, select on reconnect",
+        "func": "if(msg){\n    robot_state = msg\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    gui_key = \"robot_states['\"+robot_state.base.name+\"'].gui\"\n    if(since_last_update > 60){\n        global.set(gui_key+\".selected\", false)\n        c = \"yellow\"\n        if(since_last_update > 10*60){\n            c = \"grey\"\n            global.set(gui_key+\".is_old\", true)\n        }\n        global.set(gui_key+\".dr.color\", c)\n        global.set(gui_key+\".dr.iconColor\", c)\n        global.set(gui_key+\".dr.label\", \"\")\n        \n    }else{\n        global.set(gui_key+\".dr.color\", \"orange\")\n        global.set(gui_key+\".dr.iconColor\", \"orange\")\n        global.set(gui_key+\".selected\", true)\n        global.set(gui_key+\".dr.label\", robot_state.base.name)\n        global.set(gui_key+\".is_old\", false)\n    }\n}\n\n\n\n",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "61ce2b718be73daf",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "Sweden.map",
+        "func": "msg = {payload:{command:{}}};\nmsg.payload.command.map = {\n    \"overlay\":\"Bathy\", \n    \"url\":\"http://nodered.blue-robots.com/mapserver\",\n    \"opt\":{ \n        \"map\":\"/etc/mapserver/sweden.map\",\n        \"layers\":\"CONTOUR\",\n        \"format\":\"image/png\",\n        \"service\":\"wms\",\n        \"transparent\":true\n    },\n    \"wms\":true\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 340,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "d8ab75012918ab43",
+        "type": "ui_worldmap",
+        "z": "65c60c3b274f73e3",
+        "group": "542b5325cf729b8f",
+        "order": 1,
+        "width": 12,
+        "height": 12,
+        "name": "",
+        "lat": "58.25089840041283",
+        "lon": "11.4500587783608",
+        "zoom": "16",
+        "layer": "EsriS",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "deg",
+        "showgrid": "true",
+        "allowFileDrop": "false",
+        "path": "/worldmap_v2",
+        "overlist": "SN",
+        "maplist": "EsriS,NatGeo",
+        "mapname": "Bathy",
+        "mapurl": "https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv",
+        "mapopt": "{ \"maxZoom\":22,\"attribution\":\"&copy; GEBCO\",\"format\":\"image/jpeg\",\"request\":\"getmap\",\"service\":\",\"layers\":\"gebco_latest_2_sub_ice_topo\"}",
+        "mapwms": true,
+        "x": 1270,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1e0bd19ab17b797e",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_worldmap",
+        "links": [
+            "93d9f503a3372651",
+            "86db72e5aa5e61cc",
+            "8fdedc66ae19b198",
+            "f73d51a768277c0b",
+            "eaae728ca769c3c1"
+        ],
+        "x": 1155,
+        "y": 80,
+        "wires": [
+            [
+                "d8ab75012918ab43"
+            ]
+        ]
+    },
+    {
+        "id": "93d9f503a3372651",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_from_map_setup",
+        "mode": "link",
+        "links": [
+            "1e0bd19ab17b797e"
+        ],
+        "x": 1145,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "74196b529b53271e",
+        "type": "worldmap in",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "path": "/worldmap_v2",
+        "events": "connect,point,layer,bounds,other",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "fd6727bdbf9a2edd",
+                "f59da3a9a9790cbb"
+            ]
+        ]
+    },
+    {
+        "id": "f59da3a9a9790cbb",
+        "type": "debug",
+        "z": "65c60c3b274f73e3",
+        "name": "",
         "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 290,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "fd6727bdbf9a2edd",
+        "type": "switch",
+        "z": "65c60c3b274f73e3",
+        "name": "map actions",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "bounds",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "button",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "point",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "ecb32f1e69ab1244"
+            ],
+            [
+                "692a9362905a1825"
+            ],
+            [
+                "acaa0403e6b2f92a"
+            ],
+            [
+                "e2f686ad8c4ade79"
+            ]
+        ]
+    },
+    {
+        "id": "ecb32f1e69ab1244",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_connected",
+        "mode": "link",
+        "links": [
+            "5a7bf884410b6994",
+            "6b9216a6aec78960",
+            "34b418616dff4704",
+            "c64c7c9fbc69557c"
+        ],
+        "x": 435,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "692a9362905a1825",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_bounds",
+        "mode": "link",
+        "links": [],
+        "x": 435,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5a7bf884410b6994",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 585,
+        "y": 360,
+        "wires": [
+            [
+                "61ce2b718be73daf",
+                "24bfe69168ea9d8c"
+            ]
+        ]
+    },
+    {
+        "id": "db811466da709501",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 520,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "733036b10ed33646",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "bounds",
+        "info": "",
+        "x": 510,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "acaa0403e6b2f92a",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_button",
+        "mode": "link",
+        "links": [
+            "608b681c2b10d2c7"
+        ],
+        "x": 435,
         "y": 140,
         "wires": []
     },
     {
-        "id": "14f4320044abea74",
+        "id": "f2fa2605c1b981d7",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "button",
+        "info": "",
+        "x": 510,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e493560291ec0b19",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 500,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "608b681c2b10d2c7",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_on_press",
+        "links": [
+            "acaa0403e6b2f92a"
+        ],
+        "x": 445,
+        "y": 420,
+        "wires": [
+            [
+                "be264f174c773c7e"
+            ]
+        ]
+    },
+    {
+        "id": "0ffae76eff0a2978",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "button",
+        "info": "",
+        "x": 370,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d697d87f8e6123ae",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "map",
+        "info": "",
+        "x": 1230,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "be264f174c773c7e",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "on_press",
+        "func": "key = false\nswitch(msg.payload.name){\n    case(\"Toggle follow\"):\n        key = \"follow_selected_vehicle\"\n        break\n    case(\"Toggle tracks\"):\n        key = \"draw_tracks\"\n        break\n    default:\n        node.warn(\"Unhandled map button!\")\n}\n\nif(key){\n    key = \"gui.\"+key\n    if(global.get(key)){\n        global.set(key, false)\n    }else{\n        global.set(key, true)\n    }\n}\n\nreturn {}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "24bfe69168ea9d8c"
+            ]
+        ]
+    },
+    {
+        "id": "8b88d8fc9d0ab9a4",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "These should just be getting a trigger, no data",
+        "info": "",
+        "x": 730,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "24bfe69168ea9d8c",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "map buttons",
+        "func": "function make_button(button){\n    m = {payload:{command:{}}};\n    \n    if(global.get(\"gui.\"+button.global_key)){\n        icon = button.icon_true\n    }else{\n        icon = button.icon_false\n    }\n    \n    m.payload.command = { \n        \"button\": {\n            \"name\":button.name,\n            \"icon\": icon,\n            \"position\":\"topleft\" \n        } \n    }\n    return m\n}\n\nfunction remove_button(name){\n    m = {payload:{command:{}}};\n    m.payload.command = { \n        \"button\": {\n            \"name\":name,\n        } \n    }\n    return m\n}\n\n\nbuttons = [\n    {\n        \"global_key\":\"draw_tracks\",\n        \"name\":\"Toggle tracks\",\n        \"icon_true\":\"fa-sheqel\",\n        \"icon_false\":\"fa-blind\"\n    },\n    {\n        \"global_key\":\"follow_selected_vehicle\",\n        \"name\":\"Toggle follow\",\n        \"icon_true\":\"fa-eye\",\n        \"icon_false\":\"fa-low-vision\"\n    }\n]\n\nfor(var button of buttons){\n    node.send(remove_button(button.name))\n    node.send(make_button(button))\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "0a961438ad73e32f",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "robot_drs",
+        "func": "msg = {payload:[]}\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    r = robot_states[robot_name]\n    msg.payload.push(r.gui.dr)\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 480,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "327b70467ae735a8",
+        "type": "inject",
+        "z": "65c60c3b274f73e3",
+        "name": "0.2s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 500,
+        "wires": [
+            [
+                "0a961438ad73e32f",
+                "0599c19152ae4c80"
+            ]
+        ]
+    },
+    {
+        "id": "0599c19152ae4c80",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "robot_gps's",
+        "func": "msg = {payload:[]}\nrobot_states = global.get(\"robot_states\")\nfor(const robot_name in robot_states){\n    r = robot_states[robot_name]\n    msg.payload.push(r.gui.gps)\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 520,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "84763f6e6162102a",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "center map on selected robot",
+        "func": "gui_state = global.get(\"gui\")\n\nif(!(gui_state.follow_selected_vehicle)){\n    return\n}\n\n\nselected_robot_name = gui_state.selected_robot_name\nrobot_states = global.get(\"robot_states\")\n\nif(!(selected_robot_name in robot_states)){\n    return\n}\nr = robot_states[selected_robot_name]\n\nif(!(r.gui.selected)){\n    return\n}\n\nm = {\"payload\": {\n        \"command\":{\n            \"lat\": r.base.lat,\n            \"lon\": r.base.lon\n        }\n    }}\n    \nreturn m",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 560,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "eb0c3ad39ee41a83",
+        "type": "inject",
+        "z": "65c60c3b274f73e3",
+        "name": "0.5s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 560,
+        "wires": [
+            [
+                "84763f6e6162102a"
+            ]
+        ]
+    },
+    {
+        "id": "87855a030ad4b56e",
+        "type": "ui_switch",
+        "z": "65c60c3b274f73e3",
+        "name": "planning mode",
+        "label": "Planning Mode",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 580,
+        "y": 600,
+        "wires": [
+            [
+                "d01a1c27b3eb717f",
+                "5096e7318cafb35a"
+            ]
+        ]
+    },
+    {
+        "id": "d01a1c27b3eb717f",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "set map clickability",
+        "func": "return {\n    payload:{\n        command:{\n            hiderightclick: !msg.payload\n            \n        }}}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 600,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "00cf2d88e242ecc9",
         "type": "config",
-        "z": "cfb5bc673a49979e",
-        "name": "gui_state",
+        "z": "65c60c3b274f73e3",
+        "name": "planning",
         "properties": [
             {
-                "p": "gui_state",
+                "p": "planning",
                 "pt": "global",
-                "to": "{\"selected_robot_name\":null,\"selected_wp\":{},\"selected_plan\":{},\"planning_mode\":false,\"batt_v_minmax\":[-1,-1],\"draw_tracks\":false}",
+                "to": "{\"plans\":{}}",
                 "tot": "json"
             }
         ],
         "active": true,
-        "x": 300,
+        "x": 1220,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "c36e098b35484df1",
+        "type": "ui_text_input",
+        "z": "65c60c3b274f73e3",
+        "name": "lat,lon",
+        "label": "Lat,Lon",
+        "tooltip": "LAT, LON input",
+        "group": "a891e5f5f2effe35",
+        "order": 5,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "latlon",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 850,
+        "y": 1120,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "b35ff4ff8ec16352",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "get/set selected wp",
+        "func": "reset = [\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:false}\n    ]\n    \ntitle = msg.payload.title\nif(title == \"--NO PLANS--\" || title == \"--NO WPS--\") return reset\n\nwp_name = title.slice(title.indexOf(\">\")+1)\n\nglobal.set(\"gui.selected_waypoint_name\", wp_name)\n\n\n\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nif(!(plans)) return reset\nplan = plans[plan_name]\nif(!(plan)) return reset\nswp = plan.waypoints[wp_name]\nif(!(swp)) return reset\n\nreturn [\n    {payload:swp.lat + \", \"+ swp.lon},\n    {payload:swp.depth},\n    {payload:swp.rpm},\n    {payload:swp.speed},\n    {payload:swp.use_rpm}\n    ]",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1300,
+        "wires": [
+            [
+                "c36e098b35484df1"
+            ],
+            [
+                "6596fde6e6662884"
+            ],
+            [
+                "1ce3149408193422"
+            ],
+            [
+                "b5d55ffd8630fd60"
+            ],
+            [
+                "7d1b8d23041dbcc3",
+                "f265c0e56f9d21af"
+            ]
+        ]
+    },
+    {
+        "id": "7d1b8d23041dbcc3",
+        "type": "ui_switch",
+        "z": "65c60c3b274f73e3",
+        "name": "use_rpm",
+        "label": "Use RPM",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 10,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "use_rpm",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 860,
+        "y": 1280,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "6596fde6e6662884",
+        "type": "ui_text_input",
+        "z": "65c60c3b274f73e3",
+        "name": "depth",
+        "label": "Depth",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 9,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "depth",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 850,
+        "y": 1160,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "1ce3149408193422",
+        "type": "ui_text_input",
+        "z": "65c60c3b274f73e3",
+        "name": "RPM",
+        "label": "RPM",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "rpm",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 850,
+        "y": 1200,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "b5d55ffd8630fd60",
+        "type": "ui_text_input",
+        "z": "65c60c3b274f73e3",
+        "name": "speed",
+        "label": "Speed",
+        "tooltip": "in m/s",
+        "group": "a891e5f5f2effe35",
+        "order": 7,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "speed",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 850,
+        "y": 1240,
+        "wires": [
+            [
+                "959cd51c0cd7ca20"
+            ]
+        ]
+    },
+    {
+        "id": "959cd51c0cd7ca20",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "validate and edit WP",
+        "func": "plans = global.get(\"planning.plans\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\nif(!(plan)){\n    node.warn(\"Plan:\"+plan)\n    return\n}\n\nname = global.get(\"gui.selected_waypoint_name\")\nif(!(name in plan.waypoints)){\n    node.warn(\"name:\"+name+\" not in plan.waypoints\")\n    return\n}\n\nswitch(msg.topic){\n    case(\"latlon\"):\n        // magic regex that checks for lat,lon formatting\n        const regex = new RegExp(\"^-?[0-9]{1,3}(?:\\.[0-9]{1,10})?$\")\n        if(regex.test(msg.payload)){\n            parts = msg.payload.split(\",\")\n            lat = parseFloat(parts[0])\n            lon = parseFloat(parts[1])\n            plan.waypoints[name].lat = lat\n            plan.waypoints[name].lon = lon\n        }else{\n            node.warn(\"Latlon format is bad:\"+msg.payload)\n            return {payload:false}    \n        }\n        break\n        \n    case(\"depth\"):\n        // should be a float\n        try{\n            depth = parseFloat(msg.payload)\n            plan.waypoints[name].depth = depth\n        }catch{\n            node.warn(\"Depth is not float:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    case(\"rpm\"):\n        // should be an int\n        try{\n            rpm = parseInt(msg.payload)\n            plan.waypoints[name].rpm = rpm\n        }catch{\n             node.warn(\"RPM is not int:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    case(\"speed\"):\n        // should be a float\n        try{\n            speed = parseFloat(msg.payload)\n            plan.waypoints[name].speed = speed\n        }catch{\n            node.warn(\"Speed is not float:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    \n    case(\"use_rpm\"):\n        // the widget can only return good stuff, no need to check\n        plan.waypoints[name].use_rpm = msg.payload\n}\n\n// and finally, set the new version of the plan globally\nglobal.set(\"planning.plans\", plans)\nreturn {payload:true}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 1280,
+        "wires": [
+            [
+                "2a3c96232faf5eb1",
+                "c15482e7569c2dda"
+            ]
+        ]
+    },
+    {
+        "id": "2a3c96232faf5eb1",
+        "type": "ui_led",
+        "z": "65c60c3b274f73e3",
+        "order": 6,
+        "group": "a891e5f5f2effe35",
+        "width": 2,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "wp gud",
+        "x": 1240,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "0f340b20aa6be0bf",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "list plans",
+        "func": "plans = global.get(\"planning.plans\")\nif(!(plans)) return {payload:[{title:\"--NO PLANS--\"}]}\nif(Object.keys(plans).length < 1) return {payload:[{title:\"--NO PLANS--\"}]}\n\nselected_plan_name = global.get(\"gui.selected_plan_name\")\nlist_items = []\nfor(const plan_name in plans){\n    \n    if(plan_name == selected_plan_name){\n        c = \"orange\"\n    }else{\n        c = \"black\"\n    }\n    title = \"<font color=\" + c +\">\" + plan_name\n    list_item = {\"title\":title}\n    list_items.push(list_item)\n}\n\nreturn {payload:list_items}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 920,
+        "wires": [
+            [
+                "12e1c75e32095cfb"
+            ]
+        ]
+    },
+    {
+        "id": "12e1c75e32095cfb",
+        "type": "ui_list",
+        "z": "65c60c3b274f73e3",
+        "group": "a891e5f5f2effe35",
+        "name": "Plan list",
+        "order": 2,
+        "width": 6,
+        "height": 3,
+        "lineType": "two",
+        "actionType": "click",
+        "allowHTML": true,
+        "outputs": 1,
+        "topic": "",
+        "x": 580,
+        "y": 920,
+        "wires": [
+            [
+                "f1bfe65ccc40afd7"
+            ]
+        ]
+    },
+    {
+        "id": "f1bfe65ccc40afd7",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "set selected plan",
+        "func": "title = msg.payload.title\nif(title == \"--NO PLANS--\") return\nplan_name = title.slice(title.indexOf(\">\")+1)\n\nglobal.set(\"gui.selected_plan_name\", plan_name)\n\nreturn {payload:plan_name}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 920,
+        "wires": [
+            [
+                "0f340b20aa6be0bf",
+                "183bd5b7b2e98b79"
+            ]
+        ]
+    },
+    {
+        "id": "46fcc943a269e1d7",
+        "type": "ui_button",
+        "z": "65c60c3b274f73e3",
+        "name": "new plan",
+        "group": "a891e5f5f2effe35",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "New Plan",
+        "tooltip": "Create a new empty mission plan",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 880,
+        "wires": [
+            [
+                "5fc53fc5f677e010",
+                "c4ac075074761e27"
+            ]
+        ]
+    },
+    {
+        "id": "5fc53fc5f677e010",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "create and select new plan",
+        "func": "function new_plan(){\n    return {\n        name:\"NEW PLAN\",\n        waypoints:{},\n        track:[]\n    }\n}\n\nplan = new_plan()\nplans = global.get(\"planning.plans\")\nplans[plan.name] = plan\nglobal.set(\"planning.plans\", plans)\n//global.set(\"gui.selected_plan_name\", plan.name)\n\nreturn {payload:plan, topic:\"new_plan\"}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 920,
+        "wires": [
+            [
+                "0f340b20aa6be0bf"
+            ]
+        ]
+    },
+    {
+        "id": "f68e69985169cd78",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "list waypoints",
+        "func": "plans = global.get(\"planning.plans\")\nselected_plan_name = global.get(\"gui.selected_plan_name\")\nselected_waypoint_name = global.get(\"gui.selected_waypoint_name\")\nplan = plans[selected_plan_name]\nif(!(plan)) return {payload:[{title:\"--NO PLANS--\"}]}\n\nlist_items = []\nfor(const wp_name in plan.waypoints){\n    \n    if(wp_name == selected_waypoint_name){\n        c = \"orange\"\n    }else{\n        c = \"black\"\n    }\n    title = \"<font color=\" + c +\">\" + wp_name\n    list_item = {\"title\":title}\n    list_items.push(list_item)\n}\n\nif(list_items.length > 0){\n    return {payload:list_items}    \n}else{\n    return {payload:[{title:\"--NO WPS--\"}]}\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 1320,
+        "wires": [
+            [
+                "5e25569da4a16b0b"
+            ]
+        ]
+    },
+    {
+        "id": "5e25569da4a16b0b",
+        "type": "ui_list",
+        "z": "65c60c3b274f73e3",
+        "group": "a891e5f5f2effe35",
+        "name": "wp list",
+        "order": 4,
+        "width": 6,
+        "height": 3,
+        "lineType": "two",
+        "actionType": "click",
+        "allowHTML": true,
+        "outputs": 1,
+        "topic": "",
+        "x": 490,
+        "y": 1320,
+        "wires": [
+            [
+                "b35ff4ff8ec16352"
+            ]
+        ]
+    },
+    {
+        "id": "a728b06e65d8a5e8",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "Update the list of plans when the list is interacted with",
+        "info": "",
+        "x": 620,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "e2f686ad8c4ade79",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_point",
+        "mode": "link",
+        "links": [
+            "42cf4dd1c1379d75"
+        ],
+        "x": 435,
         "y": 180,
+        "wires": []
+    },
+    {
+        "id": "bcee15afbe079e57",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "point",
+        "info": "",
+        "x": 510,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "42cf4dd1c1379d75",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_from_point",
+        "links": [
+            "e2f686ad8c4ade79"
+        ],
+        "x": 375,
+        "y": 720,
+        "wires": [
+            [
+                "c371b50c74bc5dee"
+            ]
+        ]
+    },
+    {
+        "id": "70ee094504298935",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "point",
+        "info": "",
+        "x": 300,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "4dd57f589bb24f4f",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "point can only happen if planning mode = true",
+        "info": "",
+        "x": 420,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c371b50c74bc5dee",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "add new wp to selected_plan",
+        "func": "point = msg.payload\nplans = global.get(\"planning.plans\")\nif(!(plans)){\n    node.warn(\"Plans:\"+plans)\n    return\n}\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\n\nfunction new_wp(point){\n    return {\n        name:point.name,\n        lat:point.lat,\n        lon:point.lon,\n        depth:0,\n        rpm:0,\n        speed:0,\n        use_rpm:false\n    }\n}\n\nwp = new_wp(point)\nplan.waypoints[wp.name] = wp\nplans[plan_name] = plan\nglobal.set(\"planning.plans\", plans)\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 720,
+        "wires": [
+            [
+                "ea992bd9a2452f80",
+                "c6111a3afd78f6dd"
+            ]
+        ]
+    },
+    {
+        "id": "ea992bd9a2452f80",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "remove point from map, select wp",
+        "func": "global.set(\"gui.selected_waypoint_name\", msg.payload.name)\n\nreturn {payload:{\n    \"action\":\"delete\",\n    \"name\":msg.payload.name,\n    \"deleted\":true\n}}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 720,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "c60057a14b780187",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 840,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c1a9221f5cb68d31",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_update_listed_waypoints",
+        "links": [
+            "c6111a3afd78f6dd",
+            "183bd5b7b2e98b79",
+            "7e270ac4d823cbc0",
+            "a89d30a55f0d8f15",
+            "c4ac075074761e27",
+            "2b59a55e85d5a494",
+            "f9e34b689d61865f"
+        ],
+        "x": 235,
+        "y": 1320,
+        "wires": [
+            [
+                "f68e69985169cd78"
+            ]
+        ]
+    },
+    {
+        "id": "c6111a3afd78f6dd",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "c1a9221f5cb68d31"
+        ],
+        "x": 735,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "183bd5b7b2e98b79",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "c1a9221f5cb68d31"
+        ],
+        "x": 885,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "d68e96ba20db6bb1",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 1000,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "1eaf2df713b5d698",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 140,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "f265c0e56f9d21af",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "just trigger",
+        "func": "return {}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1320,
+        "wires": [
+            [
+                "f68e69985169cd78"
+            ]
+        ]
+    },
+    {
+        "id": "c4ac075074761e27",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "c1a9221f5cb68d31"
+        ],
+        "x": 265,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "131e486d1857bc3d",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 380,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "6b9216a6aec78960",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 315,
+        "y": 960,
+        "wires": [
+            [
+                "0f340b20aa6be0bf"
+            ]
+        ]
+    },
+    {
+        "id": "60e607fcad0d938d",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 230,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "34b418616dff4704",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 235,
+        "y": 1280,
+        "wires": [
+            [
+                "f68e69985169cd78"
+            ]
+        ]
+    },
+    {
+        "id": "bb746a1ebd04cf1f",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 150,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "d847bf3e1bd6143b",
+        "type": "config",
+        "z": "65c60c3b274f73e3",
+        "name": "gui",
+        "properties": [
+            {
+                "p": "gui",
+                "pt": "global",
+                "to": "{\"selected_robot_name\":null,\"selected_waypoint_name\":null,\"selected_plan_name\":null,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":5,\"planning_mode\":false}",
+                "tot": "json"
+            }
+        ],
+        "active": true,
+        "x": 1230,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c64c7c9fbc69557c",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 305,
+        "y": 600,
+        "wires": [
+            [
+                "84dfa6ecdba12005"
+            ]
+        ]
+    },
+    {
+        "id": "71bfde50ae8e91d3",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 220,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "84dfa6ecdba12005",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "87855a030ad4b56e"
+            ]
+        ]
+    },
+    {
+        "id": "5096e7318cafb35a",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gui.planning_mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 640,
+        "wires": [
+            [
+                "836e9b2d666ea992"
+            ]
+        ]
+    },
+    {
+        "id": "df49c5e8f94952de",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "set markers on map",
+        "func": "swp_name = global.get(\"gui.selected_waypoint_name\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nplan = plans[plan_name]\nswp = plan.waypoints[swp_name]\nplanning_mode = global.get(\"gui.planning_mode\")\n\n// first remove all other markers except the selected one\nfor(const wp_name in plan.waypoints){\n    node.send(\n        {payload:{\n            \"action\":\"delete\",\n            \"name\":wp_name,\n            \"deleted\":true\n        }}\n    ) \n}\n\n// then put the select wp on the map\nreturn {payload:\n    {\n        action:\"point\",\n        name:swp.name,\n        label:swp.name,\n        layer:\"planning\",\n        draggable:planning_mode,\n        lat:swp.lat,\n        lon:swp.lon,\n        hdg:0,\n        ttl:0,\n        icon:\"circle\",\n        iconColor:\"#910000\"\n    }\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 820,
+        "wires": [
+            [
+                "93d9f503a3372651"
+            ]
+        ]
+    },
+    {
+        "id": "bb3002ce85983e34",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_update_markers_on_map",
+        "links": [
+            "836e9b2d666ea992",
+            "c15482e7569c2dda"
+        ],
+        "x": 785,
+        "y": 820,
+        "wires": [
+            [
+                "df49c5e8f94952de"
+            ]
+        ]
+    },
+    {
+        "id": "52e8d0416334a3c6",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 650,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b27a799d2b2389a3",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 1130,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "836e9b2d666ea992",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "bb3002ce85983e34"
+        ],
+        "x": 995,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "95bf09d8a6505ee6",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 1210,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "c15482e7569c2dda",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "bb3002ce85983e34"
+        ],
+        "x": 1195,
+        "y": 1300,
         "wires": []
     }
 ]

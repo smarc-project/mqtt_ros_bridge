@@ -81,7 +81,7 @@
 
 		function _setHeading(heading){
 			placeholder.each(function(){
-				$(this).find('div.instrument.heading div.heading').css('transform', 'rotate(' + -heading + 'deg)');
+				$(this).find('div.instrument.heading div.heading').css('transform', 'rotate(' + heading + 'deg)');
 			});	
 		}
 
