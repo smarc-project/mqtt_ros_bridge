@@ -308,9 +308,9 @@
         "name": "Robot Info",
         "tab": "014f9035e48813bb",
         "order": 1,
-        "disp": true,
+        "disp": false,
         "width": "6",
-        "collapse": true,
+        "collapse": false,
         "className": ""
     },
     {
@@ -337,7 +337,7 @@
         "type": "ui_group",
         "name": "BT State",
         "tab": "014f9035e48813bb",
-        "order": 4,
+        "order": 5,
         "disp": true,
         "width": "6",
         "collapse": true,
@@ -349,9 +349,9 @@
         "name": "Map",
         "tab": "014f9035e48813bb",
         "order": 2,
-        "disp": true,
+        "disp": false,
         "width": "12",
-        "collapse": true,
+        "collapse": false,
         "className": ""
     },
     {
@@ -359,7 +359,7 @@
         "type": "ui_group",
         "name": "Missions",
         "tab": "014f9035e48813bb",
-        "order": 3,
+        "order": 4,
         "disp": true,
         "width": "6",
         "collapse": true,
@@ -370,11 +370,66 @@
         "type": "ui_group",
         "name": "Tracks",
         "tab": "014f9035e48813bb",
-        "order": 5,
+        "order": 6,
         "disp": true,
         "width": "6",
         "collapse": true,
         "className": ""
+    },
+    {
+        "id": "ba1fb12713836940",
+        "type": "ui_group",
+        "name": "Helptext",
+        "tab": "014f9035e48813bb",
+        "order": 3,
+        "disp": false,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6d01ec93.b1d374",
+        "type": "ui_group",
+        "name": "UserEntry",
+        "tab": "5132060d.4cde48",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "dce9e7a2.d20c78",
+        "type": "ui_group",
+        "name": "Object detection",
+        "tab": "5132060d.4cde48",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false
+    },
+    {
+        "id": "5132060d.4cde48",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a517da34.afeac8",
+        "type": "ui_group",
+        "name": "Manual Control",
+        "tab": "a312bb8e.67b4",
+        "order": 3,
+        "disp": true,
+        "width": "18",
+        "collapse": true
+    },
+    {
+        "id": "a312bb8e.67b4",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard"
     },
     {
         "id": "6d93d1d6e9d2a07b",
@@ -7801,7 +7856,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "BT Tip Log",
-        "func": "// \"bt\": {\n//             \"tip\": {\n//                 \"name\": \"???\",\n//                 \"message\": \"\",\n//                 \"status\": \"???\"\n//             },\n//             \"algae_farm_enable\": false,\n//             \"live_wp_enable\": false,\n//             \"gui_wp_enable\": false,\n//             \"current_wp\": {},\n//             \"current_plan\": {},\n//             \"last_heartbeat\": null\n//         },\n\nfunction make_tip_str(tip){\n    c = \"black\"\n    icon = \"\"\n    switch(tip.status){\n        case \"failure\":\n            c = \"red\"\n            icon = \"❌\"\n            break\n        case \"success\":\n            c = \"green\"\n            icon = \"✅\"\n            break\n        case \"running\":\n            c = \"blue\"\n            icon = \"⚙️\"\n            break\n    }\n    \n    tip_type = tip.name.slice(0,1)\n    tip_name = tip.name.slice(2)\n    \n    t = \"\"\n    if(tip.time > 10){\n        t = new Date(tip.time).toTimeString().slice(0,8)\n    }\n    \n    title = t + \" \" + icon + \" <font color=\" + c + \">\" + tip_name\n    msg = \"<font color=\" + c +\">\" + tip.message\n    \n    return [title, msg];\n}\n\n// dont do anything if the robot we got is not selected\nif(!(msg.gui.selected)){\n    return\n}\n\ncurrent_tip = msg.bt.tip;\n\n\n// get the current log, make sure its length matches the value \n// set in the gui and then put it back into global context\ngui_state = global.get(\"gui\")\ntips = msg.gui.bt_tip_log\ntip_log_len = gui_state.bt_tip_log_len\n// too short\nwhile(tips.length < tip_log_len){\n    tips.push({\n        name:\"\",\n        message:\"\",\n        status:\"\",\n        time:\"\"\n    })\n}\n// too long\nif(tips.length > tip_log_len){\n    tips = tips.slice(0,tip_log_len)\n}\n\nlast_tip = tips[0]\nif(last_tip){\n    if (!(last_tip.name == current_tip.name && last_tip.status == current_tip.status)){\n        // something meaningful have changed, shift things around\n        for(let i=tips.length-1; i>0; i--){\n            tips[i] = tips[i-1]\n        }\n    }\n}\n// otherwise just update the top\ntips[0] = current_tip\ntips[0].time = Date.now()\n\n//finally update the log with the latest state of the log\nglobal.set(\"robot_states['\"+msg.base.name+\"'].gui.bt_tip_log\", tips)\n\nouts = []\nfor(let i=0; i<tips.length; i++){\n    r = make_tip_str(tips[i])\n    list_item = {\n        title: r[0],\n        description: r[1]\n    }\n    outs.push(list_item)\n}\n\nreturn {payload:outs};\n",
+        "func": "// \"bt\": {\n//             \"tip\": {\n//                 \"name\": \"???\",\n//                 \"message\": \"\",\n//                 \"status\": \"???\"\n//             },\n//             \"algae_farm_enable\": false,\n//             \"live_wp_enable\": false,\n//             \"gui_wp_enable\": false,\n//             \"current_wp\": {},\n//             \"current_plan\": {},\n//             \"last_heartbeat\": null\n//         },\n\nfunction make_tip_str(tip){\n    c = \"black\"\n    icon = \"\"\n    switch(tip.status){\n        case \"failure\":\n            c = \"red\"\n            icon = \"❌\"\n            break\n        case \"success\":\n            c = \"green\"\n            icon = \"✅\"\n            break\n        case \"running\":\n            c = \"blue\"\n            icon = \"⚙️\"\n            break\n    }\n    \n    tip_type = tip.name.slice(0,1)\n    tip_name = tip.name.slice(2)\n    \n    t = \"\"\n    if(tip.time > 10){\n        t = new Date(tip.time).toTimeString().slice(0,8)\n    }\n    \n    title = icon + \" <font color=\" + c + \">\" + tip_name\n    msg = \"<font color=\" + c +\">[\" + t + \"] \" + tip.message\n    \n    return [title, msg];\n}\n\n// dont do anything if the robot we got is not selected\nif(!(msg.gui.selected)){\n    return\n}\n\ncurrent_tip = msg.bt.tip;\n\n\n// get the current log, make sure its length matches the value \n// set in the gui and then put it back into global context\ngui_state = global.get(\"gui\")\ntips = msg.gui.bt_tip_log\ntip_log_len = gui_state.bt_tip_log_len\n// too short\nwhile(tips.length < tip_log_len){\n    tips.push({\n        name:\"\",\n        message:\"\",\n        status:\"\",\n        time:\"\"\n    })\n}\n// too long\nif(tips.length > tip_log_len){\n    tips = tips.slice(0,tip_log_len)\n}\n\nlast_tip = tips[0]\nif(last_tip){\n    if (!(last_tip.name == current_tip.name && last_tip.status == current_tip.status)){\n        // something meaningful have changed, shift things around\n        for(let i=tips.length-1; i>0; i--){\n            tips[i] = tips[i-1]\n        }\n    }\n}\n// otherwise just update the top\ntips[0] = current_tip\ntips[0].time = Date.now()\n\n//finally update the log with the latest state of the log\nglobal.set(\"robot_states['\"+msg.base.name+\"'].gui.bt_tip_log\", tips)\n\nouts = []\nfor(let i=0; i<tips.length; i++){\n    r = make_tip_str(tips[i])\n    list_item = {\n        title: r[0],\n        description: r[1]\n    }\n    outs.push(list_item)\n}\n\nreturn {payload:outs};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8437,15 +8492,635 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "Unselect if old, select on reconnect",
-        "func": "if(msg){\n    robot_state = msg\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    gui_key = \"robot_states['\"+robot_state.base.name+\"'].gui\"\n    if(since_last_update > 60){\n        global.set(gui_key+\".selected\", false)\n        c = \"yellow\"\n        if(since_last_update > 10*60){\n            c = \"grey\"\n            global.set(gui_key+\".is_old\", true)\n        }\n        global.set(gui_key+\".dr.color\", c)\n        global.set(gui_key+\".dr.iconColor\", c)\n        global.set(gui_key+\".dr.label\", \"\")\n        \n    }else{\n        global.set(gui_key+\".dr.color\", \"orange\")\n        global.set(gui_key+\".dr.iconColor\", \"orange\")\n        global.set(gui_key+\".selected\", true)\n        global.set(gui_key+\".dr.label\", robot_state.base.name)\n        global.set(gui_key+\".is_old\", false)\n    }\n}\n\n\n\n",
-        "outputs": 0,
+        "func": "if(msg){\n    robot_state = msg\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    gui_key = \"robot_states['\"+robot_state.base.name+\"'].gui\"\n    \n    if(since_last_update > 10*60){\n        global.set(gui_key+\".is_old\", true)\n        global.set(gui_key+\".selected\", false)\n        global.set(gui_key+\".dr.color\", \"grey\")\n        global.set(gui_key+\".dr.iconColor\", \"grey\")\n        global.set(gui_key+\".dr.label\", \"\")\n        return {enabled:false}\n    }\n    \n    if(since_last_update > 60){\n        global.set(gui_key+\".selected\", false)\n        global.set(gui_key+\".dr.color\", \"yellow\")\n        global.set(gui_key+\".dr.iconColor\", \"yellow\")\n        global.set(gui_key+\".dr.label\", \"\")\n        global.set(gui_key+\".is_old\", false)\n    }else{\n        global.set(gui_key+\".selected\", true)\n        global.set(gui_key+\".dr.color\", \"orange\")\n        global.set(gui_key+\".dr.iconColor\", \"orange\")\n        global.set(gui_key+\".dr.label\", robot_state.base.name)\n        global.set(gui_key+\".is_old\", false)\n    }\n    return {enabled:true}\n}\n\n\n\n",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 700,
         "y": 440,
+        "wires": [
+            [
+                "984d3208cf3f44dc",
+                "cdf2cf72778b09da"
+            ]
+        ]
+    },
+    {
+        "id": "984d3208cf3f44dc",
+        "type": "debug",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "enabled",
+        "targetType": "msg",
+        "statusVal": "enabled",
+        "statusType": "auto",
+        "x": 950,
+        "y": 400,
         "wires": []
+    },
+    {
+        "id": "b486adbab9a480eb",
+        "type": "link in",
+        "z": "072468ee5a218dc0",
+        "name": "toggle readouts",
+        "links": [
+            "cf8fbcc8cd92e83a"
+        ],
+        "x": 345,
+        "y": 700,
+        "wires": [
+            [
+                "2e8781f4b35114a4",
+                "4e4363d933c20d6c",
+                "656a52f66d5d0bda",
+                "d0bc35b89669966d",
+                "edb7322d84e1824d",
+                "5c9b93966cd3ce1c",
+                "9a4668d9403279bb"
+            ]
+        ]
+    },
+    {
+        "id": "27d98d0f695deeec",
+        "type": "comment",
+        "z": "072468ee5a218dc0",
+        "name": "toggle readouts",
+        "info": "",
+        "x": 240,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "cf8fbcc8cd92e83a",
+        "type": "link out",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "b486adbab9a480eb",
+            "dee9d1fab2fcec69"
+        ],
+        "x": 1055,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "4eab10166ad7a6f6",
+        "type": "comment",
+        "z": "072468ee5a218dc0",
+        "name": "toggle readouts",
+        "info": "",
+        "x": 1160,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cdf2cf72778b09da",
+        "type": "delay",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 950,
+        "y": 460,
+        "wires": [
+            [
+                "cf8fbcc8cd92e83a"
+            ]
+        ]
+    },
+    {
+        "id": "07c8e88c8e7446f2",
+        "type": "link in",
+        "z": "072468ee5a218dc0",
+        "name": "helptext",
+        "links": [
+            "246b0fccde35e02f",
+            "de2b74099f9267ca"
+        ],
+        "x": 615,
+        "y": 1300,
+        "wires": [
+            [
+                "bad9531a.ac42d"
+            ]
+        ]
+    },
+    {
+        "id": "1356cb29988fd215",
+        "type": "comment",
+        "z": "072468ee5a218dc0",
+        "name": "helptext",
+        "info": "",
+        "x": 540,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "bad9531a.ac42d",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "helptext",
+        "func": "if(!msg.payload) return;\n\nconst MAXLINES = 500;\nlet data = flow.get(\"data\") || [];\nif(msg.topic==\"clear\") {\n    data = [];\n} else {\n    t = new Date(Date.now()).toTimeString().slice(0,8)\n    line = \"<font color=gray>[\"+ t +\"]  \"\n    switch(msg.topic){\n        case \"connection\":\n            switch(msg.payload){\n                case \"connect\":\n                case \"change\":\n                    line += \"(\"+msg.socketip+\")\"\n            }\n            line += \" is here!\"\n            line = \"<font color=green>\" + line\n            break\n        default:\n            line += \"<font color=black>\"+ msg.payload\n    }\n    \n    data.unshift({title:line});\n    data = data.slice(0, MAXLINES);\n}\nflow.set(\"data\", data);\n\nreturn {payload:data}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 1340,
+        "wires": [
+            [
+                "14cef28c9b363aa9"
+            ]
+        ]
+    },
+    {
+        "id": "8824d559b51e8ff1",
+        "type": "ui_button",
+        "z": "072468ee5a218dc0",
+        "name": "clear",
+        "group": "ba1fb12713836940",
+        "order": 5,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "Clears the help log",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-trash",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "topicType": "str",
+        "x": 580,
+        "y": 1340,
+        "wires": [
+            [
+                "bad9531a.ac42d"
+            ]
+        ]
+    },
+    {
+        "id": "896214991f49dc69",
+        "type": "ui_ui_control",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "events": "connect",
+        "x": 390,
+        "y": 1260,
+        "wires": [
+            [
+                "2aee03ce280bf49f",
+                "35398d09d2f397c0"
+            ]
+        ]
+    },
+    {
+        "id": "2aee03ce280bf49f",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "connection",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1260,
+        "wires": [
+            [
+                "bad9531a.ac42d"
+            ]
+        ]
+    },
+    {
+        "id": "35398d09d2f397c0",
+        "type": "debug",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "14cef28c9b363aa9",
+        "type": "ui_list",
+        "z": "072468ee5a218dc0",
+        "group": "ba1fb12713836940",
+        "name": "helptexts",
+        "order": 3,
+        "width": 11,
+        "height": 2,
+        "lineType": "one",
+        "actionType": "none",
+        "allowHTML": true,
+        "outputs": 0,
+        "topic": "",
+        "x": 870,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "b74e9e43d39d2943",
+        "type": "ui_text_input",
+        "z": "072468ee5a218dc0",
+        "name": "usertext",
+        "label": "Log something?",
+        "tooltip": "Say something?",
+        "group": "ba1fb12713836940",
+        "order": 1,
+        "width": 11,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "user",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 570,
+        "y": 1380,
+        "wires": [
+            [
+                "bad9531a.ac42d",
+                "e394c4c322482237"
+            ]
+        ]
+    },
+    {
+        "id": "a1ae28d9.0d25",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "Clear Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "null",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1440,
+        "wires": [
+            [
+                "b74e9e43d39d2943"
+            ]
+        ]
+    },
+    {
+        "id": "e394c4c322482237",
+        "type": "delay",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 1440,
+        "wires": [
+            [
+                "a1ae28d9.0d25"
+            ]
+        ]
+    },
+    {
+        "id": "093f0d1ff195539a",
+        "type": "ui_button",
+        "z": "072468ee5a218dc0",
+        "name": "ping",
+        "group": "ba1fb12713836940",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "Get attention",
+        "color": "",
+        "bgcolor": "blue",
+        "className": "",
+        "icon": "fa-volume-up",
+        "payload": "I need an adult in node red please",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 310,
+        "y": 1580,
+        "wires": [
+            [
+                "916c4b8093a21ecc",
+                "9ddd81dfb1ab5d51",
+                "b119d0a4ac56786a"
+            ]
+        ]
+    },
+    {
+        "id": "c816724e1c29b129",
+        "type": "ui_switch",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "ba1fb12713836940",
+        "order": 4,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 280,
+        "y": 1340,
+        "wires": [
+            [
+                "426351cea6a5d463"
+            ]
+        ]
+    },
+    {
+        "id": "426351cea6a5d463",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 1340,
+        "wires": [
+            [
+                "8824d559b51e8ff1"
+            ]
+        ]
+    },
+    {
+        "id": "af9eda3169c82d4f",
+        "type": "inject",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 150,
+        "y": 1340,
+        "wires": [
+            [
+                "c816724e1c29b129"
+            ]
+        ]
+    },
+    {
+        "id": "47de367d43c3b66c",
+        "type": "ui_audio",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "group": "ba1fb12713836940",
+        "voice": "urn:moz-tts:speechd:English%20(Great%20Britain)?en",
+        "always": true,
+        "x": 640,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "916c4b8093a21ecc",
+        "type": "delay",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 1580,
+        "wires": [
+            [
+                "47de367d43c3b66c"
+            ]
+        ]
+    },
+    {
+        "id": "9ddd81dfb1ab5d51",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "disable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1660,
+        "wires": [
+            [
+                "093f0d1ff195539a",
+                "a148da7fdd377498"
+            ]
+        ]
+    },
+    {
+        "id": "a148da7fdd377498",
+        "type": "delay",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 1660,
+        "wires": [
+            [
+                "7a7acdab644af9aa"
+            ]
+        ]
+    },
+    {
+        "id": "7a7acdab644af9aa",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "enable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 1660,
+        "wires": [
+            [
+                "093f0d1ff195539a"
+            ]
+        ]
+    },
+    {
+        "id": "de2b74099f9267ca",
+        "type": "link out",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "07c8e88c8e7446f2"
+        ],
+        "x": 565,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "3691746500e38fa4",
+        "type": "comment",
+        "z": "072468ee5a218dc0",
+        "name": "helptext",
+        "info": "",
+        "x": 640,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "b119d0a4ac56786a",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "user",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 1540,
+        "wires": [
+            [
+                "de2b74099f9267ca"
+            ]
+        ]
     },
     {
         "id": "61ce2b718be73daf",
@@ -8787,7 +9462,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "map buttons",
-        "func": "function make_button(button){\n    m = {payload:{command:{}}};\n    \n    if(global.get(\"gui.\"+button.global_key)){\n        icon = button.icon_true\n    }else{\n        icon = button.icon_false\n    }\n    \n    m.payload.command = { \n        \"button\": {\n            \"name\":button.name,\n            \"icon\": icon,\n            \"position\":\"topleft\" \n        } \n    }\n    return m\n}\n\nfunction remove_button(name){\n    m = {payload:{command:{}}};\n    m.payload.command = { \n        \"button\": {\n            \"name\":name,\n        } \n    }\n    return m\n}\n\n\nbuttons = [\n    {\n        \"global_key\":\"draw_tracks\",\n        \"name\":\"Toggle tracks\",\n        \"icon_true\":\"fa-sheqel\",\n        \"icon_false\":\"fa-blind\"\n    },\n    {\n        \"global_key\":\"follow_selected_vehicle\",\n        \"name\":\"Toggle follow\",\n        \"icon_true\":\"fa-eye\",\n        \"icon_false\":\"fa-low-vision\"\n    }\n]\n\nfor(var button of buttons){\n    node.send(remove_button(button.name))\n    node.send(make_button(button))\n}\n\n",
+        "func": "function make_button(button){\n    m = {payload:{command:{}}};\n    \n    if(global.get(\"gui.\"+button.global_key)){\n        icon = button.icon_true\n    }else{\n        icon = button.icon_false\n    }\n    \n    m.payload.command = { \n        \"button\": {\n            \"name\":button.name,\n            \"icon\": icon,\n            \"position\":\"topleft\" \n        } \n    }\n    return m\n}\n\nfunction remove_button(name){\n    m = {payload:{command:{}}};\n    m.payload.command = { \n        \"button\": {\n            \"name\":name,\n        } \n    }\n    return m\n}\n\n\nbuttons = [\n    // {\n    //     \"global_key\":\"draw_tracks\",\n    //     \"name\":\"Toggle tracks\",\n    //     \"icon_true\":\"fa-sheqel\",\n    //     \"icon_false\":\"fa-blind\"\n    // },\n    {\n        \"global_key\":\"follow_selected_vehicle\",\n        \"name\":\"Toggle follow\",\n        \"icon_true\":\"fa-eye\",\n        \"icon_false\":\"fa-low-vision\"\n    }\n]\n\nfor(var button of buttons){\n    node.send(remove_button(button.name))\n    node.send(make_button(button))\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8925,7 +9600,7 @@
         "label": "Planning Mode",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
-        "order": 5,
+        "order": 9,
         "width": 6,
         "height": 1,
         "passthru": true,
@@ -8984,7 +9659,7 @@
                 "tot": "json"
             }
         ],
-        "active": true,
+        "active": false,
         "x": 1280,
         "y": 180,
         "wires": []
@@ -8997,7 +9672,7 @@
         "label": "Lat,Lon",
         "tooltip": "LAT, LON input",
         "group": "a891e5f5f2effe35",
-        "order": 7,
+        "order": 12,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -9008,7 +9683,7 @@
         "className": "",
         "topicType": "str",
         "x": 830,
-        "y": 2020,
+        "y": 2440,
         "wires": [
             [
                 "959cd51c0cd7ca20"
@@ -9020,14 +9695,14 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "get/set selected wp",
-        "func": "reset = [\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:false}\n    ]\n    \ntitle = msg.payload.title\nif(title == \"--NO PLANS--\" || title == \"--NO WPS--\") return reset\n\nwp_name = title.slice(title.indexOf(\">\")+1)\n\nglobal.set(\"gui.selected_waypoint_name\", wp_name)\n\n\n\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nif(!(plans)) return reset\nplan = plans[plan_name]\nif(!(plan)) return reset\nswp = plan.waypoints[wp_name]\nif(!(swp)) return reset\n\nreturn [\n    {payload:swp.lat + \", \"+ swp.lon},\n    {payload:swp.depth},\n    {payload:swp.rpm},\n    {payload:swp.speed},\n    {payload:swp.use_rpm}\n    ]",
+        "func": "reset = [\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:\"\"},\n    {payload:false}\n    ]\n    \ntitle = msg.payload.title\nif(title == \"--NO PLANS--\" || title == \"--NO WPS--\") return reset\n\nwp_name = title.slice(title.indexOf(\">\")+1)\n\nglobal.set(\"gui.selected_waypoint_name\", wp_name)\n\n\n\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nif(!(plans)) return reset\nplan = plans[plan_name]\nif(!(plan)) return reset\nswp = plan.waypoints[wp_name]\nif(!(swp)) return reset\n\nlat = (swp.lat+\"\").substring(0,9)\nlon = (swp.lon+\"\").substring(0,9)\n\nreturn [\n    {payload: lat + \", \"+ lon},\n    {payload:swp.depth},\n    {payload:swp.rpm},\n    {payload:swp.speed},\n    {payload:swp.use_rpm}\n    ]",
         "outputs": 5,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 2200,
+        "y": 2620,
         "wires": [
             [
                 "c36e098b35484df1"
@@ -9055,7 +9730,7 @@
         "label": "Use RPM",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
-        "order": 11,
+        "order": 16,
         "width": 3,
         "height": 1,
         "passthru": true,
@@ -9074,7 +9749,7 @@
         "animate": false,
         "className": "",
         "x": 840,
-        "y": 2180,
+        "y": 2600,
         "wires": [
             [
                 "959cd51c0cd7ca20"
@@ -9089,7 +9764,7 @@
         "label": "Depth",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
-        "order": 10,
+        "order": 13,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -9100,7 +9775,7 @@
         "className": "",
         "topicType": "str",
         "x": 830,
-        "y": 2060,
+        "y": 2480,
         "wires": [
             [
                 "959cd51c0cd7ca20"
@@ -9115,7 +9790,7 @@
         "label": "RPM",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
-        "order": 9,
+        "order": 14,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -9126,7 +9801,7 @@
         "className": "",
         "topicType": "str",
         "x": 830,
-        "y": 2100,
+        "y": 2520,
         "wires": [
             [
                 "959cd51c0cd7ca20"
@@ -9141,7 +9816,7 @@
         "label": "Speed",
         "tooltip": "in m/s",
         "group": "a891e5f5f2effe35",
-        "order": 8,
+        "order": 15,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -9152,7 +9827,7 @@
         "className": "",
         "topicType": "str",
         "x": 830,
-        "y": 2140,
+        "y": 2560,
         "wires": [
             [
                 "959cd51c0cd7ca20"
@@ -9164,14 +9839,14 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "validate and edit WP",
-        "func": "plans = global.get(\"planning.plans\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\nif(!(plan)){\n    node.warn(\"Plan:\"+plan)\n    return\n}\n\nname = global.get(\"gui.selected_waypoint_name\")\nif(!(name in plan.waypoints)){\n    node.warn(\"name:\"+name+\" not in plan.waypoints\")\n    return\n}\n\n\n\nswitch(msg.topic){\n    case(\"latlon\"):\n        // magic regex that checks for lat,lon formatting\n        const regexExp = /^((\\-?|\\+?)?\\d+(\\.\\d+)?),\\s*((\\-?|\\+?)?\\d+(\\.\\d+)?)$/gi;\n        if(regexExp.test(msg.payload)){\n            parts = msg.payload.split(\",\")\n            lat = parseFloat(parts[0])\n            lon = parseFloat(parts[1])\n            plan.waypoints[name].lat = lat\n            plan.waypoints[name].lon = lon\n        }else{\n            node.warn(\"Latlon format is bad:\"+msg.payload)\n            return {payload:false}    \n        }\n        break\n        \n    case(\"depth\"):\n        // should be a float\n        try{\n            depth = parseFloat(msg.payload) || 0\n            plan.waypoints[name].depth = depth\n        }catch{\n            node.warn(\"Depth is not float:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    case(\"rpm\"):\n        // should be an int\n        try{\n            rpm = parseInt(msg.payload) || 0\n            plan.waypoints[name].rpm = rpm\n        }catch{\n             node.warn(\"RPM is not int:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    case(\"speed\"):\n        // should be a float\n        try{\n            speed = parseFloat(msg.payload) || 0\n            plan.waypoints[name].speed = speed\n        }catch{\n            node.warn(\"Speed is not float:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    \n    case(\"use_rpm\"):\n        // the widget can only return good stuff, no need to check\n        plan.waypoints[name].use_rpm = msg.payload\n}\n\n// and finally, set the new version of the plan globally\nglobal.set(\"planning.plans\", plans)\nreturn {payload:true}",
+        "func": "plans = global.get(\"planning.plans\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\nif(!(plan)){\n    return\n}\n\nname = global.get(\"gui.selected_waypoint_name\")\nif(!(name in plan.waypoints)){\n    return\n}\n\n\n\nswitch(msg.topic){\n    case(\"latlon\"):\n        // magic regex that checks for lat,lon formatting\n        const regexExp = /^((\\-?|\\+?)?\\d+(\\.\\d+)?),\\s*((\\-?|\\+?)?\\d+(\\.\\d+)?)$/gi;\n        if(regexExp.test(msg.payload)){\n            parts = msg.payload.split(\",\")\n            lat = parseFloat(parts[0])\n            lon = parseFloat(parts[1])\n            plan.waypoints[name].lat = lat\n            plan.waypoints[name].lon = lon\n        }else{\n            node.warn(\"Latlon format is bad:\"+msg.payload)\n            return {payload:false}    \n        }\n        break\n        \n    case(\"depth\"):\n        // should be a float\n        try{\n            depth = parseFloat(msg.payload) || 0\n            plan.waypoints[name].depth = depth\n        }catch{\n            node.warn(\"Depth is not float:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    case(\"rpm\"):\n        // should be an int\n        try{\n            rpm = parseInt(msg.payload) || 0\n            plan.waypoints[name].rpm = rpm\n        }catch{\n             node.warn(\"RPM is not int:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    case(\"speed\"):\n        // should be a float\n        try{\n            speed = parseFloat(msg.payload) || 0\n            plan.waypoints[name].speed = speed\n        }catch{\n            node.warn(\"Speed is not float:\"+msg.payload)\n            return {payload:false}\n        }\n        break\n    \n    case(\"use_rpm\"):\n        // the widget can only return good stuff, no need to check\n        plan.waypoints[name].use_rpm = msg.payload\n}\n\n// and finally, set the new version of the plan globally\nglobal.set(\"planning.plans\", plans)\nreturn {payload:true}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1040,
-        "y": 2180,
+        "y": 2520,
         "wires": [
             [
                 "2a3c96232faf5eb1",
@@ -9183,7 +9858,7 @@
         "id": "2a3c96232faf5eb1",
         "type": "ui_led",
         "z": "65c60c3b274f73e3",
-        "order": 13,
+        "order": 17,
         "group": "a891e5f5f2effe35",
         "width": 3,
         "height": 1,
@@ -9206,8 +9881,8 @@
         "shape": "square",
         "showGlow": true,
         "name": "wp gud",
-        "x": 1280,
-        "y": 2180,
+        "x": 1320,
+        "y": 2480,
         "wires": []
     },
     {
@@ -9221,8 +9896,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 1760,
+        "x": 380,
+        "y": 1640,
         "wires": [
             [
                 "12e1c75e32095cfb"
@@ -9243,8 +9918,8 @@
         "allowHTML": true,
         "outputs": 1,
         "topic": "",
-        "x": 620,
-        "y": 1760,
+        "x": 520,
+        "y": 1640,
         "wires": [
             [
                 "f1bfe65ccc40afd7"
@@ -9262,13 +9937,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 1760,
+        "x": 690,
+        "y": 1640,
         "wires": [
             [
-                "0f340b20aa6be0bf",
                 "183bd5b7b2e98b79",
-                "a7eba2ef10edab1f"
+                "a7eba2ef10edab1f",
+                "66be8a1b9908737a",
+                "389bc260103b7207"
             ]
         ]
     },
@@ -9292,8 +9968,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 260,
-        "y": 1520,
+        "x": 380,
+        "y": 1780,
         "wires": [
             [
                 "5fc53fc5f677e010",
@@ -9306,14 +9982,14 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "create and select new plan",
-        "func": "function new_plan(){\n    t = new Date(Date.now()).toTimeString().slice(0,8)\n    return {\n        name:\"NEW PLAN-\"+ t,\n        waypoints:{},\n        waypoint_order:[]\n    }\n}\n\nplan = new_plan()\nplans = global.get(\"planning.plans\")\nplans[plan.name] = plan\nglobal.set(\"planning.plans\", plans)\n//global.set(\"gui.selected_plan_name\", plan.name)\n\nreturn {payload:plan, topic:\"new_plan\"}",
+        "func": "function new_plan(){\n    t = new Date(Date.now()).toTimeString().slice(0,8)\n    return {\n        name:\"NEW PLAN-\"+ t,\n        waypoints:{},\n        waypoint_order:[]\n    }\n}\n\nplan = new_plan()\nplans = global.get(\"planning.plans\")\nplans[plan.name] = plan\nglobal.set(\"planning.plans\", plans)\nglobal.set(\"gui.selected_plan_name\", plan.name)\n\nreturn {payload:plan, topic:\"new_plan\"}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 1520,
+        "x": 620,
+        "y": 1800,
         "wires": [
             [
                 "06b52e62f1cf32f9"
@@ -9332,7 +10008,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 2220,
+        "y": 2640,
         "wires": [
             [
                 "5e25569da4a16b0b"
@@ -9345,7 +10021,7 @@
         "z": "65c60c3b274f73e3",
         "group": "a891e5f5f2effe35",
         "name": "wp list",
-        "order": 6,
+        "order": 11,
         "width": 6,
         "height": 3,
         "lineType": "two",
@@ -9354,22 +10030,12 @@
         "outputs": 1,
         "topic": "",
         "x": 470,
-        "y": 2220,
+        "y": 2640,
         "wires": [
             [
                 "b35ff4ff8ec16352"
             ]
         ]
-    },
-    {
-        "id": "a728b06e65d8a5e8",
-        "type": "comment",
-        "z": "65c60c3b274f73e3",
-        "name": "Update the list of plans when the list is interacted with",
-        "info": "",
-        "x": 660,
-        "y": 1820,
-        "wires": []
     },
     {
         "id": "e2f686ad8c4ade79",
@@ -9435,7 +10101,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "add new wp to selected_plan",
-        "func": "point = msg.payload\nplans = global.get(\"planning.plans\")\nif(!(plans)){\n    node.warn(\"Plans:\"+plans)\n    return\n}\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\n\nfunction new_wp(point){\n    return {\n        name:point.name,\n        lat:point.lat,\n        lon:point.lon,\n        depth:0,\n        rpm:0,\n        speed:0,\n        use_rpm:false\n    }\n}\n\nwp = new_wp(point)\nplan.waypoints[wp.name] = wp\nplan.waypoint_order.push(wp.name)\nplans[plan_name] = plan\nglobal.set(\"planning.plans\", plans)\n\nreturn msg",
+        "func": "point = msg.payload\nif(!point.name || point.name===\"\") return\n\nplans = global.get(\"planning.plans\")\nif(!(plans)){\n    node.warn(\"Plans:\"+plans)\n    return\n}\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\n\n\nfunction new_wp(point){\n    return {\n        name:point.name,\n        lat:point.lat,\n        lon:point.lon,\n        depth:0,\n        rpm:0,\n        speed:0,\n        use_rpm:false\n    }\n}\n\nwp = new_wp(point)\nplan.waypoints[wp.name] = wp\nplan.waypoint_order.push(wp.name)\nplans[plan_name] = plan\nglobal.set(\"planning.plans\", plans)\n\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9496,10 +10162,11 @@
             "6ecdeb474d97bb05",
             "0db429c1a28c5125",
             "e892c74e5c27aee1",
-            "2a1a62cfc5cae84d"
+            "2a1a62cfc5cae84d",
+            "5c7f36f879d73a9b"
         ],
         "x": 215,
-        "y": 2220,
+        "y": 2640,
         "wires": [
             [
                 "f68e69985169cd78"
@@ -9528,8 +10195,8 @@
         "links": [
             "c1a9221f5cb68d31"
         ],
-        "x": 945,
-        "y": 1800,
+        "x": 845,
+        "y": 1660,
         "wires": []
     },
     {
@@ -9538,8 +10205,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update list of wps",
         "info": "",
-        "x": 1060,
-        "y": 1800,
+        "x": 960,
+        "y": 1660,
         "wires": []
     },
     {
@@ -9549,7 +10216,7 @@
         "name": "update list of wps",
         "info": "",
         "x": 100,
-        "y": 2220,
+        "y": 2640,
         "wires": []
     },
     {
@@ -9564,11 +10231,12 @@
         "finalize": "",
         "libs": [],
         "x": 850,
-        "y": 2220,
+        "y": 2680,
         "wires": [
             [
-                "f68e69985169cd78",
-                "c15482e7569c2dda"
+                "c15482e7569c2dda",
+                "5fa6ab3ca15b659e",
+                "5c7f36f879d73a9b"
             ]
         ]
     },
@@ -9581,8 +10249,8 @@
         "links": [
             "c1a9221f5cb68d31"
         ],
-        "x": 385,
-        "y": 1480,
+        "x": 525,
+        "y": 1760,
         "wires": []
     },
     {
@@ -9591,8 +10259,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update list of wps",
         "info": "",
-        "x": 500,
-        "y": 1480,
+        "x": 640,
+        "y": 1760,
         "wires": []
     },
     {
@@ -9603,8 +10271,8 @@
         "links": [
             "ecb32f1e69ab1244"
         ],
-        "x": 355,
-        "y": 1800,
+        "x": 255,
+        "y": 1680,
         "wires": [
             [
                 "0f340b20aa6be0bf"
@@ -9617,8 +10285,8 @@
         "z": "65c60c3b274f73e3",
         "name": "connected",
         "info": "",
-        "x": 260,
-        "y": 1800,
+        "x": 160,
+        "y": 1680,
         "wires": []
     },
     {
@@ -9630,7 +10298,7 @@
             "ecb32f1e69ab1244"
         ],
         "x": 215,
-        "y": 2180,
+        "y": 2600,
         "wires": [
             [
                 "f68e69985169cd78"
@@ -9644,7 +10312,7 @@
         "name": "connected",
         "info": "",
         "x": 120,
-        "y": 2180,
+        "y": 2600,
         "wires": []
     },
     {
@@ -9656,7 +10324,7 @@
             {
                 "p": "gui",
                 "pt": "global",
-                "to": "{\"selected_robot_name\":null,\"selected_waypoint_name\":null,\"selected_plan_name\":null,\"selected_track_name\":null,\"drawn_track_names\":null,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":5,\"planning_mode\":false,\"drawn_on_map\":null}",
+                "to": "{\"selected_robot_name\":null,\"selected_waypoint_name\":null,\"selected_plan_name\":null,\"selected_track_name\":null,\"drawn_track_names\":null,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":20,\"planning_mode\":false,\"drawn_on_map\":null}",
                 "tot": "json"
             }
         ],
@@ -9780,7 +10448,9 @@
             "a7eba2ef10edab1f",
             "2a61996a1d3b6320",
             "86149028f57aa271",
-            "5ad9f131ddd8bb21"
+            "5ad9f131ddd8bb21",
+            "0e76935522f9aebc",
+            "23c5e0d877fa805e"
         ],
         "x": 375,
         "y": 1060,
@@ -9830,7 +10500,7 @@
         "name": "update_markers_on_map",
         "info": "",
         "x": 1110,
-        "y": 2220,
+        "y": 2640,
         "wires": []
     },
     {
@@ -9843,7 +10513,7 @@
             "bb3002ce85983e34"
         ],
         "x": 975,
-        "y": 2220,
+        "y": 2640,
         "wires": []
     },
     {
@@ -9855,8 +10525,8 @@
         "links": [
             "c1a9221f5cb68d31"
         ],
-        "x": 1185,
-        "y": 2140,
+        "x": 1235,
+        "y": 2520,
         "wires": []
     },
     {
@@ -9865,8 +10535,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update list of wps",
         "info": "",
-        "x": 1300,
-        "y": 2140,
+        "x": 1340,
+        "y": 2520,
         "wires": []
     },
     {
@@ -10011,14 +10681,14 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "selected wp properties",
-        "func": "wp_name = global.get(\"gui.selected_waypoint_name\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nplan = plans[plan_name]\nswp = plan.waypoints[wp_name]\n\nreturn [\n    {payload:swp.lat + \", \"+ swp.lon},\n    {payload:swp.depth},\n    {payload:swp.rpm},\n    {payload:swp.speed},\n    {payload:swp.use_rpm}\n    ]",
+        "func": "wp_name = global.get(\"gui.selected_waypoint_name\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nplan = plans[plan_name]\nswp = plan.waypoints[wp_name]\n\nlat = (swp.lat+\"\").substring(0,9)\nlon = (swp.lon+\"\").substring(0,9)\n\nreturn [\n    {payload: lat + \", \"+ lon},\n    {payload:swp.depth},\n    {payload:swp.rpm},\n    {payload:swp.speed},\n    {payload:swp.use_rpm}\n    ]",
         "outputs": 5,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 2100,
+        "y": 2520,
         "wires": [
             [
                 "c36e098b35484df1"
@@ -10047,7 +10717,7 @@
             "5a1eb09333cce11a"
         ],
         "x": 315,
-        "y": 2100,
+        "y": 2520,
         "wires": [
             [
                 "e25ea0dde8910944"
@@ -10061,7 +10731,7 @@
         "name": "update selected wp properties",
         "info": "",
         "x": 160,
-        "y": 2100,
+        "y": 2520,
         "wires": []
     },
     {
@@ -10213,8 +10883,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update_markers_on_map",
         "info": "",
-        "x": 1090,
-        "y": 1760,
+        "x": 990,
+        "y": 1620,
         "wires": []
     },
     {
@@ -10226,8 +10896,8 @@
         "links": [
             "bb3002ce85983e34"
         ],
-        "x": 945,
-        "y": 1760,
+        "x": 845,
+        "y": 1620,
         "wires": []
     },
     {
@@ -10237,13 +10907,16 @@
         "name": "v2_update_list_of_plans",
         "links": [
             "06b52e62f1cf32f9",
-            "887a04d5bcde6631"
+            "887a04d5bcde6631",
+            "389bc260103b7207"
         ],
-        "x": 355,
-        "y": 1760,
+        "x": 255,
+        "y": 1640,
         "wires": [
             [
-                "0f340b20aa6be0bf"
+                "0f340b20aa6be0bf",
+                "ceae70c2ba4b7830",
+                "a9e58882f4e7f8c8"
             ]
         ]
     },
@@ -10253,8 +10926,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update list of plans",
         "info": "",
-        "x": 230,
-        "y": 1760,
+        "x": 130,
+        "y": 1640,
         "wires": []
     },
     {
@@ -10266,8 +10939,8 @@
         "links": [
             "a252ee0fd438b161"
         ],
-        "x": 965,
-        "y": 1520,
+        "x": 1105,
+        "y": 1800,
         "wires": []
     },
     {
@@ -10276,8 +10949,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update list of plans",
         "info": "",
-        "x": 1080,
-        "y": 1520,
+        "x": 1230,
+        "y": 1800,
         "wires": []
     },
     {
@@ -10300,8 +10973,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 250,
-        "y": 1600,
+        "x": 390,
+        "y": 1860,
         "wires": [
             [
                 "e6ae60c52e377774"
@@ -10328,8 +11001,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 250,
-        "y": 1680,
+        "x": 390,
+        "y": 1900,
         "wires": [
             [
                 "12de08ecd70dbfa4"
@@ -10351,8 +11024,8 @@
         "className": "",
         "topic": "",
         "name": "rename",
-        "x": 580,
-        "y": 1600,
+        "x": 720,
+        "y": 1860,
         "wires": [
             [
                 "0be06dba0165bcee"
@@ -10370,8 +11043,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1600,
+        "x": 560,
+        "y": 1860,
         "wires": [
             [
                 "200284fa17ca403a"
@@ -10389,8 +11062,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 1600,
+        "x": 900,
+        "y": 1860,
         "wires": [
             [
                 "06b52e62f1cf32f9"
@@ -10408,8 +11081,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1680,
+        "x": 560,
+        "y": 1900,
         "wires": [
             [
                 "f21a5b2d8b3c6c96"
@@ -10431,8 +11104,8 @@
         "className": "",
         "topic": "",
         "name": "delete",
-        "x": 570,
-        "y": 1680,
+        "x": 710,
+        "y": 1900,
         "wires": [
             [
                 "b0f090ceb3b734ad"
@@ -10450,8 +11123,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 1680,
+        "x": 900,
+        "y": 1900,
         "wires": [
             [
                 "06b52e62f1cf32f9",
@@ -10466,8 +11139,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update_markers_on_map",
         "info": "",
-        "x": 1110,
-        "y": 1680,
+        "x": 1250,
+        "y": 1900,
         "wires": []
     },
     {
@@ -10479,8 +11152,8 @@
         "links": [
             "bb3002ce85983e34"
         ],
-        "x": 965,
-        "y": 1680,
+        "x": 1105,
+        "y": 1900,
         "wires": []
     },
     {
@@ -10492,8 +11165,8 @@
         "links": [
             "c1a9221f5cb68d31"
         ],
-        "x": 965,
-        "y": 1640,
+        "x": 1105,
+        "y": 1940,
         "wires": []
     },
     {
@@ -10502,8 +11175,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update list of wps",
         "info": "",
-        "x": 1080,
-        "y": 1640,
+        "x": 1220,
+        "y": 1940,
         "wires": []
     },
     {
@@ -10621,7 +11294,7 @@
         "z": "65c60c3b274f73e3",
         "name": "rename wp",
         "group": "a891e5f5f2effe35",
-        "order": 12,
+        "order": 18,
         "width": 2,
         "height": 1,
         "passthru": false,
@@ -10635,8 +11308,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 350,
-        "y": 2300,
+        "x": 330,
+        "y": 2800,
         "wires": [
             [
                 "fd9f37f1f59d843a"
@@ -10658,8 +11331,8 @@
         "className": "",
         "topic": "",
         "name": "rename",
-        "x": 680,
-        "y": 2300,
+        "x": 660,
+        "y": 2800,
         "wires": [
             [
                 "e9b740d9e80845c1"
@@ -10677,8 +11350,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
-        "y": 2300,
+        "x": 500,
+        "y": 2800,
         "wires": [
             [
                 "e994850c3d34e5c7"
@@ -10696,8 +11369,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 860,
-        "y": 2300,
+        "x": 840,
+        "y": 2800,
         "wires": [
             [
                 "2a1a62cfc5cae84d",
@@ -10711,7 +11384,7 @@
         "z": "65c60c3b274f73e3",
         "name": "delete wp",
         "group": "a891e5f5f2effe35",
-        "order": 14,
+        "order": 19,
         "width": 1,
         "height": 1,
         "passthru": false,
@@ -10725,8 +11398,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 340,
-        "y": 2340,
+        "x": 320,
+        "y": 2840,
         "wires": [
             [
                 "6142dcb33f97df51"
@@ -10744,8 +11417,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
-        "y": 2340,
+        "x": 500,
+        "y": 2840,
         "wires": [
             [
                 "35e64f7efad6744b"
@@ -10767,8 +11440,8 @@
         "className": "",
         "topic": "",
         "name": "delete",
-        "x": 670,
-        "y": 2340,
+        "x": 650,
+        "y": 2840,
         "wires": [
             [
                 "bc43cdcacce6b0b2"
@@ -10786,8 +11459,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
-        "y": 2340,
+        "x": 830,
+        "y": 2840,
         "wires": [
             [
                 "2a1a62cfc5cae84d",
@@ -10801,8 +11474,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update list of wps",
         "info": "",
-        "x": 1160,
-        "y": 2300,
+        "x": 1140,
+        "y": 2800,
         "wires": []
     },
     {
@@ -10814,8 +11487,8 @@
         "links": [
             "c1a9221f5cb68d31"
         ],
-        "x": 1045,
-        "y": 2300,
+        "x": 1025,
+        "y": 2800,
         "wires": []
     },
     {
@@ -10824,8 +11497,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update_markers_on_map",
         "info": "",
-        "x": 1190,
-        "y": 2340,
+        "x": 1170,
+        "y": 2840,
         "wires": []
     },
     {
@@ -10837,8 +11510,8 @@
         "links": [
             "bb3002ce85983e34"
         ],
-        "x": 1045,
-        "y": 2340,
+        "x": 1025,
+        "y": 2840,
         "wires": []
     },
     {
@@ -10847,16 +11520,16 @@
         "z": "65c60c3b274f73e3",
         "group": "c68132315359e81c",
         "name": "track list",
-        "order": 6,
-        "width": 0,
-        "height": 0,
+        "order": 4,
+        "width": 6,
+        "height": 4,
         "lineType": "two",
         "actionType": "click",
         "allowHTML": true,
         "outputs": 1,
         "topic": "",
         "x": 460,
-        "y": 2660,
+        "y": 3080,
         "wires": [
             [
                 "1ecb86213b200219"
@@ -10868,14 +11541,14 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "list tracks",
-        "func": "tracks = global.get(\"planning.tracks\")\n\n\nif(!(tracks)){\n    return {payload:[{title:\"--NO TRACKS--\"}]}  \n} \nif(Object.keys(tracks).length < 1){\n    return {payload:[{title:\"--NO TRACKS--\"}]}     \n}\n\nlist_items = []\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    c = \"black\"\n    if(track_name == global.get(\"gui.selected_track_name\")){\n        c = \"orange\"\n    }\n    \n    title = \"<font color=\" + c +\">\" + track.name\n    \n    if(track.recording){\n        duration_str = \"🔴 \" + parseInt((Date.now() - track.start)/1000) + \"s \"\n        title = duration_str + title\n    }\n    \n    desc = \"\"\n    if(track.robot_name) desc += \"🤖:\"+track.robot_name\n    if(track.start && track.end){\n        duration = parseInt((track.end - track.start)/1000)\n        if(duration > 120) duration_str = parseInt(duration/60) + \"m\" + duration%60+\"s\"\n        else duration_str = duration + \"s\"\n        desc += \" ⏲️:\" + duration_str\n    }\n    \n    list_item = {title:title, description:desc}\n    list_items.push(list_item)\n}\n\nreturn {payload:list_items}",
+        "func": "tracks = global.get(\"planning.tracks\") || {}\nglobal.set(\"planning.tracks\", tracks)\n\ndrawn_tracks = global.get(\"gui.drawn_track_names\") || new Set()\nglobal.set(\"gui.drawn_track_names\", drawn_tracks)\n\n\nif(!(tracks)){\n    return {payload:[{title:\"--NO TRACKS--\"}]}  \n} \nif(Object.keys(tracks).length < 1){\n    return {payload:[{title:\"--NO TRACKS--\"}]}     \n}\n\nlist_items = []\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    c = \"black\"\n    if(track_name == global.get(\"gui.selected_track_name\")){\n        c = \"orange\"\n    }\n    \n    title = \"<font color=\" + c +\">\" + track.name\n    \n    if(track.recording){\n        duration_str = \"🔴 \" + parseInt((Date.now() - track.start)/1000) + \"s \"\n        title = duration_str + title\n    }\n    \n    if(drawn_tracks.has(track_name)){\n        title = \"🗺 ️\" + title\n    }\n    \n    desc = \"\"\n    if(track.robot_name) desc += \"🤖:\"+track.robot_name\n    if(track.start && track.end){\n        duration = parseInt((track.end - track.start)/1000)\n        if(duration > 120) duration_str = parseInt(duration/60) + \"m\" + duration%60+\"s\"\n        else duration_str = duration + \"s\"\n        desc += \" ⏲️:\" + duration_str\n    }\n    \n    desc = \"<font color=\" + c +\">\" + desc\n    \n    list_item = {title:title, description:desc}\n    list_items.push(list_item)\n}\n\nreturn {payload:list_items}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 2660,
+        "y": 3080,
         "wires": [
             [
                 "17b5ae972bf306a0"
@@ -10891,13 +11564,15 @@
             "99a8b1e1f6f42347",
             "8a76125dbced6a15",
             "86c7eb05460bf065",
-            "e8e6c12b50ea97fb"
+            "e8e6c12b50ea97fb",
+            "0c34ba3ec1cfae86"
         ],
         "x": 205,
-        "y": 2660,
+        "y": 3080,
         "wires": [
             [
-                "18ebb3de66d804a6"
+                "18ebb3de66d804a6",
+                "42294f1d6fd2420c"
             ]
         ]
     },
@@ -10908,7 +11583,7 @@
         "name": "update track list",
         "info": "",
         "x": 100,
-        "y": 2660,
+        "y": 3080,
         "wires": []
     },
     {
@@ -10931,8 +11606,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 260,
-        "y": 2760,
+        "x": 320,
+        "y": 3220,
         "wires": [
             [
                 "deceb8a24bb64930"
@@ -10950,8 +11625,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 2760,
+        "x": 500,
+        "y": 3220,
         "wires": [
             [
                 "99a8b1e1f6f42347"
@@ -10967,8 +11642,8 @@
         "links": [
             "9e4dc1dfcbcf273a"
         ],
-        "x": 545,
-        "y": 2760,
+        "x": 595,
+        "y": 3220,
         "wires": []
     },
     {
@@ -10983,10 +11658,12 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 2660,
+        "y": 3080,
         "wires": [
             [
-                "18ebb3de66d804a6"
+                "18ebb3de66d804a6",
+                "0e76935522f9aebc",
+                "74addf97d915bda4"
             ]
         ]
     },
@@ -11010,8 +11687,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 270,
-        "y": 2820,
+        "x": 330,
+        "y": 3260,
         "wires": [
             [
                 "449b196d04392d97"
@@ -11029,8 +11706,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 2820,
+        "x": 520,
+        "y": 3260,
         "wires": [
             [
                 "e4c2a18511e58034"
@@ -11052,8 +11729,8 @@
         "className": "",
         "topic": "",
         "name": "delete",
-        "x": 610,
-        "y": 2820,
+        "x": 670,
+        "y": 3260,
         "wires": [
             [
                 "0056037d4227ec33"
@@ -11071,11 +11748,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 2820,
+        "x": 860,
+        "y": 3260,
         "wires": [
             [
-                "8a76125dbced6a15"
+                "8a76125dbced6a15",
+                "23c5e0d877fa805e"
             ]
         ]
     },
@@ -11088,8 +11766,8 @@
         "links": [
             "9e4dc1dfcbcf273a"
         ],
-        "x": 1005,
-        "y": 2820,
+        "x": 1065,
+        "y": 3300,
         "wires": []
     },
     {
@@ -11112,8 +11790,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 270,
-        "y": 2860,
+        "x": 330,
+        "y": 3300,
         "wires": [
             [
                 "d4f20f6df999404f"
@@ -11135,8 +11813,8 @@
         "className": "",
         "topic": "",
         "name": "rename",
-        "x": 620,
-        "y": 2860,
+        "x": 680,
+        "y": 3300,
         "wires": [
             [
                 "cbb10f7262a76111"
@@ -11154,8 +11832,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 2860,
+        "x": 520,
+        "y": 3300,
         "wires": [
             [
                 "6342038c5b344e48"
@@ -11167,17 +11845,18 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "rename selected track",
-        "func": "if(msg.payload == \"Cancel\") return\n\nnew_name = msg.payload\n\ntracks = global.get(\"planning.tracks\")\nif(new_name in Object.keys(tracks)) return\n\ntrack = tracks[global.get(\"gui.selected_track_name\")]\ndelete tracks[track.name]\ndrawn_tracks = global.get(\"gui.drawn_track_names\")\ndrawn_tracks.delete(track.name)\n\ntrack.name = new_name\ntracks[new_name] = track\nglobal.set(\"planning.tracks\", tracks)\nglobal.set(\"gui.selected_track_name\", new_name)\nglobal.set(\"gui.drawn_track_names\", drawn_tracks)\n\nreturn {}",
+        "func": "if(msg.payload == \"Cancel\") return\n\nnew_name = msg.payload\n\ntracks = global.get(\"planning.tracks\")\nif(new_name in Object.keys(tracks)) return\n\ntrack = tracks[global.get(\"gui.selected_track_name\")]\ndelete tracks[track.name]\ndrawn_tracks = global.get(\"gui.drawn_track_names\")\ndrawn_tracks.delete(track.name)\n\n\ntrack.name = new_name\ntracks[new_name] = track\ndrawn_tracks.add(new_name)\nglobal.set(\"planning.tracks\", tracks)\nglobal.set(\"gui.selected_track_name\", new_name)\nglobal.set(\"gui.drawn_track_names\", drawn_tracks)\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 2860,
+        "x": 860,
+        "y": 3300,
         "wires": [
             [
-                "8a76125dbced6a15"
+                "8a76125dbced6a15",
+                "23c5e0d877fa805e"
             ]
         ]
     },
@@ -11187,8 +11866,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update track list",
         "info": "",
-        "x": 1120,
-        "y": 2820,
+        "x": 1180,
+        "y": 3300,
         "wires": []
     },
     {
@@ -11197,7 +11876,7 @@
         "z": "65c60c3b274f73e3",
         "name": "start record",
         "group": "c68132315359e81c",
-        "order": 4,
+        "order": 5,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -11211,8 +11890,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 270,
-        "y": 2940,
+        "x": 330,
+        "y": 3340,
         "wires": [
             [
                 "3aa5d353667931cd"
@@ -11225,7 +11904,7 @@
         "z": "65c60c3b274f73e3",
         "name": "stop record",
         "group": "c68132315359e81c",
-        "order": 5,
+        "order": 6,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -11239,8 +11918,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 270,
-        "y": 2980,
+        "x": 330,
+        "y": 3380,
         "wires": [
             [
                 "3aa5d353667931cd"
@@ -11252,17 +11931,18 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "setup recording",
-        "func": "robot_name = global.get(\"gui.selected_robot_name\")\nif(!robot_name) return {}\n\ntracks = global.get(\"planning.tracks\")\nrecord = msg.payload == \"start\"\nstn = global.get(\"gui.selected_track_name\")\ntrack = tracks[stn]\n\nif(record){\n    if(track.start == null) track.start = Date.now()\n    track.recording = true\n    track.robot_name = robot_name\n    track.data.push(Date.now()+\"_recording_start\")\n}else{\n    if(track.recording){\n        track.end = Date.now()   \n        track.data.push(Date.now()+\"_recording_stop\")\n    } \n    track.recording = false\n}\n        \n\nglobal.set(\"planning.tracks\", tracks)\n\nreturn {}",
+        "func": "robot_name = global.get(\"gui.selected_robot_name\")\nif(!robot_name) return {}\n\ntracks = global.get(\"planning.tracks\")\nrecord = msg.payload == \"start\"\nstn = global.get(\"gui.selected_track_name\")\ntrack = tracks[stn]\n\nmessage = null\nif(record){\n    if(track.start == null) track.start = Date.now()\n    track.recording = true\n    track.robot_name = robot_name\n    message = \"recording_start\"\n}else{\n    if(track.recording) track.end = Date.now() \n    track.recording = false\n    track.data[track.data.length-1].annotation = \"recording_stop\"\n}\n        \n\nglobal.set(\"planning.tracks\", tracks)\n\nreturn {payload:message, topic:\"message\"}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 2960,
+        "x": 520,
+        "y": 3360,
         "wires": [
             [
-                "e8e6c12b50ea97fb"
+                "e8e6c12b50ea97fb",
+                "c10d70cecc53d8e9"
             ]
         ]
     },
@@ -11275,8 +11955,8 @@
         "links": [
             "9e4dc1dfcbcf273a"
         ],
-        "x": 725,
-        "y": 2960,
+        "x": 975,
+        "y": 3360,
         "wires": []
     },
     {
@@ -11285,8 +11965,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update track list",
         "info": "",
-        "x": 840,
-        "y": 2960,
+        "x": 1090,
+        "y": 3360,
         "wires": []
     },
     {
@@ -11298,7 +11978,7 @@
             "ecb32f1e69ab1244"
         ],
         "x": 205,
-        "y": 2620,
+        "y": 3040,
         "wires": [
             [
                 "18ebb3de66d804a6"
@@ -11312,7 +11992,7 @@
         "name": "connected",
         "info": "",
         "x": 120,
-        "y": 2620,
+        "y": 3040,
         "wires": []
     },
     {
@@ -11333,11 +12013,11 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
+        "topic": "timestamp",
         "payload": "",
         "payloadType": "date",
-        "x": 250,
-        "y": 3020,
+        "x": 550,
+        "y": 3400,
         "wires": [
             [
                 "c10d70cecc53d8e9"
@@ -11349,14 +12029,14 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "record",
-        "func": "tracks = global.get(\"planning.tracks\")\nrobots = global.get(\"robot_states\")\n\nthere_is_recording = false\n\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    if(track.recording){\n        robot = robots[track.robot_name]\n        // dont record if someone forgets to turn it off...\n        if(robot.gui.is_old){\n            track.recording = false\n            continue\n        }\n        // basically everything except the GUI stuff\n        r = {\n            last_update:robot.last_update,\n            base:JSON.parse(JSON.stringify(robot.base)),\n            bt:JSON.parse(JSON.stringify(robot.bt))\n        }\n        track.data.push(r)\n        there_is_recording = true\n    }\n}\n\n// only send a signal if there is a recording happening\nif(there_is_recording) return {}\n",
+        "func": "tracks = global.get(\"planning.tracks\")\nrobots = global.get(\"robot_states\")\n\nthere_is_recording = false\n\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    if(track.recording){\n        robot = robots[track.robot_name]\n        // dont record if someone forgets to turn it off...\n        if(robot.gui.is_old){\n            track.recording = false\n            continue\n        }\n        // basically everything except the GUI stuff\n        r = {\n            last_update:robot.last_update,\n            base:JSON.parse(JSON.stringify(robot.base)),\n            bt:JSON.parse(JSON.stringify(robot.bt)),\n            annotation:null\n        }\n        if(msg.payload && msg.topic==\"message\"){\n            if(msg.payload != \"Cancel\") r.annotation = msg.payload\n        }\n        track.data.push(r)\n        there_is_recording = true\n    }\n}\n\n// only send a signal if there is a recording happening\nif(there_is_recording) return {}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 3020,
+        "x": 690,
+        "y": 3400,
         "wires": [
             [
                 "74752461385c4e8c"
@@ -11369,8 +12049,8 @@
         "z": "65c60c3b274f73e3",
         "name": "draw",
         "group": "c68132315359e81c",
-        "order": 7,
-        "width": 3,
+        "order": 8,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "Draw",
@@ -11383,8 +12063,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 250,
-        "y": 3160,
+        "x": 330,
+        "y": 3480,
         "wires": [
             [
                 "bbc37a4e7da34fee"
@@ -11397,8 +12077,8 @@
         "z": "65c60c3b274f73e3",
         "name": "delete",
         "group": "c68132315359e81c",
-        "order": 8,
-        "width": 3,
+        "order": 9,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "Remove",
@@ -11411,8 +12091,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 250,
-        "y": 3200,
+        "x": 330,
+        "y": 3520,
         "wires": [
             [
                 "bbc37a4e7da34fee"
@@ -11424,17 +12104,18 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "setup drawing",
-        "func": "tracks = global.get(\"planning.tracks\")\ndraw = msg.payload == \"draw\"\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\n\ndrawn_track_names = global.get(\"gui.drawn_track_names\")\nif(drawn_track_names == null) drawn_track_names = new Set()\n\nif(draw) drawn_track_names.add(stn)\nelse drawn_track_names.delete(stn)\n\nglobal.set(\"gui.drawn_track_names\", drawn_track_names)\n\nreturn {}",
+        "func": "if(msg.payload == \"clear\"){\n    global.set(\"gui.drawn_track_names\", new Set())\n    return {}\n}\n\ntracks = global.get(\"planning.tracks\")\ndraw = msg.payload == \"draw\"\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\n\ndrawn_track_names = global.get(\"gui.drawn_track_names\")\nif(drawn_track_names == null) drawn_track_names = new Set()\n\nif(draw) drawn_track_names.add(stn)\nelse drawn_track_names.delete(stn)\n\nglobal.set(\"gui.drawn_track_names\", drawn_track_names)\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 3180,
+        "x": 540,
+        "y": 3520,
         "wires": [
             [
-                "5ad9f131ddd8bb21"
+                "5ad9f131ddd8bb21",
+                "0c34ba3ec1cfae86"
             ]
         ]
     },
@@ -11444,8 +12125,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update_markers_on_map",
         "info": "",
-        "x": 710,
-        "y": 3180,
+        "x": 810,
+        "y": 3540,
         "wires": []
     },
     {
@@ -11457,8 +12138,8 @@
         "links": [
             "bb3002ce85983e34"
         ],
-        "x": 575,
-        "y": 3180,
+        "x": 675,
+        "y": 3540,
         "wires": []
     },
     {
@@ -11467,7 +12148,7 @@
         "z": "65c60c3b274f73e3",
         "name": "take note",
         "group": "c68132315359e81c",
-        "order": 9,
+        "order": 7,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -11481,8 +12162,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 260,
-        "y": 3060,
+        "x": 320,
+        "y": 3420,
         "wires": [
             [
                 "6609ceeeeb0325a4"
@@ -11502,31 +12183,14 @@
         "cancel": "Cancel",
         "raw": false,
         "className": "",
-        "topic": "",
+        "topic": "message",
         "name": "take note",
-        "x": 440,
-        "y": 3060,
+        "x": 540,
+        "y": 3440,
         "wires": [
             [
-                "e265e6823bf918f4"
+                "c10d70cecc53d8e9"
             ]
-        ]
-    },
-    {
-        "id": "e265e6823bf918f4",
-        "type": "function",
-        "z": "65c60c3b274f73e3",
-        "name": "add note",
-        "func": "tracks = global.get(\"planning.tracks\")\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\ntrack = tracks[stn]\nif(msg.payload != \"Cancel\"){\n    s = Date.now() + \"_note_\" + msg.payload\n    track.data.push(s)\n}\n\nglobal.set(\"planning.tracks\", tracks)\n\nreturn {}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 3060,
-        "wires": [
-            []
         ]
     },
     {
@@ -11534,7 +12198,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "draw tracks",
-        "func": "drawn_track_names = global.get(\"gui.drawn_track_names\")\nif(!drawn_track_names) return\ntracks = global.get(\"planning.tracks\")\nselected_track_name = global.get(\"gui.selected_track_name\")\n\nfor(const track_name of drawn_track_names){\n    track = tracks[track_name]\n    line = []\n    for(const i in track.data){\n        point = track.data[i]\n        if(typeof point === 'string' || point instanceof String){\n            continue\n        }\n        line.push([point.base.lat,point.base.lon])\n    }\n    node.send(\n        {payload:{\n            name: track_name+\"_track_lines\",\n            line: line,\n            color: \"grey\",\n            layer: \"tracks\",\n            width: 0.5,\n        }})\n    \n}",
+        "func": "drawn_track_names = global.get(\"gui.drawn_track_names\")\nif(!drawn_track_names) return\ntracks = global.get(\"planning.tracks\")\nselected_track_name = global.get(\"gui.selected_track_name\")\n\nfor(const track_name of drawn_track_names){\n    track = tracks[track_name]\n    line = []\n    // if we encounter a string instead of a state,\n    // we want to attach that string to the next state point\n    // and show that on the map\n    // obviously back-to-back strings will over-write but meh\n    point_icons = []\n    for(const i in track.data){\n        point = track.data[i]\n        \n        if(point.annotation){\n            point_icon = {\n                    action: \"point\",\n                    layer: \"tracks\",\n                    label: point.annotation,\n                    lat: point.base.lat,\n                    lon: point.base.lon,\n                    name: track_name+\"_annotation_\"+i,\n                    icon: \"fa-xl fa-sticky-note-o\",\n                    iconColor: \"cyan\"\n                }\n            \n            if(point.annotation === \"recording_start\"){\n                point_icon.icon = \"fa-xl fa-play\"\n                point_icon.label = null\n            } \n            if(point.annotation === \"recording_stop\"){\n                point_icon.icon = \"fa-xl fa-pause\"\n                point_icon.label = null\n            } \n            if(parseInt(i)+1 >= track.data.length){\n                point_icon.icon = \"fa-xl fa-stop\"\n                point_icon.label = null\n            }\n            if(i==0) point_icon.label = track_name\n            if(track_name != selected_track_name) point_icon.label = null\n            \n            node.send({payload:point_icon})\n        }\n        \n        line.push([point.base.lat,point.base.lon])\n    }\n    \n    color = \"cyan\"\n    if(track_name == selected_track_name) color=\"orange\"\n    node.send(\n        {payload:{\n            name: track_name+\"_track_lines\",\n            line: line,\n            color: color,\n            layer: \"tracks\",\n            width: 0.5,\n        }})\n    \n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -11566,11 +12230,907 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 580,
-        "y": 3020,
+        "x": 860,
+        "y": 3380,
         "wires": [
             [
                 "e8e6c12b50ea97fb"
+            ]
+        ]
+    },
+    {
+        "id": "366ebfd517618e5f",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 910,
+        "y": 3080,
+        "wires": []
+    },
+    {
+        "id": "0e76935522f9aebc",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "bb3002ce85983e34"
+        ],
+        "x": 775,
+        "y": 3080,
+        "wires": []
+    },
+    {
+        "id": "0c34ba3ec1cfae86",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "9e4dc1dfcbcf273a"
+        ],
+        "x": 675,
+        "y": 3500,
+        "wires": []
+    },
+    {
+        "id": "7cead59b70db4f36",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update track list",
+        "info": "",
+        "x": 780,
+        "y": 3500,
+        "wires": []
+    },
+    {
+        "id": "0242a78a895ac92a",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 1210,
+        "y": 3260,
+        "wires": []
+    },
+    {
+        "id": "23c5e0d877fa805e",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "bb3002ce85983e34"
+        ],
+        "x": 1065,
+        "y": 3260,
+        "wires": []
+    },
+    {
+        "id": "6b87ac50d37a8ff4",
+        "type": "ui_button",
+        "z": "65c60c3b274f73e3",
+        "name": "clear",
+        "group": "c68132315359e81c",
+        "order": 10,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear",
+        "tooltip": "Remove all tracks from the map",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-trash",
+        "payload": "clear",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 330,
+        "y": 3560,
+        "wires": [
+            [
+                "bbc37a4e7da34fee"
+            ]
+        ]
+    },
+    {
+        "id": "2645246b449b3b32",
+        "type": "ui_text",
+        "z": "65c60c3b274f73e3",
+        "group": "a891e5f5f2effe35",
+        "order": 10,
+        "width": 6,
+        "height": 1,
+        "name": "wp title",
+        "label": "Waypoints of",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 620,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "7f9a76f30e75a916",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle",
+        "func": "function r(del, rename, start,stop, note){\n    return [\n        {enabled:del},\n        {enabled:rename},\n        {enabled:start},\n        {enabled:stop},\n        {enabled:note}\n        ]\n}\n\ndel = false\nrename = false\nstart = false\nstop = false\nnote = false\n\n\nstn = global.get(\"gui.selected_track_name\")\n// no selected track, disable all buttons\nif(!stn){\n    return r(del, rename, start, stop, note)\n}\n\ntracks = global.get(\"planning.tracks\")\ntrack = tracks[stn]\n\ndel = true\nrename = true\nstart = true\n\nif(track.recording){\n    stop = true\n    start = false\n    note = true\n}\n\nreturn r(del, rename, start, stop, note)\n",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 170,
+        "y": 3360,
+        "wires": [
+            [
+                "e33acbc846aa510f"
+            ],
+            [
+                "29f38a5e5f27cac5",
+                "e2d73cfbd2e17b06",
+                "9d1bfd91b12283b6"
+            ],
+            [
+                "f55ec44e31806434"
+            ],
+            [
+                "b1f0b0408e1bf101"
+            ],
+            [
+                "442ccceadb377078"
+            ]
+        ]
+    },
+    {
+        "id": "df793e20cb200651",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_toggle track buttons",
+        "links": [
+            "74addf97d915bda4",
+            "42294f1d6fd2420c"
+        ],
+        "x": 85,
+        "y": 3360,
+        "wires": [
+            [
+                "7f9a76f30e75a916"
+            ]
+        ]
+    },
+    {
+        "id": "74addf97d915bda4",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "df793e20cb200651"
+        ],
+        "x": 775,
+        "y": 3120,
+        "wires": []
+    },
+    {
+        "id": "fe096776962448ef",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle track buttons",
+        "info": "",
+        "x": 110,
+        "y": 3300,
+        "wires": []
+    },
+    {
+        "id": "07d50675dad6e412",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle track buttons",
+        "info": "",
+        "x": 890,
+        "y": 3120,
+        "wires": []
+    },
+    {
+        "id": "42294f1d6fd2420c",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "df793e20cb200651"
+        ],
+        "x": 275,
+        "y": 3140,
+        "wires": []
+    },
+    {
+        "id": "917ae3064fdd9c5c",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle track buttons",
+        "info": "",
+        "x": 390,
+        "y": 3140,
+        "wires": []
+    },
+    {
+        "id": "73b7afa63e760dc5",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle",
+        "func": "function r(mod, control){\n    return [\n        {enabled:mod},\n        {enabled:control}\n        ]\n}\n\nmod = false\ncontrol = false\n\nspn = global.get(\"gui.selected_plan_name\")\n// no selected track, disable all buttons\nif(!spn){\n    return r(mod, control)\n}\n\nplans = global.get(\"planning.plans\")\nplan = plans[spn]\n\nmod = true\ncontrol = true\n\nif(plan.waypoint_order.length == 0) control = false\n\nsrn = global.get(\"gui.selected_robot_name\")\nrobots = global.get(\"robot_states\")\nrob = robots[srn]\n\nif(!rob) control = false\nif(rob.gui.is_old) control = false\n\nreturn r(mod, control)\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 1960,
+        "wires": [
+            [
+                "85fcefa190bd58ec",
+                "f5a86263da39c811",
+                "7dd2fd0c91d149d6"
+            ],
+            [
+                "dc136a38e8883e83",
+                "302e64093f16fce0",
+                "1a59141260bce814",
+                "9ec5bd30fbe9aa4b"
+            ]
+        ]
+    },
+    {
+        "id": "2012902f23543fb8",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_toggle plan buttons",
+        "links": [
+            "ceae70c2ba4b7830",
+            "66be8a1b9908737a"
+        ],
+        "x": 95,
+        "y": 1960,
+        "wires": [
+            [
+                "73b7afa63e760dc5",
+                "01868b25b2ab2ed7"
+            ]
+        ]
+    },
+    {
+        "id": "03e2b806108ee187",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle plan buttons",
+        "info": "",
+        "x": 170,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "dc136a38e8883e83",
+        "type": "ui_button",
+        "z": "65c60c3b274f73e3",
+        "name": "send",
+        "group": "a891e5f5f2effe35",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Send",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-send",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 1980,
+        "wires": [
+            [
+                "07336c313cc6568e"
+            ]
+        ]
+    },
+    {
+        "id": "98e4eb7e254e6efd",
+        "type": "mqtt out",
+        "z": "65c60c3b274f73e3",
+        "name": "mission_control",
+        "topic": "",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1301e8ab7fdd3e72",
+        "x": 780,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "07336c313cc6568e",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "make mission control",
+        "func": "selected_plan_name = global.get(\"gui.selected_plan_name\")\nif(!selected_plan_name) return\n\nplans = global.get(\"planning.plans\")\nplan = plans[selected_plan_name]\n\nproper_wps = []\nfor(var i in plan.waypoint_order){\n    wp_name = plan.waypoint_order[i]\n    wp = plan.waypoints[wp_name]\n    if(wp){\n        speed_control_mode = 2 // m/s\n        if(wp.use_rpm) speed_control_mode = 1 //rpm\n        wp_msg = {\n          \"pose\": {\n            \"header\": {\n              \"seq\": 0,\n              \"stamp\": {\n                \"secs\": 0,\n                \"nsecs\": 0\n              },\n              \"frame_id\": \"latlon\"\n            },\n            \"pose\": {\n              \"position\": {\n                \"x\": 0,\n                \"y\": 0,\n                \"z\": 0\n              },\n              \"orientation\": {\n                \"x\": 0,\n                \"y\": 0,\n                \"z\": 0,\n                \"w\": 0\n              }\n            }\n          },\n          \"goal_tolerance\": 5,\n          \"z_control_mode\": 1, // depth\n          \"travel_altitude\": -1,\n          \"travel_depth\": wp.depth,\n          \"speed_control_mode\": speed_control_mode,\n          \"travel_rpm\": wp.rpm,\n          \"travel_speed\": wp.speed,\n          \"lat\": wp.lat,\n          \"lon\": wp.lon,\n          \"name\":wp.name\n        }\n        proper_wps.push(wp_msg)\n    }\n}\nmission_control = {\n    name: selected_plan_name,\n    command: 4, //set plan\n    waypoints: proper_wps\n}\n\nname = global.get(\"gui.selected_robot_name\")\nm = {\n    payload: mission_control,\n    topic: \"smarc/\"+name+\"/bt_cmd/mission_control\"\n}\nreturn m\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1980,
+        "wires": [
+            [
+                "98e4eb7e254e6efd"
+            ]
+        ]
+    },
+    {
+        "id": "302e64093f16fce0",
+        "type": "ui_button",
+        "z": "65c60c3b274f73e3",
+        "name": "Start",
+        "group": "a891e5f5f2effe35",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Start",
+        "tooltip": "Start the currently selected plan",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "fa-play",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 2020,
+        "wires": [
+            [
+                "455a6ab8a54c744f"
+            ]
+        ]
+    },
+    {
+        "id": "455a6ab8a54c744f",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "make command",
+        "func": "selected_plan_name = global.get(\"gui.selected_plan_name\")\nif(!selected_plan_name) return\n\nrobot_name = global.get(\"gui.selected_robot_name\")\n\nmission_control = {\n    name: selected_plan_name,\n    command: msg.payload\n}\n\nreturn {\n    payload: mission_control,\n    topic: \"smarc/\" + robot_name + \"/bt_cmd/mission_control\"\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 2020,
+        "wires": [
+            [
+                "98e4eb7e254e6efd"
+            ]
+        ]
+    },
+    {
+        "id": "9ec5bd30fbe9aa4b",
+        "type": "ui_button",
+        "z": "65c60c3b274f73e3",
+        "name": "Pause",
+        "group": "a891e5f5f2effe35",
+        "order": 7,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Pause",
+        "tooltip": "Pause the currently selected plan",
+        "color": "",
+        "bgcolor": "blue",
+        "className": "",
+        "icon": "fa-pause",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 2100,
+        "wires": [
+            [
+                "455a6ab8a54c744f"
+            ]
+        ]
+    },
+    {
+        "id": "1a59141260bce814",
+        "type": "ui_button",
+        "z": "65c60c3b274f73e3",
+        "name": "Stop",
+        "group": "a891e5f5f2effe35",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "Stop the currently selected plan",
+        "color": "",
+        "bgcolor": "orange",
+        "className": "",
+        "icon": "fa-stop",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 2060,
+        "wires": [
+            [
+                "455a6ab8a54c744f"
+            ]
+        ]
+    },
+    {
+        "id": "2f207331e5c78091",
+        "type": "ui_button",
+        "z": "65c60c3b274f73e3",
+        "name": "Abort",
+        "group": "a48b13904097fb6a",
+        "order": 9,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "ABORT",
+        "tooltip": "Emergency stop, one-way street",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-eject",
+        "payload": "3",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 2140,
+        "wires": [
+            [
+                "455a6ab8a54c744f"
+            ]
+        ]
+    },
+    {
+        "id": "ceae70c2ba4b7830",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "2012902f23543fb8"
+        ],
+        "x": 335,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "63b2d28120775eb3",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle plan buttons",
+        "info": "",
+        "x": 450,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "66be8a1b9908737a",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "2012902f23543fb8"
+        ],
+        "x": 845,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "12a576379e429b98",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle plan buttons",
+        "info": "",
+        "x": 970,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "a9e58882f4e7f8c8",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "selected_plan_name",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "gui.selected_plan_name",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 1560,
+        "wires": [
+            [
+                "2645246b449b3b32"
+            ]
+        ]
+    },
+    {
+        "id": "96bd5e1f1141c77f",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle",
+        "func": "spn = global.get(\"gui.selected_plan_name\")\nif(!spn) return {enabled:false}\n\nplans = global.get(\"planning.plans\")\nplan = plans[spn]\n\nif(plan.waypoint_order.length == 0) return {enabled:false}\n\nswn = global.get(\"gui.selected_waypoint_name\")\nif(!swn) return {enabled:false}\n\nreturn {enabled:true}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 2420,
+        "wires": [
+            [
+                "c36e098b35484df1",
+                "6596fde6e6662884",
+                "1ce3149408193422",
+                "b5d55ffd8630fd60",
+                "7d1b8d23041dbcc3",
+                "0d2ac32c332f0416"
+            ]
+        ]
+    },
+    {
+        "id": "b3ea1b7b39673b5c",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle_wp_properties",
+        "links": [
+            "0be397d4764637a6",
+            "f49c58686629d1ad",
+            "4308dd074208279a",
+            "5fa6ab3ca15b659e",
+            "01868b25b2ab2ed7"
+        ],
+        "x": 585,
+        "y": 2420,
+        "wires": [
+            [
+                "96bd5e1f1141c77f"
+            ]
+        ]
+    },
+    {
+        "id": "204c6d50c2d5f9ad",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle wp props",
+        "info": "",
+        "x": 480,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "5fa6ab3ca15b659e",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "b3ea1b7b39673b5c"
+        ],
+        "x": 975,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "c39b8bf425cf1ed5",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle wp props",
+        "info": "",
+        "x": 1080,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "01868b25b2ab2ed7",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "b3ea1b7b39673b5c"
+        ],
+        "x": 175,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "0c4a3040fc26bbeb",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle wp props",
+        "info": "",
+        "x": 180,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "9463c51f5d5790c3",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "wp buttons toggle",
+        "links": [
+            "0d2ac32c332f0416"
+        ],
+        "x": 205,
+        "y": 2820,
+        "wires": [
+            [
+                "5e5e0abaf6ad063c",
+                "4c0d1f4c2b893c06"
+            ]
+        ]
+    },
+    {
+        "id": "1beb1ce8fd854a54",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "wp button toggle",
+        "info": "",
+        "x": 100,
+        "y": 2820,
+        "wires": []
+    },
+    {
+        "id": "0d2ac32c332f0416",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "9463c51f5d5790c3",
+            "dc432fd8c414a1e9"
+        ],
+        "x": 795,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "735cb3f658efa37a",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "wp button toggle",
+        "info": "",
+        "x": 900,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "85345819c7179b0b",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "wp button toggle",
+        "info": "",
+        "x": 1100,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "dc432fd8c414a1e9",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "wp buttons toggle",
+        "links": [
+            "0d2ac32c332f0416"
+        ],
+        "x": 1205,
+        "y": 2460,
+        "wires": [
+            [
+                "2a3c96232faf5eb1"
+            ]
+        ]
+    },
+    {
+        "id": "404268e46f877811",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle planning_mode toggle",
+        "links": [
+            "7dd2fd0c91d149d6"
+        ],
+        "x": 425,
+        "y": 600,
+        "wires": [
+            [
+                "87855a030ad4b56e"
+            ]
+        ]
+    },
+    {
+        "id": "41396310128c8091",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle planning mode toggle",
+        "info": "",
+        "x": 280,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "7dd2fd0c91d149d6",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "404268e46f877811",
+            "5a1ec79daf3b13c9",
+            "0ec6c9c873d30dd2"
+        ],
+        "x": 335,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "34b015beb16d5216",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle planning mode toggle",
+        "info": "",
+        "x": 180,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "0415fe8d2492bfd5",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle planning mode toggle",
+        "info": "",
+        "x": 220,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "5a1ec79daf3b13c9",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle planning_mode toggle",
+        "links": [
+            "7dd2fd0c91d149d6"
+        ],
+        "x": 375,
+        "y": 2700,
+        "wires": [
+            [
+                "5e25569da4a16b0b"
+            ]
+        ]
+    },
+    {
+        "id": "62b894f52a251e83",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle planning mode toggle",
+        "info": "",
+        "x": 360,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "0ec6c9c873d30dd2",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle planning_mode toggle",
+        "links": [
+            "7dd2fd0c91d149d6"
+        ],
+        "x": 505,
+        "y": 1520,
+        "wires": [
+            [
+                "2645246b449b3b32"
+            ]
+        ]
+    },
+    {
+        "id": "389bc260103b7207",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "a252ee0fd438b161"
+        ],
+        "x": 845,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "1aee60b690e0cd02",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of plans",
+        "info": "",
+        "x": 970,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "a2d92b46dda26406",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update list of wps",
+        "info": "",
+        "x": 1080,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "5c7f36f879d73a9b",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "c1a9221f5cb68d31"
+        ],
+        "x": 975,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "6b234cf645da7fea",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle readouts",
+        "info": "",
+        "x": 140,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "dee9d1fab2fcec69",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "toggle readouts",
+        "links": [
+            "cf8fbcc8cd92e83a"
+        ],
+        "x": 245,
+        "y": 2140,
+        "wires": [
+            [
+                "2f207331e5c78091"
             ]
         ]
     }
