@@ -183,25 +183,6 @@
         "className": ""
     },
     {
-        "id": "cd81d08b.eebb3",
-        "type": "ui_group",
-        "z": "8cc0dadb75774b52",
-        "name": "Default",
-        "tab": "b34078e6.e60df8",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "b34078e6.e60df8",
-        "type": "ui_tab",
-        "z": "8cc0dadb75774b52",
-        "name": "Home",
-        "icon": "dashboard"
-    },
-    {
         "id": "102ceb2b72c23b34",
         "type": "ui_group",
         "name": "Map",
@@ -228,25 +209,6 @@
         "disp": true,
         "width": "3",
         "collapse": true,
-        "className": ""
-    },
-    {
-        "id": "53ba06c1420a4513",
-        "type": "ui_tab",
-        "name": "Globals",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "f5a1a6343a549333",
-        "type": "ui_group",
-        "name": "Globals",
-        "tab": "53ba06c1420a4513",
-        "order": 1,
-        "disp": false,
-        "width": "16",
-        "collapse": false,
         "className": ""
     },
     {
@@ -279,26 +241,10 @@
         "name": "mission plans"
     },
     {
-        "id": "9e2bac96.b321b",
-        "type": "ui_group",
-        "name": "S1",
-        "tab": "62712bbf.888b94",
-        "order": 1,
-        "disp": false,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "62712bbf.888b94",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard"
-    },
-    {
         "id": "014f9035e48813bb",
         "type": "ui_tab",
         "name": "V2",
-        "icon": "gear",
+        "icon": "fa-gear",
         "disabled": false,
         "hidden": false
     },
@@ -337,7 +283,7 @@
         "type": "ui_group",
         "name": "BT State",
         "tab": "014f9035e48813bb",
-        "order": 5,
+        "order": 6,
         "disp": true,
         "width": "6",
         "collapse": true,
@@ -370,7 +316,7 @@
         "type": "ui_group",
         "name": "Tracks",
         "tab": "014f9035e48813bb",
-        "order": 6,
+        "order": 5,
         "disp": true,
         "width": "6",
         "collapse": true,
@@ -388,48 +334,45 @@
         "className": ""
     },
     {
-        "id": "6d01ec93.b1d374",
+        "id": "f5cc24c294e35249",
         "type": "ui_group",
-        "name": "UserEntry",
-        "tab": "5132060d.4cde48",
-        "order": 2,
+        "name": "Charts",
+        "tab": "014f9035e48813bb",
+        "order": 7,
         "disp": true,
-        "width": "12",
-        "collapse": false
+        "width": 18,
+        "collapse": true,
+        "className": ""
     },
     {
-        "id": "dce9e7a2.d20c78",
-        "type": "ui_group",
-        "name": "Object detection",
-        "tab": "5132060d.4cde48",
-        "order": 1,
-        "disp": true,
-        "width": "7",
-        "collapse": false
+        "id": "6e27a643e9465b46",
+        "type": "ui_spacer",
+        "z": "65c60c3b274f73e3",
+        "name": "spacer",
+        "group": "a48b13904097fb6a",
+        "order": 9,
+        "width": 6,
+        "height": 1
     },
     {
-        "id": "5132060d.4cde48",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
+        "id": "274fb14e5bd5e691",
+        "type": "ui_spacer",
+        "z": "65c60c3b274f73e3",
+        "name": "spacer",
+        "group": "a48b13904097fb6a",
+        "order": 10,
+        "width": 6,
+        "height": 1
     },
     {
-        "id": "a517da34.afeac8",
-        "type": "ui_group",
-        "name": "Manual Control",
-        "tab": "a312bb8e.67b4",
-        "order": 3,
-        "disp": true,
-        "width": "18",
-        "collapse": true
-    },
-    {
-        "id": "a312bb8e.67b4",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard"
+        "id": "5651137da8860824",
+        "type": "ui_spacer",
+        "z": "65c60c3b274f73e3",
+        "name": "spacer",
+        "group": "f5cc24c294e35249",
+        "order": 6,
+        "width": 6,
+        "height": 1
     },
     {
         "id": "6d93d1d6e9d2a07b",
@@ -1717,7 +1660,7 @@
         "type": "ui_text",
         "z": "8cc0dadb75774b52",
         "d": true,
-        "group": "f5a1a6343a549333",
+        "group": "",
         "order": 1,
         "width": "5",
         "height": "18",
@@ -7498,8 +7441,8 @@
         "allowHTML": true,
         "outputs": 1,
         "topic": "",
-        "x": 630,
-        "y": 1060,
+        "x": 610,
+        "y": 1460,
         "wires": [
             [
                 "8d60954c80270a11"
@@ -7517,8 +7460,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 1060,
+        "x": 370,
+        "y": 1460,
         "wires": [
             [
                 "a04b59e608979f6a"
@@ -7537,7 +7480,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 170,
-        "y": 520,
+        "y": 720,
         "wires": [
             [
                 "573d0d0f99f72b4b"
@@ -7555,8 +7498,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 1060,
+        "x": 770,
+        "y": 1460,
         "wires": []
     },
     {
@@ -7575,7 +7518,7 @@
         "templateScope": "global",
         "className": "",
         "x": 1060,
-        "y": 520,
+        "y": 720,
         "wires": [
             []
         ]
@@ -7596,7 +7539,7 @@
         "templateScope": "local",
         "className": "",
         "x": 890,
-        "y": 520,
+        "y": 720,
         "wires": [
             []
         ]
@@ -7613,7 +7556,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 520,
+        "y": 720,
         "wires": [
             [
                 "2e8781f4b35114a4"
@@ -7637,8 +7580,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 170,
-        "y": 1060,
+        "x": 150,
+        "y": 1460,
         "wires": [
             [
                 "b17ab9737c48ebe8"
@@ -7657,7 +7600,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 520,
+        "y": 720,
         "wires": [
             [
                 "c375e4a5e57177ab",
@@ -7665,7 +7608,12 @@
                 "7d7f737ccec8bdd1",
                 "8346958d8c2ff728",
                 "5ccaf5f3bf5ae5cf",
-                "828367982cce7ef2"
+                "828367982cce7ef2",
+                "06273715c2b93708",
+                "f7efa4aab9068b8b",
+                "2ff30366f2047da7",
+                "a72e19700d060cf2",
+                "38bcedbf48c85d68"
             ]
         ]
     },
@@ -7681,7 +7629,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 600,
+        "y": 800,
         "wires": [
             [
                 "4e4363d933c20d6c"
@@ -7706,7 +7654,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 700,
+        "y": 900,
         "wires": [
             [
                 "edb7322d84e1824d"
@@ -7740,7 +7688,7 @@
         "seg2": "60",
         "className": "",
         "x": 850,
-        "y": 560,
+        "y": 760,
         "wires": []
     },
     {
@@ -7767,7 +7715,7 @@
         "seg2": "60",
         "className": "",
         "x": 850,
-        "y": 600,
+        "y": 800,
         "wires": []
     },
     {
@@ -7794,7 +7742,7 @@
         "seg2": "800",
         "className": "",
         "x": 850,
-        "y": 680,
+        "y": 880,
         "wires": []
     },
     {
@@ -7821,7 +7769,7 @@
         "seg2": "800",
         "className": "",
         "x": 850,
-        "y": 720,
+        "y": 920,
         "wires": []
     },
     {
@@ -7848,7 +7796,7 @@
         "seg2": "60",
         "className": "",
         "x": 850,
-        "y": 640,
+        "y": 840,
         "wires": []
     },
     {
@@ -7863,7 +7811,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 900,
+        "y": 1020,
         "wires": [
             [
                 "93832a52fddd1fe6"
@@ -7883,11 +7831,12 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
-        "y": 60,
+        "x": 430,
+        "y": 160,
         "wires": [
             [
-                "e58d020e0faf117d"
+                "e58d020e0faf117d",
+                "a7de6573427c3182"
             ]
         ]
     },
@@ -7905,7 +7854,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 310,
-        "y": 60,
+        "y": 160,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -7926,7 +7875,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 430,
-        "y": 100,
+        "y": 200,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -7947,7 +7896,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 310,
-        "y": 100,
+        "y": 200,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -7967,8 +7916,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 430,
-        "y": 60,
+        "x": 190,
+        "y": 160,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -7989,7 +7938,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 190,
-        "y": 140,
+        "y": 240,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8010,7 +7959,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 190,
-        "y": 180,
+        "y": 280,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8031,7 +7980,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 310,
-        "y": 140,
+        "y": 240,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8052,7 +8001,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 310,
-        "y": 180,
+        "y": 280,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8073,7 +8022,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 430,
-        "y": 180,
+        "y": 280,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8094,7 +8043,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 190,
-        "y": 100,
+        "y": 200,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8115,7 +8064,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 430,
-        "y": 140,
+        "y": 240,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8136,7 +8085,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 260,
+        "y": 360,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8157,7 +8106,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 350,
-        "y": 260,
+        "y": 360,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8178,7 +8127,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 300,
+        "y": 400,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8199,7 +8148,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 370,
-        "y": 300,
+        "y": 400,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8220,7 +8169,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 490,
-        "y": 260,
+        "y": 360,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8241,7 +8190,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 540,
-        "y": 300,
+        "y": 400,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8262,7 +8211,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 650,
-        "y": 260,
+        "y": 360,
         "wires": [
             [
                 "e58d020e0faf117d"
@@ -8274,14 +8223,14 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "update robot state",
-        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null,\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"is_old\":false,\n            \"bt_tip_log\":[],\n            \"batt_v_minmax\":[9999,-1],\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"tooltip\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": robot_name+\"_gps\",\n                \"tooltip\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            },\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_states)){\n    global.set(\"robot_states\", {})\n}\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
+        "func": "function to_deg(d){\n    deg = d * (180/Math.PI);\n    deg = deg%360;\n    return deg;\n}\n\nfunction to_northing(d){\n    h = Math.PI/2 - d;\n    return to_deg(h);\n}\n\nfunction new_robot_state(robot_name){\n    return {\n        \"last_update\":0,\n        \"base\": {\n            \"name\": robot_name,\n            \"lat\": null,\n            \"lon\": null,\n            \"utm_x\": null,\n            \"utm_y\": null,\n            \"utm_z\":null,\n            \"heading\": 0,\n            \"roll\": 0,\n            \"pitch\": 0,\n            \"depth\": 0,\n            \"altitude\": 0,\n            \"vbs\": 0,\n            \"lcg\": 0,\n            \"tcg\": 0,\n            \"t1\": 0,\n            \"t2\": 0,\n            \"batt_v\": 0,\n            \"gps_lat\": null,\n            \"gps_lon\": null\n        },\n        \"bt\": {\n            \"tip\": {\n                \"name\": \"???\",\n                \"message\": \"\",\n                \"status\": \"???\"\n            },\n            \"algae_farm_enable\": false,\n            \"live_wp_enable\": false,\n            \"gui_wp_enable\": false,\n            \"current_wp\": {},\n            \"current_plan\": {},\n            \"last_heartbeat\": null,\n        },\n        \"gui\": {\n            \"selected\": false,\n            \"is_old\":false,\n            \"bt_tip_log\":[],\n            \"batt_v_minmax\":[9999,-1],\n            \"dr\":{\n                \"name\": robot_name,\n                \"label\": robot_name,\n                \"tooltip\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"heading\": 0,\n                \"layer\": robot_name,\n                \"icon\": \"ship\",\n                \"color\": \"yellow\",\n                \"iconColor\": \"yellow\"\n            },\n            \"gps\":{\n                \"name\": robot_name+\"_gps\",\n                \"tooltip\": robot_name,\n                \"lat\": null,\n                \"lon\": null,\n                \"layer\": robot_name,\n                \"icon\": \"satellite\",\n                \"color\": \"green\",\n                \"iconColor\": \"green\",\n            },\n        }\n    }\n}\n\n// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [smarc, robot_name, ...topic_parts] = msg.topic.split('/');\nmqtt_topic = topic_parts.join(\"/\")\n\n// then try to get this robot from the list of vehicles\n// if its not there, construct an empty state object\nrobot_states = global.get(\"robot_states\")\n\nif(!(robot_states)){\n    global.set(\"robot_states\", {})\n}\n\nif(!(robot_name in robot_states)){\n    robot_states[robot_name] = new_robot_state(robot_name)\n}\n\nrobot_state = robot_states[robot_name]\n\n\nrobot_state.last_update = Date.now()\n\npayload = msg.payload\nswitch(mqtt_topic){\n    case \"dr/lat_lon\":\n        robot_state.base.lat = payload.latitude;\n        robot_state.base.lon = payload.longitude;\n        robot_state.gui.dr.lat = payload.latitude;\n        robot_state.gui.dr.lon = payload.longitude;\n        break;\n        \n    case \"dr/utm\":\n        robot_state.base.utm_x = payload.utm.x;\n        robot_state.base.utm_y = payload.utm.y;\n        robot_state.base.utm_z = payload.utm.z;\n        break\n        \n    case \"dr/yaw\":\n        hdg = to_northing(payload.data)\n        robot_state.base.heading = hdg;\n        robot_state.gui.dr.heading = hdg;\n        break;\n        \n    case \"dr/roll\":\n        robot_state.base.roll = to_deg(payload.data);\n        break;\n        \n    case \"dr/pitch\":\n        robot_state.base.pitch = to_deg(payload.data);\n        break;\n        \n    case \"dr/depth\":\n        robot_state.base.depth = payload.data;\n        break;\n\n    case \"dr/altitude\":\n        robot_state.base.altitude = payload.data;\n        break;        \n        \n    case \"core/vbs_fb\":\n        robot_state.base.vbs = payload.value;\n        break;\n        \n    case \"core/lcg_fb\":\n        robot_state.base.lcg = payload.value;\n        break;\n        \n    case \"core/thruster1_fb\":\n        robot_state.base.t1 = payload.rpm.rpm;\n        break;\n        \n    case \"core/thruster2_fb\":\n        robot_state.base.t2 = payload.rpm.rpm;\n        break;\n        \n    case \"core/battery\":\n        robot_state.base.batt_v = payload.voltage;\n        break;\n        \n    case \"core/gps\":\n        robot_state.base.gps_lat = payload.latitude;\n        robot_state.base.gps_lon = payload.longitude;\n        robot_state.gui.gps.lat = payload.latitude;\n        robot_state.gui.gps.lon = payload.longitude;\n        break;\n        \n    case \"bt/last_wp\":\n        robot_state.bt.current_wp = payload;\n        break;\n        \n    case \"bt/tip\":\n        robot_state.bt.tip.name = payload.name;\n        robot_state.bt.tip.message = payload.message;\n        status_str = {\n            0:\"unknown\",\n            1:\"invalid\",\n            2:\"running\",\n            3:\"success\",\n            4:\"failure\"\n        }\n        robot_state.bt.tip.status = status_str[payload.status]\n        break;\n        \n    case \"bt/live_wp/enable\":\n        robot_state.bt.live_wp_enable = payload.data;\n        break;\n        \n    case \"bt/algae_farm/enable\":\n        robot_state.bt.algae_farm_enable = payload.data;\n        break;\n        \n    case \"bt/gui_wp/enable\":\n        robot_state.bt.gui_wp_enable = payload.data;\n        break;\n        \n    case \"bt/heartbeat\":\n        robot_state.bt.last_heartbeat = Date.now()\n        break;\n        \n    case \"bt/mission_control\":\n        if(payload.command == 5){ // is_feedback\n            robot_state.bt.current_plan = payload\n        }\n}",
         "outputs": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 910,
-        "y": 160,
+        "y": 260,
         "wires": []
     },
     {
@@ -8290,7 +8239,7 @@
         "z": "072468ee5a218dc0",
         "group": "81d4dedb195938c4",
         "name": "BT Log",
-        "order": 1,
+        "order": 2,
         "width": 6,
         "height": 3,
         "lineType": "three",
@@ -8299,7 +8248,7 @@
         "outputs": 0,
         "topic": "",
         "x": 860,
-        "y": 900,
+        "y": 1020,
         "wires": []
     },
     {
@@ -8310,9 +8259,9 @@
         "label": "BT Log Len",
         "tooltip": "",
         "group": "81d4dedb195938c4",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "order": 4,
+        "width": 6,
+        "height": 1,
         "wrap": false,
         "passthru": true,
         "topic": "topic",
@@ -8322,8 +8271,8 @@
         "max": "20",
         "step": 1,
         "className": "",
-        "x": 430,
-        "y": 1100,
+        "x": 410,
+        "y": 1500,
         "wires": [
             [
                 "850a3a74ca62d541"
@@ -8349,8 +8298,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 1100,
+        "x": 620,
+        "y": 1500,
         "wires": [
             []
         ]
@@ -8376,8 +8325,8 @@
         "topic": "",
         "payload": "gui.bt_tip_log_len",
         "payloadType": "global",
-        "x": 230,
-        "y": 1100,
+        "x": 210,
+        "y": 1500,
         "wires": [
             [
                 "268c9d6ea03e8ef2"
@@ -8408,7 +8357,7 @@
         "seg2": "13",
         "className": "",
         "x": 860,
-        "y": 760,
+        "y": 960,
         "wires": []
     },
     {
@@ -8423,7 +8372,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 760,
+        "y": 960,
         "wires": [
             [
                 "9a4668d9403279bb"
@@ -8455,7 +8404,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 910,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "92a2d6eb5f8e7b77"
@@ -8482,7 +8431,7 @@
         "to": "",
         "reg": false,
         "x": 1100,
-        "y": 120,
+        "y": 220,
         "wires": [
             []
         ]
@@ -8492,14 +8441,14 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "Unselect if old, select on reconnect",
-        "func": "if(msg){\n    robot_state = msg\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    gui_key = \"robot_states['\"+robot_state.base.name+\"'].gui\"\n    \n    if(since_last_update > 10*60){\n        global.set(gui_key+\".is_old\", true)\n        global.set(gui_key+\".selected\", false)\n        global.set(gui_key+\".dr.color\", \"grey\")\n        global.set(gui_key+\".dr.iconColor\", \"grey\")\n        global.set(gui_key+\".dr.label\", \"\")\n        return {enabled:false}\n    }\n    \n    if(since_last_update > 60){\n        global.set(gui_key+\".selected\", false)\n        global.set(gui_key+\".dr.color\", \"yellow\")\n        global.set(gui_key+\".dr.iconColor\", \"yellow\")\n        global.set(gui_key+\".dr.label\", \"\")\n        global.set(gui_key+\".is_old\", false)\n    }else{\n        global.set(gui_key+\".selected\", true)\n        global.set(gui_key+\".dr.color\", \"orange\")\n        global.set(gui_key+\".dr.iconColor\", \"orange\")\n        global.set(gui_key+\".dr.label\", robot_state.base.name)\n        global.set(gui_key+\".is_old\", false)\n    }\n    return {enabled:true}\n}\n\n\n\n",
+        "func": "if(msg){\n    robot_state = msg\n    since_last_update = (Date.now() - robot_state.last_update)/1000\n    gui_key = \"robot_states['\"+robot_state.base.name+\"'].gui\"\n    \n    if(since_last_update > 10*60){\n        global.set(gui_key+\".is_old\", true)\n        global.set(gui_key+\".selected\", false)\n        global.set(gui_key+\".dr.color\", \"grey\")\n        global.set(gui_key+\".dr.iconColor\", \"grey\")\n        global.set(gui_key+\".gps.color\", \"grey\")\n        global.set(gui_key+\".gps.iconColor\", \"grey\")\n        global.set(gui_key+\".dr.label\", \"\")\n        return {enabled:false}\n    }\n    \n    if(since_last_update > 60){\n        global.set(gui_key+\".selected\", false)\n        global.set(gui_key+\".dr.color\", \"yellow\")\n        global.set(gui_key+\".dr.iconColor\", \"yellow\")\n        global.set(gui_key+\".gps.color\", \"yellow\")\n        global.set(gui_key+\".gps.iconColor\", \"yellow\")\n        global.set(gui_key+\".dr.label\", \"\")\n        global.set(gui_key+\".is_old\", false)\n    }else{\n        global.set(gui_key+\".selected\", true)\n        global.set(gui_key+\".dr.color\", \"orange\")\n        global.set(gui_key+\".dr.iconColor\", \"orange\")\n        global.set(gui_key+\".gps.color\", \"green\")\n        global.set(gui_key+\".gps.iconColor\", \"green\")\n        global.set(gui_key+\".dr.label\", robot_state.base.name)\n        global.set(gui_key+\".is_old\", false)\n    }\n    return {enabled:true}\n}\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 440,
+        "y": 640,
         "wires": [
             [
                 "984d3208cf3f44dc",
@@ -8521,7 +8470,7 @@
         "statusVal": "enabled",
         "statusType": "auto",
         "x": 950,
-        "y": 400,
+        "y": 600,
         "wires": []
     },
     {
@@ -8533,7 +8482,7 @@
             "cf8fbcc8cd92e83a"
         ],
         "x": 345,
-        "y": 700,
+        "y": 900,
         "wires": [
             [
                 "2e8781f4b35114a4",
@@ -8542,7 +8491,9 @@
                 "d0bc35b89669966d",
                 "edb7322d84e1824d",
                 "5c9b93966cd3ce1c",
-                "9a4668d9403279bb"
+                "9a4668d9403279bb",
+                "dbd6fb5b7d052a8f",
+                "3748bff36aacd609"
             ]
         ]
     },
@@ -8553,7 +8504,7 @@
         "name": "toggle readouts",
         "info": "",
         "x": 240,
-        "y": 700,
+        "y": 900,
         "wires": []
     },
     {
@@ -8567,7 +8518,7 @@
             "dee9d1fab2fcec69"
         ],
         "x": 1055,
-        "y": 460,
+        "y": 660,
         "wires": []
     },
     {
@@ -8577,7 +8528,7 @@
         "name": "toggle readouts",
         "info": "",
         "x": 1160,
-        "y": 460,
+        "y": 660,
         "wires": []
     },
     {
@@ -8598,7 +8549,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 950,
-        "y": 460,
+        "y": 660,
         "wires": [
             [
                 "cf8fbcc8cd92e83a"
@@ -8614,8 +8565,8 @@
             "246b0fccde35e02f",
             "de2b74099f9267ca"
         ],
-        "x": 615,
-        "y": 1300,
+        "x": 595,
+        "y": 1680,
         "wires": [
             [
                 "bad9531a.ac42d"
@@ -8628,8 +8579,8 @@
         "z": "072468ee5a218dc0",
         "name": "helptext",
         "info": "",
-        "x": 540,
-        "y": 1300,
+        "x": 520,
+        "y": 1680,
         "wires": []
     },
     {
@@ -8643,8 +8594,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 1340,
+        "x": 710,
+        "y": 1720,
         "wires": [
             [
                 "14cef28c9b363aa9"
@@ -8671,8 +8622,8 @@
         "payloadType": "str",
         "topic": "clear",
         "topicType": "str",
-        "x": 580,
-        "y": 1340,
+        "x": 560,
+        "y": 1720,
         "wires": [
             [
                 "bad9531a.ac42d"
@@ -8685,8 +8636,8 @@
         "z": "072468ee5a218dc0",
         "name": "",
         "events": "connect",
-        "x": 390,
-        "y": 1260,
+        "x": 370,
+        "y": 1640,
         "wires": [
             [
                 "2aee03ce280bf49f",
@@ -8713,8 +8664,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
-        "y": 1260,
+        "x": 540,
+        "y": 1640,
         "wires": [
             [
                 "bad9531a.ac42d"
@@ -8734,8 +8685,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 1220,
+        "x": 520,
+        "y": 1600,
         "wires": []
     },
     {
@@ -8752,8 +8703,8 @@
         "allowHTML": true,
         "outputs": 0,
         "topic": "",
-        "x": 870,
-        "y": 1340,
+        "x": 850,
+        "y": 1720,
         "wires": []
     },
     {
@@ -8774,8 +8725,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 570,
-        "y": 1380,
+        "x": 550,
+        "y": 1760,
         "wires": [
             [
                 "bad9531a.ac42d",
@@ -8802,8 +8753,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 1440,
+        "x": 620,
+        "y": 1820,
         "wires": [
             [
                 "b74e9e43d39d2943"
@@ -8827,8 +8778,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 480,
-        "y": 1440,
+        "x": 460,
+        "y": 1820,
         "wires": [
             [
                 "a1ae28d9.0d25"
@@ -8855,8 +8806,8 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 310,
-        "y": 1580,
+        "x": 290,
+        "y": 1960,
         "wires": [
             [
                 "916c4b8093a21ecc",
@@ -8891,8 +8842,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 280,
-        "y": 1340,
+        "x": 260,
+        "y": 1720,
         "wires": [
             [
                 "426351cea6a5d463"
@@ -8918,8 +8869,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 1340,
+        "x": 410,
+        "y": 1720,
         "wires": [
             [
                 "8824d559b51e8ff1"
@@ -8947,8 +8898,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 150,
-        "y": 1340,
+        "x": 130,
+        "y": 1720,
         "wires": [
             [
                 "c816724e1c29b129"
@@ -8963,8 +8914,8 @@
         "group": "ba1fb12713836940",
         "voice": "urn:moz-tts:speechd:English%20(Great%20Britain)?en",
         "always": true,
-        "x": 640,
-        "y": 1580,
+        "x": 620,
+        "y": 1960,
         "wires": []
     },
     {
@@ -8984,8 +8935,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 460,
-        "y": 1580,
+        "x": 440,
+        "y": 1960,
         "wires": [
             [
                 "47de367d43c3b66c"
@@ -9011,8 +8962,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 1660,
+        "x": 300,
+        "y": 2040,
         "wires": [
             [
                 "093f0d1ff195539a",
@@ -9037,8 +8988,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 500,
-        "y": 1660,
+        "x": 480,
+        "y": 2040,
         "wires": [
             [
                 "7a7acdab644af9aa"
@@ -9064,8 +9015,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
-        "y": 1660,
+        "x": 610,
+        "y": 2040,
         "wires": [
             [
                 "093f0d1ff195539a"
@@ -9081,8 +9032,8 @@
         "links": [
             "07c8e88c8e7446f2"
         ],
-        "x": 565,
-        "y": 1540,
+        "x": 545,
+        "y": 1920,
         "wires": []
     },
     {
@@ -9091,8 +9042,8 @@
         "z": "072468ee5a218dc0",
         "name": "helptext",
         "info": "",
-        "x": 640,
-        "y": 1540,
+        "x": 620,
+        "y": 1920,
         "wires": []
     },
     {
@@ -9114,11 +9065,394 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 1540,
+        "x": 430,
+        "y": 1920,
         "wires": [
             [
                 "de2b74099f9267ca"
+            ]
+        ]
+    },
+    {
+        "id": "94c5c6015b1e339c",
+        "type": "utm",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "precision": "5",
+        "x": 730,
+        "y": 140,
+        "wires": [
+            [
+                "e58d020e0faf117d"
+            ]
+        ]
+    },
+    {
+        "id": "a7de6573427c3182",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "prep for utm",
+        "func": "parts = msg.topic.split(\"/\")\nparts[parts.length-1] = \"utm\"\ntopic = parts.join(\"/\")\n\nreturn {payload:{\n    lat:msg.payload.latitude, \n    lon:msg.payload.longitude},\n    topic: topic\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 140,
+        "wires": [
+            [
+                "94c5c6015b1e339c"
+            ]
+        ]
+    },
+    {
+        "id": "06273715c2b93708",
+        "type": "rbe",
+        "z": "072468ee5a218dc0",
+        "name": "when robot plan changes",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "bt.current_plan",
+        "topi": "topic",
+        "x": 670,
+        "y": 1160,
+        "wires": [
+            [
+                "a9b89912dfc6513c",
+                "5c6f8c65db082642",
+                "8c406069befc16fd"
+            ]
+        ]
+    },
+    {
+        "id": "116bcc6cdb02e4a8",
+        "type": "comment",
+        "z": "072468ee5a218dc0",
+        "name": "update_markers_on_map",
+        "info": "",
+        "x": 970,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "a9b89912dfc6513c",
+        "type": "link out",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "bb3002ce85983e34"
+        ],
+        "x": 835,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "dbd6fb5b7d052a8f",
+        "type": "ui_text",
+        "z": "072468ee5a218dc0",
+        "group": "81d4dedb195938c4",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "Current plan text",
+        "label": "Current plan:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1100,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "5c6f8c65db082642",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "prepare plan text",
+        "func": "srn = global.get(\"gui.selected_robot_name\")\nif(!srn) return\nrobots = global.get(\"robot_states\")\nrobot = robots[srn]\nif(!robot) return\n\nplan = robot.bt.current_plan\n\nswitch(plan.plan_state){\n    case 0: //running\n        c = \"green\"\n        e = \"▶️\"\n        break\n    case 1: // stopped\n        c = \"#3f90bf\"\n        e = \"⏹️\"\n        break\n    case 2: // paused\n        c = \"gray\"\n        e = \"⏸️\"\n        break\n    case 3: // emergency\n        c = \"red\"\n        e = \"‼️\"\n        break\n    case 4: // received\n        c = \"orange\"\n        e = \"📥\"\n        break\n}\n\nt = e + \" <font color=\" + c +\">\" + plan.name\n\nreturn {payload:t}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 1160,
+        "wires": [
+            [
+                "dbd6fb5b7d052a8f"
+            ]
+        ]
+    },
+    {
+        "id": "f7efa4aab9068b8b",
+        "type": "rbe",
+        "z": "072468ee5a218dc0",
+        "name": "when robot wp changes",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "bt.current_wp",
+        "topi": "topic",
+        "x": 670,
+        "y": 1120,
+        "wires": [
+            [
+                "a9b89912dfc6513c"
+            ]
+        ]
+    },
+    {
+        "id": "8c406069befc16fd",
+        "type": "function",
+        "z": "072468ee5a218dc0",
+        "name": "compare plan to gui",
+        "func": "srn = global.get(\"gui.selected_robot_name\")\nif(!srn) return\nrobots = global.get(\"robot_states\")\nrobot = robots[srn]\nif(!robot) return\n\nrobot_plan = robot.bt.current_plan\n\nplans = global.get(\"planning.plans\")\ngui_plan = plans[robot_plan.name]\n\nglobal.set(\"gui.plan_is_synched\", false)\n\nif(!gui_plan) return {payload:false}\n\nfor(var i=0; i < robot_plan.waypoints.length; i++){\n    r_wp = robot_plan.waypoints[i]\n    node.warn(r_wp)\n    if(!r_wp) return {payload:false}\n    \n    g_wp_n = gui_plan.waypoint_order[i]\n    g_wp = gui_plan.waypoints[g_wp_n]\n    node.warn(g_wp)\n    if(!g_wp) return {payload:false}\n    // just compare the first 6 decimal digits of the latlon\n    ra = (\"\"+r_wp.lat).slice(0,9)\n    ga = (\"\"+g_wp.lat).slice(0,9)\n    ro = (\"\"+r_wp.lon).slice(0,9)\n    go = (\"\"+g_wp.lon).slice(0,9)\n    node.warn(ra + \" = \" + ga)\n    if(ra != ga) return {payload:false}\n    node.warn(ro + \" = \" + go)\n    if(ro != go) return {payload:false}\n}\n\nglobal.set(\"gui.plan_is_synched\", true)\nreturn {payload:true}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 1200,
+        "wires": [
+            [
+                "7207113d4e01d2b1",
+                "3748bff36aacd609"
+            ]
+        ]
+    },
+    {
+        "id": "f73376f194b1fc1a",
+        "type": "link in",
+        "z": "072468ee5a218dc0",
+        "name": "compare gui and robot plans",
+        "links": [
+            "0f1be0abe9e97cb2",
+            "3f285282ab31161f",
+            "e986e36477fb6a0d",
+            "9e017fbc9b746fb9",
+            "050fbc517aa6868e",
+            "69e69b055fdc6d3d",
+            "af81f151aebb2dcc"
+        ],
+        "x": 575,
+        "y": 1200,
+        "wires": [
+            [
+                "5ecd5d57f488339c"
+            ]
+        ]
+    },
+    {
+        "id": "0fba2cfa1c65669d",
+        "type": "comment",
+        "z": "072468ee5a218dc0",
+        "name": "compare gui and robot plans",
+        "info": "",
+        "x": 420,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "5ecd5d57f488339c",
+        "type": "delay",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "3",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 1200,
+        "wires": [
+            [
+                "8c406069befc16fd"
+            ]
+        ]
+    },
+    {
+        "id": "7207113d4e01d2b1",
+        "type": "link out",
+        "z": "072468ee5a218dc0",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "2012902f23543fb8"
+        ],
+        "x": 1035,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "33881016d8022102",
+        "type": "comment",
+        "z": "072468ee5a218dc0",
+        "name": "toggle plan buttons",
+        "info": "",
+        "x": 1160,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "3748bff36aacd609",
+        "type": "ui_text",
+        "z": "072468ee5a218dc0",
+        "group": "81d4dedb195938c4",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "plan is syn",
+        "label": "Plan is synched: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1090,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "16cd0a89713fac55",
+        "type": "ui_text",
+        "z": "072468ee5a218dc0",
+        "group": "81d4dedb195938c4",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "live wp enabled",
+        "label": "Live WP:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 840,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "2ff30366f2047da7",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "live_wp_enable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "bt.live_wp_enable",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1300,
+        "wires": [
+            [
+                "16cd0a89713fac55"
+            ]
+        ]
+    },
+    {
+        "id": "eb054c07307cdcc2",
+        "type": "ui_text",
+        "z": "072468ee5a218dc0",
+        "group": "81d4dedb195938c4",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "gui wp enabled",
+        "label": "GUI WP:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 840,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "a72e19700d060cf2",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "gui_wp_enable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "bt.gui_wp_enable",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1340,
+        "wires": [
+            [
+                "eb054c07307cdcc2"
+            ]
+        ]
+    },
+    {
+        "id": "7c25be2f2bb43ee4",
+        "type": "ui_text",
+        "z": "072468ee5a218dc0",
+        "group": "81d4dedb195938c4",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "algae farm enabled",
+        "label": "Algae farm:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 850,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "38bcedbf48c85d68",
+        "type": "change",
+        "z": "072468ee5a218dc0",
+        "name": "algae_farm_enable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "bt.algae_farm_enable",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 1380,
+        "wires": [
+            [
+                "7c25be2f2bb43ee4"
             ]
         ]
     },
@@ -9134,7 +9468,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 500,
+        "y": 480,
         "wires": [
             [
                 "93d9f503a3372651"
@@ -9190,7 +9524,8 @@
             "3910098f87fb5eac",
             "c7d4d5de96d19781",
             "b185f6dbb37952e9",
-            "7e03fe39a9e4785c"
+            "7e03fe39a9e4785c",
+            "46477f626df8f436"
         ],
         "x": 1155,
         "y": 80,
@@ -9210,7 +9545,7 @@
             "1e0bd19ab17b797e"
         ],
         "x": 685,
-        "y": 520,
+        "y": 500,
         "wires": []
     },
     {
@@ -9315,7 +9650,8 @@
             "c64c7c9fbc69557c",
             "6868207dbe3c8fe2",
             "07bfda0c88113da1",
-            "844b7bcc930e1da0"
+            "844b7bcc930e1da0",
+            "7a6888b95672e0f7"
         ],
         "x": 435,
         "y": 60,
@@ -9341,7 +9677,7 @@
             "ecb32f1e69ab1244"
         ],
         "x": 445,
-        "y": 500,
+        "y": 480,
         "wires": [
             [
                 "61ce2b718be73daf",
@@ -9399,7 +9735,7 @@
         "name": "connected",
         "info": "",
         "x": 360,
-        "y": 500,
+        "y": 480,
         "wires": []
     },
     {
@@ -9411,7 +9747,7 @@
             "acaa0403e6b2f92a"
         ],
         "x": 305,
-        "y": 540,
+        "y": 520,
         "wires": [
             [
                 "be264f174c773c7e"
@@ -9425,7 +9761,7 @@
         "name": "button",
         "info": "",
         "x": 230,
-        "y": 540,
+        "y": 520,
         "wires": []
     },
     {
@@ -9435,7 +9771,7 @@
         "name": "map",
         "info": "",
         "x": 770,
-        "y": 520,
+        "y": 500,
         "wires": []
     },
     {
@@ -9450,7 +9786,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 540,
+        "y": 520,
         "wires": [
             [
                 "24bfe69168ea9d8c"
@@ -9469,7 +9805,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 540,
+        "y": 520,
         "wires": [
             [
                 "93d9f503a3372651"
@@ -9623,7 +9959,8 @@
         "wires": [
             [
                 "d01a1c27b3eb717f",
-                "5096e7318cafb35a"
+                "5096e7318cafb35a",
+                "af81f151aebb2dcc"
             ]
         ]
     },
@@ -9879,7 +10216,7 @@
         ],
         "allowColorForValueInMessage": false,
         "shape": "square",
-        "showGlow": true,
+        "showGlow": false,
         "name": "wp gud",
         "x": 1320,
         "y": 2480,
@@ -10022,8 +10359,8 @@
         "group": "a891e5f5f2effe35",
         "name": "wp list",
         "order": 11,
-        "width": 6,
-        "height": 3,
+        "width": "6",
+        "height": "3",
         "lineType": "two",
         "actionType": "click",
         "allowHTML": true,
@@ -10113,7 +10450,8 @@
             [
                 "ea992bd9a2452f80",
                 "c6111a3afd78f6dd",
-                "50598fa1155faa55"
+                "50598fa1155faa55",
+                "69e69b055fdc6d3d"
             ]
         ]
     },
@@ -10180,7 +10518,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "c1a9221f5cb68d31"
+            "c1a9221f5cb68d31",
+            "4facb95ab46fd02a"
         ],
         "x": 625,
         "y": 860,
@@ -10193,7 +10532,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "c1a9221f5cb68d31"
+            "c1a9221f5cb68d31",
+            "4facb95ab46fd02a"
         ],
         "x": 845,
         "y": 1660,
@@ -10236,7 +10576,8 @@
             [
                 "c15482e7569c2dda",
                 "5fa6ab3ca15b659e",
-                "5c7f36f879d73a9b"
+                "5c7f36f879d73a9b",
+                "3f285282ab31161f"
             ]
         ]
     },
@@ -10247,7 +10588,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "c1a9221f5cb68d31"
+            "c1a9221f5cb68d31",
+            "4facb95ab46fd02a"
         ],
         "x": 525,
         "y": 1760,
@@ -10425,7 +10767,7 @@
         "finalize": "",
         "libs": [],
         "x": 770,
-        "y": 1080,
+        "y": 1220,
         "wires": [
             [
                 "c7d4d5de96d19781",
@@ -10450,13 +10792,14 @@
             "86149028f57aa271",
             "5ad9f131ddd8bb21",
             "0e76935522f9aebc",
-            "23c5e0d877fa805e"
+            "23c5e0d877fa805e",
+            "a9b89912dfc6513c"
         ],
-        "x": 375,
-        "y": 1060,
+        "x": 205,
+        "y": 1200,
         "wires": [
             [
-                "d2f284617e677636"
+                "8e14da82f369a630"
             ]
         ]
     },
@@ -10466,8 +10809,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update_markers_on_map",
         "info": "",
-        "x": 240,
-        "y": 1060,
+        "x": 190,
+        "y": 1240,
         "wires": []
     },
     {
@@ -10500,7 +10843,7 @@
         "name": "update_markers_on_map",
         "info": "",
         "x": 1110,
-        "y": 2640,
+        "y": 2620,
         "wires": []
     },
     {
@@ -10513,7 +10856,7 @@
             "bb3002ce85983e34"
         ],
         "x": 975,
-        "y": 2640,
+        "y": 2620,
         "wires": []
     },
     {
@@ -10523,7 +10866,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "c1a9221f5cb68d31"
+            "c1a9221f5cb68d31",
+            "4facb95ab46fd02a"
         ],
         "x": 1235,
         "y": 2520,
@@ -10544,14 +10888,14 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "clear planning layer",
-        "func": "// get the list of stuff we drew before and delete them all\ndom = global.get(\"gui.drawn_on_map\")\nif(!dom){\n    dom = new Set()    \n} \n\n\n// delete all the markers one by one because\n// for some reason the clear layer\n// thing doesnt delete them proper?\nfor(const item of dom){\n    p = {name:item, deleted:true, lat:0, lon:0}\n    node.send({payload:p})\n}\ndom = new Set()\n\n// clear the planning layer\n// and trigger some other stuff\nreturn [\n    {payload:{command:{clear:\"planning\"}}},\n    {}\n]",
+        "func": "// get the list of stuff we drew before and delete them all\ndom = global.get(\"gui.drawn_on_map\") || new Set()\n\n\n// delete all the markers one by one because\n// for some reason the clear layer\n// thing doesnt delete them proper?\nfor(const item of dom){\n    p = {name:item, deleted:true, lat:0, lon:0}\n    node.send({payload:p})\n}\ndom = new Set()\n\n// clear the planning layer\n// and trigger some other stuff\nreturn [\n    {payload:{command:{clear:\"planning\"}}},\n    {}\n]",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 1060,
+        "y": 1200,
         "wires": [
             [
                 "c7d4d5de96d19781"
@@ -10559,7 +10903,8 @@
             [
                 "df49c5e8f94952de",
                 "86c0559201508b50",
-                "087bc95837a9d012"
+                "087bc95837a9d012",
+                "28047fbd71cfcbd5"
             ]
         ]
     },
@@ -10575,7 +10920,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1120,
+        "y": 1260,
         "wires": [
             [
                 "c7d4d5de96d19781",
@@ -10617,13 +10962,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 1280,
+        "x": 390,
+        "y": 1020,
         "wires": [
             [
                 "0db429c1a28c5125",
                 "5a1eb09333cce11a",
-                "915f50a44adbc1b1"
+                "915f50a44adbc1b1",
+                "9e017fbc9b746fb9"
             ]
         ]
     },
@@ -10635,8 +10981,8 @@
         "links": [
             "7d660feb1bc9828d"
         ],
-        "x": 325,
-        "y": 1280,
+        "x": 265,
+        "y": 1020,
         "wires": [
             [
                 "e52c7386b33fd223"
@@ -10649,8 +10995,8 @@
         "z": "65c60c3b274f73e3",
         "name": "move",
         "info": "",
-        "x": 250,
-        "y": 1280,
+        "x": 190,
+        "y": 1020,
         "wires": []
     },
     {
@@ -10660,10 +11006,11 @@
         "name": "",
         "mode": "link",
         "links": [
-            "c1a9221f5cb68d31"
+            "c1a9221f5cb68d31",
+            "4facb95ab46fd02a"
         ],
-        "x": 595,
-        "y": 1240,
+        "x": 535,
+        "y": 980,
         "wires": []
     },
     {
@@ -10672,8 +11019,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update list of wps",
         "info": "",
-        "x": 720,
-        "y": 1240,
+        "x": 660,
+        "y": 980,
         "wires": []
     },
     {
@@ -10740,8 +11087,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update selected wp properties",
         "info": "",
-        "x": 760,
-        "y": 1280,
+        "x": 700,
+        "y": 1020,
         "wires": []
     },
     {
@@ -10753,8 +11100,8 @@
         "links": [
             "a4bca789dbb9018b"
         ],
-        "x": 595,
-        "y": 1280,
+        "x": 535,
+        "y": 1020,
         "wires": []
     },
     {
@@ -10763,8 +11110,8 @@
         "z": "65c60c3b274f73e3",
         "name": "update_markers_on_map",
         "info": "",
-        "x": 750,
-        "y": 1320,
+        "x": 690,
+        "y": 1060,
         "wires": []
     },
     {
@@ -10776,8 +11123,8 @@
         "links": [
             "bb3002ce85983e34"
         ],
-        "x": 595,
-        "y": 1320,
+        "x": 535,
+        "y": 1060,
         "wires": []
     },
     {
@@ -10860,7 +11207,7 @@
             "ecb32f1e69ab1244"
         ],
         "x": 375,
-        "y": 1020,
+        "y": 1160,
         "wires": [
             [
                 "d2f284617e677636"
@@ -10874,7 +11221,7 @@
         "name": "connected",
         "info": "",
         "x": 280,
-        "y": 1020,
+        "y": 1160,
         "wires": []
     },
     {
@@ -11066,7 +11413,8 @@
         "y": 1860,
         "wires": [
             [
-                "06b52e62f1cf32f9"
+                "06b52e62f1cf32f9",
+                "0f1be0abe9e97cb2"
             ]
         ]
     },
@@ -11129,7 +11477,8 @@
             [
                 "06b52e62f1cf32f9",
                 "2a61996a1d3b6320",
-                "e892c74e5c27aee1"
+                "e892c74e5c27aee1",
+                "0f1be0abe9e97cb2"
             ]
         ]
     },
@@ -11163,7 +11512,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "c1a9221f5cb68d31"
+            "c1a9221f5cb68d31",
+            "4facb95ab46fd02a"
         ],
         "x": 1105,
         "y": 1940,
@@ -11211,8 +11561,8 @@
         "links": [
             "1e0bd19ab17b797e"
         ],
-        "x": 955,
-        "y": 1060,
+        "x": 1145,
+        "y": 1200,
         "wires": []
     },
     {
@@ -11221,8 +11571,8 @@
         "z": "65c60c3b274f73e3",
         "name": "map",
         "info": "",
-        "x": 1030,
-        "y": 1060,
+        "x": 1220,
+        "y": 1200,
         "wires": []
     },
     {
@@ -11259,8 +11609,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1050,
-        "y": 1120,
+        "x": 1250,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -11374,7 +11724,8 @@
         "wires": [
             [
                 "2a1a62cfc5cae84d",
-                "86149028f57aa271"
+                "86149028f57aa271",
+                "e986e36477fb6a0d"
             ]
         ]
     },
@@ -11464,7 +11815,8 @@
         "wires": [
             [
                 "2a1a62cfc5cae84d",
-                "86149028f57aa271"
+                "86149028f57aa271",
+                "e986e36477fb6a0d"
             ]
         ]
     },
@@ -11485,7 +11837,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "c1a9221f5cb68d31"
+            "c1a9221f5cb68d31",
+            "4facb95ab46fd02a"
         ],
         "x": 1025,
         "y": 2800,
@@ -11523,7 +11876,7 @@
         "order": 4,
         "width": 6,
         "height": 4,
-        "lineType": "two",
+        "lineType": "three",
         "actionType": "click",
         "allowHTML": true,
         "outputs": 1,
@@ -11541,7 +11894,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "list tracks",
-        "func": "tracks = global.get(\"planning.tracks\") || {}\nglobal.set(\"planning.tracks\", tracks)\n\ndrawn_tracks = global.get(\"gui.drawn_track_names\") || new Set()\nglobal.set(\"gui.drawn_track_names\", drawn_tracks)\n\n\nif(!(tracks)){\n    return {payload:[{title:\"--NO TRACKS--\"}]}  \n} \nif(Object.keys(tracks).length < 1){\n    return {payload:[{title:\"--NO TRACKS--\"}]}     \n}\n\nlist_items = []\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    c = \"black\"\n    if(track_name == global.get(\"gui.selected_track_name\")){\n        c = \"orange\"\n    }\n    \n    title = \"<font color=\" + c +\">\" + track.name\n    \n    if(track.recording){\n        duration_str = \"🔴 \" + parseInt((Date.now() - track.start)/1000) + \"s \"\n        title = duration_str + title\n    }\n    \n    if(drawn_tracks.has(track_name)){\n        title = \"🗺 ️\" + title\n    }\n    \n    desc = \"\"\n    if(track.robot_name) desc += \"🤖:\"+track.robot_name\n    if(track.start && track.end){\n        duration = parseInt((track.end - track.start)/1000)\n        if(duration > 120) duration_str = parseInt(duration/60) + \"m\" + duration%60+\"s\"\n        else duration_str = duration + \"s\"\n        desc += \" ⏲️:\" + duration_str\n    }\n    \n    desc = \"<font color=\" + c +\">\" + desc\n    \n    list_item = {title:title, description:desc}\n    list_items.push(list_item)\n}\n\nreturn {payload:list_items}",
+        "func": "tracks = global.get(\"planning.tracks\") || {}\nglobal.set(\"planning.tracks\", tracks)\n\ndrawn_tracks = global.get(\"gui.drawn_track_names\") || new Set()\nglobal.set(\"gui.drawn_track_names\", drawn_tracks)\n\n\nif(!(tracks)){\n    return {payload:[{title:\"--NO TRACKS--\"}]}  \n} \nif(Object.keys(tracks).length < 1){\n    return {payload:[{title:\"--NO TRACKS--\"}]}     \n}\n\nlist_items = []\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    c = \"black\"\n    if(track_name == global.get(\"gui.selected_track_name\")){\n        c = \"orange\"\n    }\n    \n    title = \"<font color=\" + c +\">\" + track.name\n    \n    if(track.recording){\n        duration_str = \"🔴 \" + parseInt((Date.now() - track.start)/1000) + \"s \"\n        title = duration_str + title\n    }\n    \n    if(drawn_tracks.has(track_name)){\n        title = \"🗺 ️\" + title\n    }\n    \n    desc = \"\"\n    if(track.robot_name) desc += \"🤖:\"+track.robot_name\n    if(track.start && track.end){\n        duration = parseInt((track.end - track.start)/1000)\n        if(duration > 120) duration_str = parseInt(duration/60) + \"m\" + duration%60+\"s\"\n        else duration_str = duration + \"s\"\n        desc += \" ⏲️:\" + duration_str\n    }\n    \n    if(track.start){\n        date = new Date(track.start).toDateString().slice(4)\n        desc += \" 📅:\" + date\n        \n        start_time = new Date(track.start).toTimeString().slice(0,8)\n        desc += \" ▶️:\" + start_time\n    }\n    \n    if(track.end){\n        end_time = new Date(track.end).toTimeString().slice(0,8)\n        desc += \" ⏹️:\" + end_time\n    }\n    \n    desc = \"<font color=\" + c +\">\" + desc\n    \n    list_item = {title:title, description:desc}\n    list_items.push(list_item)\n}\n\nreturn {payload:list_items}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -11640,7 +11993,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "9e4dc1dfcbcf273a"
+            "9e4dc1dfcbcf273a",
+            "a33b80c387b0a157"
         ],
         "x": 595,
         "y": 3220,
@@ -11663,7 +12017,8 @@
             [
                 "18ebb3de66d804a6",
                 "0e76935522f9aebc",
-                "74addf97d915bda4"
+                "74addf97d915bda4",
+                "a03b339bae7b75a4"
             ]
         ]
     },
@@ -11764,7 +12119,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "9e4dc1dfcbcf273a"
+            "9e4dc1dfcbcf273a",
+            "a33b80c387b0a157"
         ],
         "x": 1065,
         "y": 3300,
@@ -11953,7 +12309,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "9e4dc1dfcbcf273a"
+            "9e4dc1dfcbcf273a",
+            "a33b80c387b0a157"
         ],
         "x": 975,
         "y": 3360,
@@ -12104,7 +12461,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "setup drawing",
-        "func": "if(msg.payload == \"clear\"){\n    global.set(\"gui.drawn_track_names\", new Set())\n    return {}\n}\n\ntracks = global.get(\"planning.tracks\")\ndraw = msg.payload == \"draw\"\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\n\ndrawn_track_names = global.get(\"gui.drawn_track_names\")\nif(drawn_track_names == null) drawn_track_names = new Set()\n\nif(draw) drawn_track_names.add(stn)\nelse drawn_track_names.delete(stn)\n\nglobal.set(\"gui.drawn_track_names\", drawn_track_names)\n\nreturn {}",
+        "func": "if(msg.payload == \"clear\"){\n    global.set(\"gui.drawn_track_names\", new Set())\n    return {}\n}\n\ntracks = global.get(\"planning.tracks\")\ndraw = msg.payload == \"draw\"\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\n\ndrawn_track_names = global.get(\"gui.drawn_track_names\") || new Set()\n\nif(draw) drawn_track_names.add(stn)\nelse drawn_track_names.delete(stn)\n\nglobal.set(\"gui.drawn_track_names\", drawn_track_names)\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -12155,7 +12512,7 @@
         "label": "Take note",
         "tooltip": "",
         "color": "",
-        "bgcolor": "",
+        "bgcolor": "Green",
         "className": "",
         "icon": "fa-indent",
         "payload": "Add text note to track",
@@ -12205,7 +12562,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1160,
+        "y": 1300,
         "wires": [
             [
                 "c7d4d5de96d19781",
@@ -12268,7 +12625,8 @@
         "name": "",
         "mode": "link",
         "links": [
-            "9e4dc1dfcbcf273a"
+            "9e4dc1dfcbcf273a",
+            "a33b80c387b0a157"
         ],
         "x": 675,
         "y": 3500,
@@ -12344,7 +12702,7 @@
         "width": 6,
         "height": 1,
         "name": "wp title",
-        "label": "Waypoints of",
+        "label": "WPs of",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
@@ -12463,8 +12821,8 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "toggle",
-        "func": "function r(mod, control){\n    return [\n        {enabled:mod},\n        {enabled:control}\n        ]\n}\n\nmod = false\ncontrol = false\n\nspn = global.get(\"gui.selected_plan_name\")\n// no selected track, disable all buttons\nif(!spn){\n    return r(mod, control)\n}\n\nplans = global.get(\"planning.plans\")\nplan = plans[spn]\n\nmod = true\ncontrol = true\n\nif(plan.waypoint_order.length == 0) control = false\n\nsrn = global.get(\"gui.selected_robot_name\")\nrobots = global.get(\"robot_states\")\nrob = robots[srn]\n\nif(!rob) control = false\nif(rob.gui.is_old) control = false\n\nreturn r(mod, control)\n",
-        "outputs": 2,
+        "func": "function r(mod, control, start){\n    return [\n        {enabled:mod},\n        {enabled:control},\n        {enabled:start}\n        ]\n}\n\nmod = false\ncontrol = false\nstart = false\n\nspn = global.get(\"gui.selected_plan_name\")\n// no selected track, disable all buttons\nif(!spn){\n    return r(mod, control, start)\n}\n\nplans = global.get(\"planning.plans\")\nplan = plans[spn]\n\nmod = true\ncontrol = true\n\nif(plan.waypoint_order.length == 0) control = false\n\nsrn = global.get(\"gui.selected_robot_name\")\nrobots = global.get(\"robot_states\")\nrob = robots[srn]\n\nif(!rob) control = false\nif(rob.gui.is_old) control = false\nif(global.get(\"gui.plan_is_synched\")) start = true\nif(!control) start = false\n\nreturn r(mod, control, start)\n",
+        "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -12479,9 +12837,11 @@
             ],
             [
                 "dc136a38e8883e83",
-                "302e64093f16fce0",
                 "1a59141260bce814",
                 "9ec5bd30fbe9aa4b"
+            ],
+            [
+                "302e64093f16fce0"
             ]
         ]
     },
@@ -12492,7 +12852,8 @@
         "name": "v2_toggle plan buttons",
         "links": [
             "ceae70c2ba4b7830",
-            "66be8a1b9908737a"
+            "66be8a1b9908737a",
+            "7207113d4e01d2b1"
         ],
         "x": 95,
         "y": 1960,
@@ -12687,7 +13048,7 @@
         "z": "65c60c3b274f73e3",
         "name": "Abort",
         "group": "a48b13904097fb6a",
-        "order": 9,
+        "order": 11,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -12846,7 +13207,7 @@
             "b3ea1b7b39673b5c"
         ],
         "x": 975,
-        "y": 2680,
+        "y": 2660,
         "wires": []
     },
     {
@@ -12856,7 +13217,7 @@
         "name": "toggle wp props",
         "info": "",
         "x": 1080,
-        "y": 2680,
+        "y": 2660,
         "wires": []
     },
     {
@@ -13092,7 +13453,7 @@
         "name": "update list of wps",
         "info": "",
         "x": 1080,
-        "y": 2720,
+        "y": 2700,
         "wires": []
     },
     {
@@ -13102,10 +13463,11 @@
         "name": "",
         "mode": "link",
         "links": [
-            "c1a9221f5cb68d31"
+            "c1a9221f5cb68d31",
+            "4facb95ab46fd02a"
         ],
         "x": 975,
-        "y": 2720,
+        "y": 2700,
         "wires": []
     },
     {
@@ -13131,6 +13493,811 @@
         "wires": [
             [
                 "2f207331e5c78091"
+            ]
+        ]
+    },
+    {
+        "id": "7731c057.0fb3f",
+        "type": "chartjs-line",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "path": "linechart",
+        "charttitle": "",
+        "xaxis": "",
+        "yaxis": "",
+        "x": 610,
+        "y": 4200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d10a669132c60ada",
+        "type": "ui_iframe",
+        "z": "65c60c3b274f73e3",
+        "group": "f5cc24c294e35249",
+        "name": "Linechart iframe",
+        "order": 2,
+        "width": 12,
+        "height": 10,
+        "url": "https://nodered.blue-robots.com/linechart",
+        "origin": "*",
+        "scale": "70",
+        "x": 180,
+        "y": 3840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a882f705d1edcf4e",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "List track properties",
+        "func": "tracks = global.get(\"planning.tracks\")\nif(!tracks) return\n\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\n\ntrack = tracks[stn]\n\nif(track.data.length < 1) return\n\nfirst = track.data[0]\nlast = track.data[track.data.length-1]\n\nt0 = parseInt(first.last_update/1000)\ntf = parseInt(last.last_update/1000)\n\n// title - title of the item,\n// description - description of the item. Optional if line type is Single-line or action type is menu,\n// menu - list of menu items (optional),\n// icon - URL of icon (optional),\n// icon_name - font icon name (optional).\n// icon_unicode - alternative to icon name - uses text characters (optional).\n// isChecked \n\ncharted_keys = global.get(\"gui.charted_keys\") || new Set()\nkeys = Object.keys(first.base)\nitems = []\nfor(const key of keys){\n    sample = first.base[key]\n    if (typeof sample === 'string' || sample instanceof String) continue\n    item = {\n        title:key,\n        isChecked: charted_keys.has(key)\n    }\n    items.push(item)\n}\n\n\nreturn [\n    {payload:items},\n    {ui_control:{max:tf-t0}}\n]",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 4040,
+        "wires": [
+            [
+                "3133589654d749f2"
+            ],
+            [
+                "5d8a74769822794f",
+                "4aee923d4f21ef0d"
+            ]
+        ]
+    },
+    {
+        "id": "7a6888b95672e0f7",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 305,
+        "y": 4020,
+        "wires": [
+            [
+                "a882f705d1edcf4e",
+                "eee48fffe688435d"
+            ]
+        ]
+    },
+    {
+        "id": "236b94c7fd14ebfa",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 220,
+        "y": 4020,
+        "wires": []
+    },
+    {
+        "id": "3133589654d749f2",
+        "type": "ui_list",
+        "z": "65c60c3b274f73e3",
+        "group": "f5cc24c294e35249",
+        "name": "Track props",
+        "order": 1,
+        "width": 6,
+        "height": 8,
+        "lineType": "one",
+        "actionType": "check",
+        "allowHTML": false,
+        "outputs": 1,
+        "topic": "",
+        "x": 650,
+        "y": 4000,
+        "wires": [
+            [
+                "7f8f3bad61b15d6f"
+            ]
+        ]
+    },
+    {
+        "id": "7f8f3bad61b15d6f",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart keys",
+        "func": "charted_keys = global.get(\"gui.charted_keys\") || new Set()\n\nif(msg.payload.isChecked){\n    charted_keys.add(msg.payload.title)\n}else{\n    charted_keys.delete(msg.payload.title)\n}\n\nglobal.set(\"gui.charted_keys\", charted_keys)\n\nreturn {}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 4000,
+        "wires": [
+            [
+                "f758d7136cba8302"
+            ]
+        ]
+    },
+    {
+        "id": "d657dc3704b36f50",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update track props",
+        "info": "",
+        "x": 190,
+        "y": 4060,
+        "wires": []
+    },
+    {
+        "id": "4f502f4b76819f09",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "update track props",
+        "links": [
+            "a03b339bae7b75a4"
+        ],
+        "x": 305,
+        "y": 4060,
+        "wires": [
+            [
+                "a882f705d1edcf4e",
+                "eee48fffe688435d"
+            ]
+        ]
+    },
+    {
+        "id": "a03b339bae7b75a4",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "4f502f4b76819f09",
+            "3e398cf74e82408a"
+        ],
+        "x": 775,
+        "y": 3040,
+        "wires": []
+    },
+    {
+        "id": "43536ab26742e5f2",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update track props",
+        "info": "",
+        "x": 890,
+        "y": 3040,
+        "wires": []
+    },
+    {
+        "id": "5d8a74769822794f",
+        "type": "ui_slider",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "label": "Time start",
+        "tooltip": "",
+        "group": "f5cc24c294e35249",
+        "order": 5,
+        "width": 12,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "start",
+        "topicType": "str",
+        "min": 0,
+        "max": 10,
+        "step": "1",
+        "className": "",
+        "x": 640,
+        "y": 4040,
+        "wires": [
+            [
+                "9b4736ce51b0892e"
+            ]
+        ]
+    },
+    {
+        "id": "4aee923d4f21ef0d",
+        "type": "ui_slider",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "label": "Duration",
+        "tooltip": "",
+        "group": "f5cc24c294e35249",
+        "order": 7,
+        "width": 12,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "duration",
+        "topicType": "str",
+        "min": "10",
+        "max": "60",
+        "step": "1",
+        "className": "",
+        "x": 640,
+        "y": 4080,
+        "wires": [
+            [
+                "a2f1d3b3c7a2b5b1"
+            ]
+        ]
+    },
+    {
+        "id": "5bd4869c762f7e3e",
+        "type": "ui_text",
+        "z": "65c60c3b274f73e3",
+        "group": "f5cc24c294e35249",
+        "order": 3,
+        "width": 6,
+        "height": 2,
+        "name": "new tab chart",
+        "label": "",
+        "format": "<a target=\"_blank\" href=\"https://nodered.blue-robots.com/linechart\">Chart in a new tab!</a> ",
+        "layout": "col-center",
+        "className": "",
+        "x": 180,
+        "y": 3800,
+        "wires": []
+    },
+    {
+        "id": "2eee1d2a8a2e7b36",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "draw current plan",
+        "func": "robot = msg.payload\n\nwps = robot.bt.current_plan.waypoints\nif(!wps) return\n\npoints = []\nfor(var i in wps){\n        points.push([wps[i].lat, wps[i].lon])\n}\n\nswitch(robot.bt.current_plan.plan_state){\n    case 0: //running\n        c = \"orange\"\n        w = 2\n        break\n    case 1: // stopped\n        c = \"cyan\"\n        w = 1\n        break\n    case 2: // paused\n        c = \"yellow\"\n        w = 1\n        break\n    case 3: // emergency\n        c = \"red\"\n        w = 0.1\n        break\n    case 4: // received\n        c = \"yellow\"\n        w = 2\n        break\n}\n\nif(robot.gui.is_old) c = \"gray\"\n\nline = {name: robot.base.name+\"_vehicle_plan\",\n        layer: \"planning\",\n        line:points,\n        color:c,\n        weight:w,\n        editable:false,\n        clickable:false,\n        dashArray:\"1,8,5,8\"\n}\nreturn {payload:line}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 1320,
+        "wires": [
+            [
+                "c7d4d5de96d19781",
+                "d443219a2ff95383"
+            ]
+        ]
+    },
+    {
+        "id": "3df11c87b530efc4",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "marker on current wp",
+        "func": "robot = msg.payload\n\nc = \"orange\"\nif(robot.gui.is_old) c = \"gray\"\n\nreturn {payload:\n        {\n            action:\"point\",\n            name: robot.base.name+\"_current_wp\",\n            label:null,\n            layer:\"planning\",\n            draggable:false,\n            lat:robot.bt.current_wp.lat,\n            lon:robot.bt.current_wp.lon,\n            ttl:0,\n            icon:\"locate\",\n            iconColor:c\n        }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 1360,
+        "wires": [
+            [
+                "d443219a2ff95383",
+                "c7d4d5de96d19781"
+            ]
+        ]
+    },
+    {
+        "id": "28047fbd71cfcbd5",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "selected robot",
+        "func": "srn = global.get(\"gui.selected_robot_name\")\nif(!srn) return\nrobots = global.get(\"robot_states\")\nrobot = robots[srn]\nif(!robot) return\n\nreturn {payload:robot}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1340,
+        "wires": [
+            [
+                "2eee1d2a8a2e7b36",
+                "3df11c87b530efc4"
+            ]
+        ]
+    },
+    {
+        "id": "eee48fffe688435d",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart",
+        "func": "// {\n//     \"channel\": \"TP01\",\n//     \"color\": \"Red\",\n//     \"dataset\": [\n//         {\n//             \"x\": \"01/02/2019 10:00\",\n//             \"y\": 10\n//         }\n//     ]\n// }\n\nfunction randomChoice(arr) {\n    return arr[Math.floor(arr.length * Math.random())];\n}\n\ncharted_keys = global.get(\"gui.charted_keys\") || new Set()\n\n\nif(charted_keys.size == 0){\n    return {payload:[{\n        channel:\"Select a property to chart!\",\n        color: \"\",\n        dataset:[]\n    }]}\n} \n\ntracks = global.get(\"planning.tracks\")\nstn = global.get(\"gui.selected_track_name\")\ntrack = tracks[stn]\n// wouldnt be here if the list wasnt prepped already\n\ngraphs = []\ncolors = [\"Red\", \"Blue\", \"Green\", \"Cyan\", \"Black\", \"Purple\"]\nvar i = 0\nfor(const key of charted_keys){\n    graph = {\n        channel: key,\n        color: colors[i],\n        dataset: []\n    }\n    i = (i+1)%colors.length\n    \n    t0 = null\n    for(const point of track.data){\n        t = point.last_update/1000\n        if(!t0) t0 = t\n        t -= t0\n        t = parseInt(t)\n        \n        start_t = global.get(\"gui.chart_start\") || 0\n        if(t < start_t) continue\n        \n        duration = global.get(\"gui.chart_duration\") || 10\n        if(t > start_t + duration) break\n        \n        v = point.base[key]\n        graph.dataset.push({x:t, y:v})\n    }\n    graphs.push(graph)\n}\nreturn {payload:graphs}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 4200,
+        "wires": [
+            [
+                "7731c057.0fb3f"
+            ]
+        ]
+    },
+    {
+        "id": "9b4736ce51b0892e",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "set chart start",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gui.chart_start",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 4040,
+        "wires": [
+            [
+                "f758d7136cba8302"
+            ]
+        ]
+    },
+    {
+        "id": "a2f1d3b3c7a2b5b1",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "set chart duration",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gui.chart_duration",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 4080,
+        "wires": [
+            [
+                "f758d7136cba8302"
+            ]
+        ]
+    },
+    {
+        "id": "b08025707fbc360d",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart",
+        "links": [
+            "f758d7136cba8302",
+            "adb7b6279e34b2a3"
+        ],
+        "x": 285,
+        "y": 4200,
+        "wires": [
+            [
+                "eee48fffe688435d"
+            ]
+        ]
+    },
+    {
+        "id": "43e9c08e1bb0ba4d",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart",
+        "info": "",
+        "x": 190,
+        "y": 4200,
+        "wires": []
+    },
+    {
+        "id": "d133be335a141839",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart",
+        "info": "",
+        "x": 1070,
+        "y": 4040,
+        "wires": []
+    },
+    {
+        "id": "f758d7136cba8302",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "b08025707fbc360d",
+            "e7ddbfbe591019ba"
+        ],
+        "x": 975,
+        "y": 4040,
+        "wires": []
+    },
+    {
+        "id": "1b5cc6cb3a03dbd9",
+        "type": "ui_switch",
+        "z": "65c60c3b274f73e3",
+        "name": "auto update",
+        "label": "Auto-refresh",
+        "tooltip": "Update the chart every 5 seconds",
+        "group": "f5cc24c294e35249",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 170,
+        "y": 3880,
+        "wires": [
+            [
+                "9e0a3e3665047939"
+            ]
+        ]
+    },
+    {
+        "id": "4395efd9a77aeb7a",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart",
+        "info": "",
+        "x": 870,
+        "y": 3880,
+        "wires": []
+    },
+    {
+        "id": "adb7b6279e34b2a3",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "b08025707fbc360d",
+            "e7ddbfbe591019ba"
+        ],
+        "x": 775,
+        "y": 3880,
+        "wires": []
+    },
+    {
+        "id": "e4f9a6bc89eb2e49",
+        "type": "delay",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 3840,
+        "wires": [
+            [
+                "b7b4a7a97984db89"
+            ]
+        ]
+    },
+    {
+        "id": "1b52051d14f947f4",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart props",
+        "links": [
+            "e382855cb1c7136c"
+        ],
+        "x": 305,
+        "y": 3980,
+        "wires": [
+            [
+                "a882f705d1edcf4e"
+            ]
+        ]
+    },
+    {
+        "id": "2f26c38c7217f709",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart props",
+        "info": "",
+        "x": 190,
+        "y": 3980,
+        "wires": []
+    },
+    {
+        "id": "e382855cb1c7136c",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "1b52051d14f947f4"
+        ],
+        "x": 775,
+        "y": 3840,
+        "wires": []
+    },
+    {
+        "id": "23cb765a962738a8",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update chart props",
+        "info": "",
+        "x": 890,
+        "y": 3840,
+        "wires": []
+    },
+    {
+        "id": "f12f41d73aa8bdfc",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "set start to last",
+        "func": "tracks = global.get(\"planning.tracks\")\nif(!tracks) return\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\ntrack = tracks[stn]\nif(track.data.length < 1) return\n\nfirst = track.data[0]\nlast = track.data[track.data.length-1]\n\nt0 = parseInt(first.last_update/1000)\ntf = parseInt(last.last_update/1000)\n\n\nduration = global.get(\"gui.chart_duration\") || 10\n\nreturn {payload: tf-t0 - duration}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 3940,
+        "wires": [
+            [
+                "5d8a74769822794f"
+            ]
+        ]
+    },
+    {
+        "id": "9e0a3e3665047939",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "set gui chart_auto_update",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gui.chart_auto_update",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 3880,
+        "wires": [
+            [
+                "b7b4a7a97984db89"
+            ]
+        ]
+    },
+    {
+        "id": "b7b4a7a97984db89",
+        "type": "switch",
+        "z": "65c60c3b274f73e3",
+        "name": "if auto update",
+        "property": "gui.chart_auto_update",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "neq",
+                "v": "true",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 600,
+        "y": 3880,
+        "wires": [
+            [
+                "e382855cb1c7136c",
+                "adb7b6279e34b2a3",
+                "f12f41d73aa8bdfc",
+                "e4f9a6bc89eb2e49"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0f1be0abe9e97cb2",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "f73376f194b1fc1a"
+        ],
+        "x": 1105,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "161a51af856b129a",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "compare gui and robot plans",
+        "info": "",
+        "x": 1260,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "3f285282ab31161f",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "f73376f194b1fc1a"
+        ],
+        "x": 975,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "235e007ba94daedb",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "compare gui and robot plans",
+        "info": "",
+        "x": 1130,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "e986e36477fb6a0d",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "f73376f194b1fc1a"
+        ],
+        "x": 1025,
+        "y": 2880,
+        "wires": []
+    },
+    {
+        "id": "15845c15992a95db",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "compare gui and robot plans",
+        "info": "",
+        "x": 1180,
+        "y": 2880,
+        "wires": []
+    },
+    {
+        "id": "9e017fbc9b746fb9",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "f73376f194b1fc1a"
+        ],
+        "x": 535,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "e25678d5afc89216",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "compare gui and robot plans",
+        "info": "",
+        "x": 700,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "69e69b055fdc6d3d",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "f73376f194b1fc1a"
+        ],
+        "x": 625,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "0dc598b9420e8932",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "compare gui and robot plans",
+        "info": "",
+        "x": 780,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "af81f151aebb2dcc",
+        "type": "link out",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "f73376f194b1fc1a"
+        ],
+        "x": 675,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "5b1ae6d42b5c714c",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "compare gui and robot plans",
+        "info": "",
+        "x": 830,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "8e14da82f369a630",
+        "type": "delay",
+        "z": "65c60c3b274f73e3",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "10",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 1200,
+        "wires": [
+            [
+                "d2f284617e677636"
             ]
         ]
     }
