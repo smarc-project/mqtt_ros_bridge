@@ -59,8 +59,10 @@
   <depend>lolo_msgs</depend>
   <depend>vision_msgs</depend>
   <depend>mqtt_bridge</depend>
-  <depend>python-inject-pip</depend>
-  <depend>python-paho-mqtt</depend>
+  <!--These were needed for the wara-ps bridge, which needed custom stuff-->
+  <!--<exec_depend condition="$ROS_PYTHON_VERSION == 3">python-inject-pip</exec_depend>-->
+  <!--<exec_depend condition="$ROS_PYTHON_VERSION == 2" version_eq="3.5.4">python-inject-pip</exec_depend>-->
+  <!--<depend>python-paho-mqtt</depend>-->
 
 
 
