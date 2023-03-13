@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(mqtt_ros_bridge)
+project(smarc_nodered)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -109,7 +109,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES mqtt_ros_bridge
+#  LIBRARIES smarc_nodered
 #  CATKIN_DEPENDS mqtt_bridge
 #  DEPENDS system_lib
 )
@@ -127,7 +127,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/mqtt_ros_bridge.cpp
+#   src/${PROJECT_NAME}/smarc_nodered.cpp
 # )
 
 ## Add cmake target dependencies of the library
