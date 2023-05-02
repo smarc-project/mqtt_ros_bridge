@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>smarc_nodered</name>
-  <version>0.0.13</version>
+  <version>0.0.15</version>
   <description>The smarc_nodered package that connects the smarc software stack to nodered over mqtt</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
