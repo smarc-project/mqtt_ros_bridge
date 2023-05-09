@@ -146,17 +146,21 @@ bridge:
     topic_to: ~/bt/tip
     frequency: 1
 
+# no freq, we want all of these
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: smarc_msgs.msg:MissionControl
     topic_from: smarc_bt/mission_control
     topic_to: ~/bt/mission_control
-    frequency: 0.5
+
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: smarc_msgs.msg:BTCommand
+    topic_from: smarc_bt/bt_command
+    topic_to: ~/bt/bt_cmd
 
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs.msg:Empty
     topic_from: core/heartbeat
     topic_to: ~/bt/heartbeat
-    # no freq, we want all of these
 
 
 
@@ -180,6 +184,11 @@ bridge:
     msg_type: smarc_msgs.msg:MissionControl
     topic_from: ~/bt_cmd/mission_control
     topic_to: smarc_bt/mission_control
+
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: smarc_msgs.msg:BTCommand
+    topic_from: ~/bt_cmd/bt_cmd
+    topic_to: smarc_bt/bt_command
 
 
 
