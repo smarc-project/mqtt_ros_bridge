@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<package format="2">
-  <name>mqtt_ros_bridge</name>
-  <version>0.0.8</version>
-  <description>The mqtt_ros_bridge package</description>
+<package format="3">
+  <name>smarc_nodered</name>
+  <version>0.0.18</version>
+  <description>The smarc_nodered package that connects the smarc software stack to nodered over mqtt</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/mqtt_ros_bridge</url> -->
+  <!-- <url type="website">http://wiki.ros.org/smarc_nodered</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
@@ -59,8 +59,9 @@
   <depend>lolo_msgs</depend>
   <depend>vision_msgs</depend>
   <depend>mqtt_bridge</depend>
-  <!--These were needed for the wara-ps bridge, which needed custom stuff-->
-  <!--<exec_depend condition="$ROS_PYTHON_VERSION == 3">python-inject-pip</exec_depend>-->
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python-inject-pip</exec_depend>
+  <!--the specific version cant be installed for reasons, for melodic, inject must be manually installed-->
+  <!--pip2 install - -user Inject==3.5.4-->
   <!--<exec_depend condition="$ROS_PYTHON_VERSION == 2" version_eq="3.5.4">python-inject-pip</exec_depend>-->
   <!--<depend>python-paho-mqtt</depend>-->
 
