@@ -59,7 +59,9 @@
   <depend>lolo_msgs</depend>
   <depend>vision_msgs</depend>
   <depend>mqtt_bridge</depend>
-  <depend>python-inject-pip</depend>
+  <exec_depend>python-inject-pip</exec_depend>
+  <build_depend>python-inject-pip</build_depend>
+  <build_export_depend>python-inject-pip</build_export_depend>
   <!--the specific version cant be installed for reasons, for melodic, inject must be manually installed-->
   <!--pip2 install - -user Inject==3.5.4-->
   <!--<exec_depend condition="$ROS_PYTHON_VERSION == 2" version_eq="3.5.4">python-inject-pip</exec_depend>-->
