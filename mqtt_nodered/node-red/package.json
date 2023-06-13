@@ -6,7 +6,6 @@
     "dependencies": {
         "node-red-contrib-chartjs": "~0.5.2",
         "node-red-contrib-config": "~1.2.1",
-        "node-red-contrib-key-value-store": "~0.1.8",
         "node-red-contrib-ui-led": "~0.4.11",
         "node-red-contrib-ui-upload": "~0.7.0",
         "node-red-contrib-utm": "~0.1.3",
