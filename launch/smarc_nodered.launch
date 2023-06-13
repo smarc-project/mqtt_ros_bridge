@@ -1,6 +1,8 @@
 <launch>
   <arg name="robot_name" default="sam"/>
   <arg name="broker_addr" default="20.240.40.232"/>
+  <!-- If you want to use the local node-red and mqtt brokers: -->
+  <!-- <arg name="broker_addr" default="localhost"/> -->
   <arg name="broker_port" default="1884"/>
 
   <node name="smarc_mqtt_bridge_node" pkg="mqtt_bridge" type="mqtt_bridge_node.py" output="screen">
