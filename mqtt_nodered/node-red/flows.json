@@ -74,7 +74,7 @@
     {
         "id": "fc0b4b3d97bcee3e",
         "type": "tab",
-        "label": "Owntracks",
+        "label": "Markers",
         "disabled": false,
         "info": "",
         "env": []
@@ -344,9 +344,9 @@
         "className": ""
     },
     {
-        "id": "c416c8cd9049d0ad",
+        "id": "6e8ee5344b08e2b5",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a48b13904097fb6a",
         "order": 12,
@@ -354,9 +354,9 @@
         "height": 1
     },
     {
-        "id": "de36374b4d5834e9",
+        "id": "1c7a051665b55b88",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a48b13904097fb6a",
         "order": 13,
@@ -364,9 +364,9 @@
         "height": 1
     },
     {
-        "id": "bcb0adf4d0b36e07",
+        "id": "6556ee262cb2ab1d",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "542b5325cf729b8f",
         "order": 4,
@@ -374,9 +374,9 @@
         "height": 1
     },
     {
-        "id": "99ebfb6eea757d17",
+        "id": "040b46f86680721f",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "542b5325cf729b8f",
         "order": 10,
@@ -384,9 +384,9 @@
         "height": 1
     },
     {
-        "id": "a253e1a7785e3404",
+        "id": "69536bbc90c68b75",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a891e5f5f2effe35",
         "order": 12,
@@ -394,9 +394,9 @@
         "height": 1
     },
     {
-        "id": "abac5eddb8b9db9d",
+        "id": "361cd0c35d1b6b60",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a891e5f5f2effe35",
         "order": 19,
@@ -404,9 +404,9 @@
         "height": 1
     },
     {
-        "id": "38da5e9a5b78fdf6",
+        "id": "0a36ee850453171f",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a891e5f5f2effe35",
         "order": 22,
@@ -414,9 +414,9 @@
         "height": 1
     },
     {
-        "id": "644bd876591add8d",
+        "id": "784498135eef5756",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "81d4dedb195938c4",
         "order": 3,
@@ -424,9 +424,9 @@
         "height": 1
     },
     {
-        "id": "6f52684e28dc3a8c",
+        "id": "af0d8f35c5c6c97b",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "81d4dedb195938c4",
         "order": 6,
@@ -434,9 +434,19 @@
         "height": 1
     },
     {
-        "id": "dc44482ac8269aeb",
+        "id": "566462a17b2883c5",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
+        "name": "spacer",
+        "group": "81d4dedb195938c4",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "88fcb72e719e6449",
+        "type": "ui_spacer",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "c68132315359e81c",
         "order": 3,
@@ -444,9 +454,9 @@
         "height": 1
     },
     {
-        "id": "48d967b2b3dc4a5d",
+        "id": "d8700a7f2dd616ed",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "ba1fb12713836940",
         "order": 4,
@@ -454,9 +464,9 @@
         "height": 1
     },
     {
-        "id": "fcf2b3b0d59f296f",
+        "id": "9a18449a946e9aad",
         "type": "ui_spacer",
-        "z": "072468ee5a218dc0",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "ba1fb12713836940",
         "order": 5,
@@ -1278,7 +1288,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "Batt %",
-        "func": "return {topic:\"batt_percent\", payload:msg.base.batt_percent}\n\n",
+        "func": "if(msg.base.batt_percent < 1){\n    percent = msg.base.batt_percent * 100\n}else{\n    percent = msg.base.batt_percent\n}\nreturn {topic:\"batt_percent\", payload:percent}\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3080,44 +3090,78 @@
         ]
     },
     {
-        "id": "74368c0b3cf1a91f",
-        "type": "mqtt in",
+        "id": "cfd01bd06f2915e6",
+        "type": "inject",
         "z": "65c60c3b274f73e3",
-        "name": "owntracks",
-        "topic": "owntracks/user/+",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "1301e8ab7fdd3e72",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 760,
-        "y": 1300,
+        "name": "every min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 350,
+        "y": 1320,
         "wires": [
             [
-                "8011d828fa0c71ec"
+                "eac6af7bc5b4b723"
             ]
         ]
     },
     {
-        "id": "8011d828fa0c71ec",
+        "id": "eac6af7bc5b4b723",
         "type": "function",
         "z": "65c60c3b274f73e3",
-        "name": "owntracks to map",
-        "func": "// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [owntracks, user, username] = msg.topic.split('/');\nmarker = {payload:{\n        label:username,\n        name:username,\n        lat:msg.payload.lat,\n        lon:msg.payload.lon,\n        icon:\"fa-user\",\n        layer:\"planning\"\n}\n}\n\ntdiff = Date.now()/1000 - msg.payload.tst\nnode.status(\"\"+username+\" tdiff:\"+tdiff)\nif(tdiff < 600){\n    marker.payload.iconColor = global.get(\"gui.colors.active\")\n}else{\n    marker.payload.iconColor = global.get(\"gui.colors.old\")\n}\n\nreturn marker\n",
+        "name": "update owntracks",
+        "func": "markers = global.get(\"gui.markers\")\nif(!markers) return\n\n\nnow = Date.now()/1000\n\n\nfor(const marker_name in markers){\n    marker = markers[marker_name]\n    tdiff = now - marker.last_update\n    if(tdiff < 600){\n        marker.iconColor = global.get(\"gui.colors.active\")\n    }else{\n        marker.iconColor = global.get(\"gui.colors.old\")\n    }\n    node.send({payload:marker})\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
+        "x": 530,
         "y": 1300,
         "wires": [
             [
                 "c7d4d5de96d19781"
             ]
         ]
+    },
+    {
+        "id": "ce70328abd9960d3",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "update owntracks",
+        "links": [
+            "21963027a5f525e0"
+        ],
+        "x": 405,
+        "y": 1280,
+        "wires": [
+            [
+                "eac6af7bc5b4b723"
+            ]
+        ]
+    },
+    {
+        "id": "81798d1d7a91cda7",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update owntracks",
+        "info": "",
+        "x": 270,
+        "y": 1280,
+        "wires": []
     },
     {
         "id": "38311862f50e9a0f",
@@ -3668,7 +3712,8 @@
             [
                 "bd536a0252fc7e7f",
                 "604a48bfd4e46372",
-                "628394529cff0cf9"
+                "628394529cff0cf9",
+                "0e194ffbde76f700"
             ]
         ]
     },
@@ -3791,7 +3836,8 @@
         "y": 1040,
         "wires": [
             [
-                "e9b7e1d4e1732b04"
+                "e9b7e1d4e1732b04",
+                "7e3bed0f31699d86"
             ]
         ]
     },
@@ -3866,7 +3912,8 @@
         "y": 1080,
         "wires": [
             [
-                "e9b7e1d4e1732b04"
+                "e9b7e1d4e1732b04",
+                "7e3bed0f31699d86"
             ]
         ]
     },
@@ -3894,7 +3941,8 @@
         "y": 1160,
         "wires": [
             [
-                "e9b7e1d4e1732b04"
+                "e9b7e1d4e1732b04",
+                "7e3bed0f31699d86"
             ]
         ]
     },
@@ -4650,7 +4698,7 @@
         "type": "function",
         "z": "118dfccac2ca8a7d",
         "name": "delete selected wp",
-        "func": "if(msg.payload == \"Cancel\") return\n\nplans = global.get(\"planning.plans\")\nplan = plans[global.get(\"gui.selected_plan_name\")]\nwp = plan.waypoints[global.get(\"gui.selected_waypoint_name\")]\ndelete plan.waypoints[wp.name]\nwp_i = plan.waypoint_order.indexOf(wp.name)\nplan.waypoint_order.splice(wp_i, 1)\n\nglobal.set(\"planning.plans\", plans)\nglobal.set(\"gui.selected_waypoint_name\", null)\n\nreturn {}",
+        "func": "if(msg.payload == \"Cancel\") return\n\nplans = global.get(\"planning.plans\")\nplan = plans[global.get(\"gui.selected_plan_name\")]\nwp = plan.waypoints[global.get(\"gui.selected_waypoint_name\")]\ndelete plan.waypoints[wp.name]\nnew_order = []\nfor(const wp_i in plan.waypoint_order){\n    wp_i_name = plan.waypoint_order[wp_i]\n    if(wp_i_name === wp.name) continue\n    new_order.push(wp_i_name)\n}\nplan.waypoint_order = new_order\n\nglobal.set(\"planning.plans\", plans)\nglobal.set(\"gui.selected_waypoint_name\", null)\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4673,7 +4721,7 @@
         "name": "update list of wps",
         "info": "",
         "x": 1220,
-        "y": 2920,
+        "y": 2940,
         "wires": []
     },
     {
@@ -4687,7 +4735,7 @@
             "4facb95ab46fd02a"
         ],
         "x": 1105,
-        "y": 2920,
+        "y": 2940,
         "wires": []
     },
     {
@@ -4697,7 +4745,7 @@
         "name": "update_markers_on_map",
         "info": "",
         "x": 1250,
-        "y": 2960,
+        "y": 2980,
         "wires": []
     },
     {
@@ -4710,7 +4758,7 @@
             "bb3002ce85983e34"
         ],
         "x": 1105,
-        "y": 2960,
+        "y": 2980,
         "wires": []
     },
     {
@@ -5444,7 +5492,7 @@
             "06466ed6e810bd76"
         ],
         "x": 1105,
-        "y": 2880,
+        "y": 2900,
         "wires": []
     },
     {
@@ -5454,7 +5502,7 @@
         "name": "update hash",
         "info": "",
         "x": 1210,
-        "y": 2880,
+        "y": 2900,
         "wires": []
     },
     {
@@ -6162,7 +6210,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 410,
-        "y": 3040,
+        "y": 2980,
         "wires": [
             [
                 "24aec1d0ef5a7090"
@@ -6190,7 +6238,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 420,
-        "y": 3080,
+        "y": 3020,
         "wires": [
             [
                 "24aec1d0ef5a7090"
@@ -6206,7 +6254,7 @@
             "43935e76784d6588"
         ],
         "x": 295,
-        "y": 3060,
+        "y": 3000,
         "wires": [
             [
                 "55ae649eaf2b1706",
@@ -6221,7 +6269,7 @@
         "name": "wp button toggle",
         "info": "",
         "x": 190,
-        "y": 3060,
+        "y": 3000,
         "wires": []
     },
     {
@@ -6229,16 +6277,95 @@
         "type": "function",
         "z": "118dfccac2ca8a7d",
         "name": "reorder-wp",
-        "func": "name = global.get(\"gui.selected_waypoint_name\")\nif(!name) return\nplans = global.get(\"planning.plans\")\nplan = plans[name]\nif(!plan) return\n\n",
+        "func": "wp_name = global.get(\"gui.selected_waypoint_name\")\nif(!wp_name) return\nplans = global.get(\"planning.plans\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\nif(!plan) return\nif(!(wp_name in plan.waypoints)){\n    node.status(\"Selected wp not in selected plan\")\n    return\n}\n\nwp_index = plan.waypoint_order.indexOf(wp_name)\nif(wp_index == -1){\n    node.status(\"WP not found\")\n    return\n}\n\nif(wp_index == 0 && msg.payload == \"up\"){\n    node.status(\"Cant move 0th wp up\")\n    return\n}\n\nif(wp_index+1 == plan.waypoint_order.length && msg.payload == \"down\"){\n    node.status(\"Cant move last wp down\")\n    return\n}\nwpo = plan.waypoint_order\nif(msg.payload == \"up\"){\n    prev = plan.waypoint_order[wp_index-1]\n    plan.waypoint_order[wp_index-1] = plan.waypoint_order[wp_index]\n    plan.waypoint_order[wp_index] = prev\n    node.status(\"moved up\")\n}\nif(msg.payload == \"down\"){\n    prev = plan.waypoint_order[wp_index+1]\n    plan.waypoint_order[wp_index+1] = plan.waypoint_order[wp_index]\n    plan.waypoint_order[wp_index] = prev\n    node.status(\"moved down\")\n}\n\nplan.waypoint_order = wpo\nplans[plan_name] = plan\nglobal.set(\"planning.plans\", plans)\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 3060,
+        "x": 950,
+        "y": 2980,
         "wires": [
-            []
+            [
+                "47398b19f75da920",
+                "a36bb4b2665fa3f5",
+                "44f867a505b6b2de"
+            ]
+        ]
+    },
+    {
+        "id": "0e194ffbde76f700",
+        "type": "ui_gauge",
+        "z": "118dfccac2ca8a7d",
+        "name": "timeoutgauge",
+        "group": "81d4dedb195938c4",
+        "order": 4,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Timeout",
+        "label": "s",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#ff0000",
+            "#e6e600",
+            "#80ff80"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1020,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "7e3bed0f31699d86",
+        "type": "function",
+        "z": "118dfccac2ca8a7d",
+        "name": "set robot timeout",
+        "func": "selected_plan_name = global.get(\"gui.selected_plan_name\")\nif(!selected_plan_name) return\n\nplans = global.get(\"planning.plans\")\nplan = plans[selected_plan_name]\n\nrobot_name = global.get(\"gui.selected_robot_name\")\nrobots = global.get(\"robot_states\")\nrobot = robots[robot_name]\n\nif(msg.payload == 0){\n    // start the timeout counter\n    max = plan.timeout*60\n    started =  Date.now()/1000\n    robot.gui.plan_timeout = {max:max, start_time:started}\n    return {payload:-1, ui_control:{max:max}}\n}\n\nif(msg.payload == 1 || msg.payload == 3){\n    // stop the timeout\n    robot.gui.plan_timeout.start_time = null\n    return {payload:-1}\n}\n\nif(msg.payload == \"tick\"){\n    if(!robot.gui.plan_timeout) return\n    if(!robot.gui.plan_timeout.start_time) return\n    if(robot.bt.current_plan.plan_state != 0) return\n    now = Date.now()/1000\n    elapsed = now - robot.gui.plan_timeout.start_time\n    remaining = parseInt(robot.gui.plan_timeout.max - elapsed)\n    node.status(robot_name+\"t:\"+remaining)\n    if(remaining > 0){\n        return {payload:remaining, ui_control:{max:robot.gui.plan_timeout.max}}    \n    }else{\n        return {payload:-1}\n    }\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1120,
+        "wires": [
+            [
+                "0e194ffbde76f700"
+            ]
+        ]
+    },
+    {
+        "id": "899e218540742971",
+        "type": "inject",
+        "z": "118dfccac2ca8a7d",
+        "name": "tick",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "tick",
+        "payloadType": "str",
+        "x": 670,
+        "y": 1160,
+        "wires": [
+            [
+                "7e3bed0f31699d86"
+            ]
         ]
     },
     {
@@ -6308,7 +6435,7 @@
         "type": "function",
         "z": "426a5003775714f9",
         "name": "prepare plan text",
-        "func": "srn = global.get(\"gui.selected_robot_name\")\nif(!srn) return\nrobots = global.get(\"robot_states\")\nrobot = robots[srn]\nif(!robot) return\n\nplan = robot.bt.current_plan\n\nswitch(plan.plan_state){\n    case 0: //running\n        c = global.get(\"gui.colors.selected\")\n        e = \"▶️\"\n        break\n    case 1: // stopped\n        c = global.get(\"gui.colors.old\")\n        e = \"⏹️\"\n        break\n    case 2: // paused\n        c = global.get(\"gui.colors.active\")\n        e = \"⏸️\"\n        break\n    case 3: // emergency\n        c = global.get(\"gui.colors.old\")\n        e = \"‼️\"\n        break\n    case 4: // received\n        c = global.get(\"gui.colors.active\")\n        e = \"📥\"\n        break\n}\n\nt = e + \" <font color=\" + c +\">\" + plan.name\n\nreturn {payload:t}",
+        "func": "srn = global.get(\"gui.selected_robot_name\")\nif(!srn) return\nrobots = global.get(\"robot_states\")\nrobot = robots[srn]\nif(!robot) return\n\nplan = robot.bt.current_plan\ne = \"?\"\nc = \"\"\nswitch(plan.plan_state){\n    case 0: //running\n        c = global.get(\"gui.colors.selected\")\n        e = \"▶️\"\n        break\n    case 1: // stopped\n        c = global.get(\"gui.colors.old\")\n        e = \"⏹️\"\n        break\n    case 2: // paused\n        c = global.get(\"gui.colors.active\")\n        e = \"⏸️\"\n        break\n    case 3: // emergency\n        c = global.get(\"gui.colors.old\")\n        e = \"‼️\"\n        break\n    case 4: // received\n        c = global.get(\"gui.colors.active\")\n        e = \"📥\"\n        break\n    case 5: // complete\n        c = global.get(\"gui.colors.active\")\n        e = \"✅\" \n        break\n}\n\nt = e + \" <font color=\" + c +\">\" + plan.name\n\nreturn {payload:t}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6507,7 +6634,7 @@
         "type": "ui_text",
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
-        "order": 4,
+        "order": 7,
         "width": 4,
         "height": 1,
         "name": "gui wp enabled",
@@ -6551,7 +6678,7 @@
         "type": "ui_text",
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
-        "order": 7,
+        "order": 9,
         "width": 4,
         "height": 1,
         "name": "algae farm enabled",
@@ -6656,7 +6783,7 @@
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
         "name": "BT Log",
-        "order": 8,
+        "order": 10,
         "width": 9,
         "height": 13,
         "lineType": "three",
@@ -6816,7 +6943,7 @@
         "type": "ui_text",
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
-        "order": 9,
+        "order": 11,
         "width": 9,
         "height": 2,
         "name": "cmd result",
@@ -7978,7 +8105,7 @@
         "type": "function",
         "z": "762b3e4e742fe2ea",
         "name": "populate list",
-        "func": "track_list = msg.bt.bt_cmd.track_list\nif(!track_list){\n    node.status(\"No track list\")\n    return\n}\n\nmenu = [\"Download to GUI\", \"Delete on vehicle\", \"Size\"]\n\nlist_items = []\nfor(const track_item of track_list){\n    track_name = track_item.filename\n    track_size = track_item.filesize\n    item = {title:track_name,\n            description:\"Size:\"+track_size.toFixed(1)+\"KB\",\n            menu:menu\n    }\n    list_items.push(item)\n}\nreturn {payload:list_items, enabled:true}",
+        "func": "if(!msg.bt.bt_cmd){\n    node.status(\"No bt cmd\")\n    return\n}\ntrack_list = msg.bt.bt_cmd.track_list\nif(!track_list){\n    node.status(\"No track list\")\n    return\n}\n\nmenu = [\"Download to GUI\", \"Delete on vehicle\", \"Size\"]\n\nlist_items = []\nfor(const track_item of track_list){\n    track_name = track_item.filename\n    track_size = track_item.filesize\n    item = {title:track_name,\n            description:\"Size:\"+track_size.toFixed(1)+\"KB\",\n            menu:menu\n    }\n    list_items.push(item)\n}\nreturn {payload:list_items, enabled:true}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8000,7 +8127,7 @@
         "name": "robot track list",
         "order": 15,
         "width": 9,
-        "height": 7,
+        "height": 8,
         "lineType": "three",
         "actionType": "menu",
         "allowHTML": true,
@@ -8108,7 +8235,7 @@
         "type": "function",
         "z": "762b3e4e742fe2ea",
         "name": "receive track",
-        "func": "track_str = msg.bt.bt_cmd.track\nif(!track_str) return\ni = JSON.parse(track_str)\n\ntracks = global.get(\"planning.tracks\")\ntracks[i.name] = i\nglobal.set(\"planning.tracks\", tracks)\nnode.status(\"Added \"+ i.name + \" to tracks\")\n\nreturn {}",
+        "func": "if(!msg.bt.bt_cmd){\n    node.status(\"No bt cmd\")\n    return\n}\ntrack_str = msg.bt.bt_cmd.track\nif(!track_str) return\ni = JSON.parse(track_str)\n\ntracks = global.get(\"planning.tracks\")\ntracks[i.name] = i\nglobal.set(\"planning.tracks\", tracks)\nnode.status(\"Added \"+ i.name + \" to tracks\")\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9487,7 +9614,7 @@
             {
                 "p": "gui",
                 "pt": "global",
-                "to": "{\"selected_robot_name\":null,\"selected_waypoint_name\":null,\"selected_plan_name\":null,\"selected_track_name\":null,\"drawn_track_names\":null,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":50,\"planning_mode\":false,\"drawn_on_map\":null,\"colors\":{\"selected\":\"orange\",\"active\":\"#1BBFFF\",\"old\":\"gray\"}}",
+                "to": "{\"selected_robot_name\":null,\"selected_waypoint_name\":null,\"selected_plan_name\":null,\"selected_track_name\":null,\"drawn_track_names\":null,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":50,\"planning_mode\":false,\"drawn_on_map\":null,\"colors\":{\"selected\":\"orange\",\"active\":\"#1BBFFF\",\"old\":\"gray\"},\"markers\":null}",
                 "tot": "json"
             }
         ],
@@ -10049,91 +10176,91 @@
         ]
     },
     {
-        "id": "09c9a3f142594cee",
-        "type": "link out",
+        "id": "5772a09d13a58ed4",
+        "type": "mqtt in",
         "z": "fc0b4b3d97bcee3e",
-        "name": "v2_map_from_map_setup",
-        "mode": "link",
-        "links": [
-            "1e0bd19ab17b797e"
-        ],
-        "x": 665,
+        "name": "owntracks",
+        "topic": "owntracks/user/+",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
         "y": 160,
-        "wires": []
-    },
-    {
-        "id": "af8ff959b0d2d0b4",
-        "type": "comment",
-        "z": "fc0b4b3d97bcee3e",
-        "name": "map",
-        "info": "",
-        "x": 750,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "cec9c0524be2155f",
-        "type": "inject",
-        "z": "fc0b4b3d97bcee3e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 360,
-        "y": 280,
         "wires": [
             [
-                "419b4c669e696f6c"
+                "6e012b6eaac45f91"
             ]
         ]
     },
     {
-        "id": "419b4c669e696f6c",
+        "id": "6e012b6eaac45f91",
         "type": "function",
         "z": "fc0b4b3d97bcee3e",
-        "name": "delete",
-        "func": "// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nmsg = {payload:{\n        label:\"b0s\",\n        name:\"b0s\",\n        lat:msg.payload.lat,\n        lon:msg.payload.lon,\n        icon:\"friend\",\n        layer:\"owntracks\",\n        deleted : true}\n}\n\n\nreturn msg\n",
+        "name": "update markers",
+        "func": "// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [owntracks, user, username] = msg.topic.split('/');\nmarker = {\n        label:username,\n        name:username,\n        lat:msg.payload.lat,\n        lon:msg.payload.lon,\n        icon:\"fa-user\",\n        layer:\"markers\",\n        last_update : msg.payload.tst\n}\n\nmarkers = global.get(\"gui.markers\") || {}\nmarkers[marker.name] = marker\nglobal.set(\"gui.markers\", markers)\n\nreturn {}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 280,
+        "x": 420,
+        "y": 160,
         "wires": [
             [
-                "09c9a3f142594cee"
+                "0856088e0aa30b68"
             ]
         ]
     },
     {
-        "id": "7f6ac85b3da59014",
-        "type": "debug",
+        "id": "21963027a5f525e0",
+        "type": "link out",
         "z": "fc0b4b3d97bcee3e",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 490,
-        "y": 80,
+        "mode": "link",
+        "links": [
+            "ce70328abd9960d3"
+        ],
+        "x": 725,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "0856088e0aa30b68",
+        "type": "delay",
+        "z": "fc0b4b3d97bcee3e",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 160,
+        "wires": [
+            [
+                "21963027a5f525e0"
+            ]
+        ]
+    },
+    {
+        "id": "c95b2893a135c4ce",
+        "type": "comment",
+        "z": "fc0b4b3d97bcee3e",
+        "name": "update owntracks",
+        "info": "",
+        "x": 810,
+        "y": 120,
         "wires": []
     }
 ]
