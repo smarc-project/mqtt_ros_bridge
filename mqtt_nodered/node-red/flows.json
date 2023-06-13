@@ -48,9 +48,9 @@
         "env": []
     },
     {
-        "id": "e102b211ecdda64d",
+        "id": "2e13c73254d13882",
         "type": "tab",
-        "label": "Chat",
+        "label": "I/O",
         "disabled": false,
         "info": "",
         "env": []
@@ -64,9 +64,17 @@
         "env": []
     },
     {
-        "id": "2e13c73254d13882",
+        "id": "e102b211ecdda64d",
         "type": "tab",
-        "label": "I/O",
+        "label": "Chat",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fc0b4b3d97bcee3e",
+        "type": "tab",
+        "label": "Markers",
         "disabled": false,
         "info": "",
         "env": []
@@ -240,7 +248,7 @@
         "tab": "014f9035e48813bb",
         "order": 4,
         "disp": true,
-        "width": "6",
+        "width": "9",
         "collapse": true,
         "className": ""
     },
@@ -251,7 +259,7 @@
         "tab": "014f9035e48813bb",
         "order": 2,
         "disp": true,
-        "width": "12",
+        "width": "18",
         "collapse": true,
         "className": ""
     },
@@ -262,7 +270,7 @@
         "tab": "014f9035e48813bb",
         "order": 3,
         "disp": true,
-        "width": 6,
+        "width": "9",
         "collapse": true,
         "className": ""
     },
@@ -273,7 +281,7 @@
         "tab": "014f9035e48813bb",
         "order": 5,
         "disp": true,
-        "width": "6",
+        "width": "9",
         "collapse": true,
         "className": ""
     },
@@ -336,9 +344,9 @@
         "className": ""
     },
     {
-        "id": "44fd189f391b973e",
+        "id": "6e8ee5344b08e2b5",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a48b13904097fb6a",
         "order": 12,
@@ -346,9 +354,9 @@
         "height": 1
     },
     {
-        "id": "ec4f4d57d53da110",
+        "id": "1c7a051665b55b88",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a48b13904097fb6a",
         "order": 13,
@@ -356,79 +364,99 @@
         "height": 1
     },
     {
-        "id": "ed612ecc50e9937d",
+        "id": "6556ee262cb2ab1d",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
-        "group": "a48b13904097fb6a",
-        "order": 14,
+        "group": "542b5325cf729b8f",
+        "order": 4,
         "width": 6,
         "height": 1
     },
     {
-        "id": "27c5a0dea7f05b86",
+        "id": "040b46f86680721f",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
-        "group": "a48b13904097fb6a",
-        "order": 15,
-        "width": 6,
+        "group": "542b5325cf729b8f",
+        "order": 10,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "f30e01ac860ceb22",
+        "id": "69536bbc90c68b75",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
-        "name": "spacer",
-        "group": "a48b13904097fb6a",
-        "order": 16,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "5938c6ec395ddd78",
-        "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
-        "name": "spacer",
-        "group": "a48b13904097fb6a",
-        "order": 17,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "56f5cb939e57b590",
-        "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a891e5f5f2effe35",
-        "order": 20,
-        "width": 3,
+        "order": 12,
+        "width": 1,
         "height": 1
     },
     {
-        "id": "3b2885a77c3924f7",
+        "id": "361cd0c35d1b6b60",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
+        "name": "spacer",
+        "group": "a891e5f5f2effe35",
+        "order": 19,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0a36ee850453171f",
+        "type": "ui_spacer",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "a891e5f5f2effe35",
         "order": 22,
-        "width": 3,
+        "width": 1,
         "height": 1
     },
     {
-        "id": "b49ff2d24d612d12",
+        "id": "784498135eef5756",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
-        "group": "a891e5f5f2effe35",
-        "order": 24,
+        "group": "81d4dedb195938c4",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "af0d8f35c5c6c97b",
+        "type": "ui_spacer",
+        "z": "118dfccac2ca8a7d",
+        "name": "spacer",
+        "group": "81d4dedb195938c4",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "566462a17b2883c5",
+        "type": "ui_spacer",
+        "z": "118dfccac2ca8a7d",
+        "name": "spacer",
+        "group": "81d4dedb195938c4",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "88fcb72e719e6449",
+        "type": "ui_spacer",
+        "z": "118dfccac2ca8a7d",
+        "name": "spacer",
+        "group": "c68132315359e81c",
+        "order": 3,
         "width": 3,
         "height": 1
     },
     {
-        "id": "d1a8de842ef21b37",
+        "id": "d8700a7f2dd616ed",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "ba1fb12713836940",
         "order": 4,
@@ -436,9 +464,9 @@
         "height": 1
     },
     {
-        "id": "30a620c3faedd75d",
+        "id": "9a18449a946e9aad",
         "type": "ui_spacer",
-        "z": "762b3e4e742fe2ea",
+        "z": "118dfccac2ca8a7d",
         "name": "spacer",
         "group": "ba1fb12713836940",
         "order": 5,
@@ -738,7 +766,7 @@
         "z": "072468ee5a218dc0",
         "name": "T1",
         "group": "a48b13904097fb6a",
-        "order": 8,
+        "order": 7,
         "width": 3,
         "height": 2,
         "gtype": "gage",
@@ -765,7 +793,7 @@
         "z": "072468ee5a218dc0",
         "name": "T2",
         "group": "a48b13904097fb6a",
-        "order": 7,
+        "order": 8,
         "width": 3,
         "height": 2,
         "gtype": "gage",
@@ -1260,7 +1288,7 @@
         "type": "function",
         "z": "072468ee5a218dc0",
         "name": "Batt %",
-        "func": "return {topic:\"batt_percent\", payload:msg.base.batt_percent}\n\n",
+        "func": "if(msg.base.batt_percent < 1){\n    percent = msg.base.batt_percent * 100\n}else{\n    percent = msg.base.batt_percent\n}\nreturn {topic:\"batt_percent\", payload:percent}\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1644,9 +1672,9 @@
         "type": "ui_worldmap",
         "z": "65c60c3b274f73e3",
         "group": "542b5325cf729b8f",
-        "order": 4,
-        "width": 12,
-        "height": 21,
+        "order": 5,
+        "width": 18,
+        "height": 17,
         "name": "",
         "lat": "58.25089840041283",
         "lon": "11.4500587783608",
@@ -1693,7 +1721,8 @@
             "cac2337cf56cd5d8",
             "02c39e7939e7fa37",
             "ffc1866d4e5696b6",
-            "7ed9aae2048a44f4"
+            "7ed9aae2048a44f4",
+            "09c9a3f142594cee"
         ],
         "x": 1155,
         "y": 80,
@@ -1819,7 +1848,8 @@
             "c64c7c9fbc69557c",
             "d76ba06e630694d5",
             "f60980f36a17939c",
-            "fd8f7e829592b528"
+            "fd8f7e829592b528",
+            "a5d4b41045dbb4d2"
         ],
         "x": 435,
         "y": 60,
@@ -1992,7 +2022,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "3910098f87fb5eac"
@@ -2021,7 +2051,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 250,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "0a961438ad73e32f",
@@ -2041,7 +2071,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 440,
+        "y": 460,
         "wires": [
             [
                 "3910098f87fb5eac"
@@ -2060,7 +2090,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "3910098f87fb5eac"
@@ -2089,7 +2119,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 250,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "84763f6e6162102a"
@@ -2104,8 +2134,8 @@
         "label": "Planning Mode",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
-        "order": 10,
-        "width": 6,
+        "order": 15,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -2379,7 +2409,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "draw plans",
-        "func": "selected_plan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nselected_wp_name = global.get(\"gui.selected_waypoint_name\")\n\n\nfor(const plan_name in plans){\n    c = global.get(\"gui.colors.old\")\n    line_width = 0.5\n    dash_array = \"1,10,1,10\"\n    if(plan_name == selected_plan_name){\n        c = global.get(\"gui.colors.selected\")\n        line_width = 1.5\n        dash_array = \"1\"\n    }\n    plan = plans[plan_name]\n    line = []\n    for(const wp_name of plan.waypoint_order){\n        wp = plan.waypoints[wp_name]\n        line.push([wp.lat, wp.lon])\n        wp_radius = wp.tolerance || 1.5\n        \n        // also put a marker where the point is\n        // with the depth/rpm as label\n        // for the selected plan only\n        label = null\n        if(plan_name == selected_plan_name){\n            label = wp.name+\"(\"+wp.depth + \"m,\"\n            if(wp.use_rpm) label += wp.rpm+\"RPM)\"\n            else label += wp.speed+\" m/s)\"\n        }\n        \n        icon_color = global.get(\"gui.colors.old\")\n        fill_color = null\n        if(plan_name == selected_plan_name){\n            if(wp_name == selected_wp_name) {\n                icon_color = global.get(\"gui.colors.selected\")\n                fill_color = icon_color\n            }else{\n                icon_color = global.get(\"gui.colors.active\")\n            }\n        }\n        \n        \n        node.send({\n            payload:{\n                name: wp_name+\"_\"+plan_name+\"_circle\",\n                radius: wp_radius,\n                color: icon_color,\n                fillColor: fill_color,\n                dashArray: dash_array,\n                lat: wp.lat,\n                lon: wp.lon,\n                label: label,\n                layer: \"planning\",\n                clickable: false\n            }\n        })\n    }\n    node.send(\n        {payload:{\n            name: plan_name+\"_plan_lines\",\n            line: line,\n            color: c,\n            dashArray: dash_array,\n            layer: \"planning\",\n            width: line_width,\n        }})\n}",
+        "func": "selected_plan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nselected_wp_name = global.get(\"gui.selected_waypoint_name\")\n\n\nfor(const plan_name in plans){\n    c = global.get(\"gui.colors.old\")\n    line_width = 0.5\n    line_weight = 2\n    dash_array = \"1,10,1,10\"\n    if(plan_name == selected_plan_name){\n        c = global.get(\"gui.colors.selected\")\n        line_width = 1.5\n        dash_array = \"1\"\n        line_weight = 4\n    }\n    plan = plans[plan_name]\n    line = []\n    for(const wp_name of plan.waypoint_order){\n        wp = plan.waypoints[wp_name]\n        line.push([wp.lat, wp.lon])\n        wp_radius = wp.tolerance || 1.5\n        \n        // also put a marker where the point is\n        // with the depth/rpm as label\n        // for the selected plan only\n        label = null\n        if(plan_name == selected_plan_name){\n            label = wp.name+\"(\"+wp.depth + \"m,\"\n            if(wp.use_rpm) label += wp.rpm+\"RPM)\"\n            else label += wp.speed+\" m/s)\"\n        }\n        \n        icon_color = global.get(\"gui.colors.old\")\n        fill_color = null\n        if(plan_name == selected_plan_name){\n            if(wp_name == selected_wp_name) {\n                icon_color = global.get(\"gui.colors.selected\")\n                fill_color = icon_color\n            }else{\n                icon_color = global.get(\"gui.colors.active\")\n            }\n        }\n        \n        // if there is a heading, an arrow showing that\n        // send this first so its under the circle\n        if(wp.arrival_heading){\n            vector = {\n                name: wp_name+\"_\"+plan_name+\"_vector\",\n                color: icon_color,\n                iconColor: icon_color,\n                dashArray: dash_array,\n                lat: wp.lat,\n                lon: wp.lon,\n                layer: \"planning\",\n                clickable: false,\n                tooltip: label,\n                heading: wp.arrival_heading,\n                icon:\"arrow\"\n            }\n            node.send({payload:vector})\n        }\n        \n        // we want a circle with different colors and sizes\n        circle = {\n                name: wp_name+\"_\"+plan_name+\"_circle\",\n                radius: wp_radius,\n                color: icon_color,\n                fillColor: fill_color,\n                iconColor: icon_color,\n                dashArray: dash_array,\n                lat: wp.lat,\n                lon: wp.lon,\n                tooltip: label,\n                layer: \"planning\",\n                clickable: false\n            }\n        node.send({payload:circle})\n        \n        \n            \n        \n    }\n    node.send(\n        {payload:{\n            name: plan_name+\"_plan_lines\",\n            line: line,\n            color: c,\n            dashArray: dash_array,\n            layer: \"planning\",\n            width: line_width,\n            weight: line_weight\n        }})\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2430,7 +2460,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "3910098f87fb5eac"
@@ -2459,7 +2489,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 260,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "d974149e3e68ba63"
@@ -2502,7 +2532,7 @@
             "1e0bd19ab17b797e"
         ],
         "x": 655,
-        "y": 460,
+        "y": 480,
         "wires": []
     },
     {
@@ -2512,7 +2542,7 @@
         "name": "map",
         "info": "",
         "x": 740,
-        "y": 460,
+        "y": 480,
         "wires": []
     },
     {
@@ -2583,7 +2613,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "draw tracks",
-        "func": "drawn_track_names = global.get(\"gui.drawn_track_names\")\nif(!drawn_track_names) return\ntracks = global.get(\"planning.tracks\")\nselected_track_name = global.get(\"gui.selected_track_name\")\n\nfor(const track_name of drawn_track_names){\n    track = tracks[track_name]\n    line = []\n    // if we encounter a string instead of a state,\n    // we want to attach that string to the next state point\n    // and show that on the map\n    // obviously back-to-back strings will over-write but meh\n    point_icons = []\n    for(const i in track.data){\n        point = track.data[i]\n        \n        if(point.annotation){\n            point_icon = {\n                    action: \"point\",\n                    layer: \"tracks\",\n                    label: point.annotation,\n                    lat: point.base.lat,\n                    lon: point.base.lon,\n                    name: track_name+\"_annotation_\"+i,\n                    icon: \"fa-xl fa-sticky-note-o\",\n                    iconColor: global.get(\"gui.colors.active\")\n                }\n            \n            if(point.annotation === \"recording_start\"){\n                point_icon.icon = \"fa-xl fa-play\"\n                point_icon.label = null\n            } \n            if(point.annotation === \"recording_pause\"){\n                point_icon.icon = \"fa-xl fa-pause\"\n                point_icon.label = null\n            } \n            if(parseInt(i)+1 >= track.data.length || point.annotation === \"recording_stop\"){\n                point_icon.icon = \"fa-xl fa-stop\"\n                point_icon.label = null\n            }\n            if(i==0) point_icon.label = track_name\n            if(track_name != selected_track_name) point_icon.label = null\n            \n            node.send({payload:point_icon})\n        }\n        \n        line.push([point.base.lat,point.base.lon])\n    }\n    \n    color = global.get(\"gui.colors.active\")\n    if(track_name == selected_track_name) color=global.get(\"gui.colors.selected\")\n    node.send(\n        {payload:{\n            name: track_name+\"_track_lines\",\n            line: line,\n            color: color,\n            layer: \"tracks\",\n            width: 0.5,\n        }})\n    \n}",
+        "func": "drawn_track_names = global.get(\"gui.drawn_track_names\")\nif(!drawn_track_names) return\ntracks = global.get(\"planning.tracks\")\nselected_track_name = global.get(\"gui.selected_track_name\")\n\nfor(const track_name of drawn_track_names){\n    track = tracks[track_name]\n    line = []\n    // if we encounter a string instead of a state,\n    // we want to attach that string to the next state point\n    // and show that on the map\n    // obviously back-to-back strings will over-write but meh\n    point_icons = []\n    for(const i in track.data){\n        point = track.data[i]\n        \n        if(point[1]){\n            point_icon = {\n                    action: \"point\",\n                    layer: \"tracks\",\n                    label: point[1],\n                    lat: point[2],\n                    lon: point[3],\n                    name: track_name+\"_annotation_\"+i,\n                    icon: \"fa-xl fa-sticky-note-o\",\n                    iconColor: global.get(\"gui.colors.active\")\n                }\n            \n            if(point[1] === \"recording_start\"){\n                point_icon.icon = \"fa-xl fa-play\"\n                point_icon.label = null\n            } \n            if(point[1] === \"recording_pause\"){\n                point_icon.icon = \"fa-xl fa-pause\"\n                point_icon.label = null\n            } \n            if(parseInt(i)+1 >= track.data.length || point[1] === \"recording_stop\"){\n                point_icon.icon = \"fa-xl fa-stop\"\n                point_icon.label = null\n            }\n            if(i==0) point_icon.label = track_name\n            if(track_name != selected_track_name) point_icon.label = null\n            \n            node.send({payload:point_icon})\n        }\n        \n        line.push([point[2],point[3]]) //lat lon\n    }\n    \n    color = global.get(\"gui.colors.active\")\n    weight = 0.5\n    if(track_name == selected_track_name){\n        color=global.get(\"gui.colors.selected\")\n        weight = 2\n    } \n    node.send(\n        {payload:{\n            name: track_name+\"_track_lines\",\n            line: line,\n            color: color,\n            layer: \"tracks\",\n            width: 0.5,\n            weight: weight,\n        }})\n    \n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2650,7 +2680,7 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "marker on current wp",
-        "func": "robot = msg.payload\n\nc = global.get(\"gui.colors.selected\")\nif(robot.gui.is_old) c = global.get(\"gui.colors.old\")\n\nreturn {payload:\n        {\n            action:\"point\",\n            name: robot.base.name+\"_current_wp\",\n            label:null,\n            layer:\"planning\",\n            draggable:false,\n            lat:robot.bt.current_wp.lat,\n            lon:robot.bt.current_wp.lon,\n            ttl:0,\n            icon:\"locate\",\n            iconColor:c\n        }\n}",
+        "func": "robot = msg.payload\n\nc = global.get(\"gui.colors.selected\")\nif(robot.gui.is_old) c = global.get(\"gui.colors.old\")\n\n\nreturn {payload:\n        {\n            action:\"point\",\n            name: robot.base.name+\"_current_wp\",\n            label:null,\n            layer:\"planning\",\n            draggable:false,\n            lat:robot.bt.current_wp.lat,\n            lon:robot.bt.current_wp.lon,\n            ttl:0,\n            icon:\"locate\",\n            iconColor:c,\n            tooltip:robot.base.name+\"'s current WP\"\n        }\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2884,14 +2914,14 @@
         "type": "function",
         "z": "65c60c3b274f73e3",
         "name": "center map on choice",
-        "func": "if(msg.payload == \"robot\"){\n    srn = global.get(\"gui.selected_robot_name\")    \n    robots = global.get(\"robot_states\")\n    robot = robots[srn]\n    if(!robot){\n        node.status(\"Bad robot\")\n        return\n    }\n    lat = robot.base.lat\n    lon = robot.base.lon\n}\nelse if(msg.payload == \"plan\"){\n    spn = global.get(\"gui.selected_plan_name\")    \n    plans = global.get(\"planning.plans\")\n    plan = plans[spn]\n    if(!plan) {\n        node.status(\"Bad plan\")\n        return\n    }\n    wp_0 = plan.waypoints[plan.waypoint_order[0]]\n    lat = wp_0.lat\n    lon = wp_0.lon\n}\nelse if(msg.payload == \"track\"){\n    stn = global.get(\"gui.selected_track_name\")\n    tracks = global.get(\"planning.tracks\")\n    track = tracks[stn]\n    if(!track){\n        node.status(\"Bad track\")\n        return\n    }\n    lat = track.data[0].base.lat\n    lon = track.data[0].base.lon\n}\nelse{\n    node.status(\"Bad choice\")\n    node.warn(msg)\n    return\n}\n\n\nm = {\"payload\": {\n        \"command\":{\n            \"lat\": lat,\n            \"lon\": lon\n        }\n    }}\nnode.status(\"Good\")\n    \nreturn m",
+        "func": "if(msg.payload == \"robot\"){\n    srn = global.get(\"gui.selected_robot_name\")    \n    robots = global.get(\"robot_states\")\n    robot = robots[srn]\n    if(!robot){\n        node.status(\"Bad robot\")\n        return\n    }\n    lat = robot.base.lat\n    lon = robot.base.lon\n}\nelse if(msg.payload == \"plan\"){\n    spn = global.get(\"gui.selected_plan_name\")    \n    plans = global.get(\"planning.plans\")\n    plan = plans[spn]\n    if(!plan) {\n        node.status(\"Bad plan\")\n        return\n    }\n    wp_0 = plan.waypoints[plan.waypoint_order[0]]\n    lat = wp_0.lat\n    lon = wp_0.lon\n}\nelse if(msg.payload == \"track\"){\n    stn = global.get(\"gui.selected_track_name\")\n    tracks = global.get(\"planning.tracks\")\n    track = tracks[stn]\n    if(!track){\n        node.status(\"Bad track\")\n        return\n    }\n    lat = track.data[0][2]\n    lon = track.data[0][3]\n}\nelse{\n    node.status(\"Bad choice\")\n    node.warn(msg)\n    return\n}\n\n\nm = {payload: {\n        command:{\n            lat: lat,\n            lon: lon,\n            zoom:20\n        }\n    }}\nnode.status(\"Good\")\n    \nreturn m",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 320,
+        "y": 340,
         "wires": [
             [
                 "3910098f87fb5eac"
@@ -2904,8 +2934,8 @@
         "z": "65c60c3b274f73e3",
         "name": "robot",
         "group": "542b5325cf729b8f",
-        "order": 6,
-        "width": 2,
+        "order": 7,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Robot",
@@ -2919,7 +2949,7 @@
         "topic": "robot",
         "topicType": "msg",
         "x": 250,
-        "y": 280,
+        "y": 300,
         "wires": [
             [
                 "098e32f128c8c97b"
@@ -2932,8 +2962,8 @@
         "z": "65c60c3b274f73e3",
         "name": "plan",
         "group": "542b5325cf729b8f",
-        "order": 7,
-        "width": 2,
+        "order": 8,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Plan",
@@ -2947,7 +2977,7 @@
         "topic": "plan",
         "topicType": "msg",
         "x": 250,
-        "y": 320,
+        "y": 340,
         "wires": [
             [
                 "098e32f128c8c97b"
@@ -2960,8 +2990,8 @@
         "z": "65c60c3b274f73e3",
         "name": "track",
         "group": "542b5325cf729b8f",
-        "order": 8,
-        "width": 2,
+        "order": 9,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Track",
@@ -2975,7 +3005,7 @@
         "topic": "track",
         "topicType": "msg",
         "x": 250,
-        "y": 360,
+        "y": 380,
         "wires": [
             [
                 "098e32f128c8c97b"
@@ -2987,8 +3017,8 @@
         "type": "ui_text",
         "z": "65c60c3b274f73e3",
         "group": "542b5325cf729b8f",
-        "order": 5,
-        "width": 6,
+        "order": 6,
+        "width": 7,
         "height": 1,
         "name": "center on",
         "label": "Center on:",
@@ -2996,7 +3026,141 @@
         "layout": "row-left",
         "className": "",
         "x": 120,
-        "y": 320,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a5d4b41045dbb4d2",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "v2_map_to_map_setup",
+        "links": [
+            "ecb32f1e69ab1244"
+        ],
+        "x": 215,
+        "y": 260,
+        "wires": [
+            [
+                "1b88a36a01375ea4"
+            ]
+        ]
+    },
+    {
+        "id": "7f672813cc1b8f85",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "connected",
+        "info": "",
+        "x": 130,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1b88a36a01375ea4",
+        "type": "change",
+        "z": "65c60c3b274f73e3",
+        "name": "robot",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "robot",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "robot",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "098e32f128c8c97b"
+            ]
+        ]
+    },
+    {
+        "id": "cfd01bd06f2915e6",
+        "type": "inject",
+        "z": "65c60c3b274f73e3",
+        "name": "every min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 350,
+        "y": 1320,
+        "wires": [
+            [
+                "eac6af7bc5b4b723"
+            ]
+        ]
+    },
+    {
+        "id": "eac6af7bc5b4b723",
+        "type": "function",
+        "z": "65c60c3b274f73e3",
+        "name": "update owntracks",
+        "func": "markers = global.get(\"gui.markers\")\nif(!markers) return\n\n\nnow = Date.now()/1000\n\n\nfor(const marker_name in markers){\n    marker = markers[marker_name]\n    tdiff = now - marker.last_update\n    if(tdiff < 600){\n        marker.iconColor = global.get(\"gui.colors.active\")\n    }else{\n        marker.iconColor = global.get(\"gui.colors.old\")\n    }\n    node.send({payload:marker})\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 1300,
+        "wires": [
+            [
+                "c7d4d5de96d19781"
+            ]
+        ]
+    },
+    {
+        "id": "ce70328abd9960d3",
+        "type": "link in",
+        "z": "65c60c3b274f73e3",
+        "name": "update owntracks",
+        "links": [
+            "21963027a5f525e0"
+        ],
+        "x": 405,
+        "y": 1280,
+        "wires": [
+            [
+                "eac6af7bc5b4b723"
+            ]
+        ]
+    },
+    {
+        "id": "81798d1d7a91cda7",
+        "type": "comment",
+        "z": "65c60c3b274f73e3",
+        "name": "update owntracks",
+        "info": "",
+        "x": 270,
+        "y": 1280,
         "wires": []
     },
     {
@@ -3024,9 +3188,9 @@
         "z": "118dfccac2ca8a7d",
         "group": "a891e5f5f2effe35",
         "name": "Plan list",
-        "order": 4,
+        "order": 2,
         "width": 6,
-        "height": 5,
+        "height": 7,
         "lineType": "two",
         "actionType": "click",
         "allowHTML": true,
@@ -3076,7 +3240,7 @@
         "width": 3,
         "height": 1,
         "passthru": false,
-        "label": "New Plan",
+        "label": "New",
         "tooltip": "Create a new empty mission plan",
         "color": "",
         "bgcolor": "",
@@ -3099,7 +3263,7 @@
         "type": "function",
         "z": "118dfccac2ca8a7d",
         "name": "create and select new plan",
-        "func": "function new_plan(){\n    t = new Date(Date.now()).toTimeString().slice(0,8)\n    return {\n        name:\"NEW PLAN-\"+ t,\n        hash:\"\",\n        waypoints:{},\n        waypoint_order:[],\n        timeout: 0\n    }\n}\n\nfunction makeid(length) {\n    let result = '';\n    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n    const charactersLength = characters.length;\n    let counter = 0;\n    while (counter < length) {\n      result += characters.charAt(Math.floor(Math.random() * charactersLength));\n      counter += 1;\n    }\n    return result;\n}\n\nfunction new_wp(line){\n    return {\n        name:line.name || makeid(5),\n        lat:line.lat || -1,\n        lon:line.lon || -1,\n        depth:line.depth || 0,\n        rpm:line.rpm || 0,\n        speed:line.speed || 0,\n        use_rpm:line.use_rpm || true,\n        tolerance:line.tolerance || 1.5\n    }\n}\n\nplan = new_plan()\n\n\n// maybe its a new plan that was uploaded?\n// if thats the case, the message is coming from a csv parser\n// the msg includes a file field with info about the uploaded file\n// and the payload has objects for payloads.\nif(msg.payload && msg.payload != \"button\" && msg.topic == \"upload\"){\n    plan.name = msg.name\n    plan.timeout = msg.timeout\n    for(const line of msg.payload){\n        wp = new_wp(line)\n        plan.waypoints[wp.name] = wp\n        plan.waypoint_order.push(wp.name)\n    }\n}\n\n\nplans = global.get(\"planning.plans\")\nplans[plan.name] = plan\nglobal.set(\"planning.plans\", plans)\nglobal.set(\"gui.selected_plan_name\", plan.name)\n\nreturn {payload:plan, topic:\"new_plan\"}",
+        "func": "function new_plan(){\n    t = new Date(Date.now()).toTimeString().slice(0,8)\n    return {\n        name:\"NEW PLAN-\"+ t,\n        hash:\"\",\n        waypoints:{},\n        waypoint_order:[],\n        timeout: 0\n    }\n}\n\nfunction makeid(length) {\n    let result = '';\n    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n    const charactersLength = characters.length;\n    let counter = 0;\n    while (counter < length) {\n      result += characters.charAt(Math.floor(Math.random() * charactersLength));\n      counter += 1;\n    }\n    return result;\n}\n\nfunction new_wp(line){\n    return {\n        name:line.name || makeid(5),\n        lat:line.lat || -1,\n        lon:line.lon || -1,\n        depth:line.depth || 0,\n        rpm:line.rpm || 0,\n        speed:line.speed || 0,\n        use_rpm:line.use_rpm || true,\n        tolerance:line.tolerance || 1.5,\n        arrival_heading:line.arrival_heading || null,\n        use_heading: line.use_heading || false\n    }\n}\n\nplan = new_plan()\n\n\n// maybe its a new plan that was uploaded?\n// if thats the case, the message is coming from a csv parser\n// the msg includes a file field with info about the uploaded file\n// and the payload has objects for payloads.\nif(msg.payload && msg.payload != \"button\" && msg.topic == \"upload\"){\n    plan.name = msg.name\n    plan.timeout = msg.timeout\n    for(const line of msg.payload){\n        wp = new_wp(line)\n        plan.waypoints[wp.name] = wp\n        plan.waypoint_order.push(wp.name)\n    }\n}\n\n\nplans = global.get(\"planning.plans\")\nplans[plan.name] = plan\nglobal.set(\"planning.plans\", plans)\nglobal.set(\"gui.selected_plan_name\", plan.name)\n\nreturn {payload:plan, topic:\"new_plan\"}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3279,7 +3443,7 @@
         "z": "118dfccac2ca8a7d",
         "name": "rename plan",
         "group": "a891e5f5f2effe35",
-        "order": 2,
+        "order": 3,
         "width": 2,
         "height": 1,
         "passthru": false,
@@ -3307,7 +3471,7 @@
         "z": "118dfccac2ca8a7d",
         "name": "delete plan",
         "group": "a891e5f5f2effe35",
-        "order": 3,
+        "order": 4,
         "width": 1,
         "height": 1,
         "passthru": false,
@@ -3508,13 +3672,13 @@
         "type": "ui_text",
         "z": "118dfccac2ca8a7d",
         "group": "a891e5f5f2effe35",
-        "order": 11,
-        "width": 6,
+        "order": 14,
+        "width": 9,
         "height": 1,
         "name": "wp title",
-        "label": "WPs of",
+        "label": "Waypoints of",
         "format": "{{msg.payload}}",
-        "layout": "row-left",
+        "layout": "row-center",
         "className": "",
         "x": 680,
         "y": 240,
@@ -3546,7 +3710,10 @@
                 "3d1737024518e190"
             ],
             [
-                "bd536a0252fc7e7f"
+                "bd536a0252fc7e7f",
+                "604a48bfd4e46372",
+                "628394529cff0cf9",
+                "0e194ffbde76f700"
             ]
         ]
     },
@@ -3601,7 +3768,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 430,
-        "y": 1000,
+        "y": 980,
         "wires": [
             [
                 "6ff1c4b335189bfc"
@@ -3631,14 +3798,14 @@
         "type": "function",
         "z": "118dfccac2ca8a7d",
         "name": "make mission control",
-        "func": "selected_plan_name = global.get(\"gui.selected_plan_name\")\nif(!selected_plan_name) return\n\nplans = global.get(\"planning.plans\")\nplan = plans[selected_plan_name]\n\nproper_wps = []\nfor(var i in plan.waypoint_order){\n    wp_name = plan.waypoint_order[i]\n    wp = plan.waypoints[wp_name]\n    if(wp){\n        speed_control_mode = 2 // m/s\n        if(wp.use_rpm) speed_control_mode = 1 //rpm\n        wp_msg = {\n          \"pose\": {\n            \"header\": {\n              \"seq\": 0,\n              \"stamp\": {\n                \"secs\": 0,\n                \"nsecs\": 0\n              },\n              \"frame_id\": \"latlon\"\n            },\n            \"pose\": {\n              \"position\": {\n                \"x\": 0,\n                \"y\": 0,\n                \"z\": 0\n              },\n              \"orientation\": {\n                \"x\": 0,\n                \"y\": 0,\n                \"z\": 0,\n                \"w\": 0\n              }\n            }\n          },\n          \"goal_tolerance\": wp.tolerance,\n          \"z_control_mode\": 1, // depth\n          \"travel_altitude\": -1,\n          \"travel_depth\": wp.depth,\n          \"speed_control_mode\": speed_control_mode,\n          \"travel_rpm\": wp.rpm,\n          \"travel_speed\": wp.speed,\n          \"lat\": wp.lat,\n          \"lon\": wp.lon,\n          \"name\":wp.name,\n        }\n        proper_wps.push(wp_msg)\n    }\n}\nmission_control = {\n    name: selected_plan_name,\n    hash: plan.hash,\n    command: 4, //set plan\n    timeout: plan.timeout*60,\n    waypoints: proper_wps\n}\n\nname = global.get(\"gui.selected_robot_name\")\nm = {\n    payload: mission_control,\n    topic: \"smarc/\"+name+\"/bt_cmd/mission_control\"\n}\nreturn m\n\n",
+        "func": "selected_plan_name = global.get(\"gui.selected_plan_name\")\nif(!selected_plan_name) return\n\nplans = global.get(\"planning.plans\")\nplan = plans[selected_plan_name]\n\nproper_wps = []\nfor(var i in plan.waypoint_order){\n    wp_name = plan.waypoint_order[i]\n    wp = plan.waypoints[wp_name]\n    if(!wp) continue\n    speed_control_mode = 2 // m/s\n    if(wp.use_rpm) speed_control_mode = 1 //rpm\n    wp_msg = {\n      \"pose\": {\n        \"header\": {\n          \"seq\": 0,\n          \"stamp\": {\n            \"secs\": 0,\n            \"nsecs\": 0\n          },\n          \"frame_id\": \"latlon\"\n        },\n        \"pose\": {\n          \"position\": {\n            \"x\": 0,\n            \"y\": 0,\n            \"z\": 0\n          },\n          \"orientation\": {\n            \"x\": 0,\n            \"y\": 0,\n            \"z\": 0,\n            \"w\": 0\n          }\n        }\n      },\n      \"goal_tolerance\": wp.tolerance,\n      \"z_control_mode\": 1, // depth\n      \"travel_altitude\": -1,\n      \"travel_depth\": wp.depth,\n      \"speed_control_mode\": speed_control_mode,\n      \"travel_rpm\": wp.rpm,\n      \"travel_speed\": wp.speed,\n      \"lat\": wp.lat,\n      \"lon\": wp.lon,\n      \"name\":wp.name,\n      \"arrival_heading\": wp.arrival_heading || 0,\n      \"use_heading\": wp.use_heading || false\n    }\n    proper_wps.push(wp_msg)\n}\nmission_control = {\n    name: selected_plan_name,\n    hash: plan.hash,\n    command: 4, //set plan\n    timeout: plan.timeout*60,\n    waypoints: proper_wps\n}\n\nname = global.get(\"gui.selected_robot_name\")\nm = {\n    payload: mission_control,\n    topic: \"smarc/\"+name+\"/bt_cmd/mission_control\"\n}\nreturn m\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 600,
-        "y": 1000,
+        "y": 980,
         "wires": [
             [
                 "3376292af02cb95f"
@@ -3669,7 +3836,8 @@
         "y": 1040,
         "wires": [
             [
-                "e9b7e1d4e1732b04"
+                "e9b7e1d4e1732b04",
+                "7e3bed0f31699d86"
             ]
         ]
     },
@@ -3744,7 +3912,8 @@
         "y": 1080,
         "wires": [
             [
-                "e9b7e1d4e1732b04"
+                "e9b7e1d4e1732b04",
+                "7e3bed0f31699d86"
             ]
         ]
     },
@@ -3754,7 +3923,7 @@
         "z": "118dfccac2ca8a7d",
         "name": "Abort",
         "group": "a48b13904097fb6a",
-        "order": 18,
+        "order": 14,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -3772,7 +3941,8 @@
         "y": 1160,
         "wires": [
             [
-                "e9b7e1d4e1732b04"
+                "e9b7e1d4e1732b04",
+                "7e3bed0f31699d86"
             ]
         ]
     },
@@ -3982,8 +4152,8 @@
         "label": "Lat,Lon",
         "tooltip": "LAT, LON input",
         "group": "a891e5f5f2effe35",
-        "order": 14,
-        "width": 6,
+        "order": 17,
+        "width": 5,
         "height": 1,
         "passthru": false,
         "mode": "text",
@@ -3996,7 +4166,7 @@
         "y": 2280,
         "wires": [
             [
-                "ddd9e0b9a4b9a03b"
+                "c86256cca6fc01b2"
             ]
         ]
     },
@@ -4008,8 +4178,8 @@
         "label": "Use RPM",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
-        "order": 19,
-        "width": 3,
+        "order": 24,
+        "width": 5,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -4030,7 +4200,7 @@
         "y": 2440,
         "wires": [
             [
-                "ddd9e0b9a4b9a03b"
+                "c86256cca6fc01b2"
             ]
         ]
     },
@@ -4042,8 +4212,8 @@
         "label": "Depth",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
-        "order": 16,
-        "width": 3,
+        "order": 18,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "mode": "text",
@@ -4056,7 +4226,7 @@
         "y": 2320,
         "wires": [
             [
-                "ddd9e0b9a4b9a03b"
+                "c86256cca6fc01b2"
             ]
         ]
     },
@@ -4068,8 +4238,8 @@
         "label": "RPM",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
-        "order": 15,
-        "width": 3,
+        "order": 23,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "mode": "text",
@@ -4082,7 +4252,7 @@
         "y": 2360,
         "wires": [
             [
-                "ddd9e0b9a4b9a03b"
+                "c86256cca6fc01b2"
             ]
         ]
     },
@@ -4094,8 +4264,8 @@
         "label": "Speed",
         "tooltip": "in m/s",
         "group": "a891e5f5f2effe35",
-        "order": 17,
-        "width": 3,
+        "order": 21,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "mode": "text",
@@ -4108,7 +4278,7 @@
         "y": 2400,
         "wires": [
             [
-                "ddd9e0b9a4b9a03b"
+                "c86256cca6fc01b2"
             ]
         ]
     },
@@ -4117,14 +4287,14 @@
         "type": "function",
         "z": "118dfccac2ca8a7d",
         "name": "validate and edit WP",
-        "func": "plans = global.get(\"planning.plans\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\nif(!(plan)){\n    return {payload:\"No plan\"}\n}\n\nname = global.get(\"gui.selected_waypoint_name\")\nif(!name){\n    return {payload:\"No WP selected\"}\n}\nif(!(name in plan.waypoints)){\n    return {payload:\"Selected WP not in selected plan\"}\n}\n\n\n\nswitch(msg.topic){\n    case(\"latlon\"):\n        // magic regex that checks for lat,lon formatting\n        const regexExp = /^((\\-?|\\+?)?\\d+(\\.\\d+)?),\\s*((\\-?|\\+?)?\\d+(\\.\\d+)?)$/gi;\n        if(regexExp.test(msg.payload)){\n            parts = msg.payload.split(\",\")\n            lat = parseFloat(parts[0])\n            lon = parseFloat(parts[1])\n            plan.waypoints[name].lat = lat\n            plan.waypoints[name].lon = lon\n        }else{\n            return {payload:\"Latlon format is bad:\"+msg.payload}    \n        }\n        break\n        \n    case(\"depth\"):\n        // should be a float\n        try{\n            depth = parseFloat(msg.payload) || 0\n            plan.waypoints[name].depth = depth\n        }catch{\n            return {payload:\"Depth is not float:\"+msg.payload}\n        }\n        break\n    case(\"rpm\"):\n        // should be an int\n        try{\n            rpm = parseInt(msg.payload) || 0\n            plan.waypoints[name].rpm = rpm\n        }catch{\n            return {payload:\"RPM is not int:\"+msg.payload}\n        }\n        break\n    case(\"speed\"):\n        // should be a float\n        try{\n            speed = parseFloat(msg.payload) || 0\n            plan.waypoints[name].speed = speed\n        }catch{\n            return {payload:\"Speed is not float:\"+msg.payload}\n        }\n        break\n    case(\"tolerance\"):\n        // should be a float\n        try{\n            tolerance = parseFloat(msg.payload) || 1.5\n            plan.waypoints[name].tolerance = tolerance\n        }catch{\n            return {payload:\"Tolerance is not float:\"+msg.payload}\n        }\n        break\n    \n    case(\"use_rpm\"):\n        // the widget can only return good stuff, no need to check\n        plan.waypoints[name].use_rpm = msg.payload\n}\n\nwp = plan.waypoints[name]\nif(wp.use_rpm && wp.rpm == 0){\n    return {payload:\"Using RPM with 0 RPM set\"}\n}\nif(!wp.use_rpm && wp.speed == 0){\n    return {payload:\"Using Speed with 0 m/s set\"}\n}\n\n\n// and finally, set the new version of the plan globally\nglobal.set(\"planning.plans\", plans)\nreturn {payload:\"Good WP\"}",
+        "func": "plans = global.get(\"planning.plans\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\nif(!(plan)){\n    return {payload:\"No plan\"}\n}\n\nname = global.get(\"gui.selected_waypoint_name\")\nif(!name){\n    return {payload:\"No WP selected\"}\n}\nif(!(name in plan.waypoints)){\n    return {payload:\"Selected WP not in selected plan\"}\n}\n\n\n\nswitch(msg.topic){\n    case(\"latlon\"):\n        // magic regex that checks for lat,lon formatting\n        const regexExp = /^((\\-?|\\+?)?\\d+(\\.\\d+)?),\\s*((\\-?|\\+?)?\\d+(\\.\\d+)?)$/gi;\n        if(regexExp.test(msg.payload)){\n            parts = msg.payload.split(\",\")\n            lat = parseFloat(parts[0])\n            lon = parseFloat(parts[1])\n            plan.waypoints[name].lat = lat\n            plan.waypoints[name].lon = lon\n        }else{\n            return {payload:\"Latlon format is bad:\"+msg.payload}    \n        }\n        break\n        \n    case(\"depth\"):\n        // should be a float\n        try{\n            depth = parseFloat(msg.payload) || 0\n            plan.waypoints[name].depth = depth\n        }catch{\n            return {payload:\"Depth is not float:\"+msg.payload}\n        }\n        break\n    case(\"rpm\"):\n        // should be an int\n        try{\n            rpm = parseInt(msg.payload) || 0\n            plan.waypoints[name].rpm = rpm\n        }catch{\n            return {payload:\"RPM is not int:\"+msg.payload}\n        }\n        break\n    case(\"speed\"):\n        // should be a float\n        try{\n            speed = parseFloat(msg.payload) || 0\n            plan.waypoints[name].speed = speed\n        }catch{\n            return {payload:\"Speed is not float:\"+msg.payload}\n        }\n        break\n    case(\"tolerance\"):\n        // should be a float\n        try{\n            tolerance = parseFloat(msg.payload) || 1.5\n            plan.waypoints[name].tolerance = tolerance\n        }catch{\n            return {payload:\"Tolerance is not float:\"+msg.payload}\n        }\n        break\n    case(\"use_rpm\"):\n        // the widget can only return good stuff, no need to check\n        plan.waypoints[name].use_rpm = msg.payload\n        break\n    case(\"arrival_heading\"):\n        // should be a float\n        try{\n            hdg = parseFloat(msg.payload)\n            if(!hdg){\n                hdg = 0\n                plan.waypoints[name].use_heading = false\n            }\n            if(msg.payload.length == 0){\n                hdg = 0\n                plan.waypoints[name].use_heading = false\n            }\n            plan.waypoints[name].arrival_heading = hdg\n            node.warn(\"Set heading to \"+hdg)\n        }catch{\n            return {payload:\"Arrival Heading is not float:\"+msg.payload}\n        }\n        break\n    case(\"use_hdg\"):\n        // the widget can only return good stuff, no need to check\n        plan.waypoints[name].use_heading = msg.payload\n        break\n}\n\nwp = plan.waypoints[name]\nif(wp.use_rpm && wp.rpm == 0){\n    return {payload:\"Using RPM with 0 RPM set\"}\n}\nif(!wp.use_rpm && wp.speed == 0){\n    return {payload:\"Using Speed with 0 m/s set\"}\n}\n\n\n// and finally, set the new version of the plan globally\nglobal.set(\"planning.plans\", plans)\nreturn {payload:\"Good WP\"}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1240,
-        "y": 2380,
+        "x": 1160,
+        "y": 2280,
         "wires": [
             [
                 "a9a1cb1f994d20c7",
@@ -4158,9 +4328,9 @@
         "z": "118dfccac2ca8a7d",
         "group": "a891e5f5f2effe35",
         "name": "wp list",
-        "order": 12,
-        "width": 6,
-        "height": 5,
+        "order": 16,
+        "width": 4,
+        "height": 7,
         "lineType": "two",
         "actionType": "click",
         "allowHTML": true,
@@ -4276,8 +4446,8 @@
             "b391488f986dfd76",
             "4facb95ab46fd02a"
         ],
-        "x": 1435,
-        "y": 2380,
+        "x": 1355,
+        "y": 2160,
         "wires": []
     },
     {
@@ -4286,8 +4456,8 @@
         "z": "118dfccac2ca8a7d",
         "name": "update list of wps",
         "info": "",
-        "x": 1540,
-        "y": 2380,
+        "x": 1460,
+        "y": 2160,
         "wires": []
     },
     {
@@ -4295,8 +4465,8 @@
         "type": "function",
         "z": "118dfccac2ca8a7d",
         "name": "selected wp properties",
-        "func": "empty = {payload:\"\"}\n\nreset = [\n    empty,\n    empty,\n    empty,\n    empty,\n    {payload:false},\n    empty\n    ]\n    \nwp_name = global.get(\"gui.selected_waypoint_name\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nif (!plans) return reset\n\nplan = plans[plan_name]\nif (!plan) return reset\n\nswp = plan.waypoints[wp_name]\nif (!swp) return reset\n\nlat = (swp.lat+\"\").substring(0,9)\nlon = (swp.lon+\"\").substring(0,9)\n\nreturn [\n    {payload: lat + \", \"+ lon},\n    {payload:swp.depth},\n    {payload:swp.rpm},\n    {payload:swp.speed},\n    {payload:swp.use_rpm},\n    {payload:swp.tolerance}\n    ]",
-        "outputs": 6,
+        "func": "empty = {payload:\"\"}\n\nreset = [\n    empty,\n    empty,\n    empty,\n    empty,\n    {payload:false},\n    empty,\n    empty,\n    {payload:false}\n    ]\n    \nwp_name = global.get(\"gui.selected_waypoint_name\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplans = global.get(\"planning.plans\")\nif (!plans) return reset\n\nplan = plans[plan_name]\nif (!plan) return reset\n\nswp = plan.waypoints[wp_name]\nif (!swp) return reset\n\nlat = (swp.lat+\"\").substring(0,9)\nlon = (swp.lon+\"\").substring(0,9)\n\nreturn [\n    {payload: lat + \", \"+ lon},\n    {payload:swp.depth},\n    {payload:swp.rpm},\n    {payload:swp.speed},\n    {payload:swp.use_rpm},\n    {payload:swp.tolerance},\n    {payload:swp.arrival_heading},\n    {payload:swp.use_heading}\n    ]",
+        "outputs": 8,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -4321,6 +4491,12 @@
             ],
             [
                 "1c1a0e9f2bf37d1d"
+            ],
+            [
+                "aafdf17560164b3b"
+            ],
+            [
+                "817651a1360e411d"
             ]
         ]
     },
@@ -4362,8 +4538,8 @@
         "z": "118dfccac2ca8a7d",
         "name": "rename wp",
         "group": "a891e5f5f2effe35",
-        "order": 21,
-        "width": 2,
+        "order": 27,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Rename",
@@ -4377,7 +4553,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 410,
-        "y": 2760,
+        "y": 2900,
         "wires": [
             [
                 "8a4d01cc64a23f33"
@@ -4400,7 +4576,7 @@
         "topic": "",
         "name": "rename",
         "x": 740,
-        "y": 2760,
+        "y": 2900,
         "wires": [
             [
                 "9aaeba04f848041e"
@@ -4419,7 +4595,7 @@
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 2760,
+        "y": 2900,
         "wires": [
             [
                 "6c7fbd89bde43433"
@@ -4438,7 +4614,7 @@
         "finalize": "",
         "libs": [],
         "x": 920,
-        "y": 2760,
+        "y": 2900,
         "wires": [
             [
                 "a36bb4b2665fa3f5",
@@ -4453,8 +4629,8 @@
         "z": "118dfccac2ca8a7d",
         "name": "delete wp",
         "group": "a891e5f5f2effe35",
-        "order": 23,
-        "width": 1,
+        "order": 28,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "",
@@ -4468,7 +4644,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 400,
-        "y": 2800,
+        "y": 2940,
         "wires": [
             [
                 "45b43f57ef0daa33"
@@ -4487,7 +4663,7 @@
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 2800,
+        "y": 2940,
         "wires": [
             [
                 "d147bdc21a92ec07"
@@ -4510,7 +4686,7 @@
         "topic": "",
         "name": "delete",
         "x": 730,
-        "y": 2800,
+        "y": 2940,
         "wires": [
             [
                 "4849809578a150bb"
@@ -4522,14 +4698,14 @@
         "type": "function",
         "z": "118dfccac2ca8a7d",
         "name": "delete selected wp",
-        "func": "if(msg.payload == \"Cancel\") return\n\nplans = global.get(\"planning.plans\")\nplan = plans[global.get(\"gui.selected_plan_name\")]\nwp = plan.waypoints[global.get(\"gui.selected_waypoint_name\")]\ndelete plan.waypoints[wp.name]\nwp_i = plan.waypoint_order.indexOf(wp.name)\nplan.waypoint_order.splice(wp_i, 1)\n\nglobal.set(\"planning.plans\", plans)\nglobal.set(\"gui.selected_waypoint_name\", null)\n\nreturn {}",
+        "func": "if(msg.payload == \"Cancel\") return\n\nplans = global.get(\"planning.plans\")\nplan = plans[global.get(\"gui.selected_plan_name\")]\nwp = plan.waypoints[global.get(\"gui.selected_waypoint_name\")]\ndelete plan.waypoints[wp.name]\nnew_order = []\nfor(const wp_i in plan.waypoint_order){\n    wp_i_name = plan.waypoint_order[wp_i]\n    if(wp_i_name === wp.name) continue\n    new_order.push(wp_i_name)\n}\nplan.waypoint_order = new_order\n\nglobal.set(\"planning.plans\", plans)\nglobal.set(\"gui.selected_waypoint_name\", null)\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 930,
-        "y": 2800,
+        "y": 2940,
         "wires": [
             [
                 "a36bb4b2665fa3f5",
@@ -4545,7 +4721,7 @@
         "name": "update list of wps",
         "info": "",
         "x": 1220,
-        "y": 2780,
+        "y": 2940,
         "wires": []
     },
     {
@@ -4559,7 +4735,7 @@
             "4facb95ab46fd02a"
         ],
         "x": 1105,
-        "y": 2780,
+        "y": 2940,
         "wires": []
     },
     {
@@ -4569,7 +4745,7 @@
         "name": "update_markers_on_map",
         "info": "",
         "x": 1250,
-        "y": 2820,
+        "y": 2980,
         "wires": []
     },
     {
@@ -4582,7 +4758,7 @@
             "bb3002ce85983e34"
         ],
         "x": 1105,
-        "y": 2820,
+        "y": 2980,
         "wires": []
     },
     {
@@ -4607,7 +4783,10 @@
                 "bcec49ac72ce94a2",
                 "43935e76784d6588",
                 "1c1a0e9f2bf37d1d",
-                "02ed5a7d19d7457d"
+                "02ed5a7d19d7457d",
+                "a0b437df6c861eeb",
+                "aafdf17560164b3b",
+                "817651a1360e411d"
             ]
         ]
     },
@@ -4674,7 +4853,7 @@
             "43935e76784d6588"
         ],
         "x": 285,
-        "y": 2780,
+        "y": 2920,
         "wires": [
             [
                 "4be3eca46ff883b8",
@@ -4689,7 +4868,7 @@
         "name": "wp button toggle",
         "info": "",
         "x": 180,
-        "y": 2780,
+        "y": 2920,
         "wires": []
     },
     {
@@ -4700,7 +4879,9 @@
         "mode": "link",
         "links": [
             "1eb0bf97682baaa7",
-            "f9b651e097933009"
+            "f9b651e097933009",
+            "78a5748dd4353459",
+            "68ffa87cf6ccf948"
         ],
         "x": 735,
         "y": 2220,
@@ -4715,32 +4896,6 @@
         "x": 840,
         "y": 2220,
         "wires": []
-    },
-    {
-        "id": "baca7d623295d0a7",
-        "type": "comment",
-        "z": "118dfccac2ca8a7d",
-        "name": "wp button toggle",
-        "info": "",
-        "x": 1260,
-        "y": 2320,
-        "wires": []
-    },
-    {
-        "id": "f9b651e097933009",
-        "type": "link in",
-        "z": "118dfccac2ca8a7d",
-        "name": "wp buttons toggle",
-        "links": [
-            "43935e76784d6588"
-        ],
-        "x": 1365,
-        "y": 2320,
-        "wires": [
-            [
-                "a0b437df6c861eeb"
-            ]
-        ]
     },
     {
         "id": "7b5e02497d020b66",
@@ -4848,7 +5003,7 @@
             "e2f686ad8c4ade79"
         ],
         "x": 275,
-        "y": 1340,
+        "y": 1440,
         "wires": [
             [
                 "61d29540eafb20a9"
@@ -4862,7 +5017,7 @@
         "name": "point",
         "info": "",
         "x": 200,
-        "y": 1340,
+        "y": 1440,
         "wires": []
     },
     {
@@ -4872,7 +5027,7 @@
         "name": "point can only happen if planning mode = true",
         "info": "",
         "x": 320,
-        "y": 1300,
+        "y": 1400,
         "wires": []
     },
     {
@@ -4880,14 +5035,14 @@
         "type": "function",
         "z": "118dfccac2ca8a7d",
         "name": "add new wp to selected_plan",
-        "func": "point = msg.payload\nif(!point.name || point.name===\"\") return\n\nplans = global.get(\"planning.plans\")\nif(!(plans)){\n    node.warn(\"Plans:\"+plans)\n    return\n}\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\n\n\nfunction new_wp(point){\n    return {\n        name:point.name,\n        lat:point.lat,\n        lon:point.lon,\n        depth:0,\n        rpm:0,\n        speed:0,\n        use_rpm:false,\n        tolerance:1.5\n    }\n}\n\nfunction copy_wp(wp, point){\n    return {\n        name:point.name,\n        lat:point.lat,\n        lon:point.lon,\n        depth:wp.depth,\n        rpm:wp.rpm,\n        speed:wp.speed,\n        use_rpm:wp.use_rpm,\n        tolerance:wp.tolerance\n    }\n}\n\nif(plan.waypoint_order.length > 0){\n    prev_wp_name = plan.waypoint_order[plan.waypoint_order.length-1]\n    prev_wp = plan.waypoints[prev_wp_name]\n    wp = copy_wp(prev_wp, point)\n}else{\n    wp = new_wp(point)\n}\n\nplan.waypoints[wp.name] = wp\nplan.waypoint_order.push(wp.name)\nplans[plan_name] = plan\nglobal.set(\"planning.plans\", plans)\n\nreturn msg",
+        "func": "point = msg.payload\nif(!point.name || point.name===\"\") return\n\nplans = global.get(\"planning.plans\")\nif(!(plans)){\n    node.warn(\"Plans:\"+plans)\n    return\n}\n\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\n\n\nfunction new_wp(point){\n    return {\n        name:point.name,\n        lat:point.lat,\n        lon:point.lon,\n        depth:0,\n        rpm:0,\n        speed:0,\n        use_rpm:false,\n        tolerance:1.5,\n        arrival_heading:0,\n        use_heading:false\n    }\n}\n\nfunction copy_wp(wp, point){\n    return {\n        name:point.name,\n        lat:point.lat,\n        lon:point.lon,\n        depth:wp.depth,\n        rpm:wp.rpm,\n        speed:wp.speed,\n        use_rpm:wp.use_rpm,\n        tolerance:wp.tolerance,\n        arrival_heading:0,\n        use_heading:false\n    }\n}\n\nif(plan.waypoint_order.length > 0){\n    prev_wp_name = plan.waypoint_order[plan.waypoint_order.length-1]\n    prev_wp = plan.waypoints[prev_wp_name]\n    wp = copy_wp(prev_wp, point)\n}else{\n    wp = new_wp(point)\n}\n\nplan.waypoints[wp.name] = wp\nplan.waypoint_order.push(wp.name)\nplans[plan_name] = plan\nglobal.set(\"planning.plans\", plans)\n\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 1340,
+        "y": 1440,
         "wires": [
             [
                 "1a79ea6546186952",
@@ -4909,7 +5064,7 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 1340,
+        "y": 1440,
         "wires": [
             [
                 "cac2337cf56cd5d8"
@@ -4923,7 +5078,7 @@
         "name": "update list of wps",
         "info": "",
         "x": 770,
-        "y": 1380,
+        "y": 1480,
         "wires": []
     },
     {
@@ -4938,7 +5093,7 @@
             "b391488f986dfd76"
         ],
         "x": 635,
-        "y": 1380,
+        "y": 1480,
         "wires": []
     },
     {
@@ -4953,7 +5108,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1540,
+        "y": 1640,
         "wires": [
             [
                 "d9420850cbb92f49",
@@ -4972,7 +5127,7 @@
             "7d660feb1bc9828d"
         ],
         "x": 275,
-        "y": 1540,
+        "y": 1640,
         "wires": [
             [
                 "6a16208409d62139"
@@ -4986,7 +5141,7 @@
         "name": "move",
         "info": "",
         "x": 200,
-        "y": 1540,
+        "y": 1640,
         "wires": []
     },
     {
@@ -5001,7 +5156,7 @@
             "b391488f986dfd76"
         ],
         "x": 635,
-        "y": 1500,
+        "y": 1600,
         "wires": []
     },
     {
@@ -5011,7 +5166,7 @@
         "name": "update list of wps",
         "info": "",
         "x": 760,
-        "y": 1500,
+        "y": 1600,
         "wires": []
     },
     {
@@ -5021,7 +5176,7 @@
         "name": "update selected wp properties",
         "info": "",
         "x": 800,
-        "y": 1540,
+        "y": 1640,
         "wires": []
     },
     {
@@ -5035,7 +5190,7 @@
             "14159dd6c5108f6a"
         ],
         "x": 635,
-        "y": 1540,
+        "y": 1640,
         "wires": []
     },
     {
@@ -5045,7 +5200,7 @@
         "name": "update_markers_on_map",
         "info": "",
         "x": 790,
-        "y": 1580,
+        "y": 1680,
         "wires": []
     },
     {
@@ -5058,7 +5213,7 @@
             "bb3002ce85983e34"
         ],
         "x": 635,
-        "y": 1580,
+        "y": 1680,
         "wires": []
     },
     {
@@ -5068,7 +5223,7 @@
         "name": "update_markers_on_map",
         "info": "",
         "x": 800,
-        "y": 1420,
+        "y": 1520,
         "wires": []
     },
     {
@@ -5081,7 +5236,7 @@
             "bb3002ce85983e34"
         ],
         "x": 635,
-        "y": 1420,
+        "y": 1520,
         "wires": []
     },
     {
@@ -5094,7 +5249,7 @@
             "1e0bd19ab17b797e"
         ],
         "x": 945,
-        "y": 1340,
+        "y": 1440,
         "wires": []
     },
     {
@@ -5104,7 +5259,7 @@
         "name": "map",
         "info": "",
         "x": 1020,
-        "y": 1340,
+        "y": 1440,
         "wires": []
     },
     {
@@ -5118,7 +5273,7 @@
             "5258271b9369afd2"
         ],
         "x": 635,
-        "y": 1300,
+        "y": 1400,
         "wires": []
     },
     {
@@ -5128,7 +5283,7 @@
         "name": "compare gui and robot plans",
         "info": "",
         "x": 810,
-        "y": 1300,
+        "y": 1400,
         "wires": []
     },
     {
@@ -5175,7 +5330,7 @@
             "06466ed6e810bd76"
         ],
         "x": 635,
-        "y": 1260,
+        "y": 1360,
         "wires": []
     },
     {
@@ -5185,7 +5340,7 @@
         "name": "update hash",
         "info": "",
         "x": 760,
-        "y": 1260,
+        "y": 1360,
         "wires": []
     },
     {
@@ -5198,7 +5353,7 @@
             "06466ed6e810bd76"
         ],
         "x": 635,
-        "y": 1620,
+        "y": 1720,
         "wires": []
     },
     {
@@ -5208,7 +5363,7 @@
         "name": "update hash",
         "info": "",
         "x": 750,
-        "y": 1620,
+        "y": 1720,
         "wires": []
     },
     {
@@ -5337,7 +5492,7 @@
             "06466ed6e810bd76"
         ],
         "x": 1105,
-        "y": 2740,
+        "y": 2900,
         "wires": []
     },
     {
@@ -5347,7 +5502,7 @@
         "name": "update hash",
         "info": "",
         "x": 1210,
-        "y": 2740,
+        "y": 2900,
         "wires": []
     },
     {
@@ -5356,8 +5511,8 @@
         "z": "118dfccac2ca8a7d",
         "name": "update hash",
         "info": "",
-        "x": 1530,
-        "y": 2420,
+        "x": 1450,
+        "y": 2200,
         "wires": []
     },
     {
@@ -5369,8 +5524,8 @@
         "links": [
             "06466ed6e810bd76"
         ],
-        "x": 1435,
-        "y": 2420,
+        "x": 1355,
+        "y": 2200,
         "wires": []
     },
     {
@@ -5448,8 +5603,8 @@
         "label": "Tolerance",
         "tooltip": "in m/s",
         "group": "a891e5f5f2effe35",
-        "order": 18,
-        "width": 3,
+        "order": 20,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "mode": "text",
@@ -5462,7 +5617,7 @@
         "y": 2480,
         "wires": [
             [
-                "ddd9e0b9a4b9a03b"
+                "c86256cca6fc01b2"
             ]
         ]
     },
@@ -5520,49 +5675,29 @@
         "type": "ui_text",
         "z": "118dfccac2ca8a7d",
         "group": "a891e5f5f2effe35",
-        "order": 13,
-        "width": 6,
-        "height": 1,
+        "order": 31,
+        "width": 9,
+        "height": 2,
         "name": "wp status",
-        "label": "",
+        "label": "WP status: ",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "row-center",
         "className": "",
-        "x": 1480,
-        "y": 2340,
+        "x": 1400,
+        "y": 2240,
         "wires": []
-    },
-    {
-        "id": "ddd9e0b9a4b9a03b",
-        "type": "rbe",
-        "z": "118dfccac2ca8a7d",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1070,
-        "y": 2380,
-        "wires": [
-            [
-                "c86256cca6fc01b2"
-            ]
-        ]
     },
     {
         "id": "f4ecbe203d64d0e5",
         "type": "ui_text_input",
         "z": "118dfccac2ca8a7d",
         "name": "timeout",
-        "label": "Timeout, minutes",
+        "label": "Timeout(mins)",
         "tooltip": "",
         "group": "a891e5f5f2effe35",
         "order": 5,
-        "width": 0,
-        "height": 0,
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "mode": "number",
         "delay": 300,
@@ -5726,7 +5861,7 @@
             "ede3c3d661bce3f9"
         ],
         "x": 1085,
-        "y": 2320,
+        "y": 2360,
         "wires": [
             [
                 "c86256cca6fc01b2"
@@ -5739,8 +5874,8 @@
         "z": "118dfccac2ca8a7d",
         "name": "update selected wp status",
         "info": "",
-        "x": 1090,
-        "y": 2280,
+        "x": 1150,
+        "y": 2400,
         "wires": []
     },
     {
@@ -5814,8 +5949,8 @@
         "z": "118dfccac2ca8a7d",
         "name": "cleanup",
         "group": "a891e5f5f2effe35",
-        "order": 25,
-        "width": 3,
+        "order": 13,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "Cleanup",
@@ -5858,6 +5993,380 @@
         "x": 570,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "aafdf17560164b3b",
+        "type": "ui_text_input",
+        "z": "118dfccac2ca8a7d",
+        "name": "arrival_heading",
+        "label": "Arrival Heading",
+        "tooltip": "Desired heading of the robot when it arrives this WP",
+        "group": "a891e5f5f2effe35",
+        "order": 25,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "arrival_heading",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 900,
+        "y": 2520,
+        "wires": [
+            [
+                "c86256cca6fc01b2"
+            ]
+        ]
+    },
+    {
+        "id": "d0b5e26716f0100c",
+        "type": "comment",
+        "z": "118dfccac2ca8a7d",
+        "name": "Request dubins plan",
+        "info": "",
+        "x": 130,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "604a48bfd4e46372",
+        "type": "ui_button",
+        "z": "118dfccac2ca8a7d",
+        "name": "plan_dubins",
+        "group": "a891e5f5f2effe35",
+        "order": 11,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Request Dubins",
+        "tooltip": "Plan a trajectory with dubins",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "click",
+        "payloadType": "str",
+        "topic": "cmd",
+        "topicType": "msg",
+        "x": 450,
+        "y": 1220,
+        "wires": [
+            [
+                "2bbe537eb96f877c"
+            ]
+        ]
+    },
+    {
+        "id": "eaaf7bb97a0661a2",
+        "type": "comment",
+        "z": "118dfccac2ca8a7d",
+        "name": "Send cmd to BT",
+        "info": "",
+        "x": 640,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "fc19b6ee859abe64",
+        "type": "link out",
+        "z": "118dfccac2ca8a7d",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "9f0ef523d4f95e85"
+        ],
+        "x": 715,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "2bbe537eb96f877c",
+        "type": "function",
+        "z": "118dfccac2ca8a7d",
+        "name": "combine",
+        "func": "if(msg.topic == 'rad'){\n    flow.set('rad', msg.payload)\n    node.status(\"Rad=\"+msg.payload)\n}\n\nif(msg.payload == 'click'){\n    rad = flow.get('rad')\n    return {payload:{cmd:\"plan_dubins\", arg:rad}}\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1240,
+        "wires": [
+            [
+                "fc19b6ee859abe64"
+            ]
+        ]
+    },
+    {
+        "id": "4a743413d2cb5e7a",
+        "type": "inject",
+        "z": "118dfccac2ca8a7d",
+        "name": "3",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "x": 290,
+        "y": 1260,
+        "wires": [
+            [
+                "628394529cff0cf9"
+            ]
+        ]
+    },
+    {
+        "id": "817651a1360e411d",
+        "type": "ui_switch",
+        "z": "118dfccac2ca8a7d",
+        "name": "use_heading",
+        "label": "Use hdg",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 26,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "use_hdg",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 890,
+        "y": 2560,
+        "wires": [
+            [
+                "c86256cca6fc01b2"
+            ]
+        ]
+    },
+    {
+        "id": "628394529cff0cf9",
+        "type": "ui_text_input",
+        "z": "118dfccac2ca8a7d",
+        "name": "turning_rad",
+        "label": "Turning Rad",
+        "tooltip": "",
+        "group": "a891e5f5f2effe35",
+        "order": 10,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "rad",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 450,
+        "y": 1260,
+        "wires": [
+            [
+                "2bbe537eb96f877c"
+            ]
+        ]
+    },
+    {
+        "id": "55ae649eaf2b1706",
+        "type": "ui_button",
+        "z": "118dfccac2ca8a7d",
+        "name": "move wp up",
+        "group": "a891e5f5f2effe35",
+        "order": 29,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-arrow-up",
+        "payload": "up",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 410,
+        "y": 2980,
+        "wires": [
+            [
+                "24aec1d0ef5a7090"
+            ]
+        ]
+    },
+    {
+        "id": "3a36cc423265c277",
+        "type": "ui_button",
+        "z": "118dfccac2ca8a7d",
+        "name": "move wp down",
+        "group": "a891e5f5f2effe35",
+        "order": 30,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-arrow-down",
+        "payload": "down",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 420,
+        "y": 3020,
+        "wires": [
+            [
+                "24aec1d0ef5a7090"
+            ]
+        ]
+    },
+    {
+        "id": "68ffa87cf6ccf948",
+        "type": "link in",
+        "z": "118dfccac2ca8a7d",
+        "name": "wp buttons toggle",
+        "links": [
+            "43935e76784d6588"
+        ],
+        "x": 295,
+        "y": 3000,
+        "wires": [
+            [
+                "55ae649eaf2b1706",
+                "3a36cc423265c277"
+            ]
+        ]
+    },
+    {
+        "id": "2a7364dedf614cd4",
+        "type": "comment",
+        "z": "118dfccac2ca8a7d",
+        "name": "wp button toggle",
+        "info": "",
+        "x": 190,
+        "y": 3000,
+        "wires": []
+    },
+    {
+        "id": "24aec1d0ef5a7090",
+        "type": "function",
+        "z": "118dfccac2ca8a7d",
+        "name": "reorder-wp",
+        "func": "wp_name = global.get(\"gui.selected_waypoint_name\")\nif(!wp_name) return\nplans = global.get(\"planning.plans\")\nplan_name = global.get(\"gui.selected_plan_name\")\nplan = plans[plan_name]\nif(!plan) return\nif(!(wp_name in plan.waypoints)){\n    node.status(\"Selected wp not in selected plan\")\n    return\n}\n\nwp_index = plan.waypoint_order.indexOf(wp_name)\nif(wp_index == -1){\n    node.status(\"WP not found\")\n    return\n}\n\nif(wp_index == 0 && msg.payload == \"up\"){\n    node.status(\"Cant move 0th wp up\")\n    return\n}\n\nif(wp_index+1 == plan.waypoint_order.length && msg.payload == \"down\"){\n    node.status(\"Cant move last wp down\")\n    return\n}\nwpo = plan.waypoint_order\nif(msg.payload == \"up\"){\n    prev = plan.waypoint_order[wp_index-1]\n    plan.waypoint_order[wp_index-1] = plan.waypoint_order[wp_index]\n    plan.waypoint_order[wp_index] = prev\n    node.status(\"moved up\")\n}\nif(msg.payload == \"down\"){\n    prev = plan.waypoint_order[wp_index+1]\n    plan.waypoint_order[wp_index+1] = plan.waypoint_order[wp_index]\n    plan.waypoint_order[wp_index] = prev\n    node.status(\"moved down\")\n}\n\nplan.waypoint_order = wpo\nplans[plan_name] = plan\nglobal.set(\"planning.plans\", plans)\n\nreturn {}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 2980,
+        "wires": [
+            [
+                "47398b19f75da920",
+                "a36bb4b2665fa3f5",
+                "44f867a505b6b2de"
+            ]
+        ]
+    },
+    {
+        "id": "0e194ffbde76f700",
+        "type": "ui_gauge",
+        "z": "118dfccac2ca8a7d",
+        "name": "timeoutgauge",
+        "group": "81d4dedb195938c4",
+        "order": 4,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Timeout",
+        "label": "s",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#ff0000",
+            "#e6e600",
+            "#80ff80"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1020,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "7e3bed0f31699d86",
+        "type": "function",
+        "z": "118dfccac2ca8a7d",
+        "name": "set robot timeout",
+        "func": "selected_plan_name = global.get(\"gui.selected_plan_name\")\nif(!selected_plan_name) return\n\nplans = global.get(\"planning.plans\")\nplan = plans[selected_plan_name]\n\nrobot_name = global.get(\"gui.selected_robot_name\")\nrobots = global.get(\"robot_states\")\nrobot = robots[robot_name]\n\nif(msg.payload == 0){\n    // start the timeout counter\n    max = plan.timeout*60\n    started =  Date.now()/1000\n    robot.gui.plan_timeout = {max:max, start_time:started}\n    return {payload:-1, ui_control:{max:max}}\n}\n\nif(msg.payload == 1 || msg.payload == 3){\n    // stop the timeout\n    robot.gui.plan_timeout.start_time = null\n    return {payload:-1}\n}\n\nif(msg.payload == \"tick\"){\n    if(!robot.gui.plan_timeout) return\n    if(!robot.gui.plan_timeout.start_time) return\n    if(robot.bt.current_plan.plan_state != 0) return\n    now = Date.now()/1000\n    elapsed = now - robot.gui.plan_timeout.start_time\n    remaining = parseInt(robot.gui.plan_timeout.max - elapsed)\n    node.status(robot_name+\"t:\"+remaining)\n    if(remaining > 0){\n        return {payload:remaining, ui_control:{max:robot.gui.plan_timeout.max}}    \n    }else{\n        return {payload:-1}\n    }\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1120,
+        "wires": [
+            [
+                "0e194ffbde76f700"
+            ]
+        ]
+    },
+    {
+        "id": "899e218540742971",
+        "type": "inject",
+        "z": "118dfccac2ca8a7d",
+        "name": "tick",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "tick",
+        "payloadType": "str",
+        "x": 670,
+        "y": 1160,
+        "wires": [
+            [
+                "7e3bed0f31699d86"
+            ]
+        ]
     },
     {
         "id": "4295e5f475da817c",
@@ -5926,7 +6435,7 @@
         "type": "function",
         "z": "426a5003775714f9",
         "name": "prepare plan text",
-        "func": "srn = global.get(\"gui.selected_robot_name\")\nif(!srn) return\nrobots = global.get(\"robot_states\")\nrobot = robots[srn]\nif(!robot) return\n\nplan = robot.bt.current_plan\n\nswitch(plan.plan_state){\n    case 0: //running\n        c = global.get(\"gui.colors.selected\")\n        e = \"▶️\"\n        break\n    case 1: // stopped\n        c = global.get(\"gui.colors.old\")\n        e = \"⏹️\"\n        break\n    case 2: // paused\n        c = global.get(\"gui.colors.active\")\n        e = \"⏸️\"\n        break\n    case 3: // emergency\n        c = global.get(\"gui.colors.old\")\n        e = \"‼️\"\n        break\n    case 4: // received\n        c = global.get(\"gui.colors.active\")\n        e = \"📥\"\n        break\n}\n\nt = e + \" <font color=\" + c +\">\" + plan.name\n\nreturn {payload:t}",
+        "func": "srn = global.get(\"gui.selected_robot_name\")\nif(!srn) return\nrobots = global.get(\"robot_states\")\nrobot = robots[srn]\nif(!robot) return\n\nplan = robot.bt.current_plan\ne = \"?\"\nc = \"\"\nswitch(plan.plan_state){\n    case 0: //running\n        c = global.get(\"gui.colors.selected\")\n        e = \"▶️\"\n        break\n    case 1: // stopped\n        c = global.get(\"gui.colors.old\")\n        e = \"⏹️\"\n        break\n    case 2: // paused\n        c = global.get(\"gui.colors.active\")\n        e = \"⏸️\"\n        break\n    case 3: // emergency\n        c = global.get(\"gui.colors.old\")\n        e = \"‼️\"\n        break\n    case 4: // received\n        c = global.get(\"gui.colors.active\")\n        e = \"📥\"\n        break\n    case 5: // complete\n        c = global.get(\"gui.colors.active\")\n        e = \"✅\" \n        break\n}\n\nt = e + \" <font color=\" + c +\">\" + plan.name\n\nreturn {payload:t}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6065,8 +6574,8 @@
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": 4,
+        "height": 1,
         "name": "plan is syn",
         "label": "Plan is synched: ",
         "format": "{{msg.payload}}",
@@ -6081,9 +6590,9 @@
         "type": "ui_text",
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "order": 5,
+        "width": 4,
+        "height": 1,
         "name": "live wp enabled",
         "label": "Live WP:",
         "format": "{{msg.payload}}",
@@ -6125,9 +6634,9 @@
         "type": "ui_text",
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
-        "order": 4,
-        "width": 0,
-        "height": 0,
+        "order": 7,
+        "width": 4,
+        "height": 1,
         "name": "gui wp enabled",
         "label": "GUI WP:",
         "format": "{{msg.payload}}",
@@ -6169,9 +6678,9 @@
         "type": "ui_text",
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
-        "order": 5,
-        "width": 0,
-        "height": 0,
+        "order": 9,
+        "width": 4,
+        "height": 1,
         "name": "algae farm enabled",
         "label": "Algae farm:",
         "format": "{{msg.payload}}",
@@ -6274,8 +6783,8 @@
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
         "name": "BT Log",
-        "order": 6,
-        "width": 6,
+        "order": 10,
+        "width": 9,
         "height": 13,
         "lineType": "three",
         "actionType": "none",
@@ -6361,7 +6870,9 @@
         "name": "Send cmd to BT",
         "links": [
             "26c19416550a8a88",
-            "7f69d758a6740cf8"
+            "7f69d758a6740cf8",
+            "88e6b90dbc529cf1",
+            "fc19b6ee859abe64"
         ],
         "x": 285,
         "y": 520,
@@ -6432,9 +6943,9 @@
         "type": "ui_text",
         "z": "426a5003775714f9",
         "group": "81d4dedb195938c4",
-        "order": 7,
-        "width": 6,
-        "height": 5,
+        "order": 11,
+        "width": 9,
+        "height": 2,
         "name": "cmd result",
         "label": "Cmd FB",
         "format": "{{msg.bt.bt_cmd.result}}",
@@ -6450,9 +6961,9 @@
         "z": "762b3e4e742fe2ea",
         "group": "c68132315359e81c",
         "name": "track list",
-        "order": 4,
-        "width": 6,
-        "height": 6,
+        "order": 5,
+        "width": 9,
+        "height": 7,
         "lineType": "three",
         "actionType": "click",
         "allowHTML": true,
@@ -6471,7 +6982,7 @@
         "type": "function",
         "z": "762b3e4e742fe2ea",
         "name": "list tracks",
-        "func": "tracks = global.get(\"planning.tracks\") || {}\nglobal.set(\"planning.tracks\", tracks)\n\ndrawn_tracks = global.get(\"gui.drawn_track_names\") || new Set()\nglobal.set(\"gui.drawn_track_names\", drawn_tracks)\n\n\nif(!(tracks)){\n    return {payload:[{title:\"--NO TRACKS--\"}]}  \n} \nif(Object.keys(tracks).length < 1){\n    return {payload:[{title:\"--NO TRACKS--\"}]}     \n}\n\nlist_items = []\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    c = \"black\"\n    if(track_name == global.get(\"gui.selected_track_name\")){\n        c = \"orange\"\n    }\n    \n    title = \"<font color=\" + c +\">\" + track.name\n    \n    if(track.recording){\n        duration_str = \"🔴 \" + parseInt((Date.now() - track.start)/1000) + \"s \"\n        title = duration_str + title\n    }\n    \n    if(drawn_tracks.has(track_name)){\n        title = \"🗺 ️\" + title\n    }\n    \n    if(track.locked){\n        title = \"🔒\" + title\n    }\n    \n    desc = \"\"\n    if(track.robot_name) desc += \"🤖:\"+track.robot_name\n    if(track.start && track.end){\n        duration = parseInt((track.end - track.start)/1000)\n        if(duration > 120) duration_str = parseInt(duration/60) + \"m\" + duration%60+\"s\"\n        else duration_str = duration + \"s\"\n        desc += \" ⏲️:\" + duration_str\n    }\n    \n    if(track.start){\n        date = new Date(track.start).toDateString().slice(4)\n        desc += \" 📅:\" + date\n        \n        start_time = new Date(track.start).toTimeString().slice(0,8)\n        desc += \" ▶️:\" + start_time\n    }\n    \n    if(track.end){\n        end_time = new Date(track.end).toTimeString().slice(0,8)\n        desc += \" ⏹️:\" + end_time\n    }\n    \n    desc = \"<font color=\" + c +\">\" + desc\n    \n    list_item = {title:title, description:desc}\n    list_items.push(list_item)\n}\n\nreturn {payload:list_items}",
+        "func": "tracks = global.get(\"planning.tracks\") || {}\nglobal.set(\"planning.tracks\", tracks)\n\ndrawn_tracks = global.get(\"gui.drawn_track_names\") || new Set()\nglobal.set(\"gui.drawn_track_names\", drawn_tracks)\n\n\nif(!(tracks)){\n    return {payload:[{title:\"--NO TRACKS--\"}]}  \n} \nif(Object.keys(tracks).length < 1){\n    return {payload:[{title:\"--NO TRACKS--\"}]}     \n}\n\nlist_items = []\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    c = \"black\"\n    if(track_name == global.get(\"gui.selected_track_name\")){\n        c = \"orange\"\n    }\n    \n    title = \"<font color=\" + c +\">\" + track.name\n    \n    if(track.recording){\n        duration_str = \"🔴 \" + parseInt(Date.now()/1000 - track.start) + \"s \"\n        title = duration_str + title\n    }\n    \n    if(drawn_tracks.has(track_name)){\n        title = \"🗺 ️\" + title\n    }\n    \n    if(track.locked){\n        title = \"🔒\" + title\n    }\n    \n    desc = \"\"\n    if(track.robot_name) desc += \"🤖:\"+track.robot_name\n    if(track.start && track.end){\n        duration = parseInt(track.end - track.start)\n        if(duration > 120) duration_str = parseInt(duration/60) + \"m\" + duration%60+\"s\"\n        else duration_str = duration + \"s\"\n        desc += \" ⏲️:\" + duration_str\n    }\n    \n    if(track.start){\n        date = new Date(track.start*1000).toDateString().slice(4,10)\n        desc += \" 📅:\" + date\n        \n        start_time = new Date(track.start*1000).toTimeString().slice(0,5)\n        desc += \" ▶️:\" + start_time\n    }\n    \n    if(track.end){\n        end_time = new Date(track.end*1000).toTimeString().slice(0,5)\n        desc += \" ⏹️:\" + end_time\n    }\n    \n    desc = \"<font color=\" + c +\" size=2>\" + desc\n    \n    list_item = {title:title, description:desc}\n    list_items.push(list_item)\n}\n\nreturn {payload:list_items}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6498,7 +7009,8 @@
             "65a3ebf59a366791",
             "f119f587c1568fd1",
             "537c7d11d1fbb54e",
-            "08d4acd84084a6b0"
+            "08d4acd84084a6b0",
+            "13c6cf9a3d5899e3"
         ],
         "x": 345,
         "y": 140,
@@ -6609,7 +7121,7 @@
         "z": "762b3e4e742fe2ea",
         "name": "delete track",
         "group": "c68132315359e81c",
-        "order": 3,
+        "order": 4,
         "width": 1,
         "height": 1,
         "passthru": false,
@@ -6813,8 +7325,8 @@
         "z": "762b3e4e742fe2ea",
         "name": "start record",
         "group": "c68132315359e81c",
-        "order": 5,
-        "width": 3,
+        "order": 6,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "Record",
@@ -6841,8 +7353,8 @@
         "z": "762b3e4e742fe2ea",
         "name": "pause record",
         "group": "c68132315359e81c",
-        "order": 6,
-        "width": 3,
+        "order": 8,
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "Pause",
@@ -6868,7 +7380,7 @@
         "type": "function",
         "z": "762b3e4e742fe2ea",
         "name": "setup recording",
-        "func": "robot_name = global.get(\"gui.selected_robot_name\")\nif(!robot_name) return {}\n\n\ntracks = global.get(\"planning.tracks\")\nrecord = msg.payload == \"start\"\nstn = global.get(\"gui.selected_track_name\")\ntrack = tracks[stn]\nrobots = global.get(\"robot_states\")\nif(!robots){\n    track.end = Date.now()\n    track.recording = false\n    track.data[track.data.length-1].annotation = \"recording_stop\"\n}\n\nmessage = null\nif(record){\n    if(track.start == null) track.start = Date.now()\n    track.recording = true\n    track.robot_name = robot_name\n    message = \"recording_start\"\n}else{\n    if(track.recording) track.end = Date.now() \n    track.recording = false\n    track.data[track.data.length-1].annotation = \"recording_pause\"\n}\n\nglobal.set(\"planning.tracks\", tracks)\n\nreturn {payload:message, topic:\"message\"}",
+        "func": "robot_name = global.get(\"gui.selected_robot_name\")\nif(!robot_name) return {}\n\n\ntracks = global.get(\"planning.tracks\")\nrecord = msg.payload == \"start\"\nstn = global.get(\"gui.selected_track_name\")\ntrack = tracks[stn]\nrobots = global.get(\"robot_states\")\nif(!robots){\n    track.end = Date.now()/1000\n    track.recording = false\n    track.data[track.data.length-1][1] = \"recording_stop\"\n}\n\nmessage = null\nif(record){\n    if(track.start == null) track.start = Date.now()/1000\n    track.recording = true\n    track.robot_name = robot_name\n    message = \"recording_start\"\n}else{\n    if(track.recording) track.end = Date.now()/1000\n    track.recording = false\n    track.data[track.data.length-1][1] = \"recording_pause\"\n}\n\nglobal.set(\"planning.tracks\", tracks)\n\nreturn {payload:message, topic:\"message\"}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6968,7 +7480,7 @@
         "type": "function",
         "z": "762b3e4e742fe2ea",
         "name": "record",
-        "func": "tracks = global.get(\"planning.tracks\")\nrobots = global.get(\"robot_states\")\n\nthere_is_recording = false\n\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    if(track.recording){\n        \n        robot = robots[track.robot_name]\n        if(!robot){\n            track.end = Date.now()\n            track.recording = false\n            track.data[track.data.length-1].annotation = \"recording_stop\"\n            return\n        }\n        // basically everything except the GUI stuff\n        r = {\n            last_update:robot.last_update,\n            base:JSON.parse(JSON.stringify(robot.base)),\n            bt:JSON.parse(JSON.stringify(robot.bt)),\n            annotation:null\n        }\n        \n        if(track.data.length > 0){\n            prev_point = track.data[track.data.length-1]\n            if(prev_point){\n                if(robot.gui.is_old){\n                    // we have already recorded this, dont record more...\n                    if(prev_point.annotation == \"Lost connection\") continue\n                    // record the loss\n                    r.annotation = \"Lost connection\"\n                }\n            }\n        }\n        \n        \n        // a message over-writes any auto annotations\n        if(msg.payload && msg.topic==\"message\"){\n            if(msg.payload != \"Cancel\") r.annotation = msg.payload\n        }\n        \n        track.data.push(r)\n        there_is_recording = true\n    }\n}\n\n// only send a signal if there is a recording happening\nif(there_is_recording) return {}\n",
+        "func": "tracks = global.get(\"planning.tracks\")\nrobots = global.get(\"robot_states\")\n\nthere_is_recording = false\n\nfunction round(value, precision) {\n    var multiplier = Math.pow(10, precision || 0);\n    return Math.round(value * multiplier) / multiplier;\n}\n\nfunction make_record(robot){\n    b = robot.base\n    t = robot.bt\n    wp = robot.bt.current_wp\n    // this is in the order of global.get(\"planning.track_columns\")\n    return [\n        parseInt(robot.last_update),\n        \"\",\n        round(b.lat, 6),\n        round(b.lon, 6),\n        round(b.utm_x, 2),\n        round(b.utm_y, 2),\n        b.utm_z,\n        round(b.heading, 2),\n        round(b.roll, 2),\n        round(b.pitch, 2),\n        round(b.depth, 2),\n        round(b.altitude, 2),\n        round(b.vbs, 1),\n        round(b.lcg, 1),\n        round(b.tcg, 1),\n        round(b.t1),\n        round(b.t2),\n        round(b.batt_v, 1),\n        round(b.batt_percent),\n        round(b.gps_lat, 6),\n        round(b.gps_lon, 6),\n        t.tip.name,\n        t.tip.status[0],\n        t.current_plan.name,\n        wp.name,\n        round(wp.lat, 6),\n        round(wp.lon, 6),\n        round(wp.pose.pose.position.x, 2),\n        round(wp.pose.pose.position.y, 2),\n        wp.goal_tolerance,\n        wp.z_control_mode,\n        wp.travel_altitude,\n        wp.travel_depth,\n        wp.speed_control_mode,\n        wp.travel_rpm,\n        wp.travel_speed,\n        round(wp.arrival_heading, 1),\n        wp.use_heading\n    ]\n}\n\n\nfor(const track_name in tracks){\n    track = tracks[track_name]\n    if(!track.recording) continue\n        \n    robot = robots[track.robot_name]\n    if(!robot){\n        track.end = Date.now()/1000\n        track.recording = false\n        track.data[track.data.length-1][1] = \"recording_stop\"\n        continue\n    }\n    // basically everything except the GUI stuff\n    r = make_record(robot)\n    \n    if(track.data.length > 0){\n        prev_point = track.data[track.data.length-1]\n        if(prev_point && robot.gui.is_old){\n            // we have already recorded this, dont record more...\n            if(prev_point[1] == \"Lost connection\") continue\n            // record the loss\n            r[1] = \"Lost connection\"\n        }\n    }\n    \n    \n    // a message over-writes any auto annotations\n    if(msg.payload && msg.topic==\"message\"){\n        if(msg.payload != \"Cancel\") r[1] = msg.payload\n    }\n    \n    track.data.push(r)\n    there_is_recording = true\n    \n}\n\n// only send a signal if there is a recording happening\nif(there_is_recording) return {}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6988,8 +7500,8 @@
         "z": "762b3e4e742fe2ea",
         "name": "draw",
         "group": "c68132315359e81c",
-        "order": 10,
-        "width": 2,
+        "order": 11,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Draw",
@@ -7016,8 +7528,8 @@
         "z": "762b3e4e742fe2ea",
         "name": "delete",
         "group": "c68132315359e81c",
-        "order": 11,
-        "width": 2,
+        "order": 12,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Remove",
@@ -7088,7 +7600,7 @@
         "name": "take note",
         "group": "c68132315359e81c",
         "order": 7,
-        "width": 6,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Take note",
@@ -7233,8 +7745,8 @@
         "z": "762b3e4e742fe2ea",
         "name": "clear",
         "group": "c68132315359e81c",
-        "order": 12,
-        "width": 2,
+        "order": 13,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "label": "Clear",
@@ -7400,11 +7912,11 @@
         "z": "762b3e4e742fe2ea",
         "name": "lock track",
         "group": "c68132315359e81c",
-        "order": 8,
-        "width": 5,
+        "order": 9,
+        "width": 1,
         "height": 1,
         "passthru": false,
-        "label": "Lock track",
+        "label": "",
         "tooltip": "Prevent all modifications to this track",
         "color": "",
         "bgcolor": "Orange",
@@ -7471,7 +7983,7 @@
         "z": "762b3e4e742fe2ea",
         "name": "unlock track",
         "group": "c68132315359e81c",
-        "order": 9,
+        "order": 10,
         "width": 1,
         "height": 1,
         "passthru": false,
@@ -7566,11 +8078,11 @@
         "z": "762b3e4e742fe2ea",
         "name": "request track list",
         "group": "c68132315359e81c",
-        "order": 13,
-        "width": 6,
+        "order": 14,
+        "width": 9,
         "height": 1,
         "passthru": false,
-        "label": "Request tracks",
+        "label": "Get vehicle tracks",
         "tooltip": "Get the list of tracks that the BT has recorded on the vehicle",
         "color": "",
         "bgcolor": "",
@@ -7593,7 +8105,7 @@
         "type": "function",
         "z": "762b3e4e742fe2ea",
         "name": "populate list",
-        "func": "track_list = msg.bt.bt_cmd.track_list\nif(!track_list){\n    node.status(\"No track list\")\n    return\n}\n\nmenu = [\"Download to GUI\", \"Delete on vehicle\", \"Size\"]\n\nlist_items = []\nfor(const track_item of track_list){\n    track_name = track_item.filename\n    track_size = track_item.filesize\n    item = {title:track_name,\n            description:\"Size:\"+track_size.toFixed(1)+\"MB\",\n            menu:menu\n    }\n    list_items.push(item)\n}\nreturn {payload:list_items, enabled:true}",
+        "func": "if(!msg.bt.bt_cmd){\n    node.status(\"No bt cmd\")\n    return\n}\ntrack_list = msg.bt.bt_cmd.track_list\nif(!track_list){\n    node.status(\"No track list\")\n    return\n}\n\nmenu = [\"Download to GUI\", \"Delete on vehicle\", \"Size\"]\n\nlist_items = []\nfor(const track_item of track_list){\n    track_name = track_item.filename\n    track_size = track_item.filesize\n    item = {title:track_name,\n            description:\"Size:\"+track_size.toFixed(1)+\"KB\",\n            menu:menu\n    }\n    list_items.push(item)\n}\nreturn {payload:list_items, enabled:true}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7613,9 +8125,9 @@
         "z": "762b3e4e742fe2ea",
         "group": "c68132315359e81c",
         "name": "robot track list",
-        "order": 14,
-        "width": 6,
-        "height": 11,
+        "order": 15,
+        "width": 9,
+        "height": 8,
         "lineType": "three",
         "actionType": "menu",
         "allowHTML": true,
@@ -7723,7 +8235,7 @@
         "type": "function",
         "z": "762b3e4e742fe2ea",
         "name": "receive track",
-        "func": "track_str = msg.bt.bt_cmd.track\nif(!track_str) return\ni = JSON.parse(track_str)\n\ntrack = {\n    name:i.name,\n    start:i.start,\n    end:i.end,\n    robot_name:i.robot_name,\n    data:[]\n}\n\nfor(const d of i.data){\n    track.data.push({\n        update_time:d.update_time\n    })\n}\n\nyut",
+        "func": "if(!msg.bt.bt_cmd){\n    node.status(\"No bt cmd\")\n    return\n}\ntrack_str = msg.bt.bt_cmd.track\nif(!track_str) return\ni = JSON.parse(track_str)\n\ntracks = global.get(\"planning.tracks\")\ntracks[i.name] = i\nglobal.set(\"planning.tracks\", tracks)\nnode.status(\"Added \"+ i.name + \" to tracks\")\n\nreturn {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7732,8 +8244,34 @@
         "x": 630,
         "y": 1100,
         "wires": [
-            []
+            [
+                "13c6cf9a3d5899e3"
+            ]
         ]
+    },
+    {
+        "id": "13c6cf9a3d5899e3",
+        "type": "link out",
+        "z": "762b3e4e742fe2ea",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "aa55b377d9e3c710",
+            "a33b80c387b0a157"
+        ],
+        "x": 735,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "0281fa520b250ae9",
+        "type": "comment",
+        "z": "762b3e4e742fe2ea",
+        "name": "update track list",
+        "info": "",
+        "x": 850,
+        "y": 1100,
+        "wires": []
     },
     {
         "id": "5d528234543fa099",
@@ -7773,7 +8311,7 @@
         "type": "function",
         "z": "270280acb5c31a68",
         "name": "List track properties",
-        "func": "tracks = global.get(\"planning.tracks\")\nif(!tracks) return\n\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\n\ntrack = tracks[stn]\nif(!track) return\n\nif(track.data.length < 1) return\n\nfirst = track.data[0]\nlast = track.data[track.data.length-1]\n\nt0 = parseInt(first.last_update/1000)\ntf = parseInt(last.last_update/1000)\n\n// title - title of the item,\n// description - description of the item. Optional if line type is Single-line or action type is menu,\n// menu - list of menu items (optional),\n// icon - URL of icon (optional),\n// icon_name - font icon name (optional).\n// icon_unicode - alternative to icon name - uses text characters (optional).\n// isChecked \n\ncharted_keys = global.get(\"gui.charted_keys\") || new Set()\nkeys = Object.keys(first.base)\nitems = []\nfor(const key of keys){\n    sample = first.base[key]\n    if (typeof sample === 'string' || sample instanceof String) continue\n    item = {\n        title:key,\n        isChecked: charted_keys.has(key)\n    }\n    items.push(item)\n}\n\n\nreturn [\n    {payload:items},\n    {ui_control:{max:tf-t0}}\n]",
+        "func": "tracks = global.get(\"planning.tracks\")\nif(!tracks) return\n\nstn = global.get(\"gui.selected_track_name\")\nif(!stn) return\n\ntrack = tracks[stn]\nif(!track) return\n\nif(track.data.length < 1) return\n\nfirst = track.data[0]\nlast = track.data[track.data.length-1]\n\nt0 = first[0]\ntf = last[0]\n\n// title - title of the item,\n// description - description of the item. Optional if line type is Single-line or action type is menu,\n// menu - list of menu items (optional),\n// icon - URL of icon (optional),\n// icon_name - font icon name (optional).\n// icon_unicode - alternative to icon name - uses text characters (optional).\n// isChecked \n\ncharted_keys = global.get(\"gui.charted_keys\") || new Set()\nkeys = global.get(\"planning.track_columns\")\nitems = []\nfor(const key_i in keys){\n    sample = first[key_i]\n    key = keys[key_i]\n    if (typeof sample === 'string' || sample instanceof String) continue\n    item = {\n        title:key,\n        isChecked: charted_keys.has(key)\n    }\n    items.push(item)\n}\n\n\nreturn [\n    {payload:items},\n    {ui_control:{max:tf-t0}}\n]",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -7935,7 +8473,7 @@
         "step": "1",
         "className": "",
         "x": 660,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "ae1b765d8f3ab639"
@@ -7964,7 +8502,7 @@
         "type": "function",
         "z": "270280acb5c31a68",
         "name": "update chart",
-        "func": "// {\n//     \"channel\": \"TP01\",\n//     \"color\": \"Red\",\n//     \"dataset\": [\n//         {\n//             \"x\": \"01/02/2019 10:00\",\n//             \"y\": 10\n//         }\n//     ]\n// }\n\nfunction randomChoice(arr) {\n    return arr[Math.floor(arr.length * Math.random())];\n}\n\ncharted_keys = global.get(\"gui.charted_keys\") || new Set()\n\n\nif(charted_keys.size == 0){\n    return {payload:[{\n        channel:\"Select a property to chart!\",\n        color: \"\",\n        dataset:[]\n    }]}\n} \n\ntracks = global.get(\"planning.tracks\")\nstn = global.get(\"gui.selected_track_name\")\ntrack = tracks[stn]\nif(!track){\n    node.status(\"No track\")\n    return\n}\n\ngraphs = []\ncolors = [\"Red\", \"Blue\", \"Green\", \"Cyan\", \"Black\", \"Purple\"]\nvar i = 0\nfor(const key of charted_keys){\n    graph = {\n        channel: key,\n        color: colors[i],\n        dataset: []\n    }\n    i = (i+1)%colors.length\n    \n    t0 = null\n    for(const point of track.data){\n        t = point.last_update/1000\n        if(!t0) t0 = t\n        t -= t0\n        t = parseInt(t)\n        \n        start_t = global.get(\"gui.chart_start\") || 0\n        if(t < start_t) continue\n        \n        duration = global.get(\"gui.chart_duration\") || 10\n        if(t > start_t + duration) break\n        \n        v = point.base[key]\n        graph.dataset.push({x:t, y:v})\n    }\n    graphs.push(graph)\n}\nnode.status(\"Graphing\")\nreturn {payload:graphs}\n",
+        "func": "// {\n//     \"channel\": \"TP01\",\n//     \"color\": \"Red\",\n//     \"dataset\": [\n//         {\n//             \"x\": \"01/02/2019 10:00\",\n//             \"y\": 10\n//         }\n//     ]\n// }\n\nfunction randomChoice(arr) {\n    return arr[Math.floor(arr.length * Math.random())];\n}\n\ncharted_keys = global.get(\"gui.charted_keys\") || new Set()\n\n\nif(charted_keys.size == 0){\n    return {payload:[{\n        channel:\"Select a property to chart!\",\n        color: \"\",\n        dataset:[]\n    }]}\n} \n\ntracks = global.get(\"planning.tracks\")\ntrack_columns = global.get(\"planning.track_columns\")\nstn = global.get(\"gui.selected_track_name\")\ntrack = tracks[stn]\nif(!track){\n    node.status(\"No track\")\n    return\n}\n\ngraphs = []\ncolors = [\"Red\", \"Blue\", \"Green\", \"Cyan\", \"Black\", \"Purple\"]\n\nvar i = 0\nfor(const key of charted_keys){\n    graph = {\n        channel: key,\n        color: colors[i],\n        dataset: []\n    }\n    i = (i+1)%colors.length\n    \n    t0 = null\n    for(const point of track.data){\n        t = point[0]\n        if(!t0) t0 = t\n        t -= t0\n        t = parseInt(t)\n        \n        start_t = global.get(\"gui.chart_start\") || 0\n        if(t < start_t) continue\n        \n        duration = global.get(\"gui.chart_duration\") || 10\n        if(t > start_t + duration) break\n        \n        key_i = track_columns.indexOf(key)\n        v = point[key_i]\n        graph.dataset.push({x:t, y:v})\n    }\n    graphs.push(graph)\n}\nnode.status(\"Graphing\")\nreturn {payload:graphs}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7974,7 +8512,8 @@
         "y": 520,
         "wires": [
             [
-                "5d528234543fa099"
+                "5d528234543fa099",
+                "8f71be36aa7bd9b9"
             ]
         ]
     },
@@ -8296,125 +8835,9 @@
         ]
     },
     {
-        "id": "971e249694708d56",
-        "type": "link in",
-        "z": "e102b211ecdda64d",
-        "name": "helptext",
-        "links": [
-            "246b0fccde35e02f",
-            "aa9b1423b2c9c90a"
-        ],
-        "x": 615,
-        "y": 180,
-        "wires": [
-            [
-                "d66f43f04cfac200"
-            ]
-        ]
-    },
-    {
-        "id": "40c1fac09245925e",
-        "type": "comment",
-        "z": "e102b211ecdda64d",
-        "name": "helptext",
-        "info": "",
-        "x": 540,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "d66f43f04cfac200",
-        "type": "function",
-        "z": "e102b211ecdda64d",
-        "name": "helptext",
-        "func": "if(!msg.payload) return;\n\nconst MAXLINES = 500;\nlet data = flow.get(\"data\") || [];\nif(msg.topic==\"clear\") {\n    data = [];\n} else {\n    now = new Date(Date.now())\n    t = now.toTimeString().slice(0,8)\n    t2 = now.toDateString().slice(4)\n    line = \"\"\n    desc = \"<font color=gray>\"+\"[\"+t2 +\" \"+ t +\"]\"\n    switch(msg.topic){\n        case \"connection\":\n            switch(msg.payload){\n                case \"connect\":\n                case \"change\":\n                    line += \"(\"+msg.socketip+\")\"\n            }\n            line = \"<font color=green> !\" + line\n            break\n        default:\n            line += \"<font color=black>\"+ msg.payload\n    }\n    \n    data.unshift({title:line, description:desc});\n    data = data.slice(0, MAXLINES);\n}\nflow.set(\"data\", data);\n\nreturn {payload:data}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 220,
-        "wires": [
-            [
-                "097b5b37e2d4e68d"
-            ]
-        ]
-    },
-    {
-        "id": "6f065b3c39bc8951",
-        "type": "ui_button",
-        "z": "e102b211ecdda64d",
-        "name": "clear",
-        "group": "ba1fb12713836940",
-        "order": 7,
-        "width": 1,
-        "height": 1,
-        "passthru": false,
-        "label": "",
-        "tooltip": "Clears the help log",
-        "color": "",
-        "bgcolor": "red",
-        "className": "",
-        "icon": "fa-trash",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "clear",
-        "topicType": "str",
-        "x": 580,
-        "y": 220,
-        "wires": [
-            [
-                "d66f43f04cfac200"
-            ]
-        ]
-    },
-    {
-        "id": "69eb7b75c9d27e29",
-        "type": "ui_ui_control",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "events": "connect",
-        "x": 390,
-        "y": 140,
-        "wires": [
-            [
-                "d6e2053ff904030a",
-                "b42206afd56ee3cb"
-            ]
-        ]
-    },
-    {
-        "id": "d6e2053ff904030a",
-        "type": "change",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "connection",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 560,
-        "y": 140,
-        "wires": [
-            [
-                "d66f43f04cfac200"
-            ]
-        ]
-    },
-    {
-        "id": "b42206afd56ee3cb",
+        "id": "8f71be36aa7bd9b9",
         "type": "debug",
-        "z": "e102b211ecdda64d",
+        "z": "270280acb5c31a68",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -8424,410 +8847,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "097b5b37e2d4e68d",
-        "type": "ui_list",
-        "z": "e102b211ecdda64d",
-        "group": "ba1fb12713836940",
-        "name": "helptexts",
-        "order": 3,
-        "width": 5,
-        "height": 4,
-        "lineType": "three",
-        "actionType": "none",
-        "allowHTML": true,
-        "outputs": 0,
-        "topic": "",
-        "x": 870,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "ef40ab3bfc108bad",
-        "type": "ui_text_input",
-        "z": "e102b211ecdda64d",
-        "name": "usertext",
-        "label": "Log something?",
-        "tooltip": "Say something?",
-        "group": "ba1fb12713836940",
-        "order": 1,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "user",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "str",
-        "x": 570,
-        "y": 260,
-        "wires": [
-            [
-                "d66f43f04cfac200",
-                "47cf11daf73968a8"
-            ]
-        ]
-    },
-    {
-        "id": "f7426c131692f635",
-        "type": "change",
-        "z": "e102b211ecdda64d",
-        "name": "Clear Value",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "null",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 320,
-        "wires": [
-            [
-                "ef40ab3bfc108bad"
-            ]
-        ]
-    },
-    {
-        "id": "47cf11daf73968a8",
-        "type": "delay",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "5",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 480,
-        "y": 320,
-        "wires": [
-            [
-                "f7426c131692f635"
-            ]
-        ]
-    },
-    {
-        "id": "6ef8c28119bc83ac",
-        "type": "ui_button",
-        "z": "e102b211ecdda64d",
-        "name": "ping",
-        "group": "ba1fb12713836940",
-        "order": 2,
-        "width": 1,
-        "height": 1,
-        "passthru": false,
-        "label": "",
-        "tooltip": "Get attention",
-        "color": "",
-        "bgcolor": "blue",
-        "className": "",
-        "icon": "fa-volume-up",
-        "payload": "I need an adult in node red please",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 310,
-        "y": 460,
-        "wires": [
-            [
-                "ee5983dd640f1da9",
-                "9bcd0c6fb56a55be",
-                "7434ef4e3e1006f0"
-            ]
-        ]
-    },
-    {
-        "id": "ddbb028838fe7ad7",
-        "type": "ui_switch",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "label": "",
-        "tooltip": "",
-        "group": "ba1fb12713836940",
-        "order": 6,
-        "width": 1,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 280,
-        "y": 220,
-        "wires": [
-            [
-                "a8b9281ba48ca3b0"
-            ]
-        ]
-    },
-    {
-        "id": "a8b9281ba48ca3b0",
-        "type": "change",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "enabled",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 220,
-        "wires": [
-            [
-                "6f065b3c39bc8951"
-            ]
-        ]
-    },
-    {
-        "id": "ba0a716853336d47",
-        "type": "inject",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "5",
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 150,
-        "y": 220,
-        "wires": [
-            [
-                "ddbb028838fe7ad7"
-            ]
-        ]
-    },
-    {
-        "id": "2ab9f6c78c894f37",
-        "type": "ui_audio",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "group": "ba1fb12713836940",
-        "voice": "urn:moz-tts:speechd:English%20(Great%20Britain)?en",
-        "always": true,
-        "x": 640,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "ee5983dd640f1da9",
-        "type": "delay",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "10",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 460,
-        "y": 460,
-        "wires": [
-            [
-                "2ab9f6c78c894f37"
-            ]
-        ]
-    },
-    {
-        "id": "9bcd0c6fb56a55be",
-        "type": "change",
-        "z": "e102b211ecdda64d",
-        "name": "disable",
-        "rules": [
-            {
-                "t": "set",
-                "p": "enabled",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 320,
-        "y": 540,
-        "wires": [
-            [
-                "6ef8c28119bc83ac",
-                "f4013692367a2b9c"
-            ]
-        ]
-    },
-    {
-        "id": "f4013692367a2b9c",
-        "type": "delay",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "5",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 500,
-        "y": 540,
-        "wires": [
-            [
-                "fff74ff5274eb663"
-            ]
-        ]
-    },
-    {
-        "id": "fff74ff5274eb663",
-        "type": "change",
-        "z": "e102b211ecdda64d",
-        "name": "enable",
-        "rules": [
-            {
-                "t": "set",
-                "p": "enabled",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
         "x": 630,
-        "y": 540,
-        "wires": [
-            [
-                "6ef8c28119bc83ac"
-            ]
-        ]
-    },
-    {
-        "id": "aa9b1423b2c9c90a",
-        "type": "link out",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "971e249694708d56"
-        ],
-        "x": 565,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "1aa70596ebda9101",
-        "type": "comment",
-        "z": "e102b211ecdda64d",
-        "name": "helptext",
-        "info": "",
-        "x": 640,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "7434ef4e3e1006f0",
-        "type": "change",
-        "z": "e102b211ecdda64d",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "user",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 450,
-        "y": 420,
-        "wires": [
-            [
-                "aa9b1423b2c9c90a"
-            ]
-        ]
-    },
-    {
-        "id": "794a330739bf6415",
-        "type": "config",
-        "z": "d138c3c5017744fe",
-        "name": "gui",
-        "properties": [
-            {
-                "p": "gui",
-                "pt": "global",
-                "to": "{\"selected_robot_name\":null,\"selected_waypoint_name\":null,\"selected_plan_name\":null,\"selected_track_name\":null,\"drawn_track_names\":null,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":50,\"planning_mode\":false,\"drawn_on_map\":null,\"colors\":{\"selected\":\"orange\",\"active\":\"#1BBFFF\",\"old\":\"gray\"}}",
-                "tot": "json"
-            }
-        ],
-        "active": true,
-        "x": 410,
-        "y": 120,
+        "y": 580,
         "wires": []
     },
     {
@@ -9355,8 +9376,8 @@
         "z": "2e13c73254d13882",
         "name": "download track",
         "info": "",
-        "x": 140,
-        "y": 1000,
+        "x": 180,
+        "y": 960,
         "wires": []
     },
     {
@@ -9364,7 +9385,7 @@
         "type": "function",
         "z": "2e13c73254d13882",
         "name": "prepare track",
-        "func": "name = global.get(\"gui.selected_track_name\")\nif(!name) return\ntracks = global.get(\"planning.tracks\")\ntrack = tracks[name]\nif(!track) return\n\n// we do this VERY ANNOYING AND BRITTLE\n// thing because i dont wanna repeat a million\n// field names for 1000s of lines\n// and also want to ignore SOME of the fields \n// in a nested object...\nless = {}\nless.name = track.name\nless.start = track.start\nless.end = track.end\nless.robot_name = track.robot_name\nless.data_columns = [\n    \"update_time\",\n    \"annotation\",\n    \"lat\",\n    \"lon\",\n    \"utm_x\",\n    \"utm_y\",\n    \"utm_z\",\n    \"heading\",\n    \"roll\",\n    \"pitch\",\n    \"depth\",\n    \"altitude\",\n    \"vbs\",\n    \"lcg\",\n    \"tcg\",\n    \"t1\",\n    \"t2\",\n    \"batt_v\",\n    \"batt_percent\",\n    \"gps_lat\",\n    \"gps_lon\",\n    \"bt_tip_name\",\n    \"bt_tip_status\",\n    \"current_wp\",\n    \"current_plan_name\",\n    \"bt_heartbeat_time\",\n]\nless.current_wp_columns = [\n    \"name\",\n    \"utm_x\",\n    \"utm_y\",\n    \"goal_tolerance\",\n    \"z_control_mode\",\n    \"travel_altitude\",\n    \"travel_depth\",\n    \"speed_control_mode\",\n    \"travel_rpm\",\n    \"travel_speed\",\n    \"lat\",\n    \"lon\",\n    ]\nless.data = []\n\nfor(const d of track.data){\n    if(!d) break\n    c = d.bt.current_wp\n    cwp = [\n        c.name,\n        c.pose.pose.position.x,\n        c.pose.pose.position.y,\n        c.goal_tolerance,\n        c.z_control_mode,\n        c.travel_altitude,\n        c.travel_depth,\n        c.speed_control_mode,\n        c.travel_rpm,\n        c.travel_speed,\n        c.lat,\n        c.lon\n        ]\n        \n    line = [\n        d.last_update,\n        d.annotation,\n        d.base.lat,\n        d.base.lon,\n        d.base.utm_x,\n        d.base.utm_y,\n        d.base.utm_z,\n        d.base.heading,\n        d.base.roll,\n        d.base.pitch,\n        d.base.depth,\n        d.base.altitude,\n        d.base.vbs,\n        d.base.lcg,\n        d.base.tcg,\n        d.base.t1,\n        d.base.t2,\n        d.base.batt_v,\n        d.base.batt_percent,\n        d.base.gps_lat,\n        d.base.gps_lon,\n        d.bt.tip.name,\n        d.bt.tip.status,\n        cwp,\n        d.bt.current_plan.name,\n        d.bt.last_heartbeat,\n    ]\n    less.data.push(line)\n}\n\nstr = JSON.stringify(less)\nfp = \"/data/static/\"+track.name+\".json\"\nsave_out = {payload:str, filename:fp}\nmsg.filename = fp\nreturn [save_out, msg, null]\n\n",
+        "func": "name = global.get(\"gui.selected_track_name\")\nif(!name) return\ntracks = global.get(\"planning.tracks\")\ntrack = tracks[name]\nif(!track) return\n\ntrack.columns = global.get(\"planning.track_columns\")\n\nstr = JSON.stringify(track)\nfp = \"/data/static/\"+track.name+\".json\"\n\n\nsave_out = {payload:str, filename:fp}\nmsg.filename = fp\nreturn [save_out, msg, null]\n\n",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
@@ -9554,7 +9575,7 @@
         "name": "Track download",
         "info": "",
         "x": 100,
-        "y": 940,
+        "y": 920,
         "wires": []
     },
     {
@@ -9583,5 +9604,663 @@
                 "3a33c5377001053c"
             ]
         ]
+    },
+    {
+        "id": "794a330739bf6415",
+        "type": "config",
+        "z": "d138c3c5017744fe",
+        "name": "gui",
+        "properties": [
+            {
+                "p": "gui",
+                "pt": "global",
+                "to": "{\"selected_robot_name\":null,\"selected_waypoint_name\":null,\"selected_plan_name\":null,\"selected_track_name\":null,\"drawn_track_names\":null,\"draw_tracks\":false,\"follow_selected_vehicle\":false,\"bt_tip_log_len\":50,\"planning_mode\":false,\"drawn_on_map\":null,\"colors\":{\"selected\":\"orange\",\"active\":\"#1BBFFF\",\"old\":\"gray\"},\"markers\":null}",
+                "tot": "json"
+            }
+        ],
+        "active": true,
+        "x": 410,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "914623a1306998c8",
+        "type": "function",
+        "z": "d138c3c5017744fe",
+        "name": "flatten object",
+        "func": "// $roots keeps previous parent properties as they will be added as a prefix for each prop.\n// $sep is just a preference if you want to seperate nested paths other than dot.\nconst flatten = (obj, roots = [], sep = '.') => Object\n  // find props of given object\n  .keys(obj)\n  // return an object by iterating props\n  .reduce((memo, prop) => Object.assign(\n    // create a new object\n    {},\n    // include previously returned object\n    memo,\n    Object.prototype.toString.call(obj[prop]) === '[object Object]'\n      // keep working if value is an object\n      ? flatten(obj[prop], roots.concat([prop]), sep)\n      // include current prop and value and prefix prop with the roots\n      : {[roots.concat([prop]).join(sep)]: obj[prop]}\n  ), {})\n  \n\nreturn flatten(msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cbecc164a6f3bfa8",
+        "type": "config",
+        "z": "d138c3c5017744fe",
+        "name": "track_columns",
+        "properties": [
+            {
+                "p": "planning.track_columns",
+                "pt": "global",
+                "to": "[\"timestamp\",\"annotation\",\"lat\",\"lon\",\"utm_x\",\"utm_y\",\"utm_z\",\"heading\",\"roll\",\"pitch\",\"depth\",\"altitude\",\"vbs\",\"lcg\",\"tcg\",\"t1\",\"t2\",\"batt_v\",\"batt_percent\",\"gps_lat\",\"gps_lon\",\"bt_tip_name\",\"bt_tip_status\",\"plan_name\",\"wp_name\",\"wp_lat\",\"wp_lon\",\"wp_utm_x\",\"wp_utm_y\",\"wp_goal_tolerance\",\"wp_z_control_mode\",\"wp_travel_altitude\",\"wp_travel_depth\",\"wp_speed_control_mode\",\"wp_travel_rpm\",\"wp_travel_speed\",\"arrival_heading\",\"use_heading\"]",
+                "tot": "json"
+            }
+        ],
+        "active": true,
+        "x": 440,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "971e249694708d56",
+        "type": "link in",
+        "z": "e102b211ecdda64d",
+        "name": "helptext",
+        "links": [
+            "246b0fccde35e02f",
+            "aa9b1423b2c9c90a"
+        ],
+        "x": 615,
+        "y": 180,
+        "wires": [
+            [
+                "d66f43f04cfac200"
+            ]
+        ]
+    },
+    {
+        "id": "40c1fac09245925e",
+        "type": "comment",
+        "z": "e102b211ecdda64d",
+        "name": "helptext",
+        "info": "",
+        "x": 540,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d66f43f04cfac200",
+        "type": "function",
+        "z": "e102b211ecdda64d",
+        "name": "helptext",
+        "func": "if(!msg.payload) return;\n\nconst MAXLINES = 500;\nlet data = flow.get(\"data\") || [];\nif(msg.topic==\"clear\") {\n    data = [];\n} else {\n    now = new Date(Date.now())\n    t = now.toTimeString().slice(0,8)\n    t2 = now.toDateString().slice(4)\n    line = \"\"\n    desc = \"<font color=gray>\"+\"[\"+t2 +\" \"+ t +\"]\"\n    switch(msg.topic){\n        case \"connection\":\n            switch(msg.payload){\n                case \"connect\":\n                case \"change\":\n                    line += \"(\"+msg.socketip+\")\"\n            }\n            line = \"<font color=green> !\" + line\n            break\n        default:\n            line += \"<font color=black>\"+ msg.payload\n    }\n    \n    data.unshift({title:line, description:desc});\n    data = data.slice(0, MAXLINES);\n}\nflow.set(\"data\", data);\n\nreturn {payload:data}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 220,
+        "wires": [
+            [
+                "097b5b37e2d4e68d"
+            ]
+        ]
+    },
+    {
+        "id": "6f065b3c39bc8951",
+        "type": "ui_button",
+        "z": "e102b211ecdda64d",
+        "name": "clear",
+        "group": "ba1fb12713836940",
+        "order": 7,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "Clears the help log",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-trash",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "topicType": "str",
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "d66f43f04cfac200"
+            ]
+        ]
+    },
+    {
+        "id": "69eb7b75c9d27e29",
+        "type": "ui_ui_control",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "events": "connect",
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "d6e2053ff904030a",
+                "b42206afd56ee3cb"
+            ]
+        ]
+    },
+    {
+        "id": "d6e2053ff904030a",
+        "type": "change",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "connection",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "d66f43f04cfac200"
+            ]
+        ]
+    },
+    {
+        "id": "b42206afd56ee3cb",
+        "type": "debug",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "097b5b37e2d4e68d",
+        "type": "ui_list",
+        "z": "e102b211ecdda64d",
+        "group": "ba1fb12713836940",
+        "name": "helptexts",
+        "order": 3,
+        "width": 5,
+        "height": 4,
+        "lineType": "three",
+        "actionType": "none",
+        "allowHTML": true,
+        "outputs": 0,
+        "topic": "",
+        "x": 870,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ef40ab3bfc108bad",
+        "type": "ui_text_input",
+        "z": "e102b211ecdda64d",
+        "name": "usertext",
+        "label": "Log something?",
+        "tooltip": "Say something?",
+        "group": "ba1fb12713836940",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "user",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "d66f43f04cfac200",
+                "47cf11daf73968a8"
+            ]
+        ]
+    },
+    {
+        "id": "f7426c131692f635",
+        "type": "change",
+        "z": "e102b211ecdda64d",
+        "name": "Clear Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "null",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 320,
+        "wires": [
+            [
+                "ef40ab3bfc108bad"
+            ]
+        ]
+    },
+    {
+        "id": "47cf11daf73968a8",
+        "type": "delay",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "f7426c131692f635"
+            ]
+        ]
+    },
+    {
+        "id": "6ef8c28119bc83ac",
+        "type": "ui_button",
+        "z": "e102b211ecdda64d",
+        "name": "ping",
+        "group": "ba1fb12713836940",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "Get attention",
+        "color": "",
+        "bgcolor": "blue",
+        "className": "",
+        "icon": "fa-volume-up",
+        "payload": "I need an adult in node red please",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 310,
+        "y": 460,
+        "wires": [
+            [
+                "ee5983dd640f1da9",
+                "9bcd0c6fb56a55be",
+                "7434ef4e3e1006f0"
+            ]
+        ]
+    },
+    {
+        "id": "ddbb028838fe7ad7",
+        "type": "ui_switch",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "ba1fb12713836940",
+        "order": 6,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "a8b9281ba48ca3b0"
+            ]
+        ]
+    },
+    {
+        "id": "a8b9281ba48ca3b0",
+        "type": "change",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "6f065b3c39bc8951"
+            ]
+        ]
+    },
+    {
+        "id": "ba0a716853336d47",
+        "type": "inject",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "ddbb028838fe7ad7"
+            ]
+        ]
+    },
+    {
+        "id": "2ab9f6c78c894f37",
+        "type": "ui_audio",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "group": "ba1fb12713836940",
+        "voice": "urn:moz-tts:speechd:English%20(Great%20Britain)?en",
+        "always": true,
+        "x": 640,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ee5983dd640f1da9",
+        "type": "delay",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [
+                "2ab9f6c78c894f37"
+            ]
+        ]
+    },
+    {
+        "id": "9bcd0c6fb56a55be",
+        "type": "change",
+        "z": "e102b211ecdda64d",
+        "name": "disable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 540,
+        "wires": [
+            [
+                "6ef8c28119bc83ac",
+                "f4013692367a2b9c"
+            ]
+        ]
+    },
+    {
+        "id": "f4013692367a2b9c",
+        "type": "delay",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 540,
+        "wires": [
+            [
+                "fff74ff5274eb663"
+            ]
+        ]
+    },
+    {
+        "id": "fff74ff5274eb663",
+        "type": "change",
+        "z": "e102b211ecdda64d",
+        "name": "enable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 540,
+        "wires": [
+            [
+                "6ef8c28119bc83ac"
+            ]
+        ]
+    },
+    {
+        "id": "aa9b1423b2c9c90a",
+        "type": "link out",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "971e249694708d56"
+        ],
+        "x": 565,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1aa70596ebda9101",
+        "type": "comment",
+        "z": "e102b211ecdda64d",
+        "name": "helptext",
+        "info": "",
+        "x": 640,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7434ef4e3e1006f0",
+        "type": "change",
+        "z": "e102b211ecdda64d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "user",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 420,
+        "wires": [
+            [
+                "aa9b1423b2c9c90a"
+            ]
+        ]
+    },
+    {
+        "id": "5772a09d13a58ed4",
+        "type": "mqtt in",
+        "z": "fc0b4b3d97bcee3e",
+        "name": "owntracks",
+        "topic": "owntracks/user/+",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "1301e8ab7fdd3e72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "6e012b6eaac45f91"
+            ]
+        ]
+    },
+    {
+        "id": "6e012b6eaac45f91",
+        "type": "function",
+        "z": "fc0b4b3d97bcee3e",
+        "name": "update markers",
+        "func": "// each mqtt_in node also emits the entire topic\n// so we can switch robot name and which topic it is coming from\nconst [owntracks, user, username] = msg.topic.split('/');\nmarker = {\n        label:username,\n        name:username,\n        lat:msg.payload.lat,\n        lon:msg.payload.lon,\n        icon:\"fa-user\",\n        layer:\"markers\",\n        last_update : msg.payload.tst\n}\n\nmarkers = global.get(\"gui.markers\") || {}\nmarkers[marker.name] = marker\nglobal.set(\"gui.markers\", markers)\n\nreturn {}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "0856088e0aa30b68"
+            ]
+        ]
+    },
+    {
+        "id": "21963027a5f525e0",
+        "type": "link out",
+        "z": "fc0b4b3d97bcee3e",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "ce70328abd9960d3"
+        ],
+        "x": 725,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "0856088e0aa30b68",
+        "type": "delay",
+        "z": "fc0b4b3d97bcee3e",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 160,
+        "wires": [
+            [
+                "21963027a5f525e0"
+            ]
+        ]
+    },
+    {
+        "id": "c95b2893a135c4ce",
+        "type": "comment",
+        "z": "fc0b4b3d97bcee3e",
+        "name": "update owntracks",
+        "info": "",
+        "x": 810,
+        "y": 120,
+        "wires": []
     }
 ]
