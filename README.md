@@ -76,4 +76,4 @@ Its here: http://127.0.0.1:1880/ui
 Use the usual smarc username and pw.
 
 #### Connect your robot to this GUI
-Modify smarc_nodered.launch `broker_addr` arg to localhost.
+The robot connects to the local AND cloud-based GUIs at the same time. You shouldn't need to do anything.
