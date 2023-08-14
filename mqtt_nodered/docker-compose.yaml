@@ -34,6 +34,17 @@ services:
       - localnet
     ports:
       - "1881:80"
+   mapcache:
+     image: camptocamp/mapcache:latest
+     restart: always
+     volumes:
+       - "./mapcache/data/:/host_data/"
+       - "./mapcache/tiles/:/var/sig/tiles/"
+       - "./mapcache/config.xml:/mapcache/config.xml"
+     networks:
+       - localnet
+     ports:
+       - "8281:80"
        
 networks:
   localnet:
