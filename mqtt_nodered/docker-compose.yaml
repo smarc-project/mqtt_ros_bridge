@@ -34,6 +34,15 @@ services:
       - localnet
     ports:
       - "1881:80"
+  mapproxy:
+    image: ghcr.io/mapproxy/mapproxy/mapproxy:1.16.0-nginx
+    restart: always
+    volumes:
+        - "./mapproxy/:/mapproxy/config/"
+    networks:
+        - localnet
+    ports:
+        - "1889:80"
        
 networks:
   localnet:

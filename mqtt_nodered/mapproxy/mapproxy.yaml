@@ -1,0 +1,70 @@
+# -------------------------------
+# MapProxy example configuration.
+# -------------------------------
+#
+# This is a minimal MapProxy configuration.
+# See full_example.yaml and the documentation for more options.
+#
+
+# Starts the following services:
+# Demo:
+#     http://localhost:8080/demo
+# WMS:
+#     capabilities: http://localhost:8080/service?REQUEST=GetCapabilities
+# WMTS:
+#     capabilities: http://localhost:8080/wmts/1.0.0/WMTSCapabilities.xml
+#     first tile: http://localhost:8080/wmts/osm/webmercator/0/0/0.png
+# Tile service (compatible with OSM/etc.)
+#     first tile: http://localhost:8080/tiles/osm/webmercator/0/0/0.png
+# TMS:
+#     note: TMS is not compatible with OSM/Google Maps/etc.
+#     first tile: http://localhost:8080/tms/1.0.0/osm/webmercator/0/0/0.png
+# KML:
+#     initial doc: http://localhost:8080/kml/osm/webmercator
+
+services:
+  demo:
+  wms:
+    md:
+      title: MapProxy WMS Proxy
+      abstract: This is a minimal MapProxy example.
+
+layers:
+  - name: osm
+    title: Omniscale OSM WMS - osm.omniscale.net
+    sources: [osm_cache]
+  - name: swe_bathy
+    title: Swedish bathymetry map
+    sources: [swe_bathy_cache]
+
+caches:
+  osm_cache:
+    grids: [webmercator]
+    sources: [osm_wms]
+  swe_bathy_cache:
+    grids: [webmercator]
+    sources: [swe_bathy_wms]
+
+sources:
+  osm_wms:
+    type: wms
+    req:
+      url: https://maps.omniscale.net/v2/demo/style.default/service?
+      layers: osm
+  swe_bathy_wms:
+    type: wms
+    req:
+      url: http://nodered.blue-robots.com/mapserver
+      map: /etc/mapserver/sweden.map
+      layers: CONTOUR
+      format: image/png
+      transparent: true
+    coverage:
+      bbox: [10.283203,54.342149,26.938477,70.050596]
+      srs: 'EPSG:4326'
+
+grids:
+    webmercator:
+        base: GLOBAL_WEBMERCATOR
+
+globals:
