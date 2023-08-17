@@ -64,11 +64,17 @@ docker-compose up
 
 ### Using the local installation
 #### Updating
-To update the nodered flows, click the small git-branch icon on the right-panel, click commit history at the bottom, and then the up-down arrows right under.
+Node-RED flows (most likely):
+- Click the small git-branch icon on the right-panel, click commit history at the bottom, and then the up-down arrows right under.
+- Click pull.
+  
+Node-RED dependencies (less frequent):
+- Easy way: Hamburger menu -> Projects -> Dependencies -> click update on all.
+- Harder way: Navigate to smarc_nodered_cnc, git pull.
+- Either way: Restart the Node-RED container. (You can also kill them all and docker-compose up again)
 
-Click pull.
-
-Deploy the changes with the top-right red button.
+After any update:
+- Deploy the changes with the top-right red button.
 
 #### The UI
 Its here: http://127.0.0.1:1880/ui
