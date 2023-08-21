@@ -28,8 +28,7 @@ services:
         - PROJ_DEBUG=5
     volumes:
         - "./mapserver/sweden.map/:/etc/mapserver/sweden.map:ro"
-        - "./mapserver/sweden/:/mapdata/sweden/:ro"
-        - "./mapserver/data/:/host_data/"
+        - "/home/azureuser/swe_bathy/:/mapdata/sweden/:ro"
     networks:
       - localnet
     ports:
