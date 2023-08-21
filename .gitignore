@@ -2,4 +2,6 @@
 node_modules
 *.backup
 DEPCNT.*
-.config.*
+.config.**.sessions.json
+package-lock.json
+mqtt_nodered/node-red/projects/
