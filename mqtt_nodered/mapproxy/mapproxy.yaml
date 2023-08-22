@@ -46,7 +46,7 @@ caches:
     sources: [osm_wms]
   swe_bathy_cache:
     grids: [webmercator]
-    sources: [swe_bathy_wms]
+    sources: [swe_bathy_wms_local]
   arcgis_world_imagery_cache:
     grids: [mercator_grid]
     sources: [arcgis_world_imagery]
@@ -58,12 +58,28 @@ sources:
     req:
       url: https://maps.omniscale.net/v2/demo/style.default/service?
       layers: osm
+  swe_bathy_wms_local:
+    type: wms
+    req:
+      url: http://mapserver:80/
+      map: /etc/mapserver/sweden.map
+      layers: CONTOUR
+      format: image/png
+      transparent: true
+    coverage:
+      bbox: [10.283203,54.342149,26.938477,70.050596]
+      srs: 'EPSG:4326'
+    on_error:
+     404:
+        # response: '#ff0080'
+        response: transparent
+        cache: True
   swe_bathy_wms:
     type: wms
     req:
-      url: http://nodered.blue-robots.com/mapserver
-      map: /etc/mapserver/sweden.map
-      layers: CONTOUR
+      url: http://nodered.blue-robots.com/mapproxy/service/
+      map: swe_bathy
+      layers: swe_bathy
       format: image/png
       transparent: true
     coverage:
