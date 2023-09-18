@@ -1,3 +1,6 @@
+# TODO: ROS2 version...
+
+
 # smarc_nodered
 A node to publish ROS stuff into MQTT, for use with node-red GUI of SMaRC.
 `roslaunch smarc_nodered smarc_nodered.launch robot_name:=XXX broker_addr:=XXX broker_port:=XXX`
