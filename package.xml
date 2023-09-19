@@ -7,8 +7,6 @@
   <maintainer email="ozero@kth.se">Ozer Ozkahraman</maintainer>
   <license>BSD</license>
   
-  <depend>rospy</depend>
-  <depend>mqtt_bridge</depend>
   
   <depend>std_msgs</depend>
   <depend>sensor_msgs</depend>
@@ -16,6 +14,7 @@
   <!-- <depend>visualization_msgs</depend> -->
   <!-- <depend>vision_msgs</depend> -->
     
+  <depend>mqtt_bridge</depend>
   <!-- <depend>smarc_msgs</depend> -->
   <!-- <depend>lolo_msgs</depend> -->
    

@@ -6,3 +6,4 @@ DEPCNT.*
 package-lock.json
 mqtt_nodered/node-red/projects/
 mqtt_nodered/node-red/.*.json
+.vscode
