@@ -1,13 +1,13 @@
-mqtt_bridge_cloud:
+/**: # we give this config to two nodes, so we cant just "pick" a node for these params
     ros__parameters:
         mqtt:
             client:
                 protocol: 4      # MQTTv311
             connection:
-                host: 20.240.40.232 # these are set in the launch file, so we could have args from outside
-                port: 1884
+                # host: 20.240.40.232 # these are set in the launch file, so we could have args from outside
+                # port: 1884
                 keepalive: 60
-            private_path: ros2test
+            # private_path: ros2test #also set in the launch file
         serializer: json:dumps
         deserializer: json:loads
         # this needs to be set accordingly 
